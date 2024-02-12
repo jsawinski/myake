@@ -1,0 +1,3 @@
+include(@GIT_SITE_DIR@/config.cmake)
+__my_git_command(pull)
+

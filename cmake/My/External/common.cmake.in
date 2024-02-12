@@ -1,0 +1,31 @@
+set(CMAKE_SOURCE_DIR @CMAKE_SOURCE_DIR@)
+set(CMAKE_BINARY_DIR @CMAKE_BINARY_DIR@)
+set(CMAKE_COMMAND @CMAKE_COMMAND@)
+
+set(PROJECT_NAME @PROJECT_NAME@)
+set(PROJECT_SOURCE_DIR @PROJECT_SOURCE_DIR@)
+set(PROJECT_BINARY_DIR @PROJECT_BINARY_DIR@)
+
+set(MY_EXTERNAL_BINARY_DIR @MY_EXTERNAL_BINARY_DIR@)
+set(MY_EXTERNAL_SOURCE_DIR @MY_EXTERNAL_SOURCE_DIR@)
+
+# colors
+if(NOT WIN32)
+	string(ASCII 27 esc)
+	set(reset		"${esc}[m")
+	set(bold		"${esc}[1m")
+	set(red			"${esc}[31m")
+	set(green		"${esc}[32m")
+	set(yellow		"${esc}[33m")
+	set(blue		"${esc}[34m")
+	set(magenta		"${esc}[35m")
+	set(cyan        "${esc}[36m")
+	set(white       "${esc}[37m")
+endif()
+
+# output
+if(WIN32)
+	set(EXECUTE_PROCESS_ARGS OUTPUT_FILE CON)
+else()
+	set(EXECUTE_PROCESS_ARGS OUTPUT_FILE /dev/stdout INPUT_FILE /dev/stdin)
+endif()
