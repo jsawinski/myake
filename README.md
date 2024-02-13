@@ -9,15 +9,21 @@ three main features:
 
 **Personalized building**
 
-FIXME
+When using Myake it is possible to store common and per-project CMake settings 
+outside the source tree. Common settings may, for example, be standard compiler 
+options (like "-Wextra" for gcc/clang compiler suites). Also, Myake provides
+a "style-based" installation prefix selection (such as "MY_INSTALL_STYLE=Local",
+which will cause installation in an user-local path).
 
 **Packaging**
 
-FIXME
+Myake provides a simplified approach for ``CPack``. Code authors may, then, provide
+settings common to all package generators and leave specific settings to maintainers.
 
 **Publishing**
 
-FIXME
+Myake provides macros for dealing with external sites, provides down- and upload 
+mechanisms, including source code revision suites, and more.
 
 In addition, a flexible configuration report mechanism is introduced.
 
@@ -43,7 +49,7 @@ before the `project` command, followed by
 
 	include(My/Config OPTIONAL)
 
-after and ending the top-level ``CMakeLists.txt`` file with
+after, and ending the top-level ``CMakeLists.txt`` file with
 
 	include(My/Lists OPTIONAL)
 
@@ -53,7 +59,7 @@ By default, configuring with CMake without setting a prefix results in a
 system dependent default installation path (such as `/usr/local` on typical
 Unix derivatives). Instead of tweaking ``CMAKE_INSTALL_PREFIX``, here, we
 introduce a 'style-based' way of installing software through the variable
-[``MY_INSTALL_STYLE``](docs/My/Platform.md#markdown-header-MY_INSTALL_STYLE)
+[``MY_INSTALL_STYLE``](docs/My/Platform.md#my_install_style)
 which can be set via GUI or on the command line, such as:
 
 	cmake -DMY_INSTALL_STYLE=<style> ..
@@ -66,7 +72,7 @@ installation, involving a `provider/package` installation path), etc.
 ### Packaging
 
 CMake provides a multitude of packaging options. Setting up each individual
-packager is, in the view of the authors, not necessarily simple. Myake,
+packager is, possibly not only in the eyes of the authors, not trivial. Myake,
 therefore, provides a more structured approach using a hierarchical
 declaration format, which can be seen in the [CMakeLists.txt](CMakeLists.txt)
 file:
@@ -88,14 +94,22 @@ file:
 
 ### Publishing
 
-FIXME
+Publishing is at the moment of writing in an orphaned state and intended
+to be revived not before milestone 0.90.
+
+Publishing, for example source code documentation, can be easily done,
+by definiting an external site and creating an "upload target". Myake
+makes it also possible to even provide worklist which include package
+signing (see [External](https://github.com/jsawinski/myake/blob/main/docs/My/External.md)).
 
 ## License and authors
 
 ### License
 
-	Copyright (C) 2018-2023 Jürgen "George" Sawinski
+	MIT License
 
+	Copyright (C) 2018-2024 Jürgen "George" Sawinski
+    
 	Permission is hereby granted, free of charge, to any person obtaining
 	a copy of this software and associated documentation files (the
 	"Software"), to deal in the Software without restriction, including
@@ -128,7 +142,7 @@ Some code was kindly contributed by Florian Franzen
 
 ## History
 
-This project was previously hosted under the name "myake" which, at some 
+This project was previously hosted under the name "cmyke" which, at some 
 point, became too simliar and hardly distinguishable from ``cmake``.
 
 ## Projects using Myake

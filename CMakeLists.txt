@@ -10,7 +10,7 @@ set(MY_INSTALL_STYLE_INIT System)
 list(PREPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(My/Init)
 project(Myake
-    VERSION 0.14.0
+    VERSION 0.15.0
     LANGUAGES NONE)
 include(My/Config)
 
@@ -60,18 +60,25 @@ my_package(
     DESCRIPTION {
 	    SUMMARY "CMake configuration personalization and utilities."
         FULL "\
-Building software from scratch (as well as developing or maintaining software) 
-generally follows the same pattern: configuring, building, and, installing or 
-packaging. Especially when developing or contributing to several software 
-projects the configuration and installation (or packaging) step may involve 
-repetitively tweaking configuration options suitable for the developer's
-or the target machine's setup.
+Myake is an set of macros extending [CMake](https://cmake.org). It provides
+three main features:
 
-Myake offers to reduce much of this dance by introducing a 'personalized' 
-configuration system (i.e. it is possible to store additional global or 
-per-project settings in the user's home folder), and, as well, provides a
-simplified interface for package generation and methods for uploading packages 
-and documentation."
+Personalized building:
+When using Myake it is possible to store common and per-project CMake settings 
+outside the source tree. Common settings may, for example, be standard compiler 
+options (like -Wextra for gcc/clang compiler suites). Also, Myake provides
+a style-based installation prefix selection (such as MY_INSTALL_STYLE=Local,
+which will cause installation in an user-local path).
+
+Packaging:
+Myake provides a simplified approach for ``CPack``. Code authors may, then, provide
+settings common to all package generators and leave specific settings to maintainers.
+
+Publishing:
+Myake provides macros for dealing with external sites, provides down- and upload 
+mechanisms, including source code revision suites, and more.
+
+In addition, a flexible configuration report mechanism is introduced."
 	}
 
     LICENSE "MIT" {
@@ -89,12 +96,9 @@ and documentation."
     SOURCE {
     	IGNORE_FILES
     		DEFAULTS
-    		/\\.gitignore\$
-    		/\\.project\$
-			/\\.amend/
-    		/_ATTIC_/
-    		/test/
     		/build/
+			/.myake/
+    		/\\.gitignore\$
 
     	SUFFIX "source"
     }
