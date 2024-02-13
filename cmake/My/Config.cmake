@@ -15,7 +15,9 @@ This file should be included directly after the ``project`` command in the
 
 #]=======================================================================]
 
-# Platform settings
+# Platform configuration
+include(My/Platform)
+
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 	# remember default
 	set(MY_DEFAULT_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE INTERNAL "Default CMake installation prefix.")

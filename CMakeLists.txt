@@ -10,7 +10,7 @@ set(MY_INSTALL_STYLE_INIT System)
 list(PREPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(My/Init)
 project(Myake
-    VERSION 0.15.0
+    VERSION 0.20.0
     LANGUAGES NONE)
 include(My/Config)
 

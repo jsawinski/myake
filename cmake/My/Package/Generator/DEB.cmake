@@ -9,8 +9,7 @@
 #]=======================================================================]
 include_guard(GLOBAL)
 
-include(My/Platform/Utils/Unix)
-include(My/Platform/Debian/Section)
+include(My/Platform/Distribution/Debian)
 
 message(TRACE "Loaded My/Package/Generator/DEB...")
 
@@ -53,9 +52,9 @@ function(my_generator_deb)
 			TARGET:
 
 			DISTRIBUTION:=Debian
-			CODENAME:
+			MY_DISTRIBUTION_CODENAME:
 			VERSION:
-			ARCHITECTURE:=${MY_PACKAGE_COMMON_ARCHITECTURE}
+			ARCHITECTURE:=${MY_DISTRIBUTION_NAME}
 
 			MAINTAINER:
 			RELEASE:
@@ -100,43 +99,42 @@ function(my_generator_deb)
 		return()
 	endif()
 
-	# check distribution/version/codename
-	my_package_unix_sysinfo(DISTRONAME DISTROVERSION CODENAME DISTROARCH)
+	# check distribution/version/MY_DISTRIBUTION_CODENAME
 	set(DEBCONFIG Deb)
 	set(DEBTARGET deb)
-	if(NOT "${MY_DEB_DISTRIBUTION}" STREQUAL "${DISTRONAME}")
+	if(NOT "${MY_DEB_DISTRIBUTION}" STREQUAL "${MY_DISTRIBUTION_NAME}")
 		message(DEBUG "Skipping (distribution mismatch)...")
 		return()
 	else()
-		set(DEBCONFIG ${DEBCONFIG}${DISTRONAME})
-		set(DEBTARGET ${DEBTARGET}-${DISTRONAME})
+		set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_NAME})
+		set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_NAME})
 	endif()
 	if(MY_DEB_VERSION)
-		if(NOT "${MY_DEB_VERSION}" STREQUAL "${DISTROVERSION}")
+		if(NOT "${MY_DEB_VERSION}" STREQUAL "${MY_DISTRIBUTION_VERSION}")
 			message(DEBUG "Skipping (version mismatch)...")
 			return()
 		else()
-			set(DEBCONFIG ${DEBCONFIG}${DISTROVERSION})
-			set(DEBTARGET ${DEBTARGET}-${DISTROVERSION})
+			set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_VERSION})
+			set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_VERSION})
 		endif()
 	endif()
-	if(MY_DEB_CODENAME)
-		if(NOT "${MY_DEB_CODENAME}" STREQUAL "${CODENAME}")
-			message(DEBUG "Skipping (codename mismatch)...")
+	if(MY_DEB_MY_DISTRIBUTION_CODENAME)
+		if(NOT "${MY_DEB_MY_DISTRIBUTION_CODENAME}" STREQUAL "${MY_DISTRIBUTION_CODENAME}")
+			message(DEBUG "Skipping (MY_DISTRIBUTION_CODENAME mismatch)...")
 			return()
 		else()
-			set(DEBCONFIG ${DEBCONFIG}${CODENAME})
-			set(DEBTARGET ${DEBTARGET}-${CODENAME})
+			set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_CODENAME})
+			set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_CODENAME})
 		endif()
 	endif()
 
 	if(NOT "${MY_DEB_ARCHITECTURE}" STREQUAL "all")
-		if(NOT "${MY_DEB_ARCHITECTURE}" STREQUAL "${DISTROARCH}")
+		if(NOT "${MY_DEB_ARCHITECTURE}" STREQUAL "${MY_DISTRIBUTION_ARCHITECTURE}")
 			message(DEBUG "Skipping (architecture mismatch)...")
 			return()
 		else()
-			set(DEBCONFIG ${DEBCONFIG}${DISTROARCH})
-			set(DEBTARGET ${DEBTARGET}-${DISTROARCH})
+			set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_ARCHITECTURE})
+			set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_ARCHITECTURE})
 		endif()
 	endif()
 
@@ -155,11 +153,15 @@ The value SECTION should be set explicitly (see https://www.debian.org/doc/debia
 	endif()
 
 	# copyright
-	if(MY_PACKAGE_COMMON_LICENSE_FILE AND CMAKE_INSTALL_DOCDIR)
-		install(FILES
-			${MY_PACKAGE_COMMON_LICENSE_FILE}
-			DESTINATION ${CMAKE_INSTALL_DOCDIR}
-			RENAME copyright)
+	if(MY_PACKAGE_COMMON_LICENSE_FILE)
+		if(NOT CMAKE_INSTALL_DOCDIR)
+			message(AUTHOR_WARNING "Debian: CMAKE_INSTALL_DOCDIR is undefined.")
+		else()
+			install(FILES
+				${MY_PACKAGE_COMMON_LICENSE_FILE}
+				DESTINATION ${CMAKE_INSTALL_DOCDIR}
+				RENAME copyright)
+		endif()
 	else()
 		message(AUTHOR_WARNING "No license/copyright file was provided.")
 	endif()
@@ -225,8 +227,8 @@ The value SECTION should be set explicitly (see https://www.debian.org/doc/debia
 	endif()
 
 	my_target(package-${MY_DEB_TARGET}
-		COMMENT "Create deb package for ${DISTRONAME} ${CODENAME} (${CONFIG})"
-		DEPENDS update-source-docs
+		COMMENT "Create deb package for ${MY_DISTRIBUTION_NAME} ${MY_DISTRIBUTION_CODENAME} (${CONFIG})"
+		# FIXME DEPENDS update-source-docs
 		COMMAND ${CMAKE_CPACK_COMMAND} --config ${MY_DEB_CONFIG}
 		${Lintian_COMMAND_RUN}
 		WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -272,7 +274,7 @@ The value SECTION should be set explicitly (see https://www.debian.org/doc/debia
 
 		string(REGEX REPLACE "Config[.]cmake$" "SourceConfig.cmake" MY_DEB_SOURCE_CONFIG ${MY_DEB_CONFIG})
 		my_target(package-${MY_DEB_TARGET}-source
-			COMMENT "Create deb package for ${DISTRONAME} (${MY_DEB_CONFIG})"
+			COMMENT "Create deb package for ${MY_DISTRIBUTION_NAME} (${MY_DEB_CONFIG})"
 			DEPENDS update-source-docs
 			COMMAND ${CMAKE_CPACK_COMMAND} --config ${MY_DEB_CONFIG}
 			WORKING_DIRECTORY ${CMAKE_BINARY_DIR}

@@ -44,6 +44,7 @@ include(My/Bits/Auxiliary)
 include(My/Bits/Toplevel)
 
 include(My/Platform)
+
 # local project settings
 if(IS_DIRECTORY "${CMAKE_SOURCE_DIR}/.myake")
 	my_add_cmake_module_path(PREPEND "${CMAKE_SOURCE_DIR}/.myake")

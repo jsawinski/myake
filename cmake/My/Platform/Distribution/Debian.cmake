@@ -1,11 +1,6 @@
 # Distributed under the OSI-approved MIT License. See accompanying
 # file LICENSE or https://github.com/jsawinski/myake/src/master/LICENSE for details.
 
-#[=======================================================================[.md:
-# My/Platform/Debian/Section
-
-## Reference
-#]=======================================================================]
 include_guard(GLOBAL)
 
 set(__DEBIAN_SECION_NAMES
@@ -74,8 +69,8 @@ set(__DEBIAN_SECION_NAMES
 Try to find Debian package section from a string (such as the category).
 
 #]==]
-function(my_deb_section OUTVAR NAME)
-    string(TOLOWER "${NAME}" name)
+function(my_deb_section OUTVAR)
+    string(TOLOWER "${ARGN}" name)
 
     foreach(s ${__DEBIAN_SECION_NAMES})
         if (${s} STREQUAL "_")

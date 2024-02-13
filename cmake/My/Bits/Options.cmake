@@ -315,7 +315,9 @@ Parse and cache options definition.
 macro(__my_options_cache optkey)
 	message(TRACE "__my_options_cache()")
 
-	list(GET args 0 arg0)
+	if(args)
+		list(GET args 0 arg0)
+	endif()
 	if(arg0 STREQUAL "{")
 		# reset ${optkey}
 		get_cmake_property(allcachevars CACHE_VARIABLES)

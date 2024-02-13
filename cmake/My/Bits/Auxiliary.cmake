@@ -76,3 +76,24 @@ macro(my_add_cache_property_strings VARIABLE)
 	set_property(CACHE ${VARIABLE} PROPERTY STRINGS ${__my_list})
 endmacro()
 
+#[==[.md:
+### my_read_variables(<input-file-name> <variable-prefix>)
+
+Read shell-like variable assignments from a file.
+
+Copyright 2015 by Florian Franzen  
+Published under GPL v2 as part of Neurosuite.  
+#]==]
+macro(my_read_variables filename varprefix)
+	file(READ "${filename}" __my_contents)
+	string(REGEX REPLACE ";" "\\\\;" __my_contents "${__my_contents}")
+	string(REGEX REPLACE "\n" ";" __my_contents "${__my_contents}")
+	foreach(__my_line ${__my_contents})
+		string(REGEX REPLACE "=.*" "" __my_var "${__my_line}")
+		string(REGEX REPLACE "[^=]*=" "" __my_value "${__my_line}")
+		string(REGEX REPLACE "^\"" "" __my_value "${__my_value}")
+		string(REGEX REPLACE "\"$" "" __my_value "${__my_value}")
+		set(${varprefix}_${__my_var} "${__my_value}")
+	endforeach()
+endmacro()
+

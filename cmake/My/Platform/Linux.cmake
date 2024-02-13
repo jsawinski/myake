@@ -7,11 +7,8 @@
 **See**:  
 [My/Platform](../Platform.md)  
 #]=======================================================================]
+
+include(My/Platform/Unix/Standard/Find)
+
+# report
 my_report(My/Platform %{BR} "Loaded platform specific settings: 'Linux'.")
-
-if(DEFINED ENV{XDG_DATA_DIRS})
-	include(My/Platform/FreeDesktop)
-else()
-	include(My/Platform/Unix)
-endif()
-
