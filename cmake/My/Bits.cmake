@@ -6,10 +6,10 @@
 
 ## Reference
 
-[My/Bits/Auxiliary](Bits/Auxiliary.md)\\
-[My/Bits/Options](Bits/Options.md)\\
-[My/Bits/Set](Bits/Set.md)\\
-[My/Bits/String](Bits/String.md)\\
+[My/Bits/Auxiliary](Bits/Auxiliary.md)\n
+[My/Bits/Options](Bits/Options.md)\n
+[My/Bits/Set](Bits/Set.md)\n
+[My/Bits/String](Bits/String.md)\n
 [My/Bits/Toplevel](Bits/Toplevel.md)
 
 #]=======================================================================]

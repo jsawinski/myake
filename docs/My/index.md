@@ -32,15 +32,15 @@ is not necessarily installed nor it's CMake version requirements are satisfied
 
 **Utilities**
 
-[My/Bits](Bits.md)\\
-[My/Platform](Platform.md)\\
-[My/Build](Build.md)\\
+[My/Bits](Bits.md)\n
+[My/Platform](Platform.md)\n
+[My/Build](Build.md)\n
 [My/Report](Report.md)
 
 **Personalized building**
 
-[My/Init](Init.md)\\
-[My/Config](Config.md)\\
+[My/Init](Init.md)\n
+[My/Config](Config.md)\n
 [My/Lists](Lists.md)
 
 **Packaging**
@@ -49,4 +49,4 @@ is not necessarily installed nor it's CMake version requirements are satisfied
 
 **Publishing**
 
-[My/External](External.md)\\
+[My/External](External.md)
