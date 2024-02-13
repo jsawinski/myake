@@ -71,12 +71,13 @@ a style-based installation prefix selection (such as MY_INSTALL_STYLE=Local,
 which will cause installation in an user-local path).
 
 Packaging:
-Myake provides a simplified approach for ``CPack``. Code authors may, then, provide
-settings common to all package generators and leave specific settings to maintainers.
+Myake provides a simplified approach for ``CPack``. Code authors may, then, 
+provide settings common to all package generators and leave specific settings 
+to maintainers.
 
 Publishing:
-Myake provides macros for dealing with external sites, provides down- and upload 
-mechanisms, including source code revision suites, and more.
+Myake provides macros for dealing with external sites, provides down- and 
+upload mechanisms, including source code revision suites, and more.
 
 In addition, a flexible configuration report mechanism is introduced."
 	}
