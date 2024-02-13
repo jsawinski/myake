@@ -6,6 +6,9 @@
 
 Common UNIX settings.
 
+**See**:  
+[My/Platform](../../Platform.md)  
+
 #]=======================================================================]
 
 my_report(My/Platform %{BR} "Loaded common platform settings: 'Unix'.")

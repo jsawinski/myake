@@ -32,8 +32,8 @@ include(My/Report)
 This command offers the same capability as [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html).
 In addition, the target name is added to Myake's report (which also shows the COMMENT).
 
-**See also**:
-- [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html)
+**See**:
+[`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html)  
 #]==]
 macro(my_target name)
 	add_custom_target(${name} ${ARGN})

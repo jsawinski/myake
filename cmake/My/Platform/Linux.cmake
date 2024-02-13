@@ -4,9 +4,8 @@
 #[=======================================================================[.md:
 # My/Platform/Linux
 
-**See**:
-- [My/Platform/FreeDesktop](FreeDesktop.md)
-- [My/Platform/Unix](Unix.md)
+**See**:  
+[My/Platform](../Platform.md)  
 #]=======================================================================]
 my_report(My/Platform %{BR} "Loaded platform specific settings: 'Linux'.")
 

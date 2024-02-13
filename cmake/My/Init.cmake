@@ -30,11 +30,11 @@ file):
 Alternatively, if the directory ``.myake`` is present in the projects top
 source directory, the file is loaded from this directory.
 
-**See also**:\\
-[My/Platform](Platform.md)\\
-[My/Config](Config.md)\\
-[My/Lists](Lists.md)\\
-[My/Report](Report.md)
+**See**:  
+[My/Config](Config.md)  
+[My/Lists](Lists.md)  
+[My/Platform](Platform.md)  
+
 #]=======================================================================]
 include_guard(GLOBAL)
 

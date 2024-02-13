@@ -24,11 +24,14 @@ include_guard(GLOBAL)
 
 Parse arguments automatically or using given options.
 
-Option `RESET` indicates (only available if `OPTIONS` is given), that all result variables should be cleared.
+Option `RESET` indicates (only available if `OPTIONS` is given), that all 
+result variables should be cleared.
 
-Option `REPLACE` indicates, that variable results should be replaced and not appended.
+Option `REPLACE` indicates, that variable results should be replaced and not 
+appended.
 
-Option `NODEFAULTS` indicates, that defaults from `OPTIONS` should not be assigned.
+Option `NODEFAULTS` indicates, that defaults from `OPTIONS` should not be 
+assigned.
 
 If `OPTIONS` is given, arguments are parsed according to given definition.
 
@@ -38,9 +41,11 @@ The general format for option declarations is:
 
 	<name>:[<argn>][{ ... }][=<default>]
 
-The ``name`` is expected to be an upper-case option key. The number of arguments following an option can be `-` (for none,
-equivalent of a cmake_parse_arguments option), `[<number>]` (for a specified number of arguments), and, `*` (for multi-argument
-list in cmake_parse_arguments terms). If omitted, the default is a single argument.
+The ``name`` is expected to be an upper-case option key. The number of 
+arguments following an option can be `-` (for none, equivalent of a 
+``cmake_parse_arguments`` option), `[<number>]` (for a specified number of 
+arguments), and, `*` (for multi-argument list in cmake_parse_arguments terms). 
+If omitted, the default is a single argument.
 
 Hierarchical declarations follow enclosed in curly braces.
 
@@ -48,8 +53,9 @@ To capture brace-enclosed contents, e.g. for later processing, use
 
 	<name>:{}
 
-The optional default value appears last, separated by an equal sign. To avoid ambiguities, a list can be written using space-
-separated items enclosed in curly braces.
+The optional default value appears last, separated by an equal sign. To avoid 
+ambiguities, a list can be written using space-separated items enclosed in 
+curly braces.
 
 #### Example
 
@@ -117,14 +123,18 @@ FIXME
 	    DESCRIPTION {
 		    SUMMARY "CMake configuration personalization and utilities."
 	        FULL "\
-	Building software from scratch (as well as developing or maintaining software) generally follows the same pattern: configuring,
-	building, and, installing or packaging. Especially when developing or contributing to several software projects the configuration
-	and installation (or packaging) step may involve repetitively tweaking configuration options suitable for the developer's
-	or the target machine's setup.
+	Building software from scratch (as well as developing or maintaining 
+	software) generally follows the same pattern: configuring, building, and, 
+	installing or packaging. Especially when developing or contributing to 
+	several software projects the configuration and installation (or packaging) 
+	step may involve repetitively tweaking configuration options suitable for 
+	the developer's or the target machine's setup.
 
-	Myake offers to reduce much of this dance by introducing a 'personalized' configuration system (i.e. it is possible to store
-	additional global or per-project settings in the user's home folder), and, as well, provides a simplified interface for package
-	generation and methods for uploading packages and documentation."
+	Myake offers to reduce much of this dance by introducing a 'personalized' 
+	configuration system (i.e. it is possible to store additional global or 
+	per-project settings in the user's home folder), and, as well, provides a 
+	simplified interface for package generation and methods for uploading 
+	packages and documentation."
 		}
 
 	    LICENSE "MIT" {
@@ -678,7 +688,8 @@ endmacro()
 #[[.md:
 ##### __my_options_check
 
-Check if "${item}" is a key, and if OPTIONS was used (ie. optkey is set), set optvar.
+Check if "${item}" is a key, and if OPTIONS was used (ie. optkey is set), set 
+optvar.
 
 Used by [__my_options_parse](#markdown-header-__my_options_parse).
 

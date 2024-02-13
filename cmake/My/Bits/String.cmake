@@ -4,9 +4,10 @@
 #[=======================================================================[.md:
 # My/Bits/String - String utilities.
 
-This modules provides a couple of extensions to CMake's string handling functions, such as very simply
-([fmtlib](https://github.com/fmtlib/fmt) inspired) string formatting capabilities. This formatting
-is extensively used in the [report generator](../Report.md).
+This modules provides a couple of extensions to CMake's string handling
+functions, such as very simply ([fmtlib](https://github.com/fmtlib/fmt) 
+inspired) string formatting capabilities. This formatting is extensively 
+used in the [report generator](../Report.md).
 
 ## Reference
 #]=======================================================================]
@@ -17,7 +18,8 @@ include_guard(GLOBAL)
 
 	my_substring(<output-variable> <from> <to> "<text>")
 
-Get a substring by indexes (starting from 0). Negative indexes are counted from one after the last character.
+Get a substring by indexes (starting from 0). Negative indexes are counted from 
+one after the last character.
 
 #]]
 function(my_substring outvar from to text)
@@ -92,7 +94,8 @@ endfunction()
 
 Format a string (and return parsing results).
 
-If the first argument is a format string (of the form '%{<format-declaration}'), result variables will be assigned. Extraneous
+If the first argument is a format string (of the form '%{<format-declaration}'), 
+result variables will be assigned. Extraneous
 arguments are ignored.
 
 Common result variables:
@@ -101,8 +104,9 @@ Common result variables:
 	<prefix>_FORMAT 		The formatting instruction.
 	<prefix>_TEXT			Formatting result.
 
-In addition, ``TYPE`` dependent formatting settings will be set. If the format declaration is not recognized, ``TYPE`` will be set
-to ``EXTERNAL`` allowing further elements to be parsed (see e.g. [my_report](../Report.md)).
+In addition, ``TYPE`` dependent formatting settings will be set. If the format 
+declaration is not recognized, ``TYPE`` will be set to ``EXTERNAL`` allowing 
+further elements to be parsed (see e.g. [my_report](../Report.md)).
 
 FIXME alignment
 

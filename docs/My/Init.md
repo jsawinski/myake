@@ -26,8 +26,8 @@ file):
 Alternatively, if the directory ``.myake`` is present in the projects top
 source directory, the file is loaded from this directory.
 
-**See also**:  
-[My/Platform](Platform.md)  
+**See**:  
 [My/Config](Config.md)  
 [My/Lists](Lists.md)  
-[My/Report](Report.md)
+[My/Platform](Platform.md)  
+

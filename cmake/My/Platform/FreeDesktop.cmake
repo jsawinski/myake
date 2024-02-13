@@ -6,8 +6,9 @@
 
 Platform settings if host is following Free Desktop specifications.
 
-**See**:
-- [My/Platform/Common/Unix](Common/Unix.md)
+**See**:  
+[My/Platform](../Platform.md)  
+[My/Platform/Common/Unix](Common/Unix.md)  
 #]=======================================================================]
 
 my_report(My/Platform %{BR} "Loaded platform specific settings: 'FreeDesktop'.")

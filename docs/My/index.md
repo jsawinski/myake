@@ -28,7 +28,7 @@ such as package generator options. Note, that `OPTIONAL` must be used as Myake
 is not necessarily installed nor it's CMake version requirements are satisfied 
 (at the time of writing Myake requires CMake version 3.22 or above).
 
-## Reference
+## Includes
 
 **Utilities**
 

@@ -5,6 +5,7 @@ This file should be included directly after the ``project`` command in the
 
 	include(My/Config OPTIONAL)
 
-**See also**:  
+**See**:  
 [My/Init](Init.md)  
-[My/Lists](Lists.md)
+[My/Lists](Lists.md)  
+

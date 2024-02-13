@@ -2,3 +2,6 @@
 
 Common UNIX settings.
 
+**See**:  
+[My/Platform](../../Platform.md)  
+

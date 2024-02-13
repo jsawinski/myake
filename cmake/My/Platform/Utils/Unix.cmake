@@ -1,16 +1,17 @@
 #[=======================================================================[.md:
 # My/Platform/Utils/Unix
 
-TODO documentation
-
+## Reference
 #]=======================================================================]
 
-# my_package_read_variables(<input-file-name> <variable-prefix>)
-#
-# Read shell-like variable assignments from a file.
-#
-# Copyright 2015 by Florian Franzen
-# Published under GPL v2 as part of Neurosuite.
+#[==[.md:
+### my_package_read_variables(<input-file-name> <variable-prefix>)
+
+Read shell-like variable assignments from a file.
+
+Copyright 2015 by Florian Franzen  
+Published under GPL v2 as part of Neurosuite.  
+#]==]
 macro(my_package_read_variables filename varprefix)
 	file(READ "${filename}" __my_contents)
 	string(REGEX REPLACE ";" "\\\\;" __my_contents "${__my_contents}")
@@ -24,13 +25,15 @@ macro(my_package_read_variables filename varprefix)
 	endforeach()
 endmacro()
 
-# my_package_unix_sysinfo(<distribution-variable> <version-variable> <codename-variable> <architecture-variable>)
-#
-# Infer the distribution name, version, codename and architecture and assign these
-# to the respective output variables.
-#
-# Copyright 2015 by Florian Franzen
-# Published under GPL v2 as part of Neurosuite.
+#[==[.md:
+### my_package_unix_sysinfo(<distribution-variable> <version-variable> <codename-variable> <architecture-variable>)
+
+Infer the distribution name, version, codename and architecture and assign these
+to the respective output variables.
+
+Copyright 2015 by Florian Franzen  
+Published under GPL v2 as part of Neurosuite.  
+#]==]
 function(my_package_unix_sysinfo distrovar versionvar codenamevar architecturevar)
 	# unset to allow if(DEFINED)
 	unset(${distrovar})

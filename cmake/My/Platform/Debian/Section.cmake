@@ -3,6 +3,8 @@
 
 #[=======================================================================[.md:
 # My/Platform/Debian/Section
+
+## Reference
 #]=======================================================================]
 include_guard(GLOBAL)
 
@@ -67,7 +69,7 @@ set(__DEBIAN_SECION_NAMES
 )
 
 #[==[.md:
-# my_deb_section(OUTVAR NAME)
+### my_deb_section(OUTVAR NAME)
 
 Try to find Debian package section from a string (such as the category).
 
