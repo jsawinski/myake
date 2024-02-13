@@ -28,7 +28,25 @@ such as package generator options. Note, that `OPTIONAL` must be used as Myake
 is not necessarily installed nor it's CMake version requirements are satisfied 
 (at the time of writing Myake requires CMake version 3.22 or above).
 
-## Overview
+## Reference
 
-FIXME
+**Utilities**
 
+[My/Bits](Bits.md)\\
+[My/Platform](Platform.md)\\
+[My/Build](Build.md)\\
+[My/Report](Report.md)
+
+**Personalized building**
+
+[My/Init](Init.md)\\
+[My/Config](Config.md)\\
+[My/Lists](Lists.md)
+
+**Packaging**
+
+[My/Package](Package.md)
+
+**Publishing**
+
+[My/External](External.md)\\
