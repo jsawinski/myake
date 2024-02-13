@@ -30,7 +30,7 @@ include_guard(GLOBAL)
 This macro is an extended version of CMake's `set`.
 
 ``UNSET`` indicates, that the variable should be cleared (see
-[`my_unset`](Utils.md#markdown-header-my_unset)).
+[`my_unset`](#my_unset)).
 
 ``PARENT_SCOPE`` indicates, that the variable will be set in the scope above
 the current scope.
@@ -48,9 +48,6 @@ If defined, either a ``FATAL_ERROR`` or ``WARNING`` message can be printed.
 ``MODIFIED`` will return ``TRUE`` if the variable was changed by this set
 command.
 
-**See**:
-- [`my_unset`](Utils.md#markdown-header-my_unset)
-- [`my_list`](Utils.md#markdown-header-my_list)
 #]==]
 macro(my_set variable)
 	### parse arguments
@@ -159,7 +156,7 @@ endmacro()
 
 	my_unset(<variable> ...)
 
-Unset a variable. This macro internally only calls [my_set](Utils.md#markdown-header-my_set)
+Unset a variable. This macro internally only calls [my_set](my_set)
 #]==]
 macro(my_unset variable)
 	my_set(${variable} ~ UNSET ${ARGN})
@@ -174,7 +171,7 @@ endmacro()
 
 This macro extends the standard CMake ``list`` command with some operations.
 
-After modification this function calls [`my_set`](Utils.md#markdown-header-my_set)
+After modification this function calls [`my_set`](my_set)
 to ensure that CACHE variables are updated.
 
 Option ``UNIQUE`` indicates, that duplicates should be automatically removed.
@@ -203,8 +200,6 @@ Option ``APPEND`` appends a value.
 Option ``REGEX`` indicates that regular expression matching instead of string
 equality should be used for pattern matching.
 
-**See**:
-- [`my_set`](Utils.md#markdown-header-my_set)
 #]==]
 macro(my_list operation thelist)
 	# parse arguments

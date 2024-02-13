@@ -58,7 +58,7 @@ Installation path for <style> (upper-case).
 
 [My/Platform/Common/Unix](Platform/Common/Unix.md)  
 
-[My/Platform/Debian/Seciont](Platform/Debian/Seciont.md)  
+[My/Platform/Debian/Seciont](Platform/Debian/Secion.md)  
 
 
 #]=======================================================================]

@@ -116,10 +116,21 @@ WIX. For more information, consult the
 
 FIXME
 
-### Template names
+### Generator expressions
 
-FIXME $<?NAME*>-...
-      (see my_generator_config)
+The `my_package` macro supports the notion of [generator expressions](https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html)
+which are of the form
+
+	$<VARNAME>
+
+which are expanded like standard variable expansion but not immediately. This
+allows to define template names. For example, the 'filename template' default
+is
+
+	$<NAME>-$<VERSION>$<[-]SUFFIX>
+
+meaning, that it is expanded as "<project-name>-<project-version><filename-suffix>"
+where "<filename-suffix>" is ommitted if not set.
 
 ### Components
 
@@ -182,8 +193,8 @@ At the time of writing, there's no support for handling sub-projects.
 All arguments passed to this macro are promoted to sub-macros and -functions 
 through the variable ``__MY_PACKAGE_ARGS``.
 
-**See also**:
-- [MY_PROJECT_TOPLEVEL](Bits/Toplevel.md)
+**See**:  
+[MY_PROJECT_TOPLEVEL](Bits/Toplevel.md)  
 #]==]
 macro(my_package)
 	message(DEBUG "my_package(${ARGN})")
@@ -235,9 +246,8 @@ endmacro()
 
 This macro builds components and component groups with a parent (that can be empty).
 
-The component options are described in [my_package](#markdown-header-my_package).
+The component options are described in [my_package](#my_package).
 
-TODO see CPACK_COMPONENTS_GROUPING (https://cmake.org/cmake/help/latest/module/CPackComponent.html)
 #]]
 macro(my_components parent)
 	message(TRACE "my_components(${ARGN})")

@@ -19,7 +19,7 @@ The general skeleton for a `CMakeLists.txt` file taking advantage of Myake is:
 
 	include(My/Lists OPTIONAL)
 
-Here, []`My/Init`](Init.md) will initialize and []`My/Config`](Config.md) will 
+Here, [`My/Init`](Init.md) will initialize and [`My/Config`](Config.md) will 
 configure Myake and, as well, load user specific settings from `User/Init` and 
 `User\Config`, respectively, which can be used to store personalized settings. 
 In the sameway, [`My/Lists`](List.md) (which is recommend to appear at the end 
@@ -47,6 +47,6 @@ is not necessarily installed nor it's CMake version requirements are satisfied
 
 [My/Package](Package.md)  
 
-**Publishing**
+**External sites**
 
 [My/External](External.md)  

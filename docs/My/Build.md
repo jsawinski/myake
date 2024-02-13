@@ -1,8 +1,8 @@
 # My/Build - Build utilities.
 
 This file provides an interface to [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html)
-and [`add_custom_command`](https://cmake.org/cmake/help/latest/command/add_custom_command.html) using Myake's
-[reporting capabilities](Report.md#markdown-header-my_report), as well as some other tools.
+and [`add_custom_command`](https://cmake.org/cmake/help/latest/command/add_custom_command.html) 
+using Myake's [reporting capabilities](#my_report), as well as some other tools.
 
 ## Reference
 
@@ -22,5 +22,5 @@ and [`add_custom_command`](https://cmake.org/cmake/help/latest/command/add_custo
 This command offers the same capability as [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html).
 In addition, the target name is added to Myake's report (which also shows the COMMENT).
 
-**See**:
+**See**:  
 [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html)  

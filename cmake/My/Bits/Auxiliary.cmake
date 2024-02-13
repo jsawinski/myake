@@ -14,6 +14,7 @@ include_guard(GLOBAL)
 	my_add_cmake_module_path([PREPEND] <paths>...)
 
 Uniquely append or prepend (if ``PREPEND`` is given) paths to ``CMAKE_MODULE_PATH``.
+
 #]==]
 macro(my_add_cmake_module_path)
 	cmake_parse_arguments(__my "PREPEND" "" "" ${ARGV})
@@ -41,9 +42,6 @@ Sets the strings property of a cached variable.
 This is mostly useful for the CMake UI which presents a dropdown-menu if
 this property is set.
 
-**See**:
-- [my_get_cache_property_strings](Utils.md#markdown-header-my_get_cache_property_strings)
-- [my_add_cache_property_strings](Utils.md#markdown-header-my_add_cache_property_strings)
 #]==]
 macro(my_set_cache_property_strings VARIABLE)
 	set_property(CACHE ${VARIABLE} PROPERTY STRINGS ${ARGN})
@@ -57,9 +55,6 @@ endmacro()
 Retrieve the strings property of a cached ``<variable>`` and assign it
 to the ``<result>``-variable.
 
-**See**:
-- [my_set_cache_property_strings](Utils.md#markdown-header-my_set_cache_property_strings)
-- [my_add_cache_property_strings](Utils.md#markdown-header-my_add_cache_property_strings)
 #]==]
 macro(my_get_cache_property_strings VARIABLE RESULT)
 	get_property(${RESULT} CACHE ${VARIABLE} PROPERTY STRINGS)
@@ -73,9 +68,6 @@ endmacro()
 
 Add strings to the property of a cached ``<variable>``.
 
-**See**:
-- [my_set_cache_property_strings](Utils.md#markdown-header-my_set_cache_property_strings)
-- [my_get_cache_property_strings](Utils.md#markdown-header-my_get_cache_property_strings)
 #]==]
 macro(my_add_cache_property_strings VARIABLE)
 	get_property(__my_list CACHE ${VARIABLE} PROPERTY STRINGS)

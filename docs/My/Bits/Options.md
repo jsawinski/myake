@@ -51,7 +51,7 @@ curly braces.
 
 #### Example
 
-FIXME
+The following definition is used in Myake itself:
 
 	my_options_parse(OPTIONS __TEST_MY_PACKAGE_BASE__
 		{
@@ -102,6 +102,8 @@ FIXME
 			TARGET:
 		}
 	)
+
+which allows parsing of the following configuration:
 
 	my_options_parse(TEST_MY_PKG RESET OPTIONS __TEST_MY_PACKAGE_BASE__
 		VENDOR "${PROJECT_VENDOR}"
@@ -155,6 +157,7 @@ FIXME
 	my_options_capture(<list> <output-variable>)
 
 This function parses a list and captures brace-enclosed settings.
+
 ## Internals
 ##### __my_options_key_regex
 
@@ -188,12 +191,12 @@ This macro does the actual argument parsing.
 
 Get next argument.
 
-Used by [__my_options_parse](#markdown-header-__my_options_parse).
+Used by [__my_options_parse](#__my_options_parse).
 
 ##### __my_options_check
 
 Check if "${item}" is a key, and if OPTIONS was used (ie. optkey is set), set 
 optvar.
 
-Used by [__my_options_parse](#markdown-header-__my_options_parse).
+Used by [__my_options_parse](#__my_options_parse).
 

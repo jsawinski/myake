@@ -27,9 +27,9 @@ At the moment of writing, only variable queries.
 
 Format a string (and return parsing results).
 
-If the first argument is a format string (of the form '%{<format-declaration}'), 
-result variables will be assigned. Extraneous
-arguments are ignored.
+If the first argument is a format string (of the form 
+'%{<format-declaration>}'), result variables will be assigned. 
+Extraneous arguments are ignored.
 
 Common result variables:
 	<prefix>_TYPE 			Formatting type.
@@ -41,7 +41,17 @@ In addition, ``TYPE`` dependent formatting settings will be set. If the format
 declaration is not recognized, ``TYPE`` will be set to ``EXTERNAL`` allowing 
 further elements to be parsed (see e.g. [my_report](../Report.md)).
 
-FIXME alignment
+**Formatting**:
+
+	%{<alignment>} "text..."
+
+where alignment may use a symbol for horizontal alignment:
+
+	< 	left aligned (default),
+	^	centered, and,
+	>   right aligned
+
+followed by the width.
 
 #### Internal
 ##### __my_string_format_align

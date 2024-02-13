@@ -20,7 +20,7 @@ which will cause installation in an user-local path).
 Myake provides a simplified approach for ``CPack``. Code authors may, then, provide
 settings common to all package generators and leave specific settings to maintainers.
 
-**Publishing**
+**External sites**
 
 Myake provides macros for dealing with external sites, provides down- and upload 
 mechanisms, including source code revision suites, and more.
@@ -92,15 +92,16 @@ file:
 		...
 
 
-### Publishing
+### External sites
 
-Publishing is at the moment of writing in an orphaned state and intended
+External sites is at the moment of writing in an orphaned state and intended
 to be revived not before milestone 0.90.
 
-Publishing, for example source code documentation, can be easily done,
-by definiting an external site and creating an "upload target". Myake
-makes it also possible to even provide worklist which include package
-signing (see [External](https://github.com/jsawinski/myake/blob/main/docs/My/External.md)).
+Myake supports simple handling of external projects, sites. It provides a
+simple interface for down- and uploading (e.g. using git). In combination,
+for example, with packaging, it is possible to setup the complete workflow
+for creating, signing, uploading and managing software suites 
+(see [External](https://github.com/jsawinski/myake/blob/main/docs/My/External.md)).
 
 ## License and authors
 
