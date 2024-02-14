@@ -22,6 +22,7 @@ local SEVERITY = log.severity
 local LEVEL = log.level
 
 local fs = require 'myake.fs'
+local tinsert = table.insert
 
 local function generate(modname, path, outpath)
     local output = {}
@@ -38,8 +39,8 @@ local function generate(modname, path, outpath)
             if line:match("[]]" .. marker .. "[]]") then
                 comment = false
             else
-                table.insert(output, line:gsub("\\\\", "  "))
-                -- FIXME outs:write(line:gsub("\\\\", "  "), '\n')
+                local text = line:gsub("\\\\", "  ")
+                tinsert(output, text)
             end
         else
             -- check if start-of-comment
@@ -52,11 +53,23 @@ local function generate(modname, path, outpath)
     end
 
     -- generate output
-    if false then
-        local outs <close>  = assert(io.open(outpath, 'w'), "Could not open file for writing: " .. outpath)
+    local dowrite = false
+    for l = 1,#output do
+        if #output[l] > 0 then
+            dowrite = true
+            break
+        end
+    end
+
+    if dowrite then
         local outdir = fs.fileparts(outpath)
         if not fs.exists(outdir) then
             assert(fs.rmkdir(outdir))
+        end
+
+        local outs <close>  = assert(io.open(outpath, 'w'), "Could not open file for writing: " .. outpath)
+        for l = 1,#output do
+            outs:write(output[l], '\n')
         end
     end
 end
