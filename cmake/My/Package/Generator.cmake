@@ -335,7 +335,4 @@ macro(my_generator_emit)
     include(CPack)
 endmacro()
 
-
-
-
-
+my_report(My/Packaging SECTION "Packaging")

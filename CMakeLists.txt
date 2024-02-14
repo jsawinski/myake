@@ -107,7 +107,7 @@ In addition, a flexible configuration report mechanism is introduced."
     CHECKSUM SHA1
 )
 
-include(Package/All)
+include(maintainer/packages OPTIONAL)
 
 # final
 include(My/Lists)

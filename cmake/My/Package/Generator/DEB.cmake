@@ -24,9 +24,8 @@ function(my_generator_deb)
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
     ### parse options
-    # COMMON?
+    # common options
     my_generator_iscommon(COMMON)
-
     if(COMMON)
         set(__my_generator_prefix MY_DEB_COMMON)
         if(MY_DEB_COMMON__INCLUDE_GUARD)
@@ -49,13 +48,15 @@ function(my_generator_deb)
         OPTIONS __MY_PACKAGE_DEB__ {
             TARGET:
 
+            MAINTAINER:
+            RELEASE:
+            SECTION:
+
             DISTRIBUTION:=Debian
+            DERIVATIVE:
             CODENAME:=${MY_DISTRIBUTION_CODENAME}
             VERSION:
             ARCHITECTURE:=${MY_ARCHITECTURE}
-
-            MAINTAINER:
-            RELEASE:
 
             DEBIAN:{
                 # FIXME
@@ -94,60 +95,67 @@ function(my_generator_deb)
         endforeach()
 
         # done
+        my_report(My/Packaging %{BR} "[x] DEB COMMON")
         return()
     endif()
 
-    # check distribution/version/MY_DISTRIBUTION_CODENAME
-    set(DEBCONFIG Deb)
-    set(DEBTARGET deb)
-    if(NOT "${MY_DEB_DISTRIBUTION}" STREQUAL "${MY_DISTRIBUTION_NAME}")
-        message(DEBUG "Skipping (distribution mismatch)...")
-        return()
-    else()
-        set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_NAME})
-        set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_NAME})
+    # check distribution
+    set(DEB_TARGET_QUARTET debian)
+    if(NOT "${MY_DEB_DISTRIBUTION}" STREQUAL "${MY_DISTRIBUTION_ID}")
+        set(DERIVATIVE_MATCHED Off)
+        if(MY_DEB_DERIVATIVE)
+            foreach(ID ${MY_DISTRIBUTION_LIKE})
+                if("${ID}" STREQUAL "${MY_DEB_DISTRIBUTION}")
+                    set(DERIVATIVE_MATCHED On)
+                    break()
+                endif()
+            endforeach()
+        endif()
+
+        if(NOT DERIVATIVE_MATCHED)
+            my_report(My/Packaging %{BR} "[ ] DEB ${MY_DEB_DISTRIBUTION}")
+            return()
+        endif()
     endif()
+    set(DEB_TARGET_QUARTET ${DEB_TARGET_QUARTET}-${MY_DEB_DISTRIBUTION})
+
     if(MY_DEB_VERSION)
         if(NOT "${MY_DEB_VERSION}" STREQUAL "${MY_DISTRIBUTION_VERSION}")
-            message(DEBUG "Skipping (version mismatch)...")
+            my_report(My/Packaging %{BR} "[ ] DEB ${MY_DEB_DISTRIBUTION} (VERSION ${MY_DEB_VERSION})")
             return()
-        else()
-            set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_VERSION})
-            set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_VERSION})
         endif()
+        set(DEB_TARGET_QUARTET ${DEB_TARGET_QUARTET}-${MY_DEB_VERSION})
     endif()
-    if(MY_DEB_MY_DISTRIBUTION_CODENAME)
-        if(NOT "${MY_DEB_MY_DISTRIBUTION_CODENAME}" STREQUAL "${MY_DISTRIBUTION_CODENAME}")
-            message(DEBUG "Skipping (MY_DISTRIBUTION_CODENAME mismatch)...")
+
+    if(MY_DEB_CODENAME)
+        if(NOT "${MY_DEB_CODENAME}" STREQUAL "${MY_DISTRIBUTION_CODENAME}")
+            my_report(My/Packaging %{BR} "[ ] DEB ${MY_DEB_DISTRIBUTION} (CODENAME ${MY_DEB_CODENAME})")
             return()
-        else()
-            set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_CODENAME})
-            set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_CODENAME})
         endif()
+        set(DEB_TARGET_QUARTET ${DEB_TARGET_QUARTET}-${MY_DEB_CODENAME})
     endif()
 
     if(NOT "${MY_DEB_ARCHITECTURE}" STREQUAL "all")
-        if(NOT "${MY_DEB_ARCHITECTURE}" STREQUAL "${MY_DISTRIBUTION_ARCHITECTURE}")
-            message(DEBUG "Skipping (architecture mismatch)...")
+        if(NOT "${MY_DEB_ARCHITECTURE}" STREQUAL "${MY_ARCHITECTURE}")
+            my_report(My/Packaging %{BR} "[ ] DEB ${MY_DEB_DISTRIBUTION} (ARCHITECTURE ${MY_DEB_ARCHITECTURE})")
             return()
-        else()
-            set(DEBCONFIG ${DEBCONFIG}${MY_DISTRIBUTION_ARCHITECTURE})
-            set(DEBTARGET ${DEBTARGET}-${MY_DISTRIBUTION_ARCHITECTURE})
         endif()
     endif()
+    set(DEB_TARGET_QUARTET ${DEB_TARGET_QUARTET}-${MY_DEB_ARCHITECTURE})
 
     # default target name
-    string(TOLOWER "${DEBTARGET}" DEBTARGET)
+    string(TOLOWER "${DEB_TARGET_QUARTET}" DEB_TARGET_QUARTET)
     if(NOT MY_DEB_TARGET)
-        string(TOLOWER "${DEBTARGET}" MY_DEB_TARGET)
+        string(TOLOWER "${DEB_TARGET_QUARTET}" MY_DEB_TARGET)
     endif()
 
     # section (https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections)
-    my_deb_section(MY_DEB_SECTION ${MY_PACKAGE_COMMON_CATEGORY})
     if(NOT MY_DEB_SECTION)
-        message(AUTHOR_WARNING "Could not identify package section for category '${MY_PACKAGE_COMMON_CATEGORY}'.
-The value SECTION should be set explicitly (see https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections)")
-        set(MY_DEB_SECTION ${MY_PACKAGE_COMMON_CATEGORY})
+        set(MY_DEB_SECTION ${MY_DEB_COMMON_SECTION})
+        if(NOT MY_DEB_SECTION)
+            message(AUTHOR_WARNING "SECTION is required (see https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections)")
+            set(MY_DEB_SECTION ${MY_PACKAGE_COMMON_CATEGORY})
+        endif()
     endif()
 
     # copyright
@@ -178,7 +186,7 @@ The value SECTION should be set explicitly (see https://www.debian.org/doc/debia
     # setup config file name
     my_generator_config(GET CONFIG CONFIG)
     if(NOT CONFIG)
-        set(MY_DEB_CONFIG CPack${DEBCONFIG}.cmake)
+        set(MY_DEB_CONFIG CPackDebian.cmake)
     endif()
 
     my_generator_config(GET CONFIG CONFIG)
@@ -224,8 +232,8 @@ The value SECTION should be set explicitly (see https://www.debian.org/doc/debia
         set(Lintian_COMMAND_RUN)
     endif()
 
-    my_target(package-${MY_DEB_TARGET}
-        COMMENT "Create deb package for ${MY_DISTRIBUTION_NAME} ${MY_DISTRIBUTION_CODENAME} (${CONFIG})"
+    my_target(package-binary
+        COMMENT "Create deb package for ${MY_DISTRIBUTION_ID} ${MY_DISTRIBUTION_CODENAME} (${CONFIG})"
         # FIXME DEPENDS update-source-docs
         COMMAND ${CMAKE_CPACK_COMMAND} --config ${MY_DEB_CONFIG}
         ${Lintian_COMMAND_RUN}
@@ -265,50 +273,12 @@ The value SECTION should be set explicitly (see https://www.debian.org/doc/debia
             SHLIBDEPS
     )
 
-    if(false)
-        # populate CPACK_SOURCE_* variables - disabled, at the moment of writing
-
-        # CPACK_DEBIAN_PACKAGE_SOURCE
-
-        string(REGEX REPLACE "Config[.]cmake$" "SourceConfig.cmake" MY_DEB_SOURCE_CONFIG ${MY_DEB_CONFIG})
-        my_target(package-${MY_DEB_TARGET}-source
-            COMMENT "Create deb package for ${MY_DISTRIBUTION_NAME} (${MY_DEB_CONFIG})"
-            DEPENDS update-source-docs
-            COMMAND ${CMAKE_CPACK_COMMAND} --config ${MY_DEB_CONFIG}
-            WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-        )
-
-        my_generator_config(
-            VARIABLES MY_DEB_SOURCE MY_DEB_COMMON_SOURCE MY_DEB MY_DEB_COMMON MY_PACKAGE_COMMON_SOURCE
-        )
-
-        my_generator_config(
-            POPULATE CPACK_SOURCE
-                GENERATOR
-                OUTPUT_CONFIG_FILE=CONFIG
-                IGNORE_FILES
-                STRIP_FILES
-        )
-
-        set(MY_DEB_FILE_NAME "${MY_DEB_FILE_NAME_BASE}-source")
-        my_generator_config(
-            POPULATE CPACK_SOURCE_PACKAGE
-                FILE_NAME
-        )
-    endif()
+    # note: source packages are not supported
 
     # create CPack config
     my_generator_emit()
 
-    if(false)
-        get_cmake_property(allvars VARIABLES)
-        foreach(var ${allvars})
-            if(var MATCHES "^CPACK")
-                message("${var}=${${var}}")
-            endif()
-        endforeach()
-    endif()
-
+    my_report(My/Packaging %{BR} "[x] DEB ${MY_DEB_DISTRIBUTION}")
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()
 

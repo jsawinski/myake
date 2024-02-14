@@ -68,6 +68,7 @@ function(my_generator_archive)
         endforeach()
 
         # done
+        my_report(My/Packaging %{BR} "[x] Archive COMMON")
         return()
     endif()
 
@@ -158,6 +159,7 @@ function(my_generator_archive)
 
     # create CPack config
     my_generator_emit()
+    my_report(My/Packaging %{BR} "[x] Archive configuration")
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()

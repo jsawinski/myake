@@ -3,6 +3,6 @@
 
 include_guard(GLOBAL)
 
-my_set(MY_DISTRIBUTION_LIKE "Ubuntu Debian" ONCE)
+my_set(MY_DISTRIBUTION_LIKE "Ubuntu;Debian" ONCE)
 
 include(My/Platform/Unix/Distribution/Debian)
