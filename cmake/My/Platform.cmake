@@ -50,6 +50,10 @@ This variable contains the list of available options to [MY_INSTALL_STYLE](#mark
 
 Installation path for <style> (upper-case).
 
+### MY_PLATFORM_CMAKE_MODULES
+
+Default CMake modules to load for a given platform.
+
 ## Includes
 
 [My/Platform/Linux](Platform/Linux.md)  
@@ -115,7 +119,7 @@ if(NOT MY_PLATFORM_INIT_STAGE)
 elseif(NOT MY_PLATFORM_CONFIG_STAGE)
     set(MY_PLATFORM_CONFIG_STAGE TRUE)
 
-    foreach(module ${MY_PLATFORM_USES})
+    foreach(module ${MY_PLATFORM_CMAKE_MODULES})
         include(${module})
     endforeach()
 

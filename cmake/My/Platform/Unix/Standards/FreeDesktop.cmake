@@ -15,7 +15,7 @@ if(NOT MY_PLATFORM_FOUND AND DEFINED ENV{XDG_DATA_DIRS})
     set(MY_USER_PATHS "${MY_USER_PREFIX}/share/cmake" CACHE PATH "CMake module search path.")
 
     # MY_PLATFORM_USES
-    list(APPEND MY_PLATFORM_USES GNUInstallDirs)
+    list(APPEND MY_PLATFORM_CMAKE_MODULES GNUInstallDirs)
 
     # report
     my_report(My/Platform %{BR} "Loaded platform specific settings: 'FreeDesktop'.")
