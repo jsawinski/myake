@@ -3,7 +3,8 @@
 
 include_guard(GLOBAL)
 
-include(My/Platform/Unix/Util)
+include(My/Bits/Auxiliary)
+include(My/Bits/String)
 
 # MY_USER_HOME
 set(MY_USER_HOME "$ENV{HOME}" CACHE PATH "User's home folder.")
@@ -27,12 +28,6 @@ if(DEFINED MY_PROVIDER_PREFIX)
         unset(MY_PROVIDER_PREFIX CACHE)
         my_list(MODIFY MY_INSTALL_STYLE_LIST REMOVE "Provider")
     endif()
-endif()
-
-# distribution
-my_unix_distribution_info(MY_DISTRIBUTION_NAME MY_DISTRIBUTION_VERSION MY_DISTRIBUTION_CODENAME MY_DISTRIBUTION_ARCHITECTURE)
-if(MY_DISTRIBUTION_NAME)
-    include(My/Platform/Distribution/${MY_DISTRIBUTION_NAME})
 endif()
 
 # report

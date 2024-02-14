@@ -8,7 +8,8 @@
 [My/Platform](../Platform.md)  
 #]=======================================================================]
 
-include(My/Platform/Unix/Standard/Find)
+include(My/Platform/Unix/Standards)
+include(My/Platform/Unix/Distribution)
 
 # report
 my_report(My/Platform %{BR} "Loaded platform specific settings: 'Linux'.")

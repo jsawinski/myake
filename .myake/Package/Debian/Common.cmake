@@ -1,5 +1,4 @@
 my_package(DEB COMMON
-    MAINTAINER "Jürgen 'George' Sawinski <juergen.sawinski@gmail.com>"
     CATEGORY "devel"
 
     DEPENDS

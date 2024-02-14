@@ -46,6 +46,30 @@ function(my_substring outvar from to text)
     endif()
 endfunction()
 
+#[[.md:
+### my_titlecase
+
+    my_titlecase(<output-variable> "<text>")
+
+Make all words "titlecase". 
+
+#]]
+function(my_titlecase outvar text)
+    string(REPLACE " " ";" words "${text}")
+    set(words_tc)
+    foreach(w ${words})
+        my_substring(first 0 0 "${w}")
+        my_substring(rest 1 -1 "${w}")
+        string(TOUPPER "${first}" first)
+        string(TOLOWER "${rest}" rest)
+
+        list(APPEND words_tc "${first}${rest}")
+    endforeach()
+
+    string(REPLACE ";" " " text "${words_tc}")
+    set(${outvar} "${text}" PARENT_SCOPE)
+endfunction()
+
 #[==[.md:
 ### my_string_genex_expand
 

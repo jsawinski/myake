@@ -9,8 +9,6 @@
 #]=======================================================================]
 include_guard(GLOBAL)
 
-include(My/Platform/Distribution/Debian)
-
 message(TRACE "Loaded My/Package/Generator/DEB...")
 
 #[==[.md:
@@ -52,9 +50,9 @@ function(my_generator_deb)
             TARGET:
 
             DISTRIBUTION:=Debian
-            MY_DISTRIBUTION_CODENAME:
+            CODENAME:=${MY_DISTRIBUTION_CODENAME}
             VERSION:
-            ARCHITECTURE:=${MY_DISTRIBUTION_NAME}
+            ARCHITECTURE:=${MY_ARCHITECTURE}
 
             MAINTAINER:
             RELEASE:

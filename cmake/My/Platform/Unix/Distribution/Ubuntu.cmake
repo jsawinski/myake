@@ -3,6 +3,6 @@
 
 include_guard(GLOBAL)
 
-include(My/Platform/Unix/Standard/Common)
-include(My/Platform/Unix/Standard/FreeDesktop)
-include(My/Platform/Unix/Standard/Plain)
+my_set(MY_DISTRIBUTION_LIKE "Ubuntu Debian" ONCE)
+
+include(My/Platform/Unix/Distribution/Debian)

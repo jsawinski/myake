@@ -71,7 +71,8 @@ if(MY_PLATFORM_FOUND AND NOT DEFINED CACHE{MY_INSTALL_STYLE})
     message(VERBOSE "[Myake] Loaded platform '${CMAKE_HOST_SYSTEM_NAME}'.")
 endif()
 
-my_report(My/Variables %{BR} %{BR} %{50} "    MY_INSTALL_STYLE = $<MY_INSTALL_STYLE>" "Installation style.")
+my_report(My/Variables %{P} %{50}  "    MY_INSTALL_STYLE = $<MY_INSTALL_STYLE>" "Installation style.")
+
 my_report(My/Variables %{BR})
 foreach(__inststyle ${MY_INSTALL_STYLE_LIST})
     string(TOUPPER "${__inststyle}" __inststyle_uc)
@@ -80,5 +81,11 @@ foreach(__inststyle ${MY_INSTALL_STYLE_LIST})
     my_report(My/Variables %{BR}
         %{30} "        ${__inststyle}" "${__docstring}"
     )
+endforeach()
+
+my_report(My/Variables %{P}        "        MY_DEFAULT_PREFIX = $<MY_DEFAULT_PREFIX>")
+foreach(__inststyle ${MY_INSTALL_STYLE_LIST})
+    string(TOUPPER "${__inststyle}" __inststyle_uc)
+    my_report(My/Variables %{BR}   "        MY_${__inststyle_uc}_PREFIX = ${MY_${__inststyle_uc}_PREFIX}")
 endforeach()
 

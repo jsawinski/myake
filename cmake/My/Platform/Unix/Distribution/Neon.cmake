@@ -3,4 +3,4 @@
 
 include_guard(GLOBAL)
 
-include(My/Platform/Distribution/Debian)
+include(My/Platform/Unix/Distribution/Ubuntu)

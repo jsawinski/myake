@@ -89,29 +89,28 @@ if(NOT MY_PLATFORM_INIT_STAGE)
     my_report(My/Variables %{BR} %{50} "    MY_PLATFORM_FOUND = $<MY_PLATFORM_FOUND>")
     my_report(My/Variables %{BR} %{50} "    MY_PLATFORM_HIERARCHY = $<MY_PLATFORM_HIERARCHY>" "The platform's file-system hierarchy style.")
     my_report(My/Variables %{BR}
-                        %{BR} %{50} "    MY_USER_HOME = $<MY_USER_HOME>" "User's home folder.")
+                           %{BR} %{50} "    MY_USER_HOME = $<MY_USER_HOME>" "User's home folder.")
     my_report(My/Variables %{BR} %{50} "    MY_USER_PATHS = $<MY_USER_PATHS>" "CMake module search paths.")
 
     # distribution
-    if(MY_DISTRIBUTION_NAME)
-        my_report(My/Variables %{BR})
-        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_NAME         = $<MY_DISTRIBUTION_NAME>")
-        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_VERSION      = $<MY_DISTRIBUTION_VERSION>")
-        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_CODENAME     = $<MY_DISTRIBUTION_CODENAME>")
-        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_ARCHITECTURE = $<MY_DISTRIBUTION_ARCHITECTURE>")
+    if(MY_DISTRIBUTION_ID)
+        my_report(My/Variables %{P}    "    MY_DISTRIBUTION_ID       = $<MY_DISTRIBUTION_ID>")
+        my_report(My/Variables %{BR}   "    MY_DISTRIBUTION_RELEASE  = $<MY_DISTRIBUTION_RELEASE>")
+        my_report(My/Variables %{BR}   "    MY_DISTRIBUTION_CODENAME = $<MY_DISTRIBUTION_CODENAME>")
+        my_report(My/Variables %{BR}   "    MY_DISTRIBUTION_LIKE     = $<MY_DISTRIBUTION_LIKE>")
     endif()
 
-    # prefixes
-    my_report(My/Variables %{BR})
-    my_report(My/Variables %{BR}
-        "        MY_DEFAULT_PREFIX = $<MY_DEFAULT_PREFIX>"
-    )
-    foreach(__inststyle ${MY_INSTALL_STYLE_LIST})
-        string(TOUPPER "${__inststyle}" __inststyle_uc)
-        my_report(My/Variables %{BR}
-            "        MY_${__inststyle_uc}_PREFIX = ${MY_${__inststyle_uc}_PREFIX}"
-        )
-    endforeach()
+    # architecture
+    find_program(DPKG_CMD dpkg)
+    if(DPKG_CMD)
+        execute_process(COMMAND ${DPKG_CMD} --print-architecture
+            OUTPUT_VARIABLE MY_ARCHITECTURE
+            OUTPUT_STRIP_TRAILING_WHITESPACE)
+    else()
+        set(MY_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})
+    endif()
+
+    my_report(My/Variables %{P}        "    MY_ARCHITECTURE = $<MY_ARCHITECTURE>")
 
 elseif(NOT MY_PLATFORM_CONFIG_STAGE)
     set(MY_PLATFORM_CONFIG_STAGE TRUE)
