@@ -97,3 +97,14 @@ macro(my_read_variables filename varprefix)
 	endforeach()
 endmacro()
 
+#[==[.md:
+### my_issue_message(<type> <message-arguments>)
+
+This is a helper to emit a message and add a link to the repositories issue page.
+
+#]==]
+function(my_issue_message)
+	message(${ARGN}
+		"\nPlease report this issue on https://github.com/jsawinski/myake/issues\n"
+	)
+endfunction()

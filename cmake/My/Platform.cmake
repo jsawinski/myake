@@ -121,7 +121,7 @@ elseif(NOT MY_PLATFORM_CONFIG_STAGE)
 	endforeach()
 
 	if(MY_PLATFORM_FOUND)
-		# nothing to be done
+		# nothing to be done (atm)
 	endif()
 else()
 	# nothing to be done
