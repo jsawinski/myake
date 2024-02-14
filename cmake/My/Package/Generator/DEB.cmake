@@ -71,11 +71,11 @@ function(my_generator_deb)
             REPLACES:*
             RECOMMENDS:*
             SUGGESTS:*
-            SOURCE:{
-                PREFIX:=/usr/src
-            }
             PRIORITY:
             SHLIBDEPS:
+
+            COMPONENTS:{
+            }
         }
         ${__MY_PACKAGE_ARGS}
     )
@@ -166,6 +166,7 @@ function(my_generator_deb)
             install(FILES
                 ${MY_PACKAGE_COMMON_LICENSE_FILE}
                 DESTINATION ${CMAKE_INSTALL_DOCDIR}
+                COMPONENT documentation
                 RENAME copyright)
         endif()
     else()
@@ -203,6 +204,7 @@ function(my_generator_deb)
     if(COMPONENTS)
         my_components("" ${COMPONENTS})
         set(CPACK_DEB_COMPONENT_INSTALL ON)
+        set(CPACK_DEBIAN_ENABLE_COMPONENT_DEPENDS ON)
     endif()
 
     # populate CPACK_* variables
