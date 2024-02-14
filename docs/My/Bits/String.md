@@ -13,6 +13,12 @@ used in the [report generator](../Report.md).
 Get a substring by indexes (starting from 0). Negative indexes are counted from 
 one after the last character.
 
+### my_titlecase
+
+    my_titlecase(<output-variable> "<text>")
+
+Make all words "titlecase". 
+
 ### my_string_genex_expand
 
     my_string_genex_expand(<output-variable> "<string>")
