@@ -13,25 +13,25 @@ for further details.
 
 The internal Myake report is setup in the following way:
 
-	my_report(My
-		TOPIC "Myake settings"
-		FILE ${CMAKE_BINARY_DIR}/ReportMyake.txt
-	)
+    my_report(My
+        TOPIC "Myake settings"
+        FILE ${CMAKE_BINARY_DIR}/ReportMyake.txt
+    )
 
-	my_report(My/Platform SECTION "Platform")
-	my_report(My/Variables SECTION "Variables")
-	my_report(My/Targets SECTION "Targets")
-	my_report(My/External SECTION "External sites")
-	my_report(My/Environment SECTION "Environment")
+    my_report(My/Platform SECTION "Platform")
+    my_report(My/Variables SECTION "Variables")
+    my_report(My/Targets SECTION "Targets")
+    my_report(My/External SECTION "External sites")
+    my_report(My/Environment SECTION "Environment")
 
-	my_report(My
-		"The following settings were recorded during configuration of project '$<PROJECT_NAME>'. Variables, environment and" 
-		"command-line arguments relevant for using Myake are listed below.")
+    my_report(My
+        "The following settings were recorded during configuration of project '$<PROJECT_NAME>'."
+        "Variables, environment and command-line arguments relevant for using Myake are listed below.")
 
-	my_report(My/Environment 
-		%{P} 
-		%{50} "    MY_REPORT=$ENV{MY_REPORT}" 
-		"Report generator setting (<topic> or HELP).")
+    my_report(My/Environment 
+        %{P} 
+        %{50} "    MY_REPORT=$ENV{MY_REPORT}" 
+        "Report generator setting (<topic> or HELP).")
 
 Note here, as can be supposed from the '%{...}' elements, that limited output 
 formatting is supported.
@@ -42,11 +42,11 @@ formatting is supported.
 
 To view a report it is possible, either to set the environment
 
-	MY_REPORT=<topic> cmake .
+    MY_REPORT=<topic> cmake .
 
 or define the identical cache variable
 
-	cmake -DMY_REPORT=<topic> .
+    cmake -DMY_REPORT=<topic> .
 
 (or clear the report using ``-UMY_REPORT``).
 
@@ -58,30 +58,30 @@ Note, however, that, even if not displayed, a report file is always generated.
 
 #### Create a report topic with sections
 
-	my_report(<topic>
-		TOPIC "title..."
-		[FILE <output-file>]
-	)
+    my_report(<topic>
+        TOPIC "title..."
+        [FILE <output-file>]
+    )
 
 Create a report topic. The option ``FILE`` sets the output file for the report, 
 by default this is ${CMAKE_BINARY_DIR}/Report<topic>.txt.
 
-	my_report(<topic>/<section>...
-		SECTION "title...")
+    my_report(<topic>/<section>...
+        SECTION "title...")
 
 Add a section to a topic.
 
 #### Adding messages to the report
 
-	my_report(<topic>[/<section...]
-		<text>...)
+    my_report(<topic>[/<section...]
+        <text>...)
 
 The text can be a list of strings combined with format instructions as
 understood by [`my_string_format`](Bits/String.md#my_string_format). It
 understands the tags
 
-	%{P}          Start a paragraph.
-	%{BR}         Line break.
+    %{P}          Start a paragraph.
+    %{BR}         Line break.
 
 and genex-type variable expansion ("%<VARNAME>").
 
@@ -106,28 +106,28 @@ This command is called from [my_report](#my_report).
 ### Internals
 #### __my_report_topic
 
-	__my_report_topic(<topic>[/<section>...] <tag-variable> <parent-variable> <top-variable>)
+    __my_report_topic(<topic>[/<section>...] <tag-variable> <parent-variable> <top-variable>)
 
 This helper splits a topic path into the current 'tag', the 'parent' and
 the root. For example, 
 
-	__my_report_topic(my/topic/section tag parent root)
+    __my_report_topic(my/topic/section tag parent root)
 
 is equivalent to
 
-	set(tag "section")
-	set(parent "my_topic")
-	set(root "my")
+    set(tag "section")
+    set(parent "my_topic")
+    set(root "my")
 
 #### __my_report_generate
 
-	__my_report_generate(<tag> <outfile>)
+    __my_report_generate(<tag> <outfile>)
 
 Helper macro to assemble the actual report consiting of multiple sections.
 
 #### __my_report_show_sections
 
-	__my_report_show_sections(<topic> <indentation string>)
+    __my_report_show_sections(<topic> <indentation string>)
 
 Helper to output a report section in the ``cmake`` messsage log.
 

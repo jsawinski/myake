@@ -67,63 +67,63 @@ include(My/Bits/Auxiliary)
 
 # load platform settings (once)
 if(NOT MY_PLATFORM_INIT_STAGE)
-	set(MY_PLATFORM_INIT_STAGE TRUE)
+    set(MY_PLATFORM_INIT_STAGE TRUE)
 
-	# set defaults
-	my_set(MY_INSTALL_STYLE_INIT Default ONCE)
+    # set defaults
+    my_set(MY_INSTALL_STYLE_INIT Default ONCE)
 
-	set(MY_PLATFORM_FOUND FALSE)
-	set(MY_PLATFORM_HIERARCHY "unknown")
-	
-	unset(MY_USER_HOME)
-	unset(MY_USER_PREFIX)
-	unset(MY_USER_PATHS)
+    set(MY_PLATFORM_FOUND FALSE)
+    set(MY_PLATFORM_HIERARCHY "unknown")
+    
+    unset(MY_USER_HOME)
+    unset(MY_USER_PREFIX)
+    unset(MY_USER_PATHS)
 
-	# load platform specific settings
-	include(My/Platform/${CMAKE_HOST_SYSTEM_NAME} OPTIONAL)
+    # load platform specific settings
+    include(My/Platform/${CMAKE_HOST_SYSTEM_NAME} OPTIONAL)
 
-	# system name
-	string(TOUPPER ${CMAKE_HOST_SYSTEM_NAME} MY_SYSTEM_NAME)
-	string(TOLOWER ${CMAKE_HOST_SYSTEM_NAME} my_system_name)
+    # system name
+    string(TOUPPER ${CMAKE_HOST_SYSTEM_NAME} MY_SYSTEM_NAME)
+    string(TOLOWER ${CMAKE_HOST_SYSTEM_NAME} my_system_name)
 
-	my_report(My/Variables %{BR} %{50} "    MY_PLATFORM_FOUND = $<MY_PLATFORM_FOUND>")
-	my_report(My/Variables %{BR} %{50} "    MY_PLATFORM_HIERARCHY = $<MY_PLATFORM_HIERARCHY>" "The platform's file-system hierarchy style.")
-	my_report(My/Variables %{BR}
-						%{BR} %{50} "    MY_USER_HOME = $<MY_USER_HOME>" "User's home folder.")
-	my_report(My/Variables %{BR} %{50} "    MY_USER_PATHS = $<MY_USER_PATHS>" "CMake module search paths.")
+    my_report(My/Variables %{BR} %{50} "    MY_PLATFORM_FOUND = $<MY_PLATFORM_FOUND>")
+    my_report(My/Variables %{BR} %{50} "    MY_PLATFORM_HIERARCHY = $<MY_PLATFORM_HIERARCHY>" "The platform's file-system hierarchy style.")
+    my_report(My/Variables %{BR}
+                        %{BR} %{50} "    MY_USER_HOME = $<MY_USER_HOME>" "User's home folder.")
+    my_report(My/Variables %{BR} %{50} "    MY_USER_PATHS = $<MY_USER_PATHS>" "CMake module search paths.")
 
-	# distribution
-	if(MY_DISTRIBUTION_NAME)
-		my_report(My/Variables %{BR})
-		my_report(My/Variables %{BR} "    MY_DISTRIBUTION_NAME         = $<MY_DISTRIBUTION_NAME>")
-		my_report(My/Variables %{BR} "    MY_DISTRIBUTION_VERSION      = $<MY_DISTRIBUTION_VERSION>")
-		my_report(My/Variables %{BR} "    MY_DISTRIBUTION_CODENAME     = $<MY_DISTRIBUTION_CODENAME>")
-		my_report(My/Variables %{BR} "    MY_DISTRIBUTION_ARCHITECTURE = $<MY_DISTRIBUTION_ARCHITECTURE>")
-	endif()
+    # distribution
+    if(MY_DISTRIBUTION_NAME)
+        my_report(My/Variables %{BR})
+        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_NAME         = $<MY_DISTRIBUTION_NAME>")
+        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_VERSION      = $<MY_DISTRIBUTION_VERSION>")
+        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_CODENAME     = $<MY_DISTRIBUTION_CODENAME>")
+        my_report(My/Variables %{BR} "    MY_DISTRIBUTION_ARCHITECTURE = $<MY_DISTRIBUTION_ARCHITECTURE>")
+    endif()
 
-	# prefixes
-	my_report(My/Variables %{BR})
-	my_report(My/Variables %{BR}
-		"        MY_DEFAULT_PREFIX = $<MY_DEFAULT_PREFIX>"
-	)
-	foreach(__inststyle ${MY_INSTALL_STYLE_LIST})
-		string(TOUPPER "${__inststyle}" __inststyle_uc)
-		my_report(My/Variables %{BR}
-			"        MY_${__inststyle_uc}_PREFIX = ${MY_${__inststyle_uc}_PREFIX}"
-		)
-	endforeach()
+    # prefixes
+    my_report(My/Variables %{BR})
+    my_report(My/Variables %{BR}
+        "        MY_DEFAULT_PREFIX = $<MY_DEFAULT_PREFIX>"
+    )
+    foreach(__inststyle ${MY_INSTALL_STYLE_LIST})
+        string(TOUPPER "${__inststyle}" __inststyle_uc)
+        my_report(My/Variables %{BR}
+            "        MY_${__inststyle_uc}_PREFIX = ${MY_${__inststyle_uc}_PREFIX}"
+        )
+    endforeach()
 
 elseif(NOT MY_PLATFORM_CONFIG_STAGE)
-	set(MY_PLATFORM_CONFIG_STAGE TRUE)
+    set(MY_PLATFORM_CONFIG_STAGE TRUE)
 
-	foreach(module ${MY_PLATFORM_USES})
-		include(${module})
-	endforeach()
+    foreach(module ${MY_PLATFORM_USES})
+        include(${module})
+    endforeach()
 
-	if(MY_PLATFORM_FOUND)
-		# nothing to be done (atm)
-	endif()
+    if(MY_PLATFORM_FOUND)
+        # nothing to be done (atm)
+    endif()
 else()
-	# nothing to be done
+    # nothing to be done
 endif()
 

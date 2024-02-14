@@ -17,8 +17,8 @@ If this project is the top-level project, the variable `MY_PROJECT_TOPLEVEL` is
 
 #]==]
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
-	set(MY_PROJECT_TOPLEVEL TRUE)
+    set(MY_PROJECT_TOPLEVEL TRUE)
 else()
-	set(MY_PROJECT_TOPLEVEL FALSE)
+    set(MY_PROJECT_TOPLEVEL FALSE)
 endif()
 

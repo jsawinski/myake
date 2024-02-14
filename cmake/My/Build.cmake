@@ -18,16 +18,16 @@ include(My/Report)
 #[==[.md:
 ### my_target
 
-	my_target(Name [ALL] [command1 [args1...]]
-    	[COMMAND command2 [args2...] ...]
-    	[DEPENDS depend depend depend ... ]
-    	[BYPRODUCTS [files...]]
-		[WORKING_DIRECTORY dir]
-		[COMMENT comment]
-		[JOB_POOL job_pool]
-		[VERBATIM] [USES_TERMINAL]
-		[COMMAND_EXPAND_LISTS]
-		[SOURCES src1 [src2...]])
+    my_target(Name [ALL] [command1 [args1...]]
+        [COMMAND command2 [args2...] ...]
+        [DEPENDS depend depend depend ... ]
+        [BYPRODUCTS [files...]]
+        [WORKING_DIRECTORY dir]
+        [COMMENT comment]
+        [JOB_POOL job_pool]
+        [VERBATIM] [USES_TERMINAL]
+        [COMMAND_EXPAND_LISTS]
+        [SOURCES src1 [src2...]])
 
 This command offers the same capability as [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html).
 In addition, the target name is added to Myake's report (which also shows the COMMENT).
@@ -36,9 +36,9 @@ In addition, the target name is added to Myake's report (which also shows the CO
 [`add_custom_target`](https://cmake.org/cmake/help/latest/command/add_custom_target.html)  
 #]==]
 macro(my_target name)
-	add_custom_target(${name} ${ARGN})
+    add_custom_target(${name} ${ARGN})
 
-	cmake_parse_arguments(__my_target "" "COMMENT" "" ${ARGN})
-	my_report(My/Targets %{BR} %{50} "    ${name}" "${__my_target_COMMENT}")
+    cmake_parse_arguments(__my_target "" "COMMENT" "" ${ARGN})
+    my_report(My/Targets %{BR} %{50} "    ${name}" "${__my_target_COMMENT}")
 endmacro()
 

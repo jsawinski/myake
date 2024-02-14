@@ -26,9 +26,9 @@ FIXME
 ## Reference
 ### my_external
 
-	my_external(
-		<property> <property-options>...
-	)
+    my_external(
+        <property> <property-options>...
+    )
 
 This landing function calls the respective functions for  
 ``SITE`` ([my_external_site](#markdown-header-my_external_site)),  
@@ -38,54 +38,54 @@ etc.
 
 If multiple properties should be set, brace-enclosed lists may be used:
 
-	my_external(
-		<property1> { [<property1 options>...] }
-		<property2> { [<property2 options>...] }
-		...
-	)
+    my_external(
+        <property1> { [<property1 options>...] }
+        <property2> { [<property2 options>...] }
+        ...
+    )
 
 The parser is not sensitive to which options appear within braces (therefore,
 an empty '{ }' may also separate properties), it is, though, strongly
 recommended to use essential declarative options before the brace-enclosed
 option list. For example:
 
-	my_external(
-		SITE my-site-name GIT {
-			<git options>...
-		}
+    my_external(
+        SITE my-site-name GIT {
+            <git options>...
+        }
 
-		SITE my-sub-site-name {
-			USE my-site-name
-			<git options>...
-		}
+        SITE my-sub-site-name {
+            USE my-site-name
+            <git options>...
+        }
 
-		DOWNLOAD my-site-name {}
-	)
+        DOWNLOAD my-site-name {}
+    )
 
 which is identical to
 
-	my_external_site(my-site-name GIT
-		<git options>...
-	)
-	my_external_site(my-sub-site-name
-		USE my-site-name
-		<git options>...
-	)
-	my_external_commandwnload(my-site-name)
+    my_external_site(my-site-name GIT
+        <git options>...
+    )
+    my_external_site(my-sub-site-name
+        USE my-site-name
+        <git options>...
+    )
+    my_external_commandwnload(my-site-name)
 
 ### my_external_site
 
-	my_external_site(<site-name> [<method>|USE <parent-site>]
-		<site settings>...
-	)
+    my_external_site(<site-name> [<method>|USE <parent-site>]
+        <site settings>...
+    )
 
 FIXME
 
 ### my_external_command
 
-	my_external_command(
-		DOWNLOAD|VERIFY|UPLOAD|... <site-name> [<options>...]
-	)
+    my_external_command(
+        DOWNLOAD|VERIFY|UPLOAD|... <site-name> [<options>...]
+    )
 
 FIXME
 

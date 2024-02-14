@@ -9,11 +9,11 @@ include(My/Platform/Unix/Util)
 set(MY_USER_HOME "$ENV{HOME}" CACHE PATH "User's home folder.")
 
 set(MY_INSTALL_STYLE_LIST
-	System
-	Package
-	Provider
-	User
-	Local
+    System
+    Package
+    Provider
+    User
+    Local
 )
 
 # style prefixes
@@ -23,16 +23,16 @@ set(MY_PROVIDER_PREFIX "/opt/${PROJECT_VENDOR}/$<PROJECT_NAME>" CACHE INTERNAL "
 set(MY_LOCAL_PREFIX "/usr/local" CACHE INTERNAL "Local system installation prefix.")
 
 if(DEFINED MY_PROVIDER_PREFIX)
-	if(NOT DEFINED PROJECT_VENDOR)
-		unset(MY_PROVIDER_PREFIX CACHE)
-		my_list(MODIFY MY_INSTALL_STYLE_LIST REMOVE "Provider")
-	endif()
+    if(NOT DEFINED PROJECT_VENDOR)
+        unset(MY_PROVIDER_PREFIX CACHE)
+        my_list(MODIFY MY_INSTALL_STYLE_LIST REMOVE "Provider")
+    endif()
 endif()
 
 # distribution
 my_unix_distribution_info(MY_DISTRIBUTION_NAME MY_DISTRIBUTION_VERSION MY_DISTRIBUTION_CODENAME MY_DISTRIBUTION_ARCHITECTURE)
 if(MY_DISTRIBUTION_NAME)
-	include(My/Platform/Distribution/${MY_DISTRIBUTION_NAME})
+    include(My/Platform/Distribution/${MY_DISTRIBUTION_NAME})
 endif()
 
 # report

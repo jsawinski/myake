@@ -8,16 +8,16 @@ accompanying commands ``unset`` and ``list``, by such features.
 ## Reference
 ### my_set
 
-	my_set(<variable> <value>
-		[UNSET]
-		[PARENT_SCOPE]
-		[FORCE]
-		[CACHE AUTO|<type> [<docstring>]] [FORCE]]
-		[ONCE
-			[FATAL_ERROR "message"]
-			[WARNING "warning message"]]
-		[MODIFIED <outvar>]
-	)
+    my_set(<variable> <value>
+        [UNSET]
+        [PARENT_SCOPE]
+        [FORCE]
+        [CACHE AUTO|<type> [<docstring>]] [FORCE]]
+        [ONCE
+            [FATAL_ERROR "message"]
+            [WARNING "warning message"]]
+        [MODIFIED <outvar>]
+    )
 
 This macro is an extended version of CMake's `set`.
 
@@ -42,14 +42,14 @@ command.
 
 ### my_unset
 
-	my_unset(<variable> ...)
+    my_unset(<variable> ...)
 
 Unset a variable. This macro internally only calls [my_set](my_set)
 ### my_list
 
-	my_list(<operation> <list> ... [UNIQUE] [PARENT_SCOPE])
-	my_list(FRONT <list> ...)
-	my_list(MODIFY <list> ...)
+    my_list(<operation> <list> ... [UNIQUE] [PARENT_SCOPE])
+    my_list(FRONT <list> ...)
+    my_list(MODIFY <list> ...)
 
 This macro extends the standard CMake ``list`` command with some operations.
 
@@ -60,18 +60,18 @@ Option ``UNIQUE`` indicates, that duplicates should be automatically removed.
 Option ``PARENT_SCOPE`` indicates, that the list operations should be
 propagated to parent scope.
 
-#### ``FRONT``
+Option ``FRONT``
 
-	my_list(FRONT <list> <out-var>...)
+    my_list(FRONT <list> <out-var>...)
 
 In addition to standard list features, ``FRONT`` behaves akin to ``POP_FRONT``,
 except that it will not remove elements from the list.
 
-#### ``MODIFY``
+Option ``MODIFY``
 
-	my_list(MODIFY <list> REMOVE [REGEX] <pattern>)
-	my_list(MODIFY <list> REPLACE [REGEX] <pattern> <value>)
-	my_list(MODIFY <list> APPEND <value>)
+    my_list(MODIFY <list> REMOVE [REGEX] <pattern>)
+    my_list(MODIFY <list> REPLACE [REGEX] <pattern> <value>)
+    my_list(MODIFY <list> APPEND <value>)
 
 Option ``REMOVE`` removes a pattern from the list.
 

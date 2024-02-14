@@ -5,6 +5,6 @@
 # my_generator_deb
 
 FIXME
-	my_package(DEB COMMON
-		...
+    my_package(DEB COMMON
+        ...
 
