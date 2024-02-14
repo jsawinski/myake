@@ -9,7 +9,7 @@
 include_guard(GLOBAL)
 
 #[==[.md:
-## `my_add_cmake_module_path`
+## my_add_cmake_module_path
 
 	my_add_cmake_module_path([PREPEND] <paths>...)
 
@@ -33,7 +33,7 @@ macro(my_add_cmake_module_path)
 endmacro()
 
 #[==[.md:
-### `my_set_cache_property_strings`
+### my_set_cache_property_strings
 
 	my_set_cache_property_strings(<variable> <string-list...>)
 
@@ -48,7 +48,7 @@ macro(my_set_cache_property_strings VARIABLE)
 endmacro()
 
 #[==[.md:
-### `my_get_cache_property_strings`
+### my_get_cache_property_strings
 
 	my_get_cache_property_strings(<variable> <result>)
 
@@ -62,7 +62,7 @@ macro(my_get_cache_property_strings VARIABLE RESULT)
 endmacro()
 
 #[==[.md:
-### `my_add_cache_property_strings`
+### my_add_cache_property_strings
 
 	my_add_cache_property_strings(<variable> <string-list...>)
 
@@ -77,7 +77,7 @@ macro(my_add_cache_property_strings VARIABLE)
 endmacro()
 
 #[==[.md:
-### `my_read_variables`
+### my_read_variables
 
 	my_read_variables(<input-file-name> <variable-prefix>)
 
@@ -100,9 +100,12 @@ macro(my_read_variables filename varprefix)
 endmacro()
 
 #[==[.md:
-### `my_issue_message`
+### my_issue_message
 
-This is a helper to emit a message and add a link to the repositories issue page.
+	my_issue_message(<message-arguments>)
+
+This is a helper to emit a message (standard CMake message arguments) which 
+adds a line with a link to the repositories issue page.
 
 #]==]
 function(my_issue_message)
