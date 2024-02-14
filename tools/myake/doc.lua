@@ -109,7 +109,7 @@ local function extract(source, path, opts)
         local outs = assert(io.open(outpath, 'w'), "Could not open file for writing: " .. outpath)
 
         for line in ins:lines() do
-            outs:write(line:gsub("\\\\", "  "))
+            outs:write(line:gsub("\\\\", "  "), '\n')
         end
     else
         generate(modulename, path, outpath)

@@ -1,1 +1,52 @@
-# Myake documentation00## Usage00The general skeleton for a `CMakeLists.txt` file taking advantage of Myake is:00	cmake_minimum_required(3.22)0	0	find_package(Myake QUIET)0	include(My/Init OPTIONAL)0	project(<...>)0	include(My/Config OPTIONAL)00	<...>00	if(Myake_FOUND)0		# ...0	endif()00	include(My/Lists OPTIONAL)00Here, [`My/Init`](Init.md) will initialize and [`My/Config`](Config.md) will 0configure Myake and, as well, load user specific settings from `User/Init` and 0`User\Config`, respectively, which can be used to store personalized settings. 0In the sameway, [`My/Lists`](List.md) (which is recommend to appear at the end 0of the file) loads `User/Lists`, which can be used to add additional configuration, 0such as package generator options. Note, that `OPTIONAL` must be used as Myake 0is not necessarily installed nor it's CMake version requirements are satisfied 0(at the time of writing Myake requires CMake version 3.22 or above).00## Includes00**Utilities**00[My/Bits](Bits.md)  0[My/Platform](Platform.md)  0[My/Build](Build.md)  0[My/Report](Report.md)00**Personalized building**00[My/Init](Init.md)  0[My/Config](Config.md)  0[My/Lists](Lists.md)00**Packaging**00[My/Package](Package.md)  00**External sites**00[My/External](External.md)  0
+# Myake documentation
+
+## Usage
+
+The general skeleton for a `CMakeLists.txt` file taking advantage of Myake is:
+
+	cmake_minimum_required(3.22)
+	
+	find_package(Myake QUIET)
+	include(My/Init OPTIONAL)
+	project(<...>)
+	include(My/Config OPTIONAL)
+
+	<...>
+
+	if(Myake_FOUND)
+		# ...
+	endif()
+
+	include(My/Lists OPTIONAL)
+
+Here, [`My/Init`](Init.md) will initialize and [`My/Config`](Config.md) will 
+configure Myake and, as well, load user specific settings from `User/Init` and 
+`User\Config`, respectively, which can be used to store personalized settings. 
+In the sameway, [`My/Lists`](List.md) (which is recommend to appear at the end 
+of the file) loads `User/Lists`, which can be used to add additional configuration, 
+such as package generator options. Note, that `OPTIONAL` must be used as Myake 
+is not necessarily installed nor it's CMake version requirements are satisfied 
+(at the time of writing Myake requires CMake version 3.22 or above).
+
+## Includes
+
+**Utilities**
+
+[My/Bits](Bits.md)  
+[My/Platform](Platform.md)  
+[My/Build](Build.md)  
+[My/Report](Report.md)
+
+**Personalized building**
+
+[My/Init](Init.md)  
+[My/Config](Config.md)  
+[My/Lists](Lists.md)
+
+**Packaging**
+
+[My/Package](Package.md)  
+
+**External sites**
+
+[My/External](External.md)  
