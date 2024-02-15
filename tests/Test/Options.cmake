@@ -4,7 +4,7 @@ my_options_parse(TEMPLATE DATA
     FLAG:-
     PARAMETER:
     GROUP:- {
-        PARAMETER:
+        PARAMETER:="group"
         ENTRY: {
             ID:
             DISPLAY:-{
