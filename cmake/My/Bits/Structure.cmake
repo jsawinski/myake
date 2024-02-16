@@ -17,51 +17,106 @@ include(My/Bits/String)
 #[==[.md:
 ### my_structure_parse
 
-    my_structure_parse(<prefix> [RESET|REPLACE] [NODEFAULTS]
-        [TEMPLATE <key>]
-        <arguments>...
-    }
+Declare a parser template:
 
     my_structure_parse(TEMPLATE <prefix> 
         <template-declaration>
     }
 
-#### Template declaration
+Parse a structure:
 
-Standard declarations:
-
-    # flag
-    FLAG:-
-
-    # parameter
-    PARAMETER:
-
-    # parameter with defined number of arguments
-    PARAMTER_WITH_ARGS:3
-
-    # list
-    LIST:*
-
-    # unnamed group (can be nested)
-    GROUP:- { 
-        <...> 
+    my_structure_parse(<prefix> 
+        [RESET|REPLACE] 
+        [NODEFAULTS]
+        [TEMPLATE <key>]
+        <arguments>...
     }
 
-Named groups:
+See the [structure test](https://github.com/jsawinski/myake/blob/master/tests/Test/Structure.cmake)
+for an example.
 
-    FIXME
+#### Structure parsing
 
-Defaults:
+A structure, in contrast to linear lists of arguments, uses additional
+decoration (braces) to distinguish blocks:
 
-    FIXME not allowed for nested groups
+    OPTION
+    VARIABLE "value"
+    MULTIVARIABLE "a" "b" "c"
+    BLOCK {
+        OPTION
+    }
 
-#### Parsing
+with translates to (omitting a prefix):
 
-FIXME
+    set(OPTION TRUE)
+    set(VARIABLE "value")
+    set(MULTIVARIABLE "a" "b" "c")
+    set(BLOCK_OPTION TRUE)
 
-#### Example
+When a template is provided, in addition, named blocks are provided.
+For example
 
-FIXME
+    BLOCK "name" {
+        VARIABLE "value"
+    }
+
+then translates to
+
+    set(BRANCH_name_VARIABLE "value")
+
+It is even possible (see next paragraph) to implement nested blocks.
+
+**Options**:
+
+`RESET` will unset all variables starting with `<prefix>_`. In case a 
+template is provided, only those, that are handled by the template.
+
+`REPLACE` will only reset given keys, otherwise, `my_structure_parse` will
+append them.
+
+`NODEFAULTS` instructs the parser to ignore default values given in the 
+template.
+
+`TEMPLATE <key>` will instruct the parser to adhere to the given template.
+
+#### Template declaration
+
+The general format of a template declaration is this:
+
+    <VARIABLE>:[<PARAMETER>][=<VALUE>]
+
+`<VARIABLE>` is an upper-case identifier ("^[A-Z][A-Z]+$"), 
+
+`<PARAMETER>` is 
+`-` for an option (boolean flag as with `cmake_parse_arguments`),
+`*` for multi-argument variables,
+`<number>` for defined number of variable arguments.
+If ommited, a single argument is expected.
+
+Optionally a default `<VALUE>` can be provided.
+
+Unnamed groups are declared using
+
+    <BLOCK>:- {
+        <...>
+    }
+
+while named groups use
+
+    <BLOCK>: {
+        <...>
+    }
+
+Nested groups support a linking mechanism, declared by
+
+    [@<LINK>-><KEY>]
+
+This instructs the parser to assign the blocks name in the `<LINK>` block
+as `<...>_<KEY>`.
+
+See the [structure test](https://github.com/jsawinski/myake/blob/master/tests/Test/Structure.cmake)
+for an example.
 
 #]==]
 function(my_structure_parse __PREFIX)
@@ -550,14 +605,23 @@ This macro resets options.
 #]]
 macro(__my_structure_reset)
     get_cmake_property(varlist VARIABLES)
-    foreach(pattern ${${__TEMPLATE}-__KEYS__})
+    if(__TEMPLATE)
+        foreach(pattern ${${__TEMPLATE}-__KEYS__})
+            foreach(var ${varlist})
+                if("${var}" MATCHES "^${__PREFIX}_${pattern}")
+                    unset(${var})
+                    unset(${var} PARENT_SCOPE)
+                endif()
+            endforeach()
+        endforeach()
+    else()
         foreach(var ${varlist})
-            if("${var}" MATCHES "^${__PREFIX}_${pattern}")
+            if("${var}" MATCHES "^${__PREFIX}_")
                 unset(${var})
                 unset(${var} PARENT_SCOPE)
             endif()
         endforeach()
-    endforeach()
+    endif()
 endmacro()
 
 #[[.md:

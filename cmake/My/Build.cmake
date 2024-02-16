@@ -41,4 +41,3 @@ macro(my_target name)
     cmake_parse_arguments(__my_target "" "COMMENT" "" ${ARGN})
     my_report(My/Targets %{BR} %{50} "    ${name}" "${__my_target_COMMENT}")
 endmacro()
-
