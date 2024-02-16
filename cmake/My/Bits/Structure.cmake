@@ -249,7 +249,7 @@ macro(__my_structure_template template_id)
     endforeach()
 
     # setup cache
-    set(${template_id}-__KEYS__ ${${template_id}-__KEYS__} CACHE INTERNAL "Options template ${template_id} data")
+    set(${template_id}-__KEYS__ ${${template_id}-__KEYS__} CACHE INTERNAL "")
 
     # state machine values
     set(dsm_key_or_grouping 0)

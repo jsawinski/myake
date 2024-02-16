@@ -1,3 +1,5 @@
+message("=== My/Bits/Structure =======================================================")
+
 include(My/Bits/Structure)
 
 my_structure_parse(TEMPLATE DATA 
