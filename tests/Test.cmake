@@ -3,4 +3,4 @@
 
 ###########
 message("Runing test suite...")
-include(Test/Options)
+include(Test/Structure)

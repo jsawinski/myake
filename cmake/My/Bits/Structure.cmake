@@ -15,14 +15,14 @@ include_guard(GLOBAL)
 include(My/Bits/String) 
 
 #[==[.md:
-### my_options_parse
+### my_structure_parse
 
-    my_options_parse(<prefix> [RESET|REPLACE] [NODEFAULTS]
+    my_structure_parse(<prefix> [RESET|REPLACE] [NODEFAULTS]
         [TEMPLATE <key>]
         <arguments>...
     }
 
-    my_options_parse(TEMPLATE <prefix> 
+    my_structure_parse(TEMPLATE <prefix> 
         <template-declaration>
     }
 
@@ -64,8 +64,8 @@ FIXME
 FIXME
 
 #]==]
-function(my_options_parse __PREFIX)
-    message(TRACE "my_options_parse(${prefix} ...)")
+function(my_structure_parse __PREFIX)
+    message(TRACE "my_structure_parse(${prefix} ...)")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
     if(${__PREFIX} STREQUAL TEMPLATE)
@@ -73,7 +73,7 @@ function(my_options_parse __PREFIX)
             message(FATAL_ERROR "Template names must be of the form '^[A-Z][A-Z_]*$' (${ARGV1}).")
         endif()
 
-        __my_options_template(TMPL_${ARGN})
+        __my_structure_template(TMPL_${ARGN})
     else()
         cmake_parse_arguments(_ "RESET;REPLACE;NODEFAULTS" "TEMPLATE" "" ${ARGN})
 
@@ -85,10 +85,10 @@ function(my_options_parse __PREFIX)
         endif()
 
         if(__RESET)
-            __my_options_reset()            
+            __my_structure_reset()            
         endif()
 
-        __my_options_parse(${__UNPARSED_ARGUMENTS})
+        __my_structure_parse(${__UNPARSED_ARGUMENTS})
     endif()
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
@@ -99,12 +99,12 @@ endfunction()
 #]================================]
 
 #[[.md:
-### __my_options_template
+### __my_structure_template
 
 This macro parses the template definition.
 
 #]]
-macro(__my_options_template template_id)
+macro(__my_structure_template template_id)
     ### split arguments
     # the following splits the input into pieces for the DSM below,
     # e.g.
@@ -323,7 +323,7 @@ macro(__my_options_template template_id)
         elseif(${state} EQUAL ${dsm_definition}) 
             # see above
         else()
-            message(FATAL_ERROR "Internal error: invalid DSM state ${state} in __my_options_template")
+            message(FATAL_ERROR "Internal error: invalid DSM state ${state} in __my_structure_template")
         endif()
     endforeach()
 
@@ -336,12 +336,12 @@ macro(__my_options_template template_id)
 endmacro()
 
 #[[.md:
-### __my_options_parse
+### __my_structure_parse
 
 This macro parses options.
 
 #]]
-macro(__my_options_parse)
+macro(__my_structure_parse)
     if(NOT __TEMPLATE)
         message(FATAL_ERROR "Parsing without template is currently not supported.")
     endif()
@@ -365,7 +365,7 @@ macro(__my_options_parse)
     set(childspace) # FIXME
 
     # prepare other variables
-    __my_options_get(__keys__ "-" ${tmplspace} __KEYS__)
+    __my_structure_get(__keys__ "-" ${tmplspace} __KEYS__)
 
     # loop over arguments (DSM)
     foreach(arg ${ARGN})
@@ -376,7 +376,6 @@ macro(__my_options_parse)
 
         if (${state} EQUAL ${dsm_option})
             set(option ${arg})
-            message("=== OPTION: ${option}")
 
             # sanity check: format
             if(NOT "${option}" MATCHES "^[A-Z][A-Z_]*$")
@@ -384,10 +383,10 @@ macro(__my_options_parse)
             endif()
 
             # handle key
-            __my_options_get(__chld__ "-" ${tmplspace} __CHLD__)
+            __my_structure_get(__chld__ "-" ${tmplspace} __CHLD__)
             if("${option}" IN_LIST __chld__)
                 # prepare child node
-                __my_options_get(__name__ "-" ${tmplspace} __NAME__)
+                __my_structure_get(__name__ "-" ${tmplspace} __NAME__)
                 if(NOT __name__)
                     message(FATAL_ERROR "Expected a named node under '${option}'.")
                 endif()
@@ -398,23 +397,23 @@ macro(__my_options_parse)
                 unset(__chld__)
 
                 # valid key
-                __my_options_get(__argn__ "-" ${tmplspace} ${option} __ARGN__)
+                __my_structure_get(__argn__ "-" ${tmplspace} ${option} __ARGN__)
 
                 # replace value?
                 if(__REPLACE)
-                    __my_options_unset("_" ${namespace} ${option})
+                    __my_structure_unset("_" ${namespace} ${option})
                 endif()
 
                 if(DEFINED __argn__)
                     # option, one or multi-value
                     if(__argn__ EQUAL 0)
-                        __my_options_set(TRUE "_" ${namespace} ${option})
+                        __my_structure_set(TRUE "_" ${namespace} ${option})
                     else()
                         set(state ${dsm_values})
                     endif()
                 else()
                     # group
-                    __my_options_get(__name__ "-" ${tmplspace} ${option} __NAME__)
+                    __my_structure_get(__name__ "-" ${tmplspace} ${option} __NAME__)
                     if(__name__)
                         set(state ${dsm_named_group})
                     else()
@@ -425,7 +424,7 @@ macro(__my_options_parse)
                 message(FATAL_ERROR "Expected a valid identifier but found '${option}' not defined in template.")
             endif()
         elseif(${state} EQUAL ${dsm_values})
-            __my_options_append(${arg} "_" ${namespace} ${option})
+            __my_structure_append(${arg} "_" ${namespace} ${option})
 
             math(EXPR __argn__ "${__argn__} - 1")
             if(__argn__ EQUAL 0)
@@ -447,7 +446,7 @@ macro(__my_options_parse)
             unset(__link__)
             if(__chld__)
                 # check link
-                __my_options_get(__link__ "-" ${tmplspace} __LINK__ ${option})
+                __my_structure_get(__link__ "-" ${tmplspace} __LINK__ ${option})
 
                 # handle spaces
                 list(POP_BACK tmplspace lastoption)
@@ -470,17 +469,17 @@ macro(__my_options_parse)
             if(__name__)
                 list(GET groupspace 0 groupname)
 
-                __my_options_append("${groupname}" _ ${namespace} ALL)
+                __my_structure_append("${groupname}" _ ${namespace} ALL)
                 list(APPEND namespace "${groupname}")
             endif()
 
             # link node
             if(__link__)
-                __my_options_set(${lastgroupname} "_" ${namespace} ${__link__})
+                __my_structure_set(${lastgroupname} "_" ${namespace} ${__link__})
             endif()
             
             # transition state
-            __my_options_get(__keys__ "-" ${tmplspace} __KEYS__)
+            __my_structure_get(__keys__ "-" ${tmplspace} __KEYS__)
             set(state ${dsm_option})
         elseif(${state} EQUAL ${dsm_leave_group})
             if(NOT "${arg}" STREQUAL "}")
@@ -488,7 +487,7 @@ macro(__my_options_parse)
             endif()
 
             # update namespaces
-            __my_options_get(__name__ "-" ${tmplspace} __NAME__)
+            __my_structure_get(__name__ "-" ${tmplspace} __NAME__)
             list(POP_BACK tmplspace lastoption)            
             list(POP_BACK namespace)
             if(__name__)
@@ -512,12 +511,27 @@ macro(__my_options_parse)
                 message(FATAL_ERROR "Too many closing braces.")
             endif()
 
-            __my_options_get(__keys__ "-" ${tmplspace} __KEYS__)
+            __my_structure_get(__keys__ "-" ${tmplspace} __KEYS__)
             set(state ${dsm_option})
         else()
             message(FATAL_ERROR "Internal error.")
         endif()
     endforeach()
+
+    ### defaults
+    if(NOT __NODEFAULTS)
+        get_cmake_property(varlist CACHE_VARIABLES)
+        foreach(var ${varlist})
+            if("${var}" MATCHES "^${__TEMPLATE}")
+                if("${var}" MATCHES "__VALUE__$")
+                    string(REGEX REPLACE "^${__TEMPLATE}-" "${__PREFIX}_" outvar "${var}")
+                    string(REGEX REPLACE "-__VALUE__$" "" outvar "${outvar}")
+                    string(REPLACE "-" "_" outvar "${outvar}")
+                    set(${outvar} "${${var}}")
+                endif()
+            endif()
+        endforeach()
+    endif()
 
     ### debug
     # get_cmake_property(varlist VARIABLES)
@@ -526,40 +540,34 @@ macro(__my_options_parse)
     #         message("*** ${var}=${${var}}")
     #     endif()
     # endforeach()
-
-    ### defaults
-    if(NOT __NODEFAULTS)
-        get_cmake_property(varlist CACHE_VARIABLES)
-        foreach(var ${varlist})
-            if("${var}" MATCHES "^TMPL_${__PREFIX}")
-                if("${var}" MATCHES "__VALUE__$")
-                    message("XXX ${var}=${${var}}")
-                endif()
-            endif()
-        endforeach()
-
-        message(FATAL_ERROR "@@@@@@@@@@@@ FIXME DEFAULTS")
-    endif()
 endmacro()
 
 #[[.md:
-### __my_options_reset
+### __my_structure_reset
 
 This macro resets options.
 
 #]]
-macro(__my_options_reset)
-    FIXME__my_options_reset()
+macro(__my_structure_reset)
+    get_cmake_property(varlist VARIABLES)
+    foreach(pattern ${${__TEMPLATE}-__KEYS__})
+        foreach(var ${varlist})
+            if("${var}" MATCHES "^${__PREFIX}_${pattern}")
+                unset(${var})
+                unset(${var} PARENT_SCOPE)
+            endif()
+        endforeach()
+    endforeach()
 endmacro()
 
 #[[.md:
-### __my_options_get
+### __my_structure_get
 
-    __my_options_get(<variable-name> <glue> <...>)
+    __my_structure_get(<variable-name> <glue> <...>)
 
 Helper to retrieve a template or data value    
 #]]
-function(__my_options_get outvar glue)
+function(__my_structure_get outvar glue)
     set(tbl ${ARGN})
     list(JOIN tbl ${glue} result)
     if(DEFINED ${result})
@@ -570,44 +578,44 @@ function(__my_options_get outvar glue)
 endfunction()
 
 #[[.md:
-### __my_options_set
+### __my_structure_set
 
-    __my_options_set(<value> <glue> <...>)
+    __my_structure_set(<value> <glue> <...>)
 
 Helper to assign a template or data value    
 #]]
-function(__my_options_set value glue)
+macro(__my_structure_set value glue)
     set(tbl ${ARGN})
     list(JOIN tbl ${glue} outvar)
     set(${outvar} ${value} PARENT_SCOPE)
-    message("--> ${outvar}=${value}")
-endfunction()
+endmacro()
 
 #[[.md:
-### __my_options_set
+### __my_structure_set
 
-    __my_options_set(<value> <glue> <...>)
+    __my_structure_set(<value> <glue> <...>)
 
 Helper to add a template or data value    
 #]]
-function(__my_options_append value glue)
+macro(__my_structure_append value glue)
     set(tbl ${ARGN})
     list(JOIN tbl ${glue} outvar)
     list(APPEND ${outvar} ${value})
+    set(${outvar} ${${outvar}})
     set(${outvar} ${${outvar}} PARENT_SCOPE)
-    message("--> ${outvar}=${${outvar}}")
-endfunction()
+endmacro()
 
 #[[.md:
-### __my_options_unset
+### __my_structure_unset
 
-    __my_options_set(<glue> <...>)
+    __my_structure_set(<glue> <...>)
 
 Helper to clear a template or data value    
 #]]
-function(__my_options_unset value glue)
+macro(__my_structure_unset glue)
     set(tbl ${ARGN})
     list(JOIN tbl ${glue} outvar)
+    unset(${outvar})
     unset(${outvar} PARENT_SCOPE)
-endfunction()
+endmacro()
 
