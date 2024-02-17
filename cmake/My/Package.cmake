@@ -45,7 +45,7 @@ set(CPACK_THREADS 0)
         <settings>...
     )
 
-This macro is the "landing" command for defining and generating source and 
+This function is the "landing" command for defining and generating source and 
 binary software packages.
 
 Available generator categories are 
@@ -56,7 +56,7 @@ documentation.
 
 ### Common settings
 
-    my_package([<generator>|COMMON]
+    my_package([<generator>] [COMMON]
         [TARGET <target-prefix>]
 
         [NAME <project-name>]
@@ -69,7 +69,7 @@ documentation.
         [AUTHORS
             [<list-of-authors>]
             [{
-                FILE:
+                FILE: FIXME this does not work with the current Structure implementation
         }]
         [CONTACT <contact-email>]
 
@@ -185,21 +185,14 @@ and
         [ADD_REMOVE|NO_ADD_REMOVE]
     }
 
-### Handling sub-projects
-
-At the time of writing, there's no support for handling sub-projects.
-
-### Developer notes
-
-All arguments passed to this macro are promoted to sub-macros and -functions 
-through the variable ``__MY_PACKAGE_ARGS``.
-
 **See**:  
 [MY_PROJECT_TOPLEVEL](Bits/Toplevel.md)  
 #]==]
 macro(my_package)
     message(DEBUG "my_package(${ARGN})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
+
+    # FIXME
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()

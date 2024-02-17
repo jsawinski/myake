@@ -12,7 +12,8 @@ parser allowing tree-like structures.
 #]=======================================================================]
 include_guard(GLOBAL)
 
-include(My/Bits/String) 
+include(My/Bits/Set)
+include(My/Bits/String)
 
 #[==[.md:
 ### my_structure_parse
@@ -403,13 +404,13 @@ macro(__my_structure_parse)
 
     ### parse
     # discrete state machine
-    set(dsm_option 0)  # expect an option
-    set(dsm_values 1)      # expect values
-    set(dsm_named_group 2) # declaration of a named group
-    set(dsm_enter_group 3) # enter a (named or unnamed) group
-    set(dsm_leave_group 4) # leave a (named or unnamed) group
+    set(dsm_option 0)               # expect an option
+    set(dsm_values 1)               # expect values
+    set(dsm_named_group 2)          # declaration of a named group
+    set(dsm_enter_group 3)          # enter a (named or unnamed) group
+    set(dsm_leave_group 4)          # leave a (named or unnamed) group
 
-    set(state ${dsm_option})
+    set(state ${dsm_option})        # current DSM state
 
     # internals
     set(namespace ${__PREFIX})      # namespace, when joined with _, yields variable name
@@ -417,7 +418,7 @@ macro(__my_structure_parse)
 
     set(option)                     # current option key
     set(groupspace)                 # group names
-    set(childspace) # FIXME
+    set(childspace)                 # tracking hierarchy of 'children'
 
     # prepare other variables
     __my_structure_get(__keys__ "-" ${tmplspace} __KEYS__)
