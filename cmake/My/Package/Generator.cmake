@@ -27,34 +27,12 @@ At time of writing, these package generators are (actively) supported:
 #]=======================================================================]
 include_guard(GLOBAL)
 
-# === Initialize sane defaults.
-set(CPACK_GENERATOR "ZIP")
-set(CPACK_SYSTEM_NAME "${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
-set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-
 #[==[.md:
 ### my_generator_category
 
     my_generator_category(<output-variable> <cpack-generator>)
 
 Get generator category and assign it to the <output-variable>.
-
-Known generator categories are:
-
-    Archive (7Z, TBZ2, TGZ, TXZ, TZ, TZST, and, ZIP),
-    Bundle,
-    Cygwin,
-    DEB,
-    DragNDrop,
-    External,
-    FreeBSD,
-    IFW,
-    Nullsoft (NSIS and NSIS64),
-    NuGet,
-    PackageMaker,
-    productbuild,
-    RPM, and,
-    WIX.
 
 **See also**:
 - [my_package](../Package.md#markdown-header-my_package)

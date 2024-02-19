@@ -1,6 +1,6 @@
 #!cpack -- update CPack variable list
 
-message "Updating CPack variables..."
+message "Updating CPack variables... (not yet supported)"
 
 -- get CMAKE_ROOT 
 local cmake_root
@@ -49,10 +49,11 @@ end
 
 -- -------------------------------------
 -- parse documents
-local rst = require 'myake.rst'
+-- local rst = require 'myake.rst'
 
-for i, t in ipairs(docs) do
-    t.doc = rst.parse(t.text)
-    io.dump(t.doc)
-    break
-end
+-- for i, t in ipairs(docs) do
+--     t.doc = rst.parse(t.text)
+--     io.dump(t.doc)
+--     break
+-- end
+

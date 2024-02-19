@@ -37,12 +37,27 @@ include(CPackComponent)
 set(CPACK_SET_DESTDIR ON)
 set(CPACK_STRIP_FILES TRUE)
 set(CPACK_THREADS 0)
-
+set(CPACK_GENERATOR "ZIP")
+set(CPACK_SYSTEM_NAME "${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
+set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+# CPACK_GENERATOR
+# CPACK_BINARY_<GENNAME>
+# CPACK_OUTPUT_CONFIG_FILE
+# CPACK_PROJECT_CONFIG_FILE
+# CPACK_READELF_EXECUTABLE
+# CPACK_OBJCOPY_EXECUTABLE
+# CPACK_OBJDUMP_EXECUTABLE
+# CPACK_PACKAGE_DIRECTORY
+# CPACK_MONOLITHIC_INSTALL
+# CPACK_SOURCE_OUTPUT_CONFIG_FILE
+# CPACK_CMAKE_GENERATOR
+# CPACK_INSTALL_CMAKE_PROJECTS
+# CPACK_TOPLEVEL_TAG
 
 #[==[.md:
 ## my_package
 
-    my_package([<generator>]
+    my_package([COMMON|<generator>]
         <settings>...
     )
 
@@ -54,25 +69,19 @@ This function is the "landing" command for declaring packages.
         [NAME <project-name>]
         [VENDOR <project-vendor>]
         [VERSION <project-version>]
-        DESCRIPTION {
-            SUMMARY <summary>
+        [DESCRIPTION {
+            [SUMMARY <summary>]
             [FILE <description-file>]
             [FULL <full-description>]
             [README <readme-file>]
             [WELCOME <welcome-file>]
-        }
+        }]
 
         [INSTALL {
             [DIRECTORY <installation-directory>]
             [FILE <filename-template>]
+            [PREFIX <installation-prefix>
         }]
-
-
-
-
-
-
-
 
         [AUTHORS <authors>]
         [CONTACT <contact-email>]
@@ -83,7 +92,6 @@ This function is the "landing" command for declaring packages.
 
         [ARCHITECTURE <target-architecture>]
         [CATEGORY <application-category>]
-
 
         [URL {
             [HOMEPAGE <homepage-url>]
@@ -148,7 +156,7 @@ can be defined using the ``COMPONENTS`` option.
 A component is defined by:
 
     COMPONENT <component-name> {
-        [DISPLAY_NAME <display-name>]
+        [DISPLAY <display-name>]
         [DESCRIPTION <component-description>]
         [HIDDEN | REQUIRED | DISABLED ]
         [DEPENDS <component-dependcies>...]
@@ -161,7 +169,7 @@ A component is defined by:
 Such components may be hierarchically organized in groups:
 
     GROUP <group-name> {
-        [DISPLAY_NAME name]
+        [DISPLAY name]
         [DESCRIPTION description]
         [EXPANDED]
         [BOLD_TITLE]
@@ -175,7 +183,7 @@ automatically filled in.
 Install types and downloads are declared using the options
 
     INSTALL_TYPE <typename> {
-        [DISPLAY_NAME <display-name>]
+        [DISPLAY <display-name>]
     }
 
 and

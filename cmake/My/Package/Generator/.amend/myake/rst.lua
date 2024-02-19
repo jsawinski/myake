@@ -17,14 +17,10 @@ class(M) "stack" {}
 local stack = M.stack
 
 -- Push element.
-function stack:push(elem)
-    rawset(self, #self + 1, elem)
-end
+function stack:push(elem) rawset(self, #self + 1, elem) end
 
 -- Get "top" element.
-function stack:top()
-    return rawget(self, #self)
-end
+function stack:top() return rawget(self, #self) end
 
 -- Pop element.
 function stack:pop(elem)
@@ -36,28 +32,23 @@ end
 -- ---------------------------------------------------------------------------
 -- Generic node
 -- ---------------------------------------------------------------------------
-class(M) "node" {
-    __public = {}
-}
+class(M) "node" {__public = {}}
 local node = M.node
 
+-- Check if empyt.
+function node:empty() return #self == 0 end
+
 -- Get last node.
-function node:last()
-    return rawget(self, #self)
-end
+function node:last() return rawget(self, #self) end
 
 -- Append node.
-function node:append(n)
-    rawset(self, #self + 1, n)
-end
+function node:append(n) rawset(self, #self + 1, n) end
 
 -- Pop element from the front.
 function node:pop_front()
     local retval = self[1]
 
-    for i = 1, #self do
-        rawset(self, i, rawget(self, i + 1))
-    end
+    for i = 1, #self do rawset(self, i, rawget(self, i + 1)) end
 
     return retval
 end
@@ -78,34 +69,20 @@ end
 -- ---------------------------------------------------------------------------
 -- Text snippet
 -- ---------------------------------------------------------------------------
-class(M) "snippet" {
-    __inherit = {node},
-    __public = {
-        __indent = 0
-    }
-}
+class(M) "snippet" {__inherit = {node}, __public = {__indent = 0}}
 local snippet = M.snippet
 
 -- Constructor
-function snippet:__init(indent)
-    self.__indent = indent or 0
-end
+function snippet:__init(indent) self.__indent = indent or 0 end
 
 -- ---------------------------------------------------------------------------
 -- Text paragraph
 -- ---------------------------------------------------------------------------
-class(M) "paragraph" {
-    __inherit = {node},
-    __public = {
-        __indent = 0
-    }
-}
+class(M) "paragraph" {__inherit = {node}, __public = {__indent = 0}}
 local paragraph = M.paragraph
 
 -- Constructor
-function paragraph:__init(indent)
-    self.__indent = indent or 0
-end
+function paragraph:__init(indent) self.__indent = indent or 0 end
 
 -- ---------------------------------------------------------------------------
 -- Section
@@ -120,10 +97,7 @@ end
 -- ---------------------------------------------------------------------------
 class(M) "section" {
     __inherit = {node},
-    __public = {
-        __indent = 0,
-        __level = void
-    }
+    __public = {__indent = 0, __level = void}
 }
 local section = M.section
 
@@ -137,10 +111,7 @@ end
 -- ---------------------------------------------------------------------------
 class(M) "document" {
     __inherit = {node},
-    __public = {
-        __stack = void,
-        __lines = {}
-    }
+    __public = {__stack = void, __lines = {}}
 }
 local document = M.document
 
@@ -229,9 +200,7 @@ function document:parse(text)
     end
 
     -- final parsing
-    if #slices == 0 then
-        return
-    end
+    if #slices == 0 then return end
 
     local stack = self.__stack
     if isa(slices[1], section) then
@@ -243,28 +212,48 @@ function document:parse(text)
 
     while #slices > 0 do
         if isa(slices[1], section) then
-            while stack:top() ~= self do
-                stack:pop()
-            end
+            while stack:top() ~= self do stack:pop() end
 
             self:append(slices[1])
+            self:append(paragraph())
+
             tremove(slices, 1)
         elseif isa(slices[1], {node}) then
             error("Internal error.")
         else
             local indent, line = slices[1][1], slices[1][2]
+            local last = stack:top():last() or node()
 
-            -- FIXME
-            
+            -- lists
+            if line:sub(1, 2) == '* ' then
+                FIXME_unnumbered_list()
+            elseif line:sub(1, 2) == '# ' then
+                FIXME_autonumbered_list()
+            elseif line:match("^[1-9][0-9]*[.] ") then
+                FIXME_numbered_list()
+            elseif isa(last, paragraph) and last:empty() and slices[2] and
+                slices[2][1] > indent then
+                FIXME_definition_list()
+            elseif line:sub(1, 2) == '| ' and indent == 0 then
+                FIXME_quoted_paragraph()
+            elseif line:len() == 0 then
+                FIXME_newparagraph()
+            else
+                if line:match("[`*:]") then
+                    return
+                    -- FIXME_markup()
+                else
+                    last:append(line)
+                end
+            end
+
             tremove(slices, 1)
         end
     end
 end
 
 -- Finalize document.
-function document:finalize(line)
-    self.__stack = nil
-end
+function document:finalize(line) self.__stack = nil end
 
 -- ---------------------------------------------------------------------------
 -- ---------------------------------------------------------------------------
