@@ -11,7 +11,7 @@
 #[=======================================================================[.md:
 # My/Package - Packaging utilities
 
-Tools and utilities for setting up CPack in a simplified manner.
+Tools and utilities for setting up CPack in a more structured manner.
 
 See also gitlab's [Packaging with CPack](https://gitlab.kitware.com/cmake/community/wikis/doc/cpack/Packaging-With-CPack)
 for more information.
@@ -33,6 +33,7 @@ include(My/Package/Generator)
 include(CPackComponent)
 
 # defaults
+# FIXME
 set(CPACK_SET_DESTDIR ON)
 set(CPACK_STRIP_FILES TRUE)
 set(CPACK_THREADS 0)
@@ -41,38 +42,18 @@ set(CPACK_THREADS 0)
 #[==[.md:
 ## my_package
 
-    my_package([<generator-category>]
+    my_package([<generator>]
         <settings>...
     )
 
-This function is the "landing" command for defining and generating source and 
-binary software packages.
-
-Available generator categories are 
-Archive, Bundle, Cygwin, DEB, DragNDrop, External, FreeBSD, IFW, Nullsoft, 
-NuGet, PackageMaker, productbuild, RPM, and, WIX. 
-For more information, consult the [package generator](Package/Generator.md) 
-documentation.
+This function is the "landing" command for declaring packages.
 
 ### Common settings
 
     my_package([<generator>] [COMMON]
-        [TARGET <target-prefix>]
-
         [NAME <project-name>]
         [VENDOR <project-vendor>]
         [VERSION <project-version>]
-
-        [ARCHITECTURE <target-architecture>]
-        [CATEGORY <application-category>]
-
-        [AUTHORS
-            [<list-of-authors>]
-            [{
-                FILE: FIXME this does not work with the current Structure implementation
-        }]
-        [CONTACT <contact-email>]
-
         DESCRIPTION {
             SUMMARY <summary>
             [FILE <description-file>]
@@ -80,9 +61,30 @@ documentation.
             [README <readme-file>]
             [WELCOME <welcome-file>]
         }
+
+        [INSTALL {
+            [DIRECTORY <installation-directory>]
+            [FILE <filename-template>]
+        }]
+
+
+
+
+
+
+
+
+        [AUTHORS <authors>]
+        [CONTACT <contact-email>]
+
         LICENSE <license-tag> [{
             [FILE <license-file>]
         }]
+
+        [ARCHITECTURE <target-architecture>]
+        [CATEGORY <application-category>]
+
+
         [URL {
             [HOMEPAGE <homepage-url>]
             [ABOUT <about-url>]
@@ -100,7 +102,6 @@ documentation.
         [CHECKSUM <checksum-type>]
         [CONFIG <output-config-suffix>]
         [SUFFIX <filename-suffix>]
-        [FILE_NAME <filename-template>]
 
         [SOURCE {
             [GENERATOR <generator-list>...]
@@ -196,92 +197,4 @@ macro(my_package)
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
-
-#[================================[.md:
-## Internals
-#]================================]
-
-#[[.md:
-### MY_PKG_COMMON
-
-Common package options prefix.
-
-See [CPack documentation](https://cmake.org/cmake/help/latest/module/CPack.html)
-for further information.
-#]]
-my_structure_parse(TEMPLATE MY_PACK {
-    TARGET:="package"
-
-    NAME:="${PROJECT_NAME}"
-    VENDOR:="${PROJECT_VENDOR}"
-    VERSION:="${PROJECT_VERSION}"
-
-    ARCHITECTURE:="${MY_ARCHITECTURE}"
-    CATEGORY:
-
-    AUTHORS:*
-    CONTACT:
-
-    DESCRIPTION:-{
-        SUMMARY:
-        FILE:
-        FULL:
-        README:
-        WELCOME:
-    }
-    LICENSE:-{
-        FILE:
-    }
-    URL:-{
-        HOMEPAGE:
-        ABOUT:
-        HELP:
-        ICON:
-        LICENSE:
-    }
-    ICON:-{
-        FILE:
-        INSTALL:
-        UNINSTALL:
-    }
-
-    GENERATOR:*="ZIP"
-    CHECKSUM:
-    CONFIG:
-    SUFFIX:
-    FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"
-
-    SOURCE:-{
-        GENERATOR:*="ZIP"
-        STRIP_FILES:*
-        IGNORE_FILES:*
-        CONFIG:
-        SUFFIX:="source"
-        FILE_NAME:
-    }
-
-    COMPONENTS:-{
-        GROUP:{
-            PARENT_GROUP:
-            DISPLAY_NAME:
-            DESCRIPTION:
-            EXPANDED:-
-            BOLD_TITLE:-
-
-            @GROUP->PARENT_GROUP
-            @COMPONENT->GROUP
-        }
-        COMPONENT:{
-            GROUP:
-            DISPLAY_NAME:
-            DESCRIPTION:
-            HIDDEN:- REQUIRED:- DISABLED:-
-            DEPENDS:*
-            INSTALL_TYPES:*
-            DOWNLOADED:-
-            ARCHIVE_FILE:
-            PLIST:
-        }
-    }
-})
 

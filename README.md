@@ -1,7 +1,6 @@
 # Myake
 
-CMake macros for personalized building, simplified packaging and publishing.
-
+ 
 ## Overview
 
 Myake is an set of macros extending [CMake](https://cmake.org). It provides
@@ -13,12 +12,14 @@ When using Myake it is possible to store common and per-project CMake settings
 outside the source tree. Common settings may, for example, be standard compiler 
 options (like "-Wextra" for gcc/clang compiler suites). Also, Myake provides
 a "style-based" installation prefix selection (such as "MY_INSTALL_STYLE=Local",
-which will cause installation in an user-local path).
+which will cause installation in an user-local path, e.g. '$HOME/.local/bin'
+on FreeDesktop conforming systems).
 
 **Packaging**
 
 Myake provides a simplified approach for ``CPack``. Code authors may, then, provide
-settings common to all package generators and leave specific settings to maintainers.
+settings common to all package generators and leave specific settings to package
+maintainers.
 
 **External sites**
 
