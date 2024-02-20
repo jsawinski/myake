@@ -1,5 +1,7 @@
                                         Contents of this file are copied from the documentation pages (https://cmake.org/cmake/help/latest/module/CPack.html) and put into an easily overviewable format for development of the Myake my_package etal. commands.
 
+                                        Future version may be auto-generated using `amend cpack`.
+
 ==================================================================================================================================
 === CPack https://cmake.org/cmake/help/latest/module/CPack.html
 ==================================================================================================================================
@@ -232,28 +234,18 @@ CPACK_BUNDLE_STARTUP_COMMAND
                                         Path to a startup script. This is a path to an executable or script that will be run whenever an end-user double-clicks the generated bundle in the macOS Finder. Optional.
 
 CPACK_BUNDLE_APPLE_CERT_APP
-                                        New in version 3.2.
-
                                         The name of your Apple supplied code signing certificate for the application. The name usually takes the form Developer ID Application: [Name] or 3rd Party Mac Developer Application: [Name]. If this variable is not set the application will not be signed.
 
 CPACK_BUNDLE_APPLE_ENTITLEMENTS
-                                        New in version 3.2.
-
                                         The name of the Property List (.plist) file that contains your Apple entitlements for sandboxing your application. This file is required for submission to the macOS App Store.
 
 CPACK_BUNDLE_APPLE_CODESIGN_FILES
-                                        New in version 3.2.
-
                                         A list of additional files that you wish to be signed. You do not need to list the main application folder, or the main executable. You should list any frameworks and plugins that are included in your app bundle.
 
 CPACK_BUNDLE_APPLE_CODESIGN_PARAMETER
-                                        New in version 3.3.
-
                                         Additional parameter that will passed to codesign. Default value: --deep -f
 
 CPACK_COMMAND_CODESIGN
-                                        New in version 3.2.
-
                                         Path to the codesign(1) command used to sign applications with an Apple cert. This variable can be used to override the automatically detected command (or specify its location if the auto-detection fails to find it).
 
 ==================================================================================================================================
@@ -329,8 +321,6 @@ CPACK_DEBIAN_<COMPONENT>_FILE_NAME
                                         Changed in version 3.29: The .deb suffix will be automatically added if the file name does not end in .deb or .ipk. Previously the suffix was required.
 
                                         <file-name>.ipk
-                                        New in version 3.10.
-
                                         Use the given file name. The .ipk suffix is used by the OPKG packaging system.
 
 CPACK_DEBIAN_PACKAGE_EPOCH
@@ -420,9 +410,6 @@ CPACK_DEBIAN_<COMPONENT>_PACKAGE_SECTION
                                         Default: devel
 
                                         See https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections
-
-CPACK_DEBIAN_ARCHIVE_TYPE
-                                        Deprecated since version 3.14.
 
 CPACK_DEBIAN_COMPRESSION_TYPE
                                         The compression used for creating the Debian package.

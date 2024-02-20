@@ -55,19 +55,78 @@ Make all words "titlecase".
 
 #]]
 function(my_titlecase outvar text)
-    string(REPLACE " " ";" words "${text}")
-    set(words_tc)
-    foreach(w ${words})
+    set(result)
+
+    string(REGEX MATCHALL "([^\ ]+\ |[^\ ]+$)" list "${text}")
+    foreach(w ${list})
         my_substring(first 0 0 "${w}")
         my_substring(rest 1 -1 "${w}")
         string(TOUPPER "${first}" first)
         string(TOLOWER "${rest}" rest)
 
-        list(APPEND words_tc "${first}${rest}")
+        list(APPEND result "${first}${rest}")
     endforeach()
 
-    string(REPLACE ";" " " text "${words_tc}")
-    set(${outvar} "${text}" PARENT_SCOPE)
+    string(REPLACE ";" "" result "${result}")
+    set(${outvar} "${result}" PARENT_SCOPE)
+endfunction()
+
+#[[.md:
+### my_lowercase
+
+    my_lowercase(<output-variable> "<text>")
+
+Make all words "lowercase". 
+
+#]]
+function(my_lowercase outvar text)
+    set(result)
+
+    string(REGEX MATCHALL "([^\ ]+\ |[^\ ]+$)" list "${text}")
+    foreach(w ${list})
+        string(TOLOWER "${w}" lower)
+
+        list(APPEND result "${lower}")
+    endforeach()
+
+    string(REPLACE ";" "" result "${result}")
+    set(${outvar} "${result}" PARENT_SCOPE)
+endfunction()
+
+#[[.md:
+### my_uppercase
+
+    my_uppercase(<output-variable> "<text>")
+
+Make all words "uppercase". 
+
+#]]
+function(my_uppercase outvar text)
+    set(result)
+
+    string(REGEX MATCHALL "([^\ ]+\ |[^\ ]+$)" list "${text}")
+    foreach(w ${list})
+        string(TOUPPER "${w}" upper)
+
+        list(APPEND result "${upper}")
+    endforeach()
+
+    string(REPLACE ";" "" result "${result}")
+    set(${outvar} "${result}" PARENT_SCOPE)
+endfunction()
+
+#[[.md:
+### my_make_lower
+
+    my_make_lower(<variable>)
+
+Create a lower-case <variable> with lower-case content.
+
+#]]
+function(my_make_lower var)
+    my_lowercase(outvar "${var}")
+    my_lowercase(content "${${var}}")
+    set(${outvar} ${content} PARENT_SCOPE)
 endfunction()
 
 #[==[.md:
@@ -77,7 +136,7 @@ endfunction()
 
 Expand generator expressions in a string.
 
-At the moment of writing, only variable queries.
+At the moment of writing, only variable queries are supported.
 
 #]==]
 function(my_string_genex_expand outvar text)

@@ -65,7 +65,7 @@ This function is the "landing" command for declaring packages.
 
 ### Common settings
 
-    my_package([<generator>] [COMMON]
+    my_package(<generator>|COMMON
         [NAME <project-name>]
         [VENDOR <project-vendor>]
         [VERSION <project-version>]
