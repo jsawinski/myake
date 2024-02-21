@@ -7,7 +7,7 @@
 Myake keeps track of it's settings by creating a report file and offers the
 possibility to either add options (such as additional build targets, e.g. for
 packages) to the master report file or create ones own report file (owing to
-the authors inability to memorize and/or laziness to RTFS).
+the authors inability to memorize and/or laziness to UTSL).
 
 The report is generally available in the project's binary folder or can be
 displayed during a `cmake` run. See [``my_report``](#my_report)

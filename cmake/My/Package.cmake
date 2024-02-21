@@ -63,68 +63,7 @@ set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
 This function is the "landing" command for declaring packages.
 
-### Common settings
-
-    my_package(<generator>|COMMON
-        [NAME <project-name>]
-        [VENDOR <project-vendor>]
-        [VERSION <project-version>]
-        [DESCRIPTION {
-            [SUMMARY <summary>]
-            [FILE <description-file>]
-            [FULL <full-description>]
-            [README <readme-file>]
-            [WELCOME <welcome-file>]
-        }]
-
-        [INSTALL {
-            [DIRECTORY <installation-directory>]
-            [FILE <filename-template>]
-            [PREFIX <installation-prefix>
-        }]
-
-        [AUTHORS <authors>]
-        [CONTACT <contact-email>]
-
-        LICENSE <license-tag> [{
-            [FILE <license-file>]
-        }]
-
-        [ARCHITECTURE <target-architecture>]
-        [CATEGORY <application-category>]
-
-        [URL {
-            [HOMEPAGE <homepage-url>]
-            [ABOUT <about-url>]
-            [HELP <help-url>]
-            [ICON <icon-url>]
-            [LICENSE <license-url>]
-        }]
-        [ICON {
-            [FILE <icon-file>]
-            [INSTALL <install-icon-file>]
-            [UNINSTALL <uninstall-icon-file>]
-        }]
-
-        [GENERATOR <generator-list>...]
-        [CHECKSUM <checksum-type>]
-        [CONFIG <output-config-suffix>]
-        [SUFFIX <filename-suffix>]
-
-        [SOURCE {
-            [GENERATOR <generator-list>...]
-            [STRIP_FILES <FIXME>...]
-            [IGNORE_FILES [DEFAULTS] <filename-ignore-patterns>...]
-            [SUFFIX <filename-suffix>]
-            [FILE_NAME <filename-template>]
-        }]
-
-        [COMPONENTS {
-            <component-settings>...
-        }]
-    )
-
-FIXME
+FIXME no cross-compiling
 
 ### Generator expressions
 
@@ -133,7 +72,7 @@ which are of the form
 
     $<VARNAME>
 
-which are expanded like standard variable expansion but not immediately. This
+These are expanded like standard variable expansion but not immediately. This
 allows to define template names. For example, the 'filename template' default
 is
 

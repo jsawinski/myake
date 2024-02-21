@@ -136,39 +136,35 @@ endfunction()
 
 Expand generator expressions in a string.
 
-At the moment of writing, only variable queries are supported.
+FIXME 
 
 #]==]
 function(my_string_genex_expand outvar text)
+    # find inner-most $<generator expression> pattern
+    string(REGEX MATCH "[$][<][^>]*[>]" pattern "${text}")
+    if(NOT pattern)
+        set(${outvar} "${text}" PARENT_SCOPE)
+        return()
+    endif()
+
+    # replace $<generator expression>
     set(buffer ${text})
 
-    # find inner-most $<generator expression> pattern
-    string(REGEX MATCH "[$][<][^>]*[>]" pattern "${buffer}")
-    if(pattern)
-        # extract generator expression
-        my_substring(genex 2 -2 "${pattern}")
+    # extract generator expression
+    my_substring(genex 2 -2 "${pattern}")
 
-        # sanity check
-        if("${genex}" MATCHES ":")
-            message(FATAL_ERROR "Only variable queries are supported here.")
-        endif()
-
-        # variable query
-        string(REGEX REPLACE "[$][<]${genex}[>]" "${${genex}}" buffer "${buffer}")
+    # sanity check
+    if("${genex}" MATCHES ":")
+        message(FATAL_ERROR "Only variable queries are supported here.")
     endif()
 
-    # return result
-    set(${outvar} "${buffer}")
+    # replace genex
+    string(REGEX REPLACE "[$][<]${genex}[>]" "${${genex}}" buffer "${buffer}")
 
-    # recurse until no pattern is found
-    if(pattern)
-        my_string_genex_expand(${outvar} "${buffer}")
-    endif()
-
-    # promote result to parent scope
+    # recurse and promote result to parent scope
+    my_string_genex_expand(${outvar} "${buffer}")
     set(${outvar} "${${outvar}}" PARENT_SCOPE)
 endfunction()
-
 
 #[==[.md:
 ### my_string_format
