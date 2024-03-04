@@ -2,7 +2,10 @@ set(MYAKE_MINIMUM_MAJOR_VERSION 3)
 set(MYAKE_MINIMUM_MINOR_VERSION 22)
 cmake_minimum_required(VERSION ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})
 
-# set(CMAKE_MESSAGE_LOG_LEVEL TRACE)
+set(ENABLE_TESTING On)
+if(ENABLE_TESTING)
+	set(CMAKE_MESSAGE_LOG_LEVEL TRACE)
+endif()
 
 set(PROJECT_UUID ede87400-1aad-11eb-86e2-195d0dbedd04)
 set(PROJECT_VENDOR myake)
@@ -10,13 +13,14 @@ set(PROJECT_VENDOR myake)
 set(MY_INSTALL_STYLE_INIT System)
 
 list(PREPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
-include(My/Init)
-project(Myake
-    VERSION 0.20.0
-    LANGUAGES NONE)
-include(My/Config)
 
-set(ENABLE_TESTING On)
+list(APPEND CMAKE_PROJECT_INCLUDE_BEFORE "cmake/My/Init.cmake")
+list(APPEND CMAKE_PROJECT_INCLUDE "cmake/My/Config.cmake")
+
+project(Myake
+    VERSION 0.30.0
+    LANGUAGES NONE)
+
 if(ENABLE_TESTING)
 	list(PREPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/tests")
 	include(Test)
@@ -93,7 +97,7 @@ upload mechanisms, including source code revision suites, and more."
    	}
 
     URL {
-		# ABOUT
+		# ABOUT "?"
         HOMEPAGE "https://github.com/jsawinski/myake"
 		HELP "https://jsawinski.github.io/${PROJECT_UUID}/"
 		ICON "https://raw.githubusercontent.com/jsawinski/myake/master/docs/myake.png"

@@ -8,5 +8,5 @@ endfunction()
 
 message("Runing test suite...")
 include(Test/Bits/String)
-# include(Test/Structure)
+include(Test/Structure)
 # include(Test/Package)

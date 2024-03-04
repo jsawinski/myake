@@ -4,18 +4,7 @@
 #[=======================================================================[.md:
 # My/Init - Initialization
 
-This module initializes Myake and loads the users `User/Init`.
-
-Use the following two lines
-
-    find_package(Myake QUIET)
-    include(My/Init OPTIONAL)
-
-before the ``project`` command.
-
-Note, that the keyword ``OPTIONAL`` is essential in case /Myake/ is not
-installed on the target system so that the project will configure and build
-without.
+This module initializes Myake and loads the users `User/Init` if present.
 
 If `Myake` is present, discovered settings are recorded in a report file
 (use ``MY_REPORT=My cmake .`` from your build directory).
@@ -44,6 +33,8 @@ include(My/Bits/Auxiliary)
 include(My/Bits/Toplevel)
 
 include(My/Platform)
+
+message(NOTICE "Initializing Myake.")
 
 # local project settings
 if(IS_DIRECTORY "${CMAKE_SOURCE_DIR}/.myake")

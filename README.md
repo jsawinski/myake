@@ -1,12 +1,14 @@
 # Myake
 
- 
+Myake is a play of words, indicating the ache of building software, as well
+as the Japanes 三宅, literally meaning "three homes".
+
 ## Overview
 
 Myake is an set of macros extending [CMake](https://cmake.org). It provides
 three main features:
 
-**Personalized building**
+**Personalization**
 
 When using Myake it is possible to store common and per-project CMake settings 
 outside the source tree. Common settings may, for example, be standard compiler 
@@ -44,15 +46,12 @@ can store a specific CMake configuration for a source package.
 This feature is enabled by using
 
     find_package(Myake QUIET)
-    include(My/Init OPTIONAL)
 
-before the `project` command, followed by 
-
-    include(My/Config OPTIONAL)
-
-after, and ending the top-level ``CMakeLists.txt`` file with
-
-    include(My/Lists OPTIONAL)
+before the `project` command. Myake will use CMake's code injection facility to 
+load [`My/Init`](docs/My/Init.md) before and [`My/Config`](docs/My/Config.md) 
+during the `project()` commands execution using the variables 
+CMAKE_PROJECT_INCLUDE and CMAKE_PROJECT_INCLUDE_BEFORE
+(see [Code Injection](https://cmake.org/cmake/help/latest/command/project.html#code-injection)).
 
 #### Installation styles
 
@@ -96,7 +95,7 @@ file:
 ### External sites
 
 External sites is at the moment of writing in an orphaned state and intended
-to be revived not before milestone 0.90.
+to be revived not before milestone 0.90. Planned features are:
 
 Myake supports simple handling of external projects, sites. It provides a
 simple interface for down- and uploading (e.g. using git). In combination,

@@ -5,28 +5,30 @@
 The general skeleton for a `CMakeLists.txt` file taking advantage of Myake is:
 
 	cmake_minimum_required(3.22)
-	
-	find_package(Myake QUIET)
-	include(My/Init OPTIONAL)
-	project(<...>)
-	include(My/Config OPTIONAL)
 
 	<...>
+
+	find_package(Myake QUIET)
+	project(<...>)
+
+	<...>
+
+When `find_package(Myake QUIET)` is placed before the `project` command,
+Myake will use CMake's code injection facility to load [`My/Init`](Init.md) 
+before and [`My/Config`](Config.md) during the 'project()' commands execution
+using the variables CMAKE_PROJECT_INCLUDE and CMAKE_PROJECT_INCLUDE_BEFORE
+(see [Code Injection](https://cmake.org/cmake/help/latest/command/project.html#code-injection)).
+
+To support the simplified packaging provided by Myake, developers are 
+encouraged to add 
 
 	if(Myake_FOUND)
 		# ...
 	endif()
-
 	include(My/Lists OPTIONAL)
 
-Here, [`My/Init`](Init.md) will initialize and [`My/Config`](Config.md) will 
-configure Myake and, as well, load user specific settings from `User/Init` and 
-`User\Config`, respectively, which can be used to store personalized settings. 
-In the sameway, [`My/Lists`](List.md) (which is recommend to appear at the end 
-of the file) loads `User/Lists`, which can be used to add additional configuration, 
-such as package generator options. Note, that `OPTIONAL` must be used as Myake 
-is not necessarily installed nor it's CMake version requirements are satisfied 
-(at the time of writing Myake requires CMake version 3.22 or above).
+at the end of the CMakeLists.txt file (see [`My/Lists`](Lists.md) for 
+further information).
 
 ## Includes
 
