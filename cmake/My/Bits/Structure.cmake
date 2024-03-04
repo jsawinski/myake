@@ -66,6 +66,8 @@ then translates to
 
     set(BRANCH_name_VARIABLE "value")
 
+and a BRANCH_ALL list is created which will contain "name".
+
 It is even possible (see next paragraph) to implement nested blocks.
 
 **Options**:

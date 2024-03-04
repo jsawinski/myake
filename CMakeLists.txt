@@ -92,7 +92,8 @@ Myake provides macros for dealing with external sites, provides down- and
 upload mechanisms, including source code revision suites, and more."
 	}
 
-    LICENSE "MIT" {
+    LICENSE {
+		TAG "MIT" 
         FILE ${Myake_SOURCE_DIR}/LICENSE
    	}
 

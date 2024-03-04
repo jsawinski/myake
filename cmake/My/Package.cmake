@@ -57,13 +57,13 @@ set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 #[==[.md:
 ## my_package
 
-    my_package([COMMON|<generator>]
+    my_package([<generator> [COMMON]]
         <settings>...
     )
 
-This function is the "landing" command for declaring packages.
+This function is the "landing" command for declaring values for CPack.
 
-FIXME no cross-compiling
+Note that cross-compiling is not supported for system dependent packagers.
 
 ### Generator expressions
 

@@ -18,7 +18,8 @@ include(My/Package)
 # ..."
 # 	}
 
-#     LICENSE "MIT" {
+#     LICENSE {
+#         TAG  "MIT"
 #         FILE ${Myake_SOURCE_DIR}/LICENSE
 #    	}
 
