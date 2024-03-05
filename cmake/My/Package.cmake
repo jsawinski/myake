@@ -33,15 +33,13 @@ include(My/Package/Generator)
 include(CPackComponent)
 
 # defaults
-# FIXME
 set(CPACK_SET_DESTDIR ON)
 set(CPACK_STRIP_FILES TRUE)
 set(CPACK_THREADS 0)
 set(CPACK_GENERATOR "ZIP")
-set(CPACK_SYSTEM_NAME "${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
-set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-# CPACK_GENERATOR
 # CPACK_BINARY_<GENNAME>
+set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+
 # CPACK_OUTPUT_CONFIG_FILE
 # CPACK_PROJECT_CONFIG_FILE
 # CPACK_READELF_EXECUTABLE
@@ -78,8 +76,13 @@ is
 
     $<NAME>-$<VERSION>$<[-]SUFFIX>
 
-meaning, that it is expanded as "<project-name>-<project-version><filename-suffix>"
-where "<filename-suffix>" is ommitted if not set.
+meaning, that it is expanded as "<project-name>-<project-version>[-<filename-suffix>]"
+where "-<filename-suffix>" is ommitted if not set. Note, that, some generators
+(as far as Myake is concerned, might change case).
+
+### Common settings
+
+
 
 ### Components
 

@@ -27,33 +27,26 @@ for file in fs.dir(generator_help_path) do
 end
 table.sort(generators)
 
--- -------------------------------------
--- read documents
-local docs = {}
+-- -- -------------------------------------
+-- -- read documents
+-- local docs = {}
 
-function addraw(txt, url)
-    local t = {}
-    t.text = txt
-    t.url = url
-    table.insert(docs, t)
-end
-
-addraw(io.command("cpack --help CPack"), "https://cmake.org/cmake/help/latest/module/CPack.html")
-for _,base in pairs(generators) do
-    local t = {}
-    local file = fs.concat(cmake_root, 'Help', 'cpack_gen', base)..'.rst'
-    local txt = assert(io.readall(file))
-    local url = string.format("https://cmake.org/cmake/help/latest/cpack_gen/%s.html\n", base)
-    addraw(txt, url)
-end
-
--- -------------------------------------
--- parse documents
--- local rst = require 'myake.rst'
-
--- for i, t in ipairs(docs) do
---     t.doc = rst.parse(t.text)
---     io.dump(t.doc)
---     break
+-- function addraw(txt, url)
+--     local t = {}
+--     t.text = txt
+--     t.url = url
+--     table.insert(docs, t)
 -- end
 
+-- addraw(io.command("cpack --help CPack"), "https://cmake.org/cmake/help/latest/module/CPack.html")
+-- for _,base in pairs(generators) do
+--     local t = {}
+--     local file = fs.concat(cmake_root, 'Help', 'cpack_gen', base)..'.rst'
+--     local txt = assert(io.readall(file))
+--     local url = string.format("https://cmake.org/cmake/help/latest/cpack_gen/%s.html\n", base)
+--     addraw(txt, url)
+-- end
+
+-- -- -------------------------------------
+-- -- parse documents
+-- pandoc --lua-filter=wordcount.lua sample.md
