@@ -31,14 +31,12 @@ table.sort(generators)
 -- -- read documents
 -- local docs = {}
 
--- function addraw(txt, url)
---     local t = {}
---     t.text = txt
---     t.url = url
---     table.insert(docs, t)
--- end
+function addraw(txt)
+    local pipe = io.popen("pandoc -f rst -t .amend/myake/rst.lua ", "w")
+    pipe:write(txt)
+end
 
--- addraw(io.command("cpack --help CPack"), "https://cmake.org/cmake/help/latest/module/CPack.html")
+addraw(io.command("cpack --help CPack"))
 -- for _,base in pairs(generators) do
 --     local t = {}
 --     local file = fs.concat(cmake_root, 'Help', 'cpack_gen', base)..'.rst'
