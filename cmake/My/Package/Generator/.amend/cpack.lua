@@ -1,6 +1,34 @@
 #!cpack -- update CPack variable list
 
-message "Updating CPack variables... (not yet supported)"
+message "Updating CPack variables..."
+
+local cpack_version = "0.0.0"
+
+-- check if update required
+local cpack_detected_version = io.command("cpack --version")
+if cpack_detected_version ~= nil then
+    cpack_detected_version = cpack_detected_version:match('[0-9.]+')
+    if cpack_version == cpack_detected_version then
+        -- FIXME needs to do a "real" version comparison
+        return
+    end
+else
+    return
+end
+
+
+print('cpack_detected_version', cpack_detected_version)
+
+
+
+os.exit()
+
+
+
+
+
+
+
 
 -- get CMAKE_ROOT 
 local cmake_root
@@ -32,11 +60,12 @@ table.sort(generators)
 -- local docs = {}
 
 function addraw(txt)
-    local pipe = io.popen("pandoc -f rst -t .amend/myake/rst.lua ", "w")
+    local pipe = io.popen("AMEND_DIR=xyz pandoc -f rst --lua-filter .amend/myake/pandoc.lua -t markdown ", "w")
     pipe:write(txt)
 end
 
-addraw(io.command("cpack --help CPack"))
+-- addraw(io.command("cpack --help CPack"))
+ addraw(io.readall('/usr/share/cmake-3.28/Help/cpack_gen/deb.rst'))
 -- for _,base in pairs(generators) do
 --     local t = {}
 --     local file = fs.concat(cmake_root, 'Help', 'cpack_gen', base)..'.rst'
