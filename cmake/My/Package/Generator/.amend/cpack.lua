@@ -50,51 +50,69 @@ local generators = {
     ['RPM'] = true,
     ['WIX'] = true
 }
+local order = {
+    -- Alphabetical order of the 'generators' keys.
+    -- (auto-generated)
+}
 
 local translate = {
+    -- List of different naming schemes...
+    -- (the authors are unsure, what this means)
     ['DragNDrop'] = 'DMG'
 }
 
 local helpfilemap = {}
-for k,_ in pairs(generators) do
+for k, v in pairs(generators) do
     local key = translate[k] or k
-    helpfilemap[key:lower()..'.rst'] = k
+    helpfilemap[key:lower() .. '.rst'] = k
+    if v then
+        table.insert(order, k)
+    end
 end
+table.sort(order)
 
 local generator_help_path = fs.concat(cmake_root, 'Help', 'cpack_gen')
 for file in fs.dir(generator_help_path) do
     if (file ~= '.') and (file ~= '..') then
-        if not helpfilemap[file:lower()] then
-            error("New package generator discovered, help file: "..fs.concat(generator_help_path, file))
+        local key = helpfilemap[file:lower()]
+        if not key then
+            error("New package generator discovered, see help file: " .. fs.concat(generator_help_path, file))
         end
 
-        
-
-
-        -- file = file:gsub("[.]rst$", "")
-        -- table.insert(generators, file)
+        if generators[key] then
+            generators[key] = fs.concat(generator_help_path, file)
+        end
     end
 end
 
--- -- -- -------------------------------------
--- -- -- read documents
--- -- local docs = {}
+-- add CPack documentation
+local cpackhelp = "/tmp/cpack-help.txt" -- FIXME use os.tmpname()
+do
+    local tmpf<close> = io.open(cpackhelp, 'w')
+    local txt = io.command("cpack --help CPack")
+    tmpf:write(txt)
+end
 
--- function addraw(txt)
---     local pipe = io.popen("AMEND_DIR=xyz pandoc -f rst --lua-filter .amend/myake/pandoc.lua -t markdown ", "w")
---     pipe:write(txt)
+table.insert(order, 1, "Common")
+generators["Common"] = cpackhelp
+
+-- -------------------------------------
+-- process documents
+-- local docs = {}
+
+function process(file, key)
+    local command = string.format(
+        'LUA_PATH="%s" LUA_CPATH="%s" GENERATOR="%s" FILE="%s" pandoc -f rst --lua-filter .amend/myake/pandoc-filter.lua -t plain %s',
+        package.path, package.cpath, key, file, file)
+
+    local pipe<close> = io.popen(command, "r")
+    print(pipe:read('a'))
+end
+
+-- process(cpackhelp, "Common")
+-- process(generators.DEB, "DEB")
+process(generators.RPM, "RPM")
+
+-- for _,k in ipairs(order) do
+--     print(k, generators[k])
 -- end
-
--- -- addraw(io.command("cpack --help CPack"))
--- addraw(io.readall('/usr/share/cmake-3.28/Help/cpack_gen/deb.rst'))
--- -- for _,base in pairs(generators) do
--- --     local t = {}
--- --     local file = fs.concat(generator_help_path, base)..'.rst'
--- --     local txt = assert(io.readall(file))
--- --     local url = string.format("https://cmake.org/cmake/help/latest/cpack_gen/%s.html\n", base)
--- --     addraw(txt, url)
--- -- end
-
--- -- -- -------------------------------------
--- -- -- parse documents
--- -- pandoc --lua-filter=wordcount.lua sample.md

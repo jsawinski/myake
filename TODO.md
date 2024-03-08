@@ -5,11 +5,8 @@
 - wrapper for add_custom_command (My/Build) missing.
 - revive this for 0.90
 
-## Init/Lists
+## Personalization
 
-- handle TOOLCHAIN/cross-compilation (CMAKE_CROSSCOMPILING)
-- check on Windows
-- check on Mac
 
 ## Packaging
 
@@ -21,3 +18,6 @@
 - see https://www.baeldung.com/linux/create-debian-package
 - changelog: see https://manpages.debian.org/testing/dpkg-dev/deb-changelog.5.en.html
 
+### NSIS
+
+- NSIS vs. NSIS64 generator
