@@ -246,11 +246,20 @@ local function walk(t, first)
     end
 end
 
-local level = 0
 function m.Header(p)
+    -- adjust stack
+    while #stack > 1 do
+        if isa(top(), doc.header) and top().level + 1 == p.level then
+            break
+        end 
+
+        pop()
+    end
+
     -- create node
     local node = doc.header(p)
     table.insert(top(), node)
+    push(node)
 
     -- parse content
     node.text = {}
@@ -263,15 +272,6 @@ function m.Header(p)
         text[i] = v:tostring()
     end
     node.text = table.concat(text)
-
-    -- adjust stack
-    if p.level > level then
-        push(node)
-    else
-        while not isa(top(), 'header') and top().level ~= p.level - 1 do
-            pop()
-        end
-    end
 end
 
 function m.Str(p)
@@ -331,7 +331,7 @@ local function parse_list(p, style)
     local node = doc.list(p, style)
     table.insert(top(), node)
 
-    local function process_part(part) 
+    local function process_part(part)
         local tag = pandoc.utils.type(part)
         if m[tag] then
             m[tag](part)
@@ -358,7 +358,7 @@ local function parse_list(p, style)
             if #def == 1 then
                 process_part(def[1])
             else
-                push(doc.plain{})
+                push(doc.plain {})
                 for _, v in ipairs(def) do
                     process_part(v)
                 end
@@ -370,9 +370,11 @@ local function parse_list(p, style)
             part = part[1]
 
             if #part == 0 then
-                table.insert(top(), doc.string{text=''})
+                table.insert(top(), doc.string {
+                    text = ''
+                })
             else
-                for _,v in ipairs(part) do
+                for _, v in ipairs(part) do
                     process_part(v)
                 end
             end
@@ -421,10 +423,10 @@ function m.Div(p)
         if #content > 1 then
             -- seems to be a parser error in pandoc
             ::retry_remove_link::
-            for i = 1,#content do
+            for i = 1, #content do
                 local v = content[i]
                 if pandoc.utils.type(v) == 'Link' then
-                    content[i+1].text = content[i].content[1].text .. '_' .. content[i+1].text
+                    content[i + 1].text = content[i].content[1].text .. '_' .. content[i + 1].text
                     table.remove(content, i)
                     goto retry_remove_link
                 end
@@ -441,7 +443,9 @@ function m.CodeBlock(p)
     local node = doc.block(p, 'code')
     table.insert(top(), node)
 
-    table.insert(node, doc.string{text = p.text})
+    table.insert(node, doc.string {
+        text = p.text
+    })
 end
 
 function m.Span(p)
@@ -452,7 +456,6 @@ function m.Span(p)
     walk(p.content)
     pop()
 end
-
 
 -- ---------------------------------------------------------------------------
 -- parse pandoc structure

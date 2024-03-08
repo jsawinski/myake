@@ -1051,58 +1051,182 @@ include(CPack)
                         text = "generated."
                     }
                 }
+            }
+        },
+        doc.header:table {
+            id = "variables-used-by-cpack-archive-generator",
+            level = 2,
+            text = "Variables used by CPack Archive generator",
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "These"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variables"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "used"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "Archive"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generator,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "but"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "also"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "available"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CPack"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generators"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "which"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "essentially"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "archives"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "at"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "their"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "core."
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "These"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "include:"
+                }
             },
-            doc.header:table {
-                id = "variables-used-by-cpack-archive-generator",
-                level = 2,
-                text = "Variables used by CPack Archive generator",
+            doc.list:table {
+                style = "bullet",
+                doc.item:table {
+                    doc.plain:table {
+                        doc.string:table {
+                            text = ":cpack_gen:"
+                        },
+                        doc.div:table {
+                            classes = {
+                                "title-ref"
+                            },
+                            doc.string:table {
+                                text = "CPack"
+                            },
+                            doc.space:table {},
+                            doc.string:table {
+                                text = "Cygwin"
+                            },
+                            doc.space:table {},
+                            doc.string:table {
+                                text = "Generator"
+                            }
+                        }
+                    }
+                },
+                doc.item:table {
+                    doc.plain:table {
+                        doc.string:table {
+                            text = ":cpack_gen:"
+                        },
+                        doc.div:table {
+                            classes = {
+                                "title-ref"
+                            },
+                            doc.string:table {
+                                text = "CPack"
+                            },
+                            doc.space:table {},
+                            doc.string:table {
+                                text = "FreeBSD"
+                            },
+                            doc.space:table {},
+                            doc.string:table {
+                                text = "Generator"
+                            }
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
                 doc.paragraph:table {
                     doc.string:table {
-                        text = "These"
+                        text = "CPACK_ARCHIVE_THREADS"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "The"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "variables"
+                        text = "number"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "are"
+                        text = "of"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "used"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "by"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "the"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "Archive"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "generator,"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "but"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "are"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "also"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "available"
+                        text = "threads"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -1110,11 +1234,130 @@ include(CPack)
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "CPack"
+                        text = "use"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "generators"
+                        text = "when"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "performing"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "compression."
+                    }
+                },
+                doc.div:table {
+                    classes = {
+                        "versionadded"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "3.18"
+                        }
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.paragraph:table {
+                            doc.code:table {
+                                text = "1"
+                            }
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "If"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "0"
+                    },
+                    doc.string:table {
+                        text = ","
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "number"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "available"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "cores"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "on"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "machine"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "used"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "instead."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "The"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "default"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "1"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -1122,189 +1365,152 @@ include(CPack)
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "are"
+                        text = "limits"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "essentially"
+                        text = "compression"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "archives"
+                        text = "to"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "at"
+                        text = "a"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "their"
+                        text = "single"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "core."
+                        text = "thread."
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "These"
+                        text = "Note"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "include:"
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "all"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "compression"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "modes"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "support"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "threading"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "all"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "environments."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Currently,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "only"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "XZ"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "compression"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "may"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "support"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "it."
                     }
                 },
-                doc.list:table {
-                    style = "bullet",
-                    doc.item:table {
-                        doc.plain:table {
-                            doc.string:table {
-                                text = ":cpack_gen:"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "title-ref"
-                                },
-                                doc.string:table {
-                                    text = "CPack"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "Cygwin"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "Generator"
-                                }
-                            }
-                        }
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "See"
                     },
-                    doc.item:table {
-                        doc.plain:table {
-                            doc.string:table {
-                                text = ":cpack_gen:"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "title-ref"
-                                },
-                                doc.string:table {
-                                    text = "CPack"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "FreeBSD"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "Generator"
-                                }
-                            }
-                        }
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "also"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_THREADS"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable."
                     }
                 },
                 doc.div:table {
                     classes = {
-                        "variable"
+                        "versionadded"
                     },
                     doc.paragraph:table {
                         doc.string:table {
-                            text = "CPACK_ARCHIVE_THREADS"
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "The"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "number"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "of"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "threads"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "use"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "when"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "performing"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "compression."
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "versionadded"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "3.18"
-                            }
-                        }
-                    },
-                    doc.list:table {
-                        style = "definition",
-                        doc.item:table {
-                            doc.string:table {
-                                text = "Default"
-                            },
-                            doc.paragraph:table {
-                                doc.code:table {
-                                    text = "1"
-                                }
-                            }
+                            text = "3.21"
                         }
                     },
                     doc.paragraph:table {
                         doc.string:table {
-                            text = "If"
+                            text = "Official"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "set"
+                            text = "CMake"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "0"
-                        },
-                        doc.string:table {
-                            text = ","
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "number"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "of"
+                            text = "binaries"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -1312,83 +1518,31 @@ include(CPack)
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "cores"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
                             text = "on"
                         },
                         doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "machine"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "will"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "be"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "used"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "instead."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "The"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "default"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
                         doc.code:table {
-                            text = "1"
+                            text = "cmake.org"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "which"
+                            text = "now"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "limits"
+                            text = "ship"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "compression"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
+                            text = "with"
                         },
                         doc.space:table {},
                         doc.string:table {
                             text = "a"
                         },
                         doc.space:table {},
-                        doc.string:table {
-                            text = "single"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "thread."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Note"
+                        doc.code:table {
+                            text = "liblzma"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -1396,185 +1550,31 @@ include(CPack)
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "not"
+                            text = "supports"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "all"
+                            text = "parallel"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "compression"
+                            text = "compression."
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "modes"
+                            text = "Older"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "support"
+                            text = "versions"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "threading"
+                            text = "did"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "all"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "environments."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Currently,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "only"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "XZ"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "compression"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "may"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "support"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "it."
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "See"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "also"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            attributes = {
-                                role = "variable"
-                            },
-                            classes = {
-                                "interpreted-text"
-                            },
-                            text = "CPACK_THREADS"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "variable."
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "versionadded"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "3.21"
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Official"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CMake"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "binaries"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "available"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "on"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "cmake.org"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "now"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "ship"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "liblzma"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "supports"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "parallel"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "compression."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "Older"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "versions"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "did"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not."
-                            }
+                            text = "not."
                         }
                     }
                 }

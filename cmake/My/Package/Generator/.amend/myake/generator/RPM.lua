@@ -11643,70 +11643,449 @@ return {
                         text = "packages."
                     }
                 }
-            },
-            doc.header:table {
-                id = "packaging-of-symbolic-links",
-                level = 2,
-                text = "Packaging of Symbolic Links",
-                doc.div:table {
-                    classes = {
-                        "versionadded"
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "3.3"
-                        }
-                    }
+            }
+        },
+        doc.header:table {
+            id = "packaging-of-symbolic-links",
+            level = 2,
+            text = "Packaging of Symbolic Links",
+            doc.div:table {
+                classes = {
+                    "versionadded"
                 },
                 doc.paragraph:table {
                     doc.string:table {
-                        text = "The"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "CPack"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "RPM"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "generator"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "supports"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "packaging"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "of"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "symbolic"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "links:"
+                        text = "3.3"
                     }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "The"
                 },
-                doc.block:table {
-                    style = "code",
-                    doc.string:table {
-                        text = [[
+                doc.space:table {},
+                doc.string:table {
+                    text = "CPack"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "RPM"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generator"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "supports"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "symbolic"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "links:"
+                }
+            },
+            doc.block:table {
+                style = "code",
+                doc.string:table {
+                    text = [[
 execute_process(COMMAND ${CMAKE_COMMAND}
   -E create_symlink <relative_path_location> <symlink_name>)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
   DESTINATION <symlink_location> COMPONENT libraries)
 ]]
-                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Symbolic"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "links"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "optimized"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "(paths"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "shortened"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "if"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "possible)"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "before"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "being"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "added"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "or"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "if"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "multiple"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "relocation"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "paths"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "detected,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "post"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "install"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "symlink"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "relocation"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "script"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generated."
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Symbolic"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "links"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "may"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "point"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "locations"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "that"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "not"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaged"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "same"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "(either"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "different"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "component"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "or"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "even"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "not"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaged"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "at"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "all)"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "but"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "those"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "locations"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "treated"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "as"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "if"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "they"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "were"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "part"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "while"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "determining"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "if"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "symlink"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "should"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "either"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "created"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "or"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "present"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "in"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "post"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "install"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "script"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "-"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "depending"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "on"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "relocation"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "paths."
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "versionchanged"
                 },
                 doc.paragraph:table {
+                    doc.string:table {
+                        text = "3.6"
+                    },
+                    doc.space:table {},
                     doc.string:table {
                         text = "Symbolic"
                     },
@@ -11716,140 +12095,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "will"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "be"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "optimized"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "(paths"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "will"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "be"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "shortened"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "if"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "possible)"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "before"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "being"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "added"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "to"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "the"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "package"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "or"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "if"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "multiple"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "relocation"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "paths"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "are"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "detected,"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "a"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "post"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "install"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "symlink"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "relocation"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "script"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "will"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "be"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "generated."
-                    }
-                },
-                doc.paragraph:table {
-                    doc.string:table {
-                        text = "Symbolic"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "links"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "may"
+                        text = "that"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -11865,39 +12111,19 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "that"
+                        text = "outside"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "are"
+                        text = "packaging"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "not"
+                        text = "path"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "packaged"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "by"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "the"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "same"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "package"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "(either"
+                        text = "produce"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -11905,55 +12131,15 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "different"
+                        text = "warning"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "component"
+                        text = "and"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "or"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "even"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "not"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "packaged"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "at"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "all)"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "but"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "those"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "locations"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "will"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "be"
+                        text = "are"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -11965,23 +12151,31 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "if"
+                        text = "non"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "they"
+                        text = "relocatable"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "were"
+                        text = "permanent"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "a"
+                        text = "symbolic"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "part"
+                        text = "links."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Previous"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "versions"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -11989,51 +12183,19 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "the"
+                        text = "CMake"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "package"
+                        text = "produced"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "while"
+                        text = "an"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "determining"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "if"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "symlink"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "should"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "be"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "either"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "created"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "or"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "present"
+                        text = "error"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -12041,76 +12203,57 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "a"
+                        text = "this"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "post"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "install"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "script"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "-"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "depending"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "on"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "relocation"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "paths."
+                        text = "case."
                     }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Currently"
                 },
-                doc.div:table {
-                    classes = {
-                        "versionchanged"
-                    },
-                    doc.paragraph:table {
+                doc.space:table {},
+                doc.string:table {
+                    text = "there"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "few"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "limitations"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "though:"
+                }
+            },
+            doc.list:table {
+                style = "bullet",
+                doc.item:table {
+                    doc.plain:table {
                         doc.string:table {
-                            text = "3.6"
+                            text = "For"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "Symbolic"
+                            text = "component"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "links"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "that"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "point"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "locations"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "outside"
+                            text = "based"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -12118,47 +12261,31 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "path"
+                            text = "component"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "produce"
+                            text = "interdependency"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "a"
+                            text = "is"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "warning"
+                            text = "not"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "and"
+                            text = "checked"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "are"
+                            text = "when"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "treated"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "as"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "non"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "relocatable"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "permanent"
+                            text = "processing"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -12170,11 +12297,23 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "Previous"
+                            text = "Symbolic"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "versions"
+                            text = "links"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "pointing"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "to"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "content"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -12182,11 +12321,250 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "CMake"
+                            text = "a"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "produced"
+                            text = "different"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "component"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "are"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "treated"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "same"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "way"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "as"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "if"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "pointing"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "to"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "location"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "that"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "will"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "not"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "be"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "packaged."
+                        }
+                    }
+                },
+                doc.item:table {
+                    doc.plain:table {
+                        doc.string:table {
+                            text = "Symbolic"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "links"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "pointing"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "to"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "a"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "location"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "through"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "one"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "or"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "more"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "intermediate"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "symbolic"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "links"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "will"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "not"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "be"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "handled"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "differently"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "-"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "if"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "intermediate"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "symbolic"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "link(s)"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "is"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "also"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "on"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "a"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "relocatable"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "path,"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "relocating"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "it"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "during"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "package"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "installation"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "may"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "cause"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "initial"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "symbolic"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "link"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "to"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "point"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "to"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -12194,33 +12572,364 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "error"
+                            text = "invalid"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
+                            text = "location."
+                        }
+                    }
+                }
+            }
+        },
+        doc.header:table {
+            id = "packaging-of-debug-information",
+            level = 2,
+            text = "Packaging of debug information",
+            doc.div:table {
+                classes = {
+                    "versionadded"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "3.7"
+                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Debuginfo"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packages"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "contain"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "debug"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "symbols"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "and"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "sources"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "debugging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaged"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "binaries."
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Debuginfo"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "RPM"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "has"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "its"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "own"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variables:"
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_DEBUGINFO_PACKAGE"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPACK_RPM_<component>_DEBUGINFO_PACKAGE"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Enable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generation"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "RPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package(s)."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
                         doc.string:table {
-                            text = "this"
+                            text = "Mandatory"
                         },
-                        doc.space:table {},
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "No"
+                            }
+                        }
+                    },
+                    doc.item:table {
                         doc.string:table {
-                            text = "case."
+                            text = "Default"
+                        },
+                        doc.paragraph:table {
+                            doc.code:table {
+                                text = "OFF"
+                            }
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
                         }
                     }
                 },
                 doc.paragraph:table {
                     doc.string:table {
-                        text = "Currently"
+                        text = "Binaries"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "there"
+                        text = "must"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "are"
+                        text = "contain"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debug"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "symbols"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "before"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "so"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "use"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "either"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "Debug"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "RelWithDebInfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CMAKE_BUILD_TYPE"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "value."
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Additionally,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "if"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_STRIP_FILES"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "stripped"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "before"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "they"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "get"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "RPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generator,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "so"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "contain"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debug"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "symbols"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -12228,2575 +12937,1573 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "few"
+                        text = "debuginfo"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "limitations"
+                        text = "package"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "though:"
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "get"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "built."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Do"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "use"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_STRIP_FILES"
+                    },
+                    doc.string:table {
+                        text = "."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generated"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "without"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "but"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "without"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "execute"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "permissions"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "without"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debug"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "symbols"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "cause"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "termination."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_BUILD_SOURCE_DIRS"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Provides"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "locations"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "root"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "directories"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "which"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binaries"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "were"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "built."
                     }
                 },
                 doc.list:table {
-                    style = "bullet",
+                    style = "definition",
                     doc.item:table {
-                        doc.plain:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
                             doc.string:table {
-                                text = "For"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "based"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "interdependency"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "checked"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "when"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "processing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbolic"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "links."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "Symbolic"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "links"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "pointing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "content"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "different"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "are"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "treated"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "same"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "way"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "as"
+                                text = "Yes"
                             },
                             doc.space:table {},
                             doc.string:table {
                                 text = "if"
                             },
                             doc.space:table {},
-                            doc.string:table {
-                                text = "pointing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "location"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaged."
-                            }
-                        }
-                    },
-                    doc.item:table {
-                        doc.plain:table {
-                            doc.string:table {
-                                text = "Symbolic"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "links"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "pointing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "location"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "through"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "one"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "or"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "more"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "intermediate"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbolic"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "links"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "handled"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "differently"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "-"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "if"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "intermediate"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbolic"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "link(s)"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "also"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "on"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "relocatable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "relocating"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "it"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "during"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "installation"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "may"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "cause"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "initial"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbolic"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "link"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "point"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "an"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "invalid"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "location."
-                            }
-                        }
-                    }
-                },
-                doc.header:table {
-                    id = "packaging-of-debug-information",
-                    level = 2,
-                    text = "Packaging of debug information",
-                    doc.div:table {
-                        classes = {
-                            "versionadded"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "3.7"
-                            }
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "Debuginfo"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "packages"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "contain"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "debug"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "symbols"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "and"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "sources"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "for"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "debugging"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "packaged"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "binaries."
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "Debuginfo"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "RPM"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "packaging"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "has"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "its"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "own"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "set"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "of"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "variables:"
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "variable"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
+                            doc.code:table {
+                                attributes = {
+                                    role = "variable"
+                                },
+                                classes = {
+                                    "interpreted-text"
+                                },
                                 text = "CPACK_RPM_DEBUGINFO_PACKAGE"
                             },
                             doc.space:table {},
                             doc.string:table {
-                                text = "CPACK_RPM_<component>_DEBUGINFO_PACKAGE"
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Enable"
+                                text = "is"
                             },
                             doc.space:table {},
                             doc.string:table {
-                                text = "generation"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "RPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package(s)."
-                            }
-                        },
-                        doc.list:table {
-                            style = "definition",
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "No"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
-                                doc.paragraph:table {
-                                    doc.code:table {
-                                        text = "OFF"
-                                    }
-                                }
+                                text = "set"
                             }
                         }
                     },
-                    doc.div:table {
-                        classes = {
-                            "note"
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
                         },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
+                        doc.string:table {
+                            text = ""
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "For"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CMake"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "project"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_BUILD_SOURCE_DIRS"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "default"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "point"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CMAKE_SOURCE_DIR"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CMAKE_BINARY_DIR"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "paths."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Sources"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "prefixes"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "do"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "fall"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "under"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "any"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "location"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "provided"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_BUILD_SOURCE_DIRS"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "present"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPACK_RPM_<component>_BUILD_SOURCE_DIRS_PREFIX"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Prefix"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "location"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "where"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "sources"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "placed"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "during"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "installation."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
                         },
                         doc.paragraph:table {
                             doc.string:table {
-                                text = "Binaries"
+                                text = "Yes"
                             },
                             doc.space:table {},
                             doc.string:table {
-                                text = "must"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "contain"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debug"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbols"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "before"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "so"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "use"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "either"
+                                text = "if"
                             },
                             doc.space:table {},
                             doc.code:table {
-                                text = "Debug"
+                                attributes = {
+                                    role = "variable"
+                                },
+                                classes = {
+                                    "interpreted-text"
+                                },
+                                text = "CPACK_RPM_DEBUGINFO_PACKAGE"
                             },
                             doc.space:table {},
                             doc.string:table {
-                                text = "or"
+                                text = "is"
                             },
                             doc.space:table {},
+                            doc.string:table {
+                                text = "set"
+                            }
+                        }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.paragraph:table {
                             doc.code:table {
-                                text = "RelWithDebInfo"
+                                text = "/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}"
+                            },
+                            doc.space:table {},
+                            doc.string:table {
+                                text = "and"
                             },
                             doc.space:table {},
                             doc.string:table {
                                 text = "for"
                             },
                             doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CMAKE_BUILD_TYPE"
-                            },
-                            doc.space:table {},
                             doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "value."
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Additionally,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "if"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_STRIP_FILES"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "files"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "stripped"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "before"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "they"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "get"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "RPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generator,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "so"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "contain"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debug"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbols"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "get"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "built."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "Do"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "use"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_STRIP_FILES"
-                            },
-                            doc.string:table {
-                                text = "."
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "note"
-                        },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Packages"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generated"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "from"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packages"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "without"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "binary"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "files,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "binary"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "files"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "but"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "without"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "execute"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "permissions"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "or"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "without"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debug"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "symbols"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "cause"
+                                text = "component"
                             },
                             doc.space:table {},
                             doc.string:table {
                                 text = "packaging"
                             },
                             doc.space:table {},
+                            doc.code:table {
+                                text = "/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}-<component>"
+                            }
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Each"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "prefix"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "additionally"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "suffixed"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "src_<index>"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "where"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "index"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "index"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "used"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_BUILD_SOURCE_DIRS"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "This"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "produces"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "${CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX}/src_<index>"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "replacement"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Limitation"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "replaced"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "part"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "shorter"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "equal"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "length"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "than"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "length"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "its"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "replacement."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "If"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "case"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "either"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "has"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "shorter"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "directories"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "placed"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "on"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "longer"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "path."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Directories"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "containing"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "sources"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "excluded"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
                             doc.string:table {
-                                text = "termination."
+                                text = "No"
                             }
                         }
                     },
-                    doc.div:table {
-                        classes = {
-                            "variable"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "CPACK_BUILD_SOURCE_DIRS"
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Provides"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "locations"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "root"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "directories"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "source"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "files"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "from"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "which"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "binaries"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "were"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "built."
-                            }
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
                         },
                         doc.list:table {
                             style = "definition",
                             doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "Yes"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "if"
-                                    },
-                                    doc.space:table {},
-                                    doc.code:table {
-                                        attributes = {
-                                            role = "variable"
-                                        },
-                                        classes = {
-                                            "interpreted-text"
-                                        },
-                                        text = "CPACK_RPM_DEBUGINFO_PACKAGE"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "is"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "set"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
-                                doc.string:table {
-                                    text = ""
-                                }
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "note"
-                        },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "For"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CMake"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "project"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_BUILD_SOURCE_DIRS"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "default"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "point"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CMAKE_SOURCE_DIR"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CMAKE_BINARY_DIR"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "paths."
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "note"
-                        },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Sources"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "prefixes"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "do"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "fall"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "under"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "any"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "location"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "provided"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_BUILD_SOURCE_DIRS"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "present"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "in"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package."
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "variable"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CPACK_RPM_<component>_BUILD_SOURCE_DIRS_PREFIX"
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Prefix"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "location"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "where"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "sources"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "placed"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "during"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "installation."
-                            }
-                        },
-                        doc.list:table {
-                            style = "definition",
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "Yes"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "if"
-                                    },
-                                    doc.space:table {},
-                                    doc.code:table {
-                                        attributes = {
-                                            role = "variable"
-                                        },
-                                        classes = {
-                                            "interpreted-text"
-                                        },
-                                        text = "CPACK_RPM_DEBUGINFO_PACKAGE"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "is"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "set"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
-                                doc.paragraph:table {
-                                    doc.code:table {
-                                        text = "/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "and"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "for"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "component"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "packaging"
-                                    },
-                                    doc.space:table {},
-                                    doc.code:table {
-                                        text = "/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}-<component>"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "note"
-                        },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Each"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "source"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "prefix"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "additionally"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "suffixed"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "src_<index>"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "where"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "index"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "index"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "used"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "from"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_BUILD_SOURCE_DIRS"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "This"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "produces"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "${CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX}/src_<index>"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "replacement"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "Limitation"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "replaced"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "part"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "must"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "shorter"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "or"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "equal"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "length"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "than"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "length"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "its"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "replacement."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "If"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "case"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "either"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "has"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "shorter"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "or"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "source"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "directories"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "must"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "placed"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "on"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "longer"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "path."
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "variable"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS"
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Directories"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "containing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "sources"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "should"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "excluded"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "from"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packages."
-                            }
-                        },
-                        doc.list:table {
-                            style = "definition",
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "No"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
                                 doc.list:table {
-                                    style = "definition",
+                                    style = "bullet",
                                     doc.item:table {
-                                        doc.list:table {
-                                            style = "bullet",
-                                            doc.item:table {
-                                                doc.plain:table {
-                                                    doc.code:table {
-                                                        text = "/usr"
-                                                    }
-                                                }
-                                            },
-                                            doc.item:table {
-                                                doc.plain:table {
-                                                    doc.code:table {
-                                                        text = "/usr/src"
-                                                    }
-                                                }
-                                            },
-                                            doc.item:table {
-                                                doc.plain:table {
-                                                    doc.code:table {
-                                                        text = "/usr/src/debug"
-                                                    }
-                                                }
+                                        doc.plain:table {
+                                            doc.code:table {
+                                                text = "/usr"
+                                            }
+                                        }
+                                    },
+                                    doc.item:table {
+                                        doc.plain:table {
+                                            doc.code:table {
+                                                text = "/usr/src"
+                                            }
+                                        }
+                                    },
+                                    doc.item:table {
+                                        doc.plain:table {
+                                            doc.code:table {
+                                                text = "/usr/src/debug"
                                             }
                                         }
                                     }
                                 }
                             }
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Listed"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "paths"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "are"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "owned"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "other"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "RPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "therefore"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "deleted"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "on"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "uninstallation."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS_ADDITION"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Paths"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "appended"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "exclusion."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
                         },
                         doc.paragraph:table {
                             doc.string:table {
-                                text = "Listed"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "paths"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "are"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "owned"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "other"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "RPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packages"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "should"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "therefore"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "not"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "deleted"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "on"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "uninstallation."
+                                text = "No"
                             }
                         }
                     },
-                    doc.div:table {
-                        classes = {
-                            "variable"
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.string:table {
+                            text = ""
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_DEBUGINFO_SINGLE_PACKAGE"
+                    }
+                },
+                doc.div:table {
+                    classes = {
+                        "versionadded"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "3.8"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Create"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "single"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "even"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "if"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "components"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
                         },
                         doc.paragraph:table {
                             doc.string:table {
-                                text = "CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS_ADDITION"
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Paths"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "that"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "should"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "appended"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "for"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "exclusion."
-                            }
-                        },
-                        doc.list:table {
-                            style = "definition",
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "No"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
-                                doc.string:table {
-                                    text = ""
-                                }
+                                text = "No"
                             }
                         }
                     },
-                    doc.div:table {
-                        classes = {
-                            "variable"
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
                         },
                         doc.paragraph:table {
-                            doc.string:table {
-                                text = "CPACK_RPM_DEBUGINFO_SINGLE_PACKAGE"
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "versionadded"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "3.8"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Create"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "single"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "even"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "if"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "components"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set."
-                            }
-                        },
-                        doc.list:table {
-                            style = "definition",
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "No"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
-                                doc.paragraph:table {
-                                    doc.code:table {
-                                        text = "OFF"
-                                    }
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "When"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "this"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "enabled"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "it"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "produces"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "single"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "even"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "if"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "enabled."
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "When"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "using"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "this"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "feature"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "in"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "combination"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "components"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "there"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "more"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "than"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "one"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "this"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "requires"
-                            },
-                            doc.space:table {},
                             doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_MAIN_COMPONENT"
-                            },
-                            doc.space:table {},
+                                text = "OFF"
+                            }
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "When"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "this"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "enabled"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "it"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "produces"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "single"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "even"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "if"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "component"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "enabled."
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "When"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "using"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "this"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "feature"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "combination"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "components"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "there"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "more"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "than"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "one"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "component"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "this"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "requires"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_MAIN_COMPONENT"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "If"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "none"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_<component>_DEBUGINFO_PACKAGE"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variables"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "then"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_DEBUGINFO_PACKAGE"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "automatically"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "ON"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "when"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_DEBUGINFO_SINGLE_PACKAGE"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_DEBUGINFO_FILE_NAME"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPACK_RPM_<component>_DEBUGINFO_FILE_NAME"
+                    }
+                },
+                doc.div:table {
+                    classes = {
+                        "versionadded"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "3.9"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "file"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "name."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
                             doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set."
+                                text = "No"
                             }
                         }
                     },
-                    doc.div:table {
-                        classes = {
-                            "note"
-                        },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
                         },
                         doc.paragraph:table {
-                            doc.string:table {
-                                text = "If"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "none"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_<component>_DEBUGINFO_PACKAGE"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variables"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "then"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_DEBUGINFO_PACKAGE"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "automatically"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "ON"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "when"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_DEBUGINFO_SINGLE_PACKAGE"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set."
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "variable"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "CPACK_RPM_DEBUGINFO_FILE_NAME"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CPACK_RPM_<component>_DEBUGINFO_FILE_NAME"
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "versionadded"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "3.9"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "file"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "name."
-                            }
-                        },
-                        doc.list:table {
-                            style = "definition",
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Mandatory"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "No"
-                                    }
-                                }
-                            },
-                            doc.item:table {
-                                doc.string:table {
-                                    text = "Default"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "rpmbuild"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "tool"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "generated"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "package"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "file"
-                                    },
-                                    doc.space:table {},
-                                    doc.string:table {
-                                        text = "name"
-                                    }
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Alternatively"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "provided"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "debuginfo"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "file"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "name"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "must"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "end"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "with"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = ".rpm"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "suffix"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "should"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "differ"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "from"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "file"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "names"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "other"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generated"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packages."
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "may"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "contain"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "@cpack_component@"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "placeholder"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "which"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "replaced"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "name"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "if"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "component"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "enabled"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "otherwise"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "it"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "deletes"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "placeholder."
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Setting"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "RPM-DEFAULT"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "may"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "used"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "explicitly"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "filename"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generation"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "default."
-                            }
-                        }
-                    },
-                    doc.div:table {
-                        classes = {
-                            "note"
-                        },
-                        doc.div:table {
-                            classes = {
-                                "title"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Note"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_FILE_NAME"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "also"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "supports"
-                            },
-                            doc.space:table {},
                             doc.string:table {
                                 text = "rpmbuild"
                             },
@@ -14819,1749 +14526,2042 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/<symlink_name>
                             doc.space:table {},
                             doc.string:table {
                                 text = "name"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "-"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "disabled"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "default"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "but"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "can"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "enabled"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "setting"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                text = "RPM-DEFAULT"
-                            },
-                            doc.string:table {
-                                text = "."
                             }
                         }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Alternatively"
                     },
-                    doc.header:table {
-                        id = "packaging-of-sources-srpm",
-                        level = 2,
-                        text = "Packaging of sources (SRPM)",
-                        doc.div:table {
-                            classes = {
-                                "versionadded"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "3.7"
-                                }
-                            }
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "provided"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "file"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "name"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "end"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = ".rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "suffix"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "differ"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "file"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "names"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "other"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generated"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages."
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "may"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "contain"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "@cpack_component@"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "placeholder"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "which"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "replaced"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "component"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "name"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "if"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "component"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "enabled"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "otherwise"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "it"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "deletes"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "placeholder."
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Setting"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "RPM-DEFAULT"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "may"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "used"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "explicitly"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "filename"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generation"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "default."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
                         },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "SRPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "enabled"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "setting"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_RPM_PACKAGE_SOURCES"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "while"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "usually"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "using"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "variable"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "CPACK_INSTALLED_DIRECTORIES"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "provide"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "directory"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "containing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CMakeLists.txt"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "source"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "files."
-                            }
+                        classes = {
+                            "interpreted-text"
                         },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "For"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CMake"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "projects"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "SRPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "would"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "produced"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "executing:"
-                            }
+                        text = "CPACK_RPM_FILE_NAME"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "also"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "supports"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpmbuild"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "tool"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generated"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "file"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "name"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "-"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "disabled"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "default"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "but"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "can"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "enabled"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "setting"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "RPM-DEFAULT"
+                    },
+                    doc.string:table {
+                        text = "."
+                    }
+                }
+            }
+        },
+        doc.header:table {
+            id = "packaging-of-sources-srpm",
+            level = 2,
+            text = "Packaging of sources (SRPM)",
+            doc.div:table {
+                classes = {
+                    "versionadded"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "3.7"
+                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "SRPM"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "is"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "enabled"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "setting"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    attributes = {
+                        role = "variable"
+                    },
+                    classes = {
+                        "interpreted-text"
+                    },
+                    text = "CPACK_RPM_PACKAGE_SOURCES"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variable"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "while"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "usually"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "using"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    attributes = {
+                        role = "variable"
+                    },
+                    classes = {
+                        "interpreted-text"
+                    },
+                    text = "CPACK_INSTALLED_DIRECTORIES"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variable"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "provide"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "directory"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "containing"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CMakeLists.txt"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "and"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "source"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "files."
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "For"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CMake"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "projects"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "SRPM"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "would"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "produced"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "executing:"
+                }
+            },
+            doc.block:table {
+                style = "code",
+                doc.string:table {
+                    text = "cpack -G RPM --config ./CPackSourceConfig.cmake"
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Produced"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "SRPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "expected"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "built"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "manual"
                         },
-                        doc.block:table {
-                            style = "code",
-                            doc.string:table {
-                                text = "cpack -G RPM --config ./CPackSourceConfig.cmake"
-                            }
+                        classes = {
+                            "interpreted-text"
                         },
-                        doc.div:table {
-                            classes = {
-                                "note"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "title"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "Note"
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Produced"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "SRPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "package"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "is"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "expected"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "built"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "with"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "manual"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "cmake(1)"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "executable"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "and"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packaged"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "with"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "manual"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "cpack(1)"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "executable"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "so"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "CMakeLists.txt"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "has"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "located"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "root"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "source"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "directory"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "and"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "must"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "able"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generate"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packages"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "by"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "executing"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "option"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "cpack -G"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "command."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "The"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "two"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "executables"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "well"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpmbuild"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "must"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "also"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "present"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "when"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generating"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packages"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "from"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "produced"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "SRPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "package."
-                                }
-                            }
+                        text = "cmake(1)"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "executable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaged"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "manual"
                         },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Once"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "SRPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "is"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generated"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "it"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "can"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "used"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generate"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "binary"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packages"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "by"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "creating"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "directory"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "structure"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "for"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "rpm"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generation"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "and"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "executing"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "rpmbuild"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "tool:"
-                            }
+                        classes = {
+                            "interpreted-text"
                         },
-                        doc.block:table {
-                            style = "code",
-                            doc.string:table {
-                                text = [[
+                        text = "cpack(1)"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "executable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "so"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CMakeLists.txt"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "has"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "located"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "root"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "directory"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "able"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generate"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "executing"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "option"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "cpack -G"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "command."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "The"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "two"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "executables"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "as"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "well"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "as"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpmbuild"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "also"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "present"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "when"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generating"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "produced"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "SRPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package."
+                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Once"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "SRPM"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "is"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generated"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "it"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "can"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "used"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generate"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "binary"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packages"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "creating"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "directory"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "structure"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "rpm"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generation"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "and"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "executing"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "rpmbuild"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "tool:"
+                }
+            },
+            doc.block:table {
+                style = "code",
+                doc.string:table {
+                    text = [[
 mkdir -p build_dir/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
 rpmbuild --define "_topdir <path_to_build_dir>" --rebuild <SRPM_file_name>
 ]]
-                            }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Generated"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packages"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "located"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "in"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "build_dir/RPMS"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "directory"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "or"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "its"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "sub"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "directories."
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "SRPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "internally"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "uses"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPack/RPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generator"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generate"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "so"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CMakeScripts.txt"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "can"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "decide"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "during"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "SRPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generation"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "step"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "what"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "content"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package(s)"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "have"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "as"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "well"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "as"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "how"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "they"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaged"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "(monolithic"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "components)."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CMake"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "can"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "decide"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "this"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "e.g."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "reading"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "environment"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variables"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "by"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "manager"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "before"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "starting"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "process"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generating"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "This"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "way"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "single"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "SRPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "can"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "used"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "produce"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "different"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "on"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "different"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "platforms"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "depending"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "on"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "platform\'s"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rules."
+                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Source"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "RPM"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "has"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "its"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "own"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variables:"
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_PACKAGE_SOURCES"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Should"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "content"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packaged"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "as"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "(default"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm)."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
                         },
                         doc.paragraph:table {
                             doc.string:table {
-                                text = "Generated"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packages"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "located"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "in"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "build_dir/RPMS"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "directory"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "or"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "its"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "sub"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "directories."
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "note"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "title"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "Note"
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "SRPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "package"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "internally"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "uses"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "CPack/RPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generator"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generate"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packages"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "so"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "CMakeScripts.txt"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "can"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "decide"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "during"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "SRPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generation"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "step"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "what"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "content"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "package(s)"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "should"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "have"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "well"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "how"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "they"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "should"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packaged"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "(monolithic"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "or"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "components)."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "CMake"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "can"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "decide"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "this"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "for"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "e.g."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "by"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "reading"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "environment"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "variables"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "set"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "by"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "package"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "manager"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "before"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "starting"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "process"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "of"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generating"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packages."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "This"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "way"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "a"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "single"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "SRPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "package"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "can"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "used"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "produce"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "different"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packages"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "on"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "different"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "platforms"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "depending"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "on"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "platform\'s"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packaging"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rules."
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Source"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "RPM"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "packaging"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "has"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "its"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "own"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variables:"
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "variable"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "CPACK_RPM_PACKAGE_SOURCES"
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Should"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "content"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packaged"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "a"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "source"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "(default"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "is"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm)."
-                                }
-                            },
-                            doc.list:table {
-                                style = "definition",
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Mandatory"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.string:table {
-                                            text = "No"
-                                        }
-                                    }
-                                },
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Default"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.code:table {
-                                            text = "OFF"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "note"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "title"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "Note"
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "For"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "cmake"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "projects"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "variable"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "CPACK_RPM_PACKAGE_SOURCES"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "variable"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "is"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "set"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    text = "OFF"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "CPackConfig.cmake"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "and"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    text = "ON"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "CPackSourceConfig.cmake"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generated"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "files."
-                                }
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "variable"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "CPACK_RPM_SOURCE_PKG_BUILD_PARAMS"
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Additional"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "command-line"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "parameters"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "provided"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "manual"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "cmake(1)"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "executable."
-                                }
-                            },
-                            doc.list:table {
-                                style = "definition",
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Mandatory"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.string:table {
-                                            text = "No"
-                                        }
-                                    }
-                                },
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Default"
-                                    },
-                                    doc.string:table {
-                                        text = ""
-                                    }
-                                }
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "variable"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "CPACK_RPM_SOURCE_PKG_PACKAGING_INSTALL_PREFIX"
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Packaging"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "install"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "prefix"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "that"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "would"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "provided"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "variable"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "CPACK_PACKAGING_INSTALL_PREFIX"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "variable"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "for"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "producing"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "binary"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "RPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "packages."
-                                }
-                            },
-                            doc.list:table {
-                                style = "definition",
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Mandatory"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.string:table {
-                                            text = "Yes"
-                                        }
-                                    }
-                                },
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Default"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.code:table {
-                                            text = "/"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "variable"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "CPACK_RPM_BUILDREQUIRES"
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "List"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "of"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "source"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "rpm"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "build"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "dependencies."
-                                }
-                            },
-                            doc.list:table {
-                                style = "definition",
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Mandatory"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.string:table {
-                                            text = "No"
-                                        }
-                                    }
-                                },
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Default"
-                                    },
-                                    doc.string:table {
-                                        text = ""
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "May"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "used"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "set"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "source"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "RPM"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "build"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "dependencies"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "(BuildRequires)."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "Note"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "that"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "you"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "must"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "enclose"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "complete"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "build"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "requirements"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "string"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "between"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "quotes,"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "for"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "example:"
-                                }
-                            },
-                            doc.block:table {
-                                style = "code",
-                                doc.string:table {
-                                    text = "set(CPACK_RPM_BUILDREQUIRES \"python >= 2.5.0, cmake >= 2.8\")"
-                                }
-                            }
-                        },
-                        doc.div:table {
-                            classes = {
-                                "variable"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "CPACK_RPM_REQUIRES_EXCLUDE_FROM"
-                                }
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "versionadded"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "3.22"
-                                    }
-                                }
-                            },
-                            doc.list:table {
-                                style = "definition",
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Mandatory"
-                                    },
-                                    doc.paragraph:table {
-                                        doc.string:table {
-                                            text = "No"
-                                        }
-                                    }
-                                },
-                                doc.item:table {
-                                    doc.string:table {
-                                        text = "Default"
-                                    },
-                                    doc.string:table {
-                                        text = ""
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "May"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "used"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "to"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "keep"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "dependency"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generator"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "from"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "scanning"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "specific"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "files"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "or"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "directories"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "for"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "dependencies."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "Note"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "that"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "you"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "can"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "use"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "a"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "regular"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "expression"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "that"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "matches"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "all"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "of"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "directories"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "or"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "files,"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "for"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "example:"
-                                }
-                            },
-                            doc.block:table {
-                                style = "code",
-                                doc.string:table {
-                                    text = "set(CPACK_RPM_REQUIRES_EXCLUDE_FROM \"bin/libqsqloci.*\\.so.*\")"
-                                }
+                                text = "No"
                             }
                         }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.paragraph:table {
+                            doc.code:table {
+                                text = "OFF"
+                            }
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "For"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "cmake"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "projects"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_RPM_PACKAGE_SOURCES"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "OFF"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPackConfig.cmake"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "ON"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPackSourceConfig.cmake"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generated"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_SOURCE_PKG_BUILD_PARAMS"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Additional"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "command-line"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "parameters"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "provided"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "manual"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "cmake(1)"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "executable."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "No"
+                            }
+                        }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.string:table {
+                            text = ""
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_SOURCE_PKG_PACKAGING_INSTALL_PREFIX"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Packaging"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "install"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "prefix"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "would"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "provided"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_PACKAGING_INSTALL_PREFIX"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "producing"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "binary"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "RPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "packages."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "Yes"
+                            }
+                        }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.paragraph:table {
+                            doc.code:table {
+                                text = "/"
+                            }
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_BUILDREQUIRES"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "List"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "rpm"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "build"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dependencies."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "No"
+                            }
+                        }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.string:table {
+                            text = ""
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "May"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "used"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "source"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "RPM"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "build"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dependencies"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "(BuildRequires)."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Note"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "you"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "enclose"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "complete"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "build"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "requirements"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "string"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "between"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "quotes,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "example:"
+                    }
+                },
+                doc.block:table {
+                    style = "code",
+                    doc.string:table {
+                        text = "set(CPACK_RPM_BUILDREQUIRES \"python >= 2.5.0, cmake >= 2.8\")"
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_RPM_REQUIRES_EXCLUDE_FROM"
+                    }
+                },
+                doc.div:table {
+                    classes = {
+                        "versionadded"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "3.22"
+                        }
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "No"
+                            }
+                        }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.string:table {
+                            text = ""
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "May"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "used"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "keep"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dependency"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generator"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "from"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "scanning"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "specific"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "directories"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dependencies."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Note"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "you"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "can"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "use"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "regular"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "expression"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "that"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "matches"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "all"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "directories"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "for"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "example:"
+                    }
+                },
+                doc.block:table {
+                    style = "code",
+                    doc.string:table {
+                        text = "set(CPACK_RPM_REQUIRES_EXCLUDE_FROM \"bin/libqsqloci.*\\.so.*\")"
                     }
                 }
             }

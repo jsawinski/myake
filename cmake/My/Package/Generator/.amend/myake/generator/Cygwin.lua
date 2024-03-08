@@ -51,22 +51,97 @@ return {
                         }
                     }
                 }
+            }
+        },
+        doc.header:table {
+            id = "variables-specific-to-cpack-cygwin-generator",
+            level = 2,
+            text = "Variables specific to CPack Cygwin generator",
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "The"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "following"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variable"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "is"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "specific"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "installers"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "build"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "on"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "and/or"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "Cygwin:"
+                }
             },
-            doc.header:table {
-                id = "variables-specific-to-cpack-cygwin-generator",
-                level = 2,
-                text = "Variables specific to CPack Cygwin generator",
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_CYGWIN_PATCH_NUMBER"
+                    }
+                },
                 doc.paragraph:table {
                     doc.string:table {
                         text = "The"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "following"
+                        text = "Cygwin"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "variable"
+                        text = "patch"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "number."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "FIXME:"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "This"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "documentation"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -74,15 +149,73 @@ return {
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "specific"
+                        text = "incomplete."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_CYGWIN_PATCH_FILE"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "The"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "to"
+                        text = "Cygwin"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "installers"
+                        text = "patch"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "file."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "FIXME:"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "This"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "documentation"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "incomplete."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_CYGWIN_BUILD_SCRIPT"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "The"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Cygwin"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -90,160 +223,27 @@ return {
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "on"
+                        text = "script."
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "and/or"
+                        text = "FIXME:"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "for"
+                        text = "This"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "Cygwin:"
-                    }
-                },
-                doc.div:table {
-                    classes = {
-                        "variable"
+                        text = "documentation"
                     },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "CPACK_CYGWIN_PATCH_NUMBER"
-                        }
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
                     },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "The"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Cygwin"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "patch"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "number."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "FIXME:"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "This"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "documentation"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "incomplete."
-                        }
-                    }
-                },
-                doc.div:table {
-                    classes = {
-                        "variable"
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "CPACK_CYGWIN_PATCH_FILE"
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "The"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Cygwin"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "patch"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "FIXME:"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "This"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "documentation"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "incomplete."
-                        }
-                    }
-                },
-                doc.div:table {
-                    classes = {
-                        "variable"
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "CPACK_CYGWIN_BUILD_SCRIPT"
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "The"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Cygwin"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "build"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "script."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "FIXME:"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "This"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "documentation"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "incomplete."
-                        }
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "incomplete."
                     }
                 }
             }

@@ -8896,28 +8896,283 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
                         }
                     }
                 }
+            }
+        },
+        doc.header:table {
+            id = "packaging-of-debug-information",
+            level = 2,
+            text = "Packaging of debug information",
+            doc.div:table {
+                classes = {
+                    "versionadded"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "3.13"
+                    }
+                }
             },
-            doc.header:table {
-                id = "packaging-of-debug-information",
-                level = 2,
-                text = "Packaging of debug information",
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Dbgsym"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packages"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "contain"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "debug"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "symbols"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "debugging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaged"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "binaries."
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "Dbgsym"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "packaging"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "has"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "its"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "own"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variables:"
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "variable"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "CPACK_DEBIAN_DEBUGINFO_PACKAGE"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "CPACK_DEBIAN_<component>_DEBUGINFO_PACKAGE"
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Enable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generation"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "of"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dbgsym"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = ".ddeb"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package(s)."
+                    }
+                },
+                doc.list:table {
+                    style = "definition",
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Mandatory"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "No"
+                            }
+                        }
+                    },
+                    doc.item:table {
+                        doc.string:table {
+                            text = "Default"
+                        },
+                        doc.paragraph:table {
+                            doc.code:table {
+                                text = "OFF"
+                            }
+                        }
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
                 doc.div:table {
                     classes = {
-                        "versionadded"
+                        "title"
                     },
                     doc.paragraph:table {
                         doc.string:table {
-                            text = "3.13"
+                            text = "Note"
                         }
                     }
                 },
                 doc.paragraph:table {
                     doc.string:table {
-                        text = "Dbgsym"
+                        text = "Setting"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "packages"
+                        text = "this"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "also"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "strips"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "ELF"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generated"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "non-dbgsym"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "which"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "results"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debuginfo"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "only"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "being"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "available"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "in"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dbgsym"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package."
+                    }
+                }
+            },
+            doc.div:table {
+                classes = {
+                    "note"
+                },
+                doc.div:table {
+                    classes = {
+                        "title"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Note"
+                        }
+                    }
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Binaries"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "must"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -8933,24 +9188,7 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "for"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "debugging"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "packaged"
-                    },
-                    doc.space:table {},
-                    doc.string:table {
-                        text = "binaries."
-                    }
-                },
-                doc.paragraph:table {
-                    doc.string:table {
-                        text = "Dbgsym"
+                        text = "before"
                     },
                     doc.space:table {},
                     doc.string:table {
@@ -8958,803 +9196,565 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "has"
+                        text = "so"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "its"
+                        text = "use"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "own"
+                        text = "either"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "Debug"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "set"
+                        text = "or"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        text = "RelWithDebInfo"
                     },
                     doc.space:table {},
                     doc.string:table {
-                        text = "of"
+                        text = "for"
                     },
                     doc.space:table {},
-                    doc.string:table {
-                        text = "variables:"
-                    }
-                },
-                doc.div:table {
-                    classes = {
-                        "variable"
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "CPACK_DEBIAN_DEBUGINFO_PACKAGE"
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
                         },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "CPACK_DEBIAN_<component>_DEBUGINFO_PACKAGE"
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "Enable"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generation"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "of"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "dbgsym"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = ".ddeb"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "package(s)."
-                        }
-                    },
-                    doc.list:table {
-                        style = "definition",
-                        doc.item:table {
-                            doc.string:table {
-                                text = "Mandatory"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "No"
-                                }
-                            }
-                        },
-                        doc.item:table {
-                            doc.string:table {
-                                text = "Default"
-                            },
-                            doc.paragraph:table {
-                                doc.code:table {
-                                    text = "OFF"
-                                }
-                            }
-                        }
-                    }
-                },
-                doc.div:table {
-                    classes = {
-                        "note"
-                    },
-                    doc.div:table {
                         classes = {
-                            "title"
+                            "interpreted-text"
                         },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Note"
-                            }
-                        }
+                        text = "CMAKE_BUILD_TYPE"
                     },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "Setting"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "this"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "also"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "strips"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "ELF"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "files"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generated"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "non-dbgsym"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "package,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "which"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "results"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "debuginfo"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "only"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "being"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "available"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "dbgsym"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "package."
-                        }
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "variable"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "value."
                     }
                 },
-                doc.div:table {
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "Additionally,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "if"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_STRIP_FILES"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "is"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "set,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "files"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "be"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "stripped"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "before"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "they"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "get"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "to"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "the"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "DEB"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "generator,"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "so"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "contain"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "debug"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "symbols"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "and"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "a"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "dbgsym"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "package"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "will"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "get"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "built."
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "Do"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "not"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "use"
+                    },
+                    doc.space:table {},
+                    doc.string:table {
+                        text = "with"
+                    },
+                    doc.space:table {},
+                    doc.code:table {
+                        attributes = {
+                            role = "variable"
+                        },
+                        classes = {
+                            "interpreted-text"
+                        },
+                        text = "CPACK_STRIP_FILES"
+                    },
+                    doc.string:table {
+                        text = "."
+                    }
+                }
+            }
+        },
+        doc.header:table {
+            id = "building-debian-packages-on-windows",
+            level = 2,
+            text = "Building Debian packages on Windows",
+            doc.div:table {
+                classes = {
+                    "versionadded"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "3.10"
+                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "To"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "communicate"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "UNIX"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "permissions"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "from"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "install"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "stage"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CPack"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "DEB"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generator"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    text = "cmake_mode_t"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "NTFS"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "alternate"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "data"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "stream"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "(ADT)"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "is"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "used."
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "When"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "filesystem"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "without"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "ADT"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "support"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "is"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "used"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "only"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "owner"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "read/write"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "permissions"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "can"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "preserved."
+                }
+            }
+        },
+        doc.header:table {
+            id = "reproducible-packages",
+            level = 2,
+            text = "Reproducible packages",
+            doc.div:table {
+                classes = {
+                    "versionadded"
+                },
+                doc.paragraph:table {
+                    doc.string:table {
+                        text = "3.13"
+                    }
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "The"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "environment"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variable"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    attributes = {
+                        role = "envvar"
+                    },
                     classes = {
-                        "note"
+                        "interpreted-text"
                     },
-                    doc.div:table {
-                        classes = {
-                            "title"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "Note"
-                            }
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "Binaries"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "must"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "contain"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "debug"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "symbols"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "before"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "packaging"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "so"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "use"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "either"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "Debug"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "or"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "RelWithDebInfo"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "for"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            attributes = {
-                                role = "variable"
-                            },
-                            classes = {
-                                "interpreted-text"
-                            },
-                            text = "CMAKE_BUILD_TYPE"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "variable"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "value."
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "Additionally,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "if"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            attributes = {
-                                role = "variable"
-                            },
-                            classes = {
-                                "interpreted-text"
-                            },
-                            text = "CPACK_STRIP_FILES"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "set,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "files"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "will"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "be"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "stripped"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "before"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "they"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "get"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "DEB"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generator,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "so"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "will"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "not"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "contain"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "debug"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "symbols"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "and"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "a"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "dbgsym"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "package"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "will"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "not"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "get"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "built."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Do"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "not"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "use"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "with"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            attributes = {
-                                role = "variable"
-                            },
-                            classes = {
-                                "interpreted-text"
-                            },
-                            text = "CPACK_STRIP_FILES"
-                        },
-                        doc.string:table {
-                            text = "."
-                        }
-                    }
+                    text = "!SOURCE_DATE_EPOCH"
                 },
-                doc.header:table {
-                    id = "building-debian-packages-on-windows",
-                    level = 2,
-                    text = "Building Debian packages on Windows",
-                    doc.div:table {
-                        classes = {
-                            "versionadded"
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "3.10"
-                            }
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "To"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "communicate"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "UNIX"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "permissions"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "from"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "install"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "stage"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "CPack"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "DEB"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generator"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "cmake_mode_t"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "NTFS"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "alternate"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "data"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "stream"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "(ADT)"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "used."
-                        }
-                    },
-                    doc.paragraph:table {
-                        doc.string:table {
-                            text = "When"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "a"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "filesystem"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "without"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "ADT"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "support"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "used"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "only"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "owner"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "read/write"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "permissions"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "can"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "be"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "preserved."
-                        }
-                    },
-                    doc.header:table {
-                        id = "reproducible-packages",
-                        level = 2,
-                        text = "Reproducible packages",
-                        doc.div:table {
-                            classes = {
-                                "versionadded"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "3.13"
-                                }
-                            }
-                        },
-                        doc.paragraph:table {
-                            doc.string:table {
-                                text = "The"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "environment"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "variable"
-                            },
-                            doc.space:table {},
-                            doc.code:table {
-                                attributes = {
-                                    role = "envvar"
-                                },
-                                classes = {
-                                    "interpreted-text"
-                                },
-                                text = "!SOURCE_DATE_EPOCH"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "may"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "be"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "to"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "a"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "UNIX"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "timestamp,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "defined"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "as"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "number"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "of"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "seconds,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "excluding"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "leap"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "seconds,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "since"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "01"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "Jan"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "1970"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "00:00:00"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "UTC."
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "If"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "set,"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "CPack"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "DEB"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "generator"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "will"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "use"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "its"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "value"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "for"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "timestamps"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "in"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "the"
-                            },
-                            doc.space:table {},
-                            doc.string:table {
-                                text = "package."
-                            }
-                        }
-                    }
+                doc.space:table {},
+                doc.string:table {
+                    text = "may"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "UNIX"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "timestamp,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "defined"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "as"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "number"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "seconds,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "excluding"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "leap"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "seconds,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "since"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "01"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "Jan"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "1970"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "00:00:00"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "UTC."
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "If"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CPack"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "DEB"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generator"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "use"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "its"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "value"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "timestamps"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "in"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package."
                 }
             }
         }

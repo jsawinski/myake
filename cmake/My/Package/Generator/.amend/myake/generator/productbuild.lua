@@ -3292,178 +3292,436 @@ return {
                             text = "theme."
                         }
                     }
+                }
+            }
+        },
+        doc.header:table {
+            id = "distribution-xml-template",
+            level = 2,
+            text = "Distribution XML Template",
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "CPack"
                 },
-                doc.header:table {
-                    id = "distribution-xml-template",
-                    level = 2,
-                    text = "Distribution XML Template",
+                doc.space:table {},
+                doc.string:table {
+                    text = "uses"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "template"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generate"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    text = "distribution.dist"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "used"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "internally"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "this"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "package"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generator."
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "Ordinarily,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CMake"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "provides"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "template"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file,"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "but"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "projects"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "may"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "supply"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "their"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "own"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "placing"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "a"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "called"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    text = "CPack.distribution.dist.in"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "in"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "one"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "directories"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "listed"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "in"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    attributes = {
+                        role = "variable"
+                    },
+                    classes = {
+                        "interpreted-text"
+                    },
+                    text = "CMAKE_MODULE_PATH"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variable."
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CPack"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "then"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "pick"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "up"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "project\'s"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "template"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "instead"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "of"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "using"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "its"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "own."
+                }
+            },
+            doc.paragraph:table {
+                doc.string:table {
+                    text = "The"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    text = "distribution.dist"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "is"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "generated"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "by"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "performing"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "substitutions"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "similar"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "to"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    attributes = {
+                        role = "command"
+                    },
+                    classes = {
+                        "interpreted-text"
+                    },
+                    text = "configure_file"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "command."
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "Any"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variable"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "when"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "CPack"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "runs"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "will"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "be"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "available"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "substitution"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "using"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "the"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "usual"
+                },
+                doc.space:table {},
+                doc.code:table {
+                    text = "@...@"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "form."
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "The"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "following"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "variables"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "are"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "also"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "set"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "internally"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "and"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "made"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "available"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "for"
+                },
+                doc.space:table {},
+                doc.string:table {
+                    text = "substitution:"
+                }
+            },
+            doc.list:table {
+                style = "definition",
+                doc.item:table {
+                    doc.code:table {
+                        text = "CPACK_RESOURCE_FILE_LICENSE_NOPATH"
+                    },
                     doc.paragraph:table {
                         doc.string:table {
-                            text = "CPack"
+                            text = "Same"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "uses"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "a"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "template"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generate"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "distribution.dist"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "used"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "internally"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "by"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "this"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "package"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generator."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Ordinarily,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "CMake"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "provides"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "template"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file,"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "but"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "projects"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "may"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "supply"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "their"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "own"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "by"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "placing"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "a"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "called"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "CPack.distribution.dist.in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "one"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "of"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "directories"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "listed"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "in"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
+                            text = "as"
                         },
                         doc.space:table {},
                         doc.code:table {
@@ -3473,31 +3731,15 @@ return {
                             classes = {
                                 "interpreted-text"
                             },
-                            text = "CMAKE_MODULE_PATH"
+                            text = "CPACK_RESOURCE_FILE_LICENSE"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "variable."
+                            text = "except"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "CPack"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "will"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "then"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "pick"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "up"
+                            text = "without"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -3505,118 +3747,19 @@ return {
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "project\'s"
+                            text = "path."
                         },
                         doc.space:table {},
-                        doc.string:table {
-                            text = "template"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "instead"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "of"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "using"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "its"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "own."
-                        }
-                    },
-                    doc.paragraph:table {
                         doc.string:table {
                             text = "The"
                         },
                         doc.space:table {},
-                        doc.code:table {
-                            text = "distribution.dist"
+                        doc.string:table {
+                            text = "named"
                         },
                         doc.space:table {},
                         doc.string:table {
                             text = "file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "is"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "generated"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "by"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "performing"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "substitutions"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "similar"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "to"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "the"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            attributes = {
-                                role = "command"
-                            },
-                            classes = {
-                                "interpreted-text"
-                            },
-                            text = "configure_file"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "command."
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "Any"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "variable"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "set"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "when"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "CPack"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "runs"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -3632,15 +3775,7 @@ return {
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "for"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "substitution"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "using"
+                            text = "in"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -3648,15 +3783,71 @@ return {
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "usual"
-                        },
-                        doc.space:table {},
-                        doc.code:table {
-                            text = "@...@"
+                            text = "same"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "form."
+                            text = "directory"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "as"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "generated"
+                        },
+                        doc.space:table {},
+                        doc.code:table {
+                            text = "distribution.dist"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "file."
+                        }
+                    }
+                },
+                doc.item:table {
+                    doc.code:table {
+                        text = "CPACK_RESOURCE_FILE_README_NOPATH"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Same"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "as"
+                        },
+                        doc.space:table {},
+                        doc.code:table {
+                            attributes = {
+                                role = "variable"
+                            },
+                            classes = {
+                                "interpreted-text"
+                            },
+                            text = "CPACK_RESOURCE_FILE_README"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "except"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "without"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "path."
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -3664,35 +3855,19 @@ return {
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "following"
+                            text = "named"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "variables"
+                            text = "file"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "are"
+                            text = "will"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "also"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "set"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "internally"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "and"
-                        },
-                        doc.space:table {},
-                        doc.string:table {
-                            text = "made"
+                            text = "be"
                         },
                         doc.space:table {},
                         doc.string:table {
@@ -3700,538 +3875,363 @@ return {
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "for"
+                            text = "in"
                         },
                         doc.space:table {},
                         doc.string:table {
-                            text = "substitution:"
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "same"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "directory"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "as"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "generated"
+                        },
+                        doc.space:table {},
+                        doc.code:table {
+                            text = "distribution.dist"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "file."
+                        }
+                    }
+                },
+                doc.item:table {
+                    doc.code:table {
+                        text = "CPACK_RESOURCE_FILE_WELCOME_NOPATH"
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "Same"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "as"
+                        },
+                        doc.space:table {},
+                        doc.code:table {
+                            attributes = {
+                                role = "variable"
+                            },
+                            classes = {
+                                "interpreted-text"
+                            },
+                            text = "CPACK_RESOURCE_FILE_WELCOME"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "except"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "without"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "path."
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "The"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "named"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "file"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "will"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "be"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "available"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "in"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "same"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "directory"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "as"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "generated"
+                        },
+                        doc.space:table {},
+                        doc.code:table {
+                            text = "distribution.dist"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "file."
+                        }
+                    }
+                },
+                doc.item:table {
+                    doc.code:table {
+                        text = "CPACK_APPLE_PKG_INSTALLER_CONTENT"
+                    },
+                    doc.div:table {
+                        classes = {
+                            "versionadded"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "3.23"
+                            }
                         }
                     },
-                    doc.list:table {
-                        style = "definition",
-                        doc.item:table {
-                            doc.code:table {
-                                text = "CPACK_RESOURCE_FILE_LICENSE_NOPATH"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Same"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "variable"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "CPACK_RESOURCE_FILE_LICENSE"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "except"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "without"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "path."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "The"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "named"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "file"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "will"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "available"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "same"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "directory"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generated"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    text = "distribution.dist"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "file."
-                                }
-                            }
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "This"
                         },
-                        doc.item:table {
-                            doc.code:table {
-                                text = "CPACK_RESOURCE_FILE_README_NOPATH"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Same"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "variable"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "CPACK_RESOURCE_FILE_README"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "except"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "without"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "path."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "The"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "named"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "file"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "will"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "available"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "same"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "directory"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generated"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    text = "distribution.dist"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "file."
-                                }
-                            }
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "contains"
                         },
-                        doc.item:table {
-                            doc.code:table {
-                                text = "CPACK_RESOURCE_FILE_WELCOME_NOPATH"
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "Same"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    attributes = {
-                                        role = "variable"
-                                    },
-                                    classes = {
-                                        "interpreted-text"
-                                    },
-                                    text = "CPACK_RESOURCE_FILE_WELCOME"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "except"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "without"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "path."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "The"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "named"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "file"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "will"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "be"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "available"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "in"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "same"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "directory"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "as"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "generated"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    text = "distribution.dist"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "file."
-                                }
-                            }
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "all"
                         },
-                        doc.item:table {
-                            doc.code:table {
-                                text = "CPACK_APPLE_PKG_INSTALLER_CONTENT"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "versionadded"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "3.23"
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "This"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "contains"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "all"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "XML"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "elements"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "that"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "specify"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "installer-wide"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "options"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "(including"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "domain"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "details),"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "default"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "backgrounds"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "and"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "choices"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "outline."
-                                }
-                            }
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
                         },
-                        doc.item:table {
-                            doc.code:table {
-                                text = "CPACK_PACKAGEMAKER_CHOICES"
-                            },
-                            doc.div:table {
-                                classes = {
-                                    "deprecated"
-                                },
-                                doc.paragraph:table {
-                                    doc.string:table {
-                                        text = "3.23"
-                                    }
-                                }
-                            },
-                            doc.paragraph:table {
-                                doc.string:table {
-                                    text = "This"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "contains"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "only"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "XML"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "elements"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "that"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "specify"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "default"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "backgrounds"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "and"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "choices"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "outline."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "It"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "does"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "not"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "include"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "the"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "installer-wide"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "options"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "or"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "any"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "domain"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "details."
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "Use"
-                                },
-                                doc.space:table {},
-                                doc.code:table {
-                                    text = "CPACK_APPLE_PKG_INSTALLER_CONTENT"
-                                },
-                                doc.space:table {},
-                                doc.string:table {
-                                    text = "instead."
-                                }
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "XML"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "elements"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "that"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "specify"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "installer-wide"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "options"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "(including"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "domain"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "details),"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "default"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "backgrounds"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "and"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "choices"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "outline."
+                        }
+                    }
+                },
+                doc.item:table {
+                    doc.code:table {
+                        text = "CPACK_PACKAGEMAKER_CHOICES"
+                    },
+                    doc.div:table {
+                        classes = {
+                            "deprecated"
+                        },
+                        doc.paragraph:table {
+                            doc.string:table {
+                                text = "3.23"
                             }
+                        }
+                    },
+                    doc.paragraph:table {
+                        doc.string:table {
+                            text = "This"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "contains"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "only"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "XML"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "elements"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "that"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "specify"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "default"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "backgrounds"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "and"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "choices"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "outline."
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "It"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "does"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "not"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "include"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "the"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "installer-wide"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "options"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "or"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "any"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "domain"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "details."
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "Use"
+                        },
+                        doc.space:table {},
+                        doc.code:table {
+                            text = "CPACK_APPLE_PKG_INSTALLER_CONTENT"
+                        },
+                        doc.space:table {},
+                        doc.string:table {
+                            text = "instead."
                         }
                     }
                 }
