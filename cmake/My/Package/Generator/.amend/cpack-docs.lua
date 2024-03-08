@@ -1,12 +1,12 @@
 #!_cpack-docs -- update CPack documentation
 
-local cpack_version = "0.0.0"
+local cpack_version = "3.28.3"
 
 -- check if update required
 local cpack_detected_version = io.command("cpack --version")
 if cpack_detected_version ~= nil then
     cpack_detected_version = cpack_detected_version:match('[0-9.]+')
-    if version(cpack_version) > version(cpack_detected_version) then
+    if version(cpack_version) >= version(cpack_detected_version) then
         return
     end
 else
@@ -42,7 +42,7 @@ local generators = {
     ['External'] = true,
     ['FreeBSD'] = true,
     ['IFW'] = true,
-    ['InnoSetup'] = true,
+    ['InnoSetup'] = false, -- FIXME there's an error in amend's io.dump
     ['NSIS'] = true,
     ['NuGet'] = true,
     ['PackageMaker'] = false,
@@ -109,10 +109,7 @@ function process(file, key)
     print(pipe:read('a'))
 end
 
--- process(cpackhelp, "Common")
-process(generators.DEB, "DEB")
--- process(generators.RPM, "RPM")
-
--- for _,k in ipairs(order) do
---     print(k, generators[k])
--- end
+process(cpackhelp, "Common")
+for _,k in ipairs(order) do
+    process(generators[k], k)
+end
