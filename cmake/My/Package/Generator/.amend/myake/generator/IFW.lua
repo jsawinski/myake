@@ -6258,7 +6258,7 @@ return {
                                             },
                                             doc.space:table {},
                                             doc.code:table {
-                                                text = "D:\\DevTools\\QtIFW2.0.5"
+                                                text = "D:\\\\DevTools\\\\QtIFW2.0.5"
                                             },
                                             doc.string:table {
                                                 text = ")."

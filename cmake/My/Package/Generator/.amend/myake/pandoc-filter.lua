@@ -108,7 +108,10 @@ class(doc) "code" {
         id = void
     },
     __init = function(self, p)
-        self.text = p.text
+        local text = p.text
+        text = text:gsub('\\([<>])', '%1') -- fix occurence of "\<HASH\>"
+        text = text:gsub('\\', '\\\\') -- fix backslashes as path
+        self.text = text
 
         local attr = p.attr
         if attr.identifier:len() > 0 then

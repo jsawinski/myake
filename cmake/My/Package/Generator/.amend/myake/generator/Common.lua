@@ -4231,7 +4231,7 @@ return {
                                     classes = {
                                         "interpreted-text"
                                     },
-                                    text = "string(\<HASH\>) <Supported Hash Algorithms>"
+                                    text = "string(<HASH>) <Supported Hash Algorithms>"
                                 },
                                 doc.space:table {},
                                 doc.string:table {
@@ -7676,7 +7676,7 @@ return {
                                     },
                                     doc.space:table {},
                                     doc.code:table {
-                                        text = "/CVS/;/\\.svn/;\\.swp$;\\.#;/#;.*~;cscope.*"
+                                        text = "/CVS/;/\\\\.svn/;\\\\.swp$;\\\\.#;/#;.*~;cscope.*"
                                     }
                                 }
                             },

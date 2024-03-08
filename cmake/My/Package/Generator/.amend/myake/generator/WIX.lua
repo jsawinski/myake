@@ -3489,7 +3489,7 @@ fragmentContent = element * - CPackWiXFragment
                     },
                     doc.space:table {},
                     doc.code:table {
-                        text = "HKEY_LOCAL_MACHINE\Software\Kitware\CMake\Packages\<PackageName>"
+                        text = "HKEY_LOCAL_MACHINE\\Software\\Kitware\\CMake\\Packages<PackageName>"
                     },
                     doc.space:table {},
                     doc.string:table {
