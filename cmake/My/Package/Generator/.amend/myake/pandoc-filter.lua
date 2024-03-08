@@ -53,7 +53,14 @@ class(doc) "node" {
     __public = {
         attr = void
     }, 
-    __dump = dumper
+    __dump = dumper,
+    __newindex = function(self, k, v)
+        if math.type(k) ~= 'integer' and not getmetatable(self).__public[k] then
+            error(strformat("variable %q is not a public member variable", tostring(k)), 2)
+        end
+    
+        rawset(self, k, v)
+    end
 }
 
 -- header
@@ -67,7 +74,17 @@ class(doc) "header" {
 }
 
 function doc.header:__init(p) 
-    self.attr = p.attr 
+    self.id = p.attr.identifier
+    self.level = p.level
+end
+
+-- paragraph
+class(doc) "paragraph" {
+    __inherit = {doc.node},
+    __public = {}
+}
+
+function doc.paragraph:__init(p) 
 end
 
 -- ---------------------------------------------------------------------------
@@ -93,20 +110,43 @@ end
 
 local level = 0
 function m.Header(p) 
+    -- create node
     local node = doc.header(p)
+    table.insert(top(), node)
 
-    -- FIXME 
+    -- parse content
+    node.text = {}
+    push(node.text)
+    walk(p.content)
+
+    -- convert to single string
+    node.text = table.concat(pop())
+
+    -- adjust stack
     if p.level > level then
-
+        push(node)
     else
-        -- FIXME
+        while not isa(top(), 'header') and top().level ~= p.level-1 do
+            pop()
+        end
     end
-    
+end
 
-    -- table.insert(top(), node)
+function m.Str(p)
+    table.insert(top(), p.text)
+end
 
+function m.Space(p)
+    table.insert(top(), " ")
+end
 
-    return node
+function m.Para(p)
+    local node = doc.paragraph(p)
+    table.insert(top(), node)
+
+    push(node)
+    walk(p.content)
+    pop()
 end
 
 -- ---------------------------------------------------------------------------
