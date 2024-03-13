@@ -123,6 +123,13 @@ and
         [ADD_REMOVE|NO_ADD_REMOVE]
     }
 
+### Alterations
+
+#### Version
+
+CPack prefers to split the version number into major, minor, and, patch version. 
+FIXME...
+
 **See**:  
 [MY_PROJECT_TOPLEVEL](Bits/Toplevel.md) 
 #]==]
@@ -143,6 +150,8 @@ macro(my_package)
     if(category)
         my_generator_handle(${category})
     endif()
+    unset(category)
+
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 

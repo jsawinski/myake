@@ -1,3 +1,32 @@
+# Distributed under the OSI-approved MIT License. See accompanying
+# file LICENSE or https://github.com/jsawinski/myake/blob/master/LICENSE for details.
+
+#[=======================================================================[.md:
+# My/Package/Generator/NuGet
+
+**See also**:
+- [CPack NuGet Generator](https://cmake.org/cmake/help/latest/cpack_gen/nuget.html)
+#]=======================================================================]
+include_guard(GLOBAL)
+
+message(TRACE "Loaded My/Package/Generator/NuGet...")
+
+#[==[.md:
+# my_generator_nuget
+
+FIXME
+    my_package(NuGet [COMMON]
+        ...
+    )
+
+#]==]
+function(my_generator_nuget)
+    message(TRACE "my_generator_nuget(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
+    list(APPEND CMAKE_MESSAGE_INDENT "    ")
+
+    list(POP_BACK CMAKE_MESSAGE_INDENT)
+endfunction()
+
 
 # The following text was auto-generated from CPack's help files:
 # 

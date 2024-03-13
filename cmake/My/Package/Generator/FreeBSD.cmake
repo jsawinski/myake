@@ -1,3 +1,32 @@
+# Distributed under the OSI-approved MIT License. See accompanying
+# file LICENSE or https://github.com/jsawinski/myake/blob/master/LICENSE for details.
+
+#[=======================================================================[.md:
+# My/Package/Generator/FreeBSD
+
+**See also**:
+- [CPack FreeBSD Generator](https://cmake.org/cmake/help/latest/cpack_gen/freebsd.html)
+#]=======================================================================]
+include_guard(GLOBAL)
+
+message(TRACE "Loaded My/Package/Generator/FreeBSD...")
+
+#[==[.md:
+# my_generator_freebsd
+
+FIXME
+    my_package(FreeBSD [COMMON]
+        ...
+    )
+
+#]==]
+function(my_generator_freebsd)
+    message(TRACE "my_generator_freebsd(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
+    list(APPEND CMAKE_MESSAGE_INDENT "    ")
+
+    list(POP_BACK CMAKE_MESSAGE_INDENT)
+endfunction()
+
 
 # The following text was auto-generated from CPack's help files:
 # 
@@ -33,7 +62,7 @@
 #        **Mandatory**: Yes
 #        **Default**: 
 #        
-#        - `CPACK_DEBIAN_PACKAGE_DESCRIPTION` (this may be set already for 
+#        - `CPACK_FreeBSDIAN_PACKAGE_DESCRIPTION` (this may be set already for 
 #          Debian packaging, so it is used as a fallback).
 #        - `CPACK_PACKAGE_DESCRIPTION_SUMMARY` (this is always set by CPack 
 #          itself, if nothing else sets it explicitly).
@@ -50,7 +79,7 @@
 #        **Default**: 
 #        
 #        - `CPACK_PACKAGE_HOMEPAGE_URL`, or if that is not set,
-#        - `CPACK_DEBIAN_PACKAGE_HOMEPAGE` (this may be set already for Debian 
+#        - `CPACK_FreeBSDIAN_PACKAGE_HOMEPAGE` (this may be set already for Debian 
 #          packaging, so it is used as a fallback).
 #        
 # [ ] CPACK_FREEBSD_PACKAGE_LICENSE

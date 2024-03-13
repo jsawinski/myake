@@ -1,3 +1,32 @@
+# Distributed under the OSI-approved MIT License. See accompanying
+# file LICENSE or https://github.com/jsawinski/myake/blob/master/LICENSE for details.
+
+#[=======================================================================[.md:
+# My/Package/Generator/DragNDrop
+
+**See also**:
+- [CPack DMG Generator](https://cmake.org/cmake/help/latest/cpack_gen/dmg.html)
+#]=======================================================================]
+include_guard(GLOBAL)
+
+message(TRACE "Loaded My/Package/Generator/DragNDrop...")
+
+#[==[.md:
+# my_generator_dragndrop
+
+FIXME
+    my_package(DragNDrop [COMMON]
+        ...
+    )
+
+#]==]
+function(my_generator_dragndrop)
+    message(TRACE "my_generator_dragndrop(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
+    list(APPEND CMAKE_MESSAGE_INDENT "    ")
+
+    list(POP_BACK CMAKE_MESSAGE_INDENT)
+endfunction()
+
 
 # The following text was auto-generated from CPack's help files:
 # 
