@@ -32,18 +32,46 @@ endfunction()
 
 # === Variables specific to CPack Archive generator
 # 
-# [ ] CPACK_ARCHIVE_FILE_NAME
 # [ ] CPACK_ARCHIVE_<component>_FILE_NAME
-# 
-# 
+# [ ] CPACK_ARCHIVE_FILE_NAME
+#        
+#        Package file name without extension.
+#        
+#        **Default**: The default is `<CPACK_PACKAGE_FILE_NAME>[-<component>]`, 
+#        with spaces replaced by '-'.
+#        
+#        The extension is determined from the archive format (see list above) 
+#        and automatically appended to the file name. Note that `<component>` is
+#        all uppercase in the variable name.
+#        
 # [ ] CPACK_ARCHIVE_FILE_EXTENSION
-# 
-# 
+#        
+#        Package file extension.
+#        
+#        **Default**: Default values are given in the list above.
+#        
+#        
 # [ ] CPACK_ARCHIVE_COMPONENT_INSTALL
-# 
-# 
+#        
+#        Enable component packaging.
+#        
+#        **Default**: `OFF`
+#        
+#        If enabled (`ON`) multiple packages are generated. By default a single 
+#        package containing files of all components is generated.
+#        
 # === Variables used by CPack Archive generator
 # 
 # [ ] CPACK_ARCHIVE_THREADS
-# 
-# 
+#        
+#        The number of threads to use when performing the compression.
+#        
+#        **Default**: `1`
+#        
+#        If set to `0`, the number of available cores on the machine will be 
+#        used instead. The default is `1` which limits compression to a single 
+#        thread. Note that not all compression modes support threading in all 
+#        environments. Currently, only the XZ compression may support it.
+#        
+#        See also the `CPACK_THREADS` variable.
+#        
