@@ -34,23 +34,6 @@ include(CPackComponent)
 
 # defaults
 set(CPACK_SET_DESTDIR ON)
-set(CPACK_STRIP_FILES TRUE)
-set(CPACK_THREADS 0)
-set(CPACK_GENERATOR "ZIP")
-# CPACK_BINARY_<GENNAME>
-set(CPACK_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-
-# CPACK_OUTPUT_CONFIG_FILE
-# CPACK_PROJECT_CONFIG_FILE
-# CPACK_READELF_EXECUTABLE
-# CPACK_OBJCOPY_EXECUTABLE
-# CPACK_OBJDUMP_EXECUTABLE
-# CPACK_PACKAGE_DIRECTORY
-# CPACK_MONOLITHIC_INSTALL
-# CPACK_SOURCE_OUTPUT_CONFIG_FILE
-# CPACK_CMAKE_GENERATOR
-# CPACK_INSTALL_CMAKE_PROJECTS
-# CPACK_TOPLEVEL_TAG
 
 #[==[.md:
 ## my_package
@@ -82,6 +65,10 @@ where "-<filename-suffix>" is ommitted if not set. Note, that, some generators
 
 ### Common settings
 
+The following parameters may be set - note, however, that not all generators
+support all of these (e.g. AUTHORS is only used by NuGet at the moment of 
+writing):
+
 FIXME
 
 ### Components
@@ -93,7 +80,8 @@ FIXME
     )
 
 [Components and groups](https://cmake.org/cmake/help/latest/module/CPackComponent.html) 
-can be defined using the ``COMPONENTS`` option.
+can be defined using the ``COMPONENTS`` option (note that some generators may
+support additional options).
 
 A component is defined by:
 
@@ -119,9 +107,6 @@ Such components may be hierarchically organized in groups:
         [<sub-group>|<component-declaration>...]
     }
 
-In both cases, the CPack options ``GROUP`` and ``PARENT_GROUP`` are 
-automatically filled in.
-
 Install types and downloads are declared using the options
 
     INSTALL_TYPE <typename> {
@@ -137,14 +122,25 @@ and
     }
 
 **See**:  
-[MY_PROJECT_TOPLEVEL](Bits/Toplevel.md)  
+[MY_PROJECT_TOPLEVEL](Bits/Toplevel.md) 
 #]==]
 macro(my_package)
     message(DEBUG "my_package(${ARGN})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
+    # check generator and/or common
+    set(__MY_PACK_ARGS ${ARGN})
+    my_generator_category(category ${ARGV0})
+    if(category)
+        list(POP_FRONT __MY_PACK_ARGS)
+        my_generator_iscommon(_MY_PACK_COMMON)
+    endif()
+
     # FIXME
 
+    if(category)
+        my_generator_handle(${category})
+    endif()
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 

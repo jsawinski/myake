@@ -1,9 +1,7 @@
 # My/Config - Project configuration settings
 
-This file should be included directly after the ``project`` command in the
-`CMakeLists.txt` file:
-
-    include(My/Config OPTIONAL)
+This file is automatically included during the `project()` command. It
+supplements the [`My/Init`](Init.md) and loads `User/Config` if present.
 
 **See**:  
 [My/Init](Init.md)  

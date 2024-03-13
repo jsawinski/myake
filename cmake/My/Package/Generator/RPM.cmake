@@ -15,13 +15,16 @@ message(TRACE "Loaded My/Package/Generator/DEB...")
 # my_generator_deb
 
 FIXME
-    my_package(RPM COMMON
+    my_package(RPM [COMMON]
         ...
+    )
 
 #]==]
 function(my_generator_rpm)
 endfunction()
 
+# The following text was auto-generated from CPack's help files:
+# 
 # === Variables specific to CPack RPM generator
 # 
 # [ ] CPACK_RPM_COMPONENT_INSTALL
@@ -34,8 +37,8 @@ endfunction()
 #        If enabled (`ON`) multiple packages are generated. By default a single 
 #        package containing files of all components is generated.
 #        
-# [ ] CPACK_RPM_PACKAGE_SUMMARY
 # [ ] CPACK_RPM_<component>_PACKAGE_SUMMARY
+# [ ] CPACK_RPM_PACKAGE_SUMMARY
 #        
 #        The RPM package summary.
 #        
@@ -59,7 +62,7 @@ endfunction()
 #        
 #        **Mandatory**: Yes
 #        **Default**: `<CPACK_PACKAGE_FILE_NAME>[-<component>].rpm` with spaces 
-#        replaced by '-'
+#            replaced by '-'
 #        
 #        This may be set to `RPM-DEFAULT` to allow `rpmbuild` tool to generate 
 #        package file name by itself. Alternatively provided package file name 
@@ -150,8 +153,8 @@ endfunction()
 #        **Default**: "unknown"
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_GROUP
 # [ ] CPACK_RPM_<component>_PACKAGE_GROUP
+# [ ] CPACK_RPM_PACKAGE_GROUP
 #        
 #        The RPM package group.
 #        
@@ -167,8 +170,8 @@ endfunction()
 #        **Default**: CPACK_PACKAGE_VENDOR if set or "unknown"
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_URL
 # [ ] CPACK_RPM_<component>_PACKAGE_URL
+# [ ] CPACK_RPM_PACKAGE_URL
 #        
 #        The projects URL.
 #        
@@ -176,8 +179,8 @@ endfunction()
 #        **Default**: `CMAKE_PROJECT_HOMEPAGE_URL`
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_DESCRIPTION
 # [ ] CPACK_RPM_<component>_PACKAGE_DESCRIPTION
+# [ ] CPACK_RPM_PACKAGE_DESCRIPTION
 #        
 #        RPM package description.
 #        
@@ -226,8 +229,8 @@ endfunction()
 #            By default automatic dependency detection is enabled by rpm 
 #            generator.
 #        
-# [ ] CPACK_RPM_PACKAGE_AUTOPROV
 # [ ] CPACK_RPM_<component>_PACKAGE_AUTOPROV
+# [ ] CPACK_RPM_PACKAGE_AUTOPROV
 #        
 #        RPM spec autoprov field.
 #        
@@ -278,8 +281,8 @@ endfunction()
 #        rpm -qp --requires file.rpm
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_CONFLICTS
 # [ ] CPACK_RPM_<component>_PACKAGE_CONFLICTS
+# [ ] CPACK_RPM_PACKAGE_CONFLICTS
 #        
 #        RPM spec conflicts field.
 #        
@@ -297,8 +300,8 @@ endfunction()
 #        rpm -qp --conflicts file.rpm
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_REQUIRES_PRE
 # [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_PRE
+# [ ] CPACK_RPM_PACKAGE_REQUIRES_PRE
 #        
 #        RPM spec requires(pre) field.
 #        
@@ -312,8 +315,8 @@ endfunction()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_PRE "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_REQUIRES_POST
 # [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POST
+# [ ] CPACK_RPM_PACKAGE_REQUIRES_POST
 #        
 #        RPM spec requires(post) field.
 #        
@@ -327,8 +330,8 @@ endfunction()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_POST "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POSTUN
 # [ ] CPACK_RPM_PACKAGE_REQUIRES_POSTUN
+# [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POSTUN
 #        
 #        RPM spec requires(postun) field.
 #        
@@ -342,8 +345,8 @@ endfunction()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_POSTUN "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_REQUIRES_PREUN
 # [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_PREUN
+# [ ] CPACK_RPM_PACKAGE_REQUIRES_PREUN
 #        
 #        RPM spec requires(preun) field.
 #        
@@ -384,8 +387,8 @@ endfunction()
 #        rpm -qp --provides file.rpm
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_OBSOLETES
 # [ ] CPACK_RPM_<component>_PACKAGE_OBSOLETES
+# [ ] CPACK_RPM_PACKAGE_OBSOLETES
 #        
 #        RPM spec obsoletes field.
 #        
@@ -484,9 +487,9 @@ endfunction()
 #        The user may then use this file in order to hand-craft is own binary 
 #        spec file which may be used with `CPACK_RPM_USER_BINARY_SPECFILE`.
 #        
-# [ ] CPACK_RPM_PRE_INSTALL_SCRIPT_FILE
-# [ ] CPACK_RPM_PRE_TRANS_SCRIPT_FILE
 # [ ] CPACK_RPM_PRE_UNINSTALL_SCRIPT_FILE
+# [ ] CPACK_RPM_PRE_TRANS_SCRIPT_FILE
+# [ ] CPACK_RPM_PRE_INSTALL_SCRIPT_FILE
 #        
 #        Path to file containing pre install/uninstall/transaction script.
 #        
@@ -632,8 +635,8 @@ endfunction()
 #        
 #        **Mandatory**: No
 #        **Default**: `CPACK_PACKAGING_INSTALL_PREFIX` or 
-#        `CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX` are treated as one of relocation
-#        paths
+#            `CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX` are treated as one of 
+#            relocation paths
 #        
 #        May be used to remove `CPACK_PACKAGING_INSTALL_PREFIX` and 
 #        `CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX` from relocatable RPM prefix 
@@ -665,8 +668,8 @@ endfunction()
 #        brp-compress script must be added to RPM configuration by the operating
 #        system.
 #        
-# [ ] CPACK_RPM_DEFAULT_USER
 # [ ] CPACK_RPM_<compName>_DEFAULT_USER
+# [ ] CPACK_RPM_DEFAULT_USER
 #        
 #        default user ownership of RPM content
 #        
@@ -687,8 +690,8 @@ endfunction()
 #        Value should be group name and not GID. Note that `<compName>` must be 
 #        in upper-case.
 #        
-# [ ] CPACK_RPM_<compName>_DEFAULT_FILE_PERMISSIONS
 # [ ] CPACK_RPM_DEFAULT_FILE_PERMISSIONS
+# [ ] CPACK_RPM_<compName>_DEFAULT_FILE_PERMISSIONS
 #        
 #        default permissions used for packaged files
 #        
@@ -732,10 +735,12 @@ endfunction()
 #        systems such as Debian where shared libraries do not have execute 
 #        permissions set.
 #        
+# The following text was auto-generated from CPack's help files:
+# 
 # === Packaging of debug information
 # 
-# [ ] CPACK_RPM_DEBUGINFO_PACKAGE
 # [ ] CPACK_RPM_<component>_DEBUGINFO_PACKAGE
+# [ ] CPACK_RPM_DEBUGINFO_PACKAGE
 #        
 #        Enable generation of debuginfo RPM package(s).
 #        
@@ -752,16 +757,16 @@ endfunction()
 #        **Default**: 
 #        
 #        
-# [ ] CPACK_RPM_<component>_BUILD_SOURCE_DIRS_PREFIX
 # [ ] CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX
+# [ ] CPACK_RPM_<component>_BUILD_SOURCE_DIRS_PREFIX
 #        
 #        Prefix of location where sources will be placed during package 
 #        installation.
 #        
 #        **Mandatory**: Yes if `CPACK_RPM_DEBUGINFO_PACKAGE` is set
 #        **Default**: `/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}` and for 
-#        component packaging 
-#        `/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}-<component>`
+#            component packaging 
+#            `/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}-<component>`
 #        
 #        
 # [ ] CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS
@@ -821,6 +826,8 @@ endfunction()
 #        Setting the variable to `RPM-DEFAULT` may be used to explicitly set 
 #        filename generation to default.
 #        
+# The following text was auto-generated from CPack's help files:
+# 
 # === Packaging of sources (SRPM)
 # 
 # [ ] CPACK_RPM_PACKAGE_SOURCES

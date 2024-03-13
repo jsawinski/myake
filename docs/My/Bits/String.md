@@ -19,13 +19,31 @@ one after the last character.
 
 Make all words "titlecase". 
 
+### my_lowercase
+
+    my_lowercase(<output-variable> "<text>")
+
+Make all words "lowercase". 
+
+### my_uppercase
+
+    my_uppercase(<output-variable> "<text>")
+
+Make all words "uppercase". 
+
+### my_make_lower
+
+    my_make_lower(<variable>)
+
+Create a lower-case <variable> with lower-case content.
+
 ### my_string_genex_expand
 
     my_string_genex_expand(<output-variable> "<string>")
 
 Expand generator expressions in a string.
 
-At the moment of writing, only variable queries.
+FIXME 
 
 ### my_string_format
 

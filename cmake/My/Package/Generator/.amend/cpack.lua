@@ -334,6 +334,8 @@ function doc.emphasis:markdown(text, options, context)
     local style = self.style
     if style == 'strong' then
         style = '*'
+    elseif style == 'emphasized' then
+        style = '_'
     else
         error("Internal error: emphasis '" .. style .. "' not recognized.")
     end
@@ -394,11 +396,14 @@ function doc.item:markdown(text, options, context)
         self[1]:markdown(text, options, context)
         markdown.addtext(text, options, context, '**: ')
 
+        -- push(context.block, string.rep(' ', text[#text]:len() - context.column))
+        push(context.block, string.rep(' ', options.indent))
         context.nonewline = true
         for i = 2, #self do
             local child = self[i]
             child:markdown(text, options, context)
         end
+        pop(context.block)
     elseif style == 'bullet' then
         markdown.newline(text, options, context)
         markdown.addtext(text, options, context, '- ')
@@ -488,9 +493,9 @@ for file in fs.dir(generator_help_path) do
     if (file ~= '.') and (file ~= '..') then
         local fullfile = fs.concat(generator_help_path, file)
 
-        if fs.isnewer(modulename, fullfile) or isdebugged then
-            table.insert(generators, file:sub(1, -5))
-        end
+        -- if fs.isnewer(modulename, fullfile) or isdebugged then
+        table.insert(generators, file:sub(1, -5))
+        -- end
 
         fs.touch(fullfile)
     end
@@ -585,6 +590,9 @@ for _, name in ipairs(generators) do
             if not hdr then
                 error("Internal error: could not find '" .. sec.header .. "'")
             elseif #sec > 0 then
+                table.insert(text,
+                             "# The following text was auto-generated from CPack's help files:")
+                table.insert(text, "# ")
                 table.insert(text, "# === " .. hdr.text)
                 table.insert(text, "# ")
             end

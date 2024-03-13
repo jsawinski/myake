@@ -21,6 +21,7 @@ include(My/Bits/String)
 Declare a parser template:
 
     my_structure_parse(TEMPLATE <prefix> 
+        [USE <other-template>]
         <template-declaration>
     }
 
@@ -130,8 +131,26 @@ function(my_structure_parse __PREFIX)
         if(NOT "${ARGV1}" MATCHES "^[A-Z][A-Z_]*$")
             message(FATAL_ERROR "Template names must be of the form '^[A-Z][A-Z_]*$' (${ARGV1}).")
         endif()
+        set(MY_ARGS ${ARGN})
 
-        __my_structure_template(TMPL_${ARGN})
+        list(POP_FRONT MY_ARGS MY_TEMPLATE)
+
+        while(TRUE)
+            list(GET MY_ARGS 1 arg)
+            if(NOT "${arg}" STREQUAL "USE")
+                break()
+            endif()
+
+            list(POP_FRONT MY_ARGS)
+            list(POP_FRONT MY_ARGS MY_USE)
+
+            get_cmake_property(cachevars CACHE_VARIALBES)
+            foreach(var IN cachevars)
+                FIXME()
+            endforeach()
+        endwhile()
+
+        __my_structure_template(TMPL_${MY_TEMPLATE} ${MY_ARGS})
     else()
         cmake_parse_arguments(_ "RESET;REPLACE;NODEFAULTS" "TEMPLATE" "" ${ARGN})
 

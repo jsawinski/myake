@@ -15,21 +15,21 @@ message(TRACE "Loaded My/Package/Generator/Archive...")
 # my_generator_archive
 
     my_package(Archive [COMMON]
-        [TARGET <target-suffix>]
-        [MAINTAINER <package-maintainer-email>]
-        [<common package options>...]
+        [<package options>...]
     )
 
 Create binary and source archive files.
 
 #]==]
 function(my_generator_archive)
-    message(TRACE "my_generator_archive(${__MY_PACKAGE_ARGS})")
+    message(TRACE "my_generator_archive(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()
 
+# The following text was auto-generated from CPack's help files:
+# 
 # === Variables specific to CPack Archive generator
 # 
 # [ ] CPACK_ARCHIVE_<component>_FILE_NAME
@@ -38,7 +38,7 @@ endfunction()
 #        Package file name without extension.
 #        
 #        **Default**: The default is `<CPACK_PACKAGE_FILE_NAME>[-<component>]`, 
-#        with spaces replaced by '-'.
+#            with spaces replaced by '-'.
 #        
 #        The extension is determined from the archive format (see list above) 
 #        and automatically appended to the file name. Note that `<component>` is
@@ -60,6 +60,8 @@ endfunction()
 #        If enabled (`ON`) multiple packages are generated. By default a single 
 #        package containing files of all components is generated.
 #        
+# The following text was auto-generated from CPack's help files:
+# 
 # === Variables used by CPack Archive generator
 # 
 # [ ] CPACK_ARCHIVE_THREADS

@@ -7,9 +7,6 @@
 
 Common package options prefix.
 
-See [CPack documentation](https://cmake.org/cmake/help/latest/module/CPack.html)
-for further information.
-
     my_package(<generator>|COMMON
         [NAME <project-name>]
         [VENDOR <project-vendor>]
@@ -71,110 +68,107 @@ for further information.
 
 FIXME
 
+See [CPack documentation](https://cmake.org/cmake/help/latest/module/CPack.html)
+or end of file for further information.
+
 #]]
-my_structure_parse(TEMPLATE MY_PACK {
+my_structure_parse(TEMPLATE MY_PACK_COMMON
     NAME:="${PROJECT_NAME}"
     VENDOR:="${PROJECT_VENDOR}"
     VERSION:-{
-        MAJOR:"${PROJECT_VERSION_MAJOR}"
-        MINOR:"${PROJECT_VERSION_MINOR}"
-        PATCH:"${PROJECT_VERSION_PATCH}"
+        MAJOR:="${PROJECT_VERSION_MAJOR}"
+        MINOR:="${PROJECT_VERSION_MINOR}"
+        PATCH:="${PROJECT_VERSION_PATCH}"
     }
 
     ARCHITECTURE:="${MY_ARCHITECTURE}"
     CATEGORY:
 
     AUTHORS:*
-    CONTACT:
+    CONTACT:=$ENV{EMAIL}
 
-    DESCRIPTION:-{  
-        SUMMARY:
-        FILE:
-        FULL:
-        README:
-        WELCOME:
-    }
-    LICENSE:-{
-        FILE:
-    }
-    URL:-{
-        HOMEPAGE:
-        ABOUT:
-        HELP:
-        ICON:
-        LICENSE:
-    }
-    ICON:-{
-        FILE:
-        INSTALL:
-        UNINSTALL:
-    }
+    # DESCRIPTION:-{  
+    #     SUMMARY:
+    #     FILE:
+    #     FULL:
+    #     README:
+    #     WELCOME:
+    # }
+    # LICENSE:-{
+    #     FILE:
+    # }
+    # URL:-{
+    #     HOMEPAGE:
+    #     ABOUT:
+    #     HELP:
+    #     ICON:
+    #     LICENSE:
+    # }
+    # ICON:-{
+    #     FILE:
+    #     INSTALL:
+    #     UNINSTALL:
+    # }
 
-    GENERATOR:*="ZIP"
-    CHECKSUM:
-    CONFIG:
-    SUFFIX:
-    FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"
+    # GENERATOR:*="ZIP"
+    # CHECKSUM:
+    # CONFIG:
+    # SUFFIX:
+    # FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"
 
-    SOURCE:-{
-        GENERATOR:*="ZIP"
-        STRIP_FILES:*
-        IGNORE_FILES:*
-        CONFIG:
-        SUFFIX:="source"
-        FILE_NAME:
-    }
+    # SOURCE:-{
+    #     GENERATOR:*="ZIP"
+    #     STRIP_FILES:*
+    #     IGNORE_FILES:*
+    #     CONFIG:
+    #     SUFFIX:="source"
+    #     FILE_NAME:
+    # }
 
-    COMPONENTS:-{
-        GROUP:{
-            PARENT_GROUP:
-            DISPLAY:
-            DESCRIPTION:
-            EXPANDED:-
-            BOLD_TITLE:-
+    # COMPONENTS:-{
+    #     GROUP:{
+    #         PARENT_GROUP:
+    #         DISPLAY:
+    #         DESCRIPTION:
+    #         EXPANDED:-
+    #         BOLD_TITLE:-
 
-            @GROUP->PARENT_GROUP
-            @COMPONENT->GROUP
-        }
-        COMPONENT:{
-            GROUP:
-            DISPLAY:
-            DESCRIPTION:
-            HIDDEN:- REQUIRED:- DISABLED:-
-            DEPENDS:*
-            INSTALL_TYPES:*
-            DOWNLOADED:-
-            ARCHIVE_FILE:
-            PLIST:
-        }
+    #         @GROUP->PARENT_GROUP
+    #         @COMPONENT->GROUP
+    #     }
+    #     COMPONENT:{
+    #         GROUP:
+    #         DISPLAY:
+    #         DESCRIPTION:
+    #         HIDDEN:- REQUIRED:- DISABLED:-
+    #         DEPENDS:*
+    #         INSTALL_TYPES:*
+    #         DOWNLOADED:-
+    #         ARCHIVE_FILE:
+    #         PLIST:
+    #     }
 
-        INSTALL:-{
-            # FIXME
-        }
+    #     INSTALL:-{
+    #         # FIXME
+    #     }
     
-        # INSTALL_TYPE <typename> {
-        #     [DISPLAY <display-name>]
-        # }
-        # DOWNLOADS <sitename> {
-        #     [UPLOAD_DIRECTORY <dirname>]
-        #     [ALL]
-        #     [ADD_REMOVE|NO_ADD_REMOVE]
-        # }
-    }
-})
+    #     # INSTALL_TYPE <typename> {
+    #     #     [DISPLAY <display-name>]
+    #     # }
+    #     # DOWNLOADS <sitename> {
+    #     #     [UPLOAD_DIRECTORY <dirname>]
+    #     #     [ALL]
+    #     #     [ADD_REMOVE|NO_ADD_REMOVE]
+    #     # }
+    # }
+)
 
+# The following text was auto-generated from CPack's help files:
+# 
 # === Variables common to all CPack Generators
 # 
-# [ ] CPACK_PACKAGE_NAME
-#        
-#        The name of the package (or application). If not specified, it defaults
-#        to the project name.
-#        
-# [ ] CPACK_PACKAGE_VENDOR
-#        
-#        The name of the package vendor. (e.g., "Kitware"). The default is 
-#        "Humanity".
-#        
+# [x] CPACK_PACKAGE_NAME
+# [x] CPACK_PACKAGE_VENDOR
 # [ ] CPACK_PACKAGE_DIRECTORY
 #        
 #        The directory in which CPack is doing its packaging. If it is not set 
@@ -183,38 +177,9 @@ my_structure_parse(TEMPLATE MY_PACK {
 #        option `-B`. If set, the command line option overrides the value found 
 #        in the config file.
 #        
-# [ ] CPACK_PACKAGE_VERSION_MAJOR
-#        
-#        Package major version. This variable will always be set, but its 
-#        default value depends on whether or not version details were given to 
-#        the `project()` command in the top level CMakeLists.txt file. If 
-#        version details were given, the default value will be 
-#        `CMAKE_PROJECT_VERSION_MAJOR`. If no version details were given, a 
-#        default version of 0.1.1 will be assumed, leading to 
-#        `CPACK_PACKAGE_VERSION_MAJOR` having a default value of 0.
-#        
-# [ ] CPACK_PACKAGE_VERSION_MINOR
-#        
-#        Package minor version. The default value is determined based on whether
-#        or not version details were given to the `project()` command in the top
-#        level CMakeLists.txt file. If version details were given, the default 
-#        value will be `CMAKE_PROJECT_VERSION_MINOR`, but if no minor version 
-#        component was specified then `CPACK_PACKAGE_VERSION_MINOR` will be left
-#        unset. If no project version was given at all, a default version of 
-#        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_MINOR` having 
-#        a default value of 1.
-#        
-# [ ] CPACK_PACKAGE_VERSION_PATCH
-#        
-#        Package patch version. The default value is determined based on whether
-#        or not version details were given to the `project()` command in the top
-#        level CMakeLists.txt file. If version details were given, the default 
-#        value will be `CMAKE_PROJECT_VERSION_PATCH`, but if no patch version 
-#        component was specified then `CPACK_PACKAGE_VERSION_PATCH` will be left
-#        unset. If no project version was given at all, a default version of 
-#        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_PATCH` having 
-#        a default value of 1.
-#        
+# [x] CPACK_PACKAGE_VERSION_MAJOR
+# [x] CPACK_PACKAGE_VERSION_MINOR
+# [x] CPACK_PACKAGE_VERSION_PATCH
 # [ ] CPACK_PACKAGE_DESCRIPTION
 #        
 #        A description of the project, used in places such as the introduction 
@@ -375,12 +340,14 @@ my_structure_parse(TEMPLATE MY_PACK {
 #        The following compression methods may take advantage of multiple cores:
 #        
 #        **`xz`**: Supported if CMake is built with a `liblzma` that supports 
-#        parallel compression.
+#            parallel compression.
 #        **`zstd`**: Supported if CMake is built with libarchive 3.6 or higher. 
-#        Official CMake binaries available on `cmake.org` support it.
+#            Official CMake binaries available on `cmake.org` support it.
 #        
 #        Other compression methods ignore this value and use only one thread.
 #        
+# The following text was auto-generated from CPack's help files:
+# 
 # === Variables for Source Package Generators
 # 
 # [ ] CPACK_SOURCE_PACKAGE_FILE_NAME
@@ -414,6 +381,8 @@ my_structure_parse(TEMPLATE MY_PACK {
 #        patterns (that must be properly escaped), e.g., 
 #        `/CVS/;/\\.svn/;\\.swp$;\\.#;/#;.*~;cscope.*`
 #        
+# The following text was auto-generated from CPack's help files:
+# 
 # === Variables for Advanced Use
 # 
 # [ ] CPACK_CMAKE_GENERATOR
@@ -434,12 +403,7 @@ my_structure_parse(TEMPLATE MY_PACK {
 #        System name, defaults to the value of `CMAKE_SYSTEM_NAME`, except on 
 #        Windows where it will be `win32` or `win64`.
 #        
-# [ ] CPACK_PACKAGE_VERSION
-#        
-#        Package full version, used internally. By default, this is built from 
-#        `CPACK_PACKAGE_VERSION_MAJOR`, `CPACK_PACKAGE_VERSION_MINOR`, and 
-#        `CPACK_PACKAGE_VERSION_PATCH`.
-#        
+# [x] CPACK_PACKAGE_VERSION
 # [ ] CPACK_TOPLEVEL_TAG
 #        
 #        Directory for the installed files.

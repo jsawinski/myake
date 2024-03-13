@@ -27,6 +27,8 @@ At time of writing, these package generators are (actively) supported:
 #]=======================================================================]
 include_guard(GLOBAL)
 
+include(My/Package/Generator/Common)
+
 #[==[.md:
 ### my_generator_category
 
@@ -93,26 +95,8 @@ macro(my_generator_handle category)
     # load module
     include(My/Package/Generator/${category})
 
-    # FIXME from CMake 3.18 on, change to cmake_language command
-    if(${category} STREQUAL "Archive")
-        my_generator_archive()
-#    elseif(${category} STREQUAL Bundle)
-#    elseif(${category} STREQUAL Cygwin)
-    elseif(${category} STREQUAL DEB)
-        my_generator_deb()
-#    elseif(${category} STREQUAL DragNDrop)
-#    elseif(${category} STREQUAL External)
-#    elseif(${category} STREQUAL FreeBSD)
-#    elseif(${category} STREQUAL IFW)
-#    elseif(${category} STREQUAL Nullsoft)
-#    elseif(${category} STREQUAL NuGet)
-#    elseif(${category} STREQUAL PackageMaker)
-#    elseif(${category} STREQUAL productbuild)
-#    elseif(${category} STREQUAL RPM)
-#    elseif(${category} STREQUAL WIX)
-    else()
-        message(FATAL_ERROR "Internal error: unhandled generator '${category}'.")
-    endif()
+    string(TOLOWER "${category}" category_lc)
+    cmake_language(EVAL CODE "my_generator_${category_lc}()")
 endmacro()
 
 #[==[.md:
@@ -143,10 +127,10 @@ Check if options are `COMMON` (first arguments after generator category).
 
 #]==]
 macro(my_generator_iscommon outvar)
-    list(GET __MY_PACKAGE_ARGS 0 arg0)
+    list(GET __MY_PACK_ARGS 0 arg0)
     if("${arg0}" STREQUAL "COMMON")
         set(${outvar} TRUE)
-        list(POP_FRONT __MY_PACKAGE_ARGS)
+        list(POP_FRONT __MY_PACK_ARGS)
     else()
         set(${outvar} FALSE)
     endif()

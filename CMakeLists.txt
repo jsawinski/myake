@@ -2,7 +2,7 @@ set(MYAKE_MINIMUM_MAJOR_VERSION 3)
 set(MYAKE_MINIMUM_MINOR_VERSION 22)
 cmake_minimum_required(VERSION ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})
 
-set(ENABLE_TESTING On)
+# set(ENABLE_TESTING On)
 if(ENABLE_TESTING)
 	set(CMAKE_MESSAGE_LOG_LEVEL TRACE)
 endif()
@@ -64,8 +64,7 @@ install(FILES
 include(My/Package)
 my_package(
 	ARCHITECTURE all
-    CONTACT 
-        "Jürgen 'George' Sawinski <juergen.sawinski@gmail.com>"
+    # CONTACT 
     AUTHORS
     	"Jürgen 'George' Sawinski"
    	CATEGORY "Development"

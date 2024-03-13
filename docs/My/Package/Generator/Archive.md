@@ -5,8 +5,6 @@
 # my_generator_archive
 
     my_package(Archive [COMMON]
-        [TARGET <target-name>]
-        [MAINTAINER <package-maintainer-email>]
         [<common package options>...]
     )
 

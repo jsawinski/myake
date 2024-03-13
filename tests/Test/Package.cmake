@@ -3,11 +3,9 @@ message("=== My/Package ========================================================
 include(My/Package)
 
 my_package(
-#     CONTACT 
-#         "Jürgen 'George' Sawinski <juergen.sawinski@gmail.com>"
-#     AUTHORS
-#         "Jürgen 'George' Sawinski"
-#         "Florian Franzen"
+    AUTHORS
+        "Jürgen 'George' Sawinski"
+        "Florian Franzen"
 #     DESCRIPTION {
 #         SUMMARY "CMake configuration personalization and utilities."
 #         FULL "\

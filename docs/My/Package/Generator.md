@@ -26,23 +26,6 @@ At time of writing, these package generators are (actively) supported:
 
 Get generator category and assign it to the <output-variable>.
 
-Known generator categories are:
-
-    Archive (7Z, TBZ2, TGZ, TXZ, TZ, TZST, and, ZIP),
-    Bundle,
-    Cygwin,
-    DEB,
-    DragNDrop,
-    External,
-    FreeBSD,
-    IFW,
-    Nullsoft (NSIS and NSIS64),
-    NuGet,
-    PackageMaker,
-    productbuild,
-    RPM, and,
-    WIX.
-
 **See also**:
 - [my_package](../Package.md#markdown-header-my_package)
 ### my_generator_handle

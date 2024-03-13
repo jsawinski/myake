@@ -33,7 +33,6 @@ include_guard(GLOBAL)
 
 include(My/Bits/Set)
 include(My/Bits/String)
-include(My/Bits/Options)
 
 include(My/Report)
 
