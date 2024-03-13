@@ -28,6 +28,13 @@ function(my_generator_archive)
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()
 
+my_structure_parse(TEMPLATE MY_PACK_ARCHIVE
+    USE MY_PACK_COMMON
+)
+
+# defaults
+set(CPACK_ARCHIVE_THREADS 0)
+
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables specific to CPack Archive generator
@@ -64,7 +71,7 @@ endfunction()
 # 
 # === Variables used by CPack Archive generator
 # 
-# [ ] CPACK_ARCHIVE_THREADS
+# [x] CPACK_ARCHIVE_THREADS
 #        
 #        The number of threads to use when performing the compression.
 #        

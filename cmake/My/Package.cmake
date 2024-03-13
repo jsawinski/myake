@@ -60,8 +60,9 @@ is
     $<NAME>-$<VERSION>$<[-]SUFFIX>
 
 meaning, that it is expanded as "<project-name>-<project-version>[-<filename-suffix>]"
-where "-<filename-suffix>" is ommitted if not set. Note, that, some generators
-(as far as Myake is concerned, might change case).
+where "-<filename-suffix>" is ommitted if not set. The expansion is case sensitive, 
+meaning that "$<NAME>" will be expanded as set, while "$<name>" will explicitely 
+convert the content to lower case. 
 
 ### Common settings
 
@@ -75,6 +76,7 @@ FIXME
 
     my_package(
         COMPONENTS {
+            [DISABLED]
             <component-options>...
         }
     )

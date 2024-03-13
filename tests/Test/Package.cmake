@@ -6,13 +6,14 @@ my_package(
     AUTHORS
         "Jürgen 'George' Sawinski"
         "Florian Franzen"
-#     DESCRIPTION {
-#         SUMMARY "CMake configuration personalization and utilities."
-#         FULL "\
-# Myake is an set of macros extending [CMake](https://cmake.org). It provides
-# three main features:
-# ..."
-#     }
+
+    DESCRIPTION {
+        SUMMARY "CMake configuration personalization and utilities."
+        FULL "\
+Myake is an set of macros extending [CMake](https://cmake.org). It provides
+three main features:
+..."
+    }
 
 #     LICENSE {
 #         TAG  "MIT"

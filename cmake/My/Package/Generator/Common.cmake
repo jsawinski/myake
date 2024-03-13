@@ -75,17 +75,13 @@ or end of file for further information.
 my_structure_parse(TEMPLATE MY_PACK_COMMON
     NAME:="${PROJECT_NAME}"
     VENDOR:="${PROJECT_VENDOR}"
-    VERSION:-{
-        MAJOR:="${PROJECT_VERSION_MAJOR}"
-        MINOR:="${PROJECT_VERSION_MINOR}"
-        PATCH:="${PROJECT_VERSION_PATCH}"
-    }
+    VERSION:="${PROJECT_VERSION}"
 
     ARCHITECTURE:="${MY_ARCHITECTURE}"
     CATEGORY:
 
     AUTHORS:*
-    CONTACT:=$ENV{EMAIL}
+    CONTACT:
 
     # DESCRIPTION:-{  
     #     SUMMARY:
@@ -95,6 +91,7 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
     #     WELCOME:
     # }
     # LICENSE:-{
+    #     TAG:
     #     FILE:
     # }
     # URL:-{
