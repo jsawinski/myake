@@ -1,5 +1,5 @@
 # Distributed under the OSI-approved MIT License. See accompanying
-# file LICENSE or https://github.com/jsawinski/myake/src/master/LICENSE for details.
+# file LICENSE or https://github.com/jsawinski/myake/blob/master/LICENSE for details.
 
 #[=======================================================================[.md:
 # My/Bits - Tools and utilities.
