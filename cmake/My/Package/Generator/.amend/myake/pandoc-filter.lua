@@ -475,7 +475,7 @@ function Pandoc(doc)
     end
 
     -- save data
-    local outputfile = fs.currentdir() .. '/.amend/myake/generator/' .. os.getenv("GENERATOR") .. '.lua'
+    local outputfile = fs.currentdir() .. '/.amend/myake/generator/help/' .. os.getenv("GENERATOR") .. '.lua'
     local outs = assert(io.open(outputfile, 'w'))
     outs:write("-- This file was auto-generated from", '\n', "--    ", os.getenv("FILE"), '\n',
         "-- using 'amend cpack'.", '\n')

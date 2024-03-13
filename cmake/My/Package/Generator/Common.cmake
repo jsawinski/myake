@@ -116,10 +116,6 @@ my_structure_parse(TEMPLATE MY_PACK {
     SUFFIX:
     FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"
 
-    INSTALL:-{
-        # FIXME
-    }
-
     SOURCE:-{
         GENERATOR:*="ZIP"
         STRIP_FILES:*
@@ -151,6 +147,11 @@ my_structure_parse(TEMPLATE MY_PACK {
             ARCHIVE_FILE:
             PLIST:
         }
+
+        INSTALL:-{
+            # FIXME
+        }
+    
         # INSTALL_TYPE <typename> {
         #     [DISPLAY <display-name>]
         # }
@@ -161,3 +162,151 @@ my_structure_parse(TEMPLATE MY_PACK {
         # }
     }
 })
+
+# === Variables common to all CPack Generators
+# 
+# [ ] CPACK_PACKAGE_NAME
+# 
+# 
+# [ ] CPACK_PACKAGE_VENDOR
+# 
+# 
+# [ ] CPACK_PACKAGE_DIRECTORY
+# 
+# 
+# [ ] CPACK_PACKAGE_VERSION_MAJOR
+# 
+# 
+# [ ] CPACK_PACKAGE_VERSION_MINOR
+# 
+# 
+# [ ] CPACK_PACKAGE_VERSION_PATCH
+# 
+# 
+# [ ] CPACK_PACKAGE_DESCRIPTION
+# 
+# 
+# [ ] CPACK_PACKAGE_DESCRIPTION_FILE
+# 
+# 
+# [ ] CPACK_PACKAGE_DESCRIPTION_SUMMARY
+# 
+# 
+# [ ] CPACK_PACKAGE_HOMEPAGE_URL
+# 
+# 
+# [ ] CPACK_PACKAGE_FILE_NAME
+# 
+# 
+# [ ] CPACK_PACKAGE_INSTALL_DIRECTORY
+# 
+# 
+# [ ] CPACK_PACKAGE_ICON
+# 
+# 
+# [ ] CPACK_PACKAGE_CHECKSUM
+# 
+# 
+# [ ] CPACK_PROJECT_CONFIG_FILE
+# 
+# 
+# [ ] CPACK_RESOURCE_FILE_LICENSE
+# 
+# 
+# [ ] CPACK_RESOURCE_FILE_README
+# 
+# 
+# [ ] CPACK_RESOURCE_FILE_WELCOME
+# 
+# 
+# [ ] CPACK_MONOLITHIC_INSTALL
+# 
+# 
+# [ ] CPACK_GENERATOR
+# 
+# 
+# [ ] CPACK_OUTPUT_CONFIG_FILE
+# 
+# 
+# [ ] CPACK_PACKAGE_EXECUTABLES
+# 
+# 
+# [ ] CPACK_STRIP_FILES
+# 
+# 
+# [ ] CPACK_VERBATIM_VARIABLES
+# 
+# 
+# [ ] CPACK_THREADS
+# 
+# 
+# === Variables for Source Package Generators
+# 
+# [ ] CPACK_SOURCE_PACKAGE_FILE_NAME
+# 
+# 
+# [ ] CPACK_SOURCE_STRIP_FILES
+# 
+# 
+# [ ] CPACK_SOURCE_GENERATOR
+# 
+# 
+# [ ] CPACK_SOURCE_OUTPUT_CONFIG_FILE
+# 
+# 
+# [ ] CPACK_SOURCE_IGNORE_FILES
+# 
+# 
+# === Variables for Advanced Use
+# 
+# [ ] CPACK_CMAKE_GENERATOR
+# 
+# 
+# [ ] CPACK_INSTALL_CMAKE_PROJECTS
+# 
+# 
+# [ ] CPACK_SYSTEM_NAME
+# 
+# 
+# [ ] CPACK_PACKAGE_VERSION
+# 
+# 
+# [ ] CPACK_TOPLEVEL_TAG
+# 
+# 
+# [ ] CPACK_INSTALL_COMMANDS
+# 
+# 
+# [ ] CPACK_INSTALL_SCRIPTS
+# 
+# 
+# [ ] CPACK_PRE_BUILD_SCRIPTS
+# 
+# 
+# [ ] CPACK_POST_BUILD_SCRIPTS
+# 
+# 
+# [ ] CPACK_PACKAGE_FILES
+# 
+# 
+# [ ] CPACK_INSTALLED_DIRECTORIES
+# 
+# 
+# [ ] CPACK_PACKAGE_INSTALL_REGISTRY_KEY
+# 
+# 
+# [ ] CPACK_CREATE_DESKTOP_LINKS
+# 
+# 
+# [ ] CPACK_BINARY_<GENNAME>
+# 
+# 
+# [ ] CPACK_READELF_EXECUTABLE
+# 
+# 
+# [ ] CPACK_OBJCOPY_EXECUTABLE
+# 
+# 
+# [ ] CPACK_OBJDUMP_EXECUTABLE
+# 
+# 

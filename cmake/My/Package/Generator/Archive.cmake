@@ -30,7 +30,20 @@ function(my_generator_archive)
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()
 
-# CPACK_ARCHIVE_FILE_NAME
-# CPACK_ARCHIVE_<component>_FILE_NAME
-# CPACK_ARCHIVE_FILE_EXTENSION
-# CPACK_ARCHIVE_COMPONENT_INSTALL
+# === Variables specific to CPack Archive generator
+# 
+# [ ] CPACK_ARCHIVE_FILE_NAME
+# [ ] CPACK_ARCHIVE_<component>_FILE_NAME
+# 
+# 
+# [ ] CPACK_ARCHIVE_FILE_EXTENSION
+# 
+# 
+# [ ] CPACK_ARCHIVE_COMPONENT_INSTALL
+# 
+# 
+# === Variables used by CPack Archive generator
+# 
+# [ ] CPACK_ARCHIVE_THREADS
+# 
+# 
