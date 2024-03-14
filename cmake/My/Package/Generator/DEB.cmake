@@ -57,8 +57,8 @@ endfunction()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-source
 #        
-# [ ] CPACK_DEBIAN_FILE_NAME
 # [ ] CPACK_DEBIAN_<COMPONENT>_FILE_NAME
+# [ ] CPACK_DEBIAN_FILE_NAME
 #        
 #        Package file name.
 #        
@@ -182,8 +182,8 @@ endfunction()
 #        **Default**: `!CPACK_PACKAGE_CONTACT`
 #        
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_DESCRIPTION
 # [ ] CPACK_DEBIAN_PACKAGE_DESCRIPTION
+# [ ] CPACK_DEBIAN_<COMPONENT>_DESCRIPTION
 #        
 #        The Debian package description
 #        
@@ -204,8 +204,8 @@ endfunction()
 #        [Debian Policy Manual](https://www.debian.org/doc/debian-policy/ch-controlfields.html#description)]
 #        .
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SECTION
 # [ ] CPACK_DEBIAN_PACKAGE_SECTION
+# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SECTION
 #        
 #        Set Section control field e.g. admin, devel, doc, ...
 #        
@@ -327,8 +327,8 @@ endfunction()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_PREDEPENDS
 # [ ] CPACK_DEBIAN_PACKAGE_PREDEPENDS
+# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_PREDEPENDS
 #        
 #        Sets the Pre-Depends field of the Debian package. Like 
 #        `Depends <CPACK_DEBIAN_PACKAGE_DEPENDS>`, except that it also forces 
@@ -345,8 +345,8 @@ endfunction()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_ENHANCES
 # [ ] CPACK_DEBIAN_PACKAGE_ENHANCES
+# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_ENHANCES
 #        
 #        Sets the `Enhances` field of the Debian package. Similar to 
 #        `Suggests <CPACK_DEBIAN_PACKAGE_SUGGESTS>` but works in the opposite 
@@ -362,8 +362,8 @@ endfunction()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_BREAKS
 # [ ] CPACK_DEBIAN_PACKAGE_BREAKS
+# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_BREAKS
 #        
 #        Sets the `Breaks` field of the Debian package. When a binary package 
 #        (P) declares that it breaks other packages (B), `dpkg` will not allow 
@@ -436,8 +436,8 @@ endfunction()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_RECOMMENDS
 # [ ] CPACK_DEBIAN_PACKAGE_RECOMMENDS
+# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_RECOMMENDS
 #        
 #        Sets the `Recommends` field of the Debian package. Allows packages to 
 #        declare a strong, but not absolute, dependency on other packages.
@@ -536,8 +536,8 @@ endfunction()
 #            scripts should have the proper executable flag prior to the 
 #            generation of the package.
 #        
-# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SOURCE
 # [ ] CPACK_DEBIAN_PACKAGE_SOURCE
+# [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SOURCE
 #        
 #        Sets the `Source` field of the binary Debian package. When the binary 
 #        package name is not the same as the source package name (in particular 
@@ -563,8 +563,8 @@ endfunction()
 # 
 # === Packaging of debug information
 # 
-# [ ] CPACK_DEBIAN_<component>_DEBUGINFO_PACKAGE
 # [ ] CPACK_DEBIAN_DEBUGINFO_PACKAGE
+# [ ] CPACK_DEBIAN_<component>_DEBUGINFO_PACKAGE
 #        
 #        Enable generation of dbgsym .ddeb package(s).
 #        

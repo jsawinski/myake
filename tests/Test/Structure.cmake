@@ -9,7 +9,7 @@ my_structure_parse(TEMPLATE DATA
         ID:="group"
         ENTRY: {
             ID:
-            DISPLAY:-{
+            DISPLAY:- {
                 TEXT:
                 ICON:
             }
@@ -17,7 +17,7 @@ my_structure_parse(TEMPLATE DATA
         }
         NODE: {
             ID:
-            DISPLAY:-{
+            DISPLAY:- {
                 TEXT:
                 ICON:
                 SELECTED:

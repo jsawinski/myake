@@ -142,10 +142,19 @@ macro(my_package)
     my_generator_category(category ${ARGV0})
     if(category)
         list(POP_FRONT __MY_PACK_ARGS)
-        my_generator_iscommon(_MY_PACK_COMMON)
+        my_generator_iscommon(__MY_PACK_COMMON)
+
+        message(DEBUG "Category: ${category}, Common: ${__MY_PACK_COMMON}")
     endif()
 
-    # FIXME
+    # parse settings
+    if(NOT category) 
+        my_structure_parse(MY_PACK_COMMON
+            TEMPLATE MY_PACK_COMMON
+            ${__MY_PACK_ARGS})
+    else()
+        FIXME()
+    endif()
 
     if(category)
         my_generator_handle(${category})

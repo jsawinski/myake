@@ -83,13 +83,14 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
     AUTHORS:*
     CONTACT:
 
-    # DESCRIPTION:-{  
-    #     SUMMARY:
-    #     FILE:
-    #     FULL:
-    #     README:
-    #     WELCOME:
-    # }
+    DESCRIPTION:- {  
+        SUMMARY:
+        FILE:
+        FULL:
+        README:
+        WELCOME:
+    }
+
     # LICENSE:-{
     #     TAG:
     #     FILE:

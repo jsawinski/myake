@@ -62,7 +62,7 @@ endfunction()
 #        **Mandatory**: Yes
 #        **Default**: 
 #        
-#        - `CPACK_FreeBSDIAN_PACKAGE_DESCRIPTION` (this may be set already for 
+#        - `CPACK_DEBIAN_PACKAGE_DESCRIPTION` (this may be set already for 
 #          Debian packaging, so it is used as a fallback).
 #        - `CPACK_PACKAGE_DESCRIPTION_SUMMARY` (this is always set by CPack 
 #          itself, if nothing else sets it explicitly).
@@ -79,7 +79,7 @@ endfunction()
 #        **Default**: 
 #        
 #        - `CPACK_PACKAGE_HOMEPAGE_URL`, or if that is not set,
-#        - `CPACK_FreeBSDIAN_PACKAGE_HOMEPAGE` (this may be set already for Debian 
+#        - `CPACK_DEBIAN_PACKAGE_HOMEPAGE` (this may be set already for Debian 
 #          packaging, so it is used as a fallback).
 #        
 # [ ] CPACK_FREEBSD_PACKAGE_LICENSE

@@ -9,7 +9,7 @@ my_package(
 
     DESCRIPTION {
         SUMMARY "CMake configuration personalization and utilities."
-        FULL "\
+        FULL "
 Myake is an set of macros extending [CMake](https://cmake.org). It provides
 three main features:
 ..."
@@ -43,3 +43,11 @@ three main features:
 
 #     CHECKSUM SHA1
 )
+
+
+get_cmake_property(vars VARIABLES)
+foreach(var ${vars})
+    if("${var}" MATCHES "^MY_PACK_COMMON_")
+        message("${var}=${${var}}")
+    endif()
+endforeach()

@@ -46,8 +46,8 @@ endfunction()
 #        **Default**: `CPACK_PACKAGE_DESCRIPTION_SUMMARY`
 #        
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_NAME
 # [ ] CPACK_RPM_PACKAGE_NAME
+# [ ] CPACK_RPM_<component>_PACKAGE_NAME
 #        
 #        The RPM package name.
 #        
@@ -55,8 +55,8 @@ endfunction()
 #        **Default**: `CPACK_PACKAGE_NAME`
 #        
 #        
-# [ ] CPACK_RPM_<component>_FILE_NAME
 # [ ] CPACK_RPM_FILE_NAME
+# [ ] CPACK_RPM_<component>_FILE_NAME
 #        
 #        Package file name.
 #        
@@ -170,8 +170,8 @@ endfunction()
 #        **Default**: CPACK_PACKAGE_VENDOR if set or "unknown"
 #        
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_URL
 # [ ] CPACK_RPM_PACKAGE_URL
+# [ ] CPACK_RPM_<component>_PACKAGE_URL
 #        
 #        The projects URL.
 #        
@@ -179,8 +179,8 @@ endfunction()
 #        **Default**: `CMAKE_PROJECT_HOMEPAGE_URL`
 #        
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_DESCRIPTION
 # [ ] CPACK_RPM_PACKAGE_DESCRIPTION
+# [ ] CPACK_RPM_<component>_PACKAGE_DESCRIPTION
 #        
 #        RPM package description.
 #        
@@ -212,8 +212,8 @@ endfunction()
 #        **`gzip`**: GNU Gzip compression
 #        
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_AUTOREQ
 # [ ] CPACK_RPM_PACKAGE_AUTOREQ
+# [ ] CPACK_RPM_<component>_PACKAGE_AUTOREQ
 #        
 #        RPM spec autoreq field.
 #        
@@ -246,8 +246,8 @@ endfunction()
 #            By default automatic provides detection is enabled by rpm 
 #            generator.
 #        
-# [ ] CPACK_RPM_PACKAGE_AUTOREQPROV
 # [ ] CPACK_RPM_<component>_PACKAGE_AUTOREQPROV
+# [ ] CPACK_RPM_PACKAGE_AUTOREQPROV
 #        
 #        RPM spec autoreqprov field.
 #        
@@ -315,8 +315,8 @@ endfunction()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_PRE "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POST
 # [ ] CPACK_RPM_PACKAGE_REQUIRES_POST
+# [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POST
 #        
 #        RPM spec requires(post) field.
 #        
@@ -360,8 +360,8 @@ endfunction()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_PREUN "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_<component>_PACKAGE_SUGGESTS
 # [ ] CPACK_RPM_PACKAGE_SUGGESTS
+# [ ] CPACK_RPM_<component>_PACKAGE_SUGGESTS
 #        
 #        RPM spec suggest field.
 #        
@@ -373,8 +373,8 @@ endfunction()
 #        ignore this variable. Note that you must enclose the complete requires 
 #        string between quotes.
 #        
-# [ ] CPACK_RPM_PACKAGE_PROVIDES
 # [ ] CPACK_RPM_<component>_PACKAGE_PROVIDES
+# [ ] CPACK_RPM_PACKAGE_PROVIDES
 #        
 #        RPM spec provides field.
 #        
@@ -446,7 +446,7 @@ endfunction()
 #        set(CPACK_RPM_SPEC_MORE_DEFINE "%define __spec_install_post /bin/true")
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_RPMUG
+# [ ] CPACK_RPM_PACKAGE_DEBUG
 #        
 #        Toggle CPack RPM generator debug output.
 #        
@@ -456,11 +456,11 @@ endfunction()
 #        May be set when invoking cpack in order to trace debug information 
 #        during CPack RPM run. For example you may launch CPack like this:
 #        ```
-#        cpack -D CPACK_RPM_PACKAGE_RPMUG=1 -G RPM
+#        cpack -D CPACK_RPM_PACKAGE_DEBUG=1 -G RPM
 #        ```
 #        
-# [ ] CPACK_RPM_<componentName>_USER_BINARY_SPECFILE
 # [ ] CPACK_RPM_USER_BINARY_SPECFILE
+# [ ] CPACK_RPM_<componentName>_USER_BINARY_SPECFILE
 #        
 #        A user provided spec file.
 #        
@@ -487,9 +487,9 @@ endfunction()
 #        The user may then use this file in order to hand-craft is own binary 
 #        spec file which may be used with `CPACK_RPM_USER_BINARY_SPECFILE`.
 #        
-# [ ] CPACK_RPM_PRE_UNINSTALL_SCRIPT_FILE
 # [ ] CPACK_RPM_PRE_TRANS_SCRIPT_FILE
 # [ ] CPACK_RPM_PRE_INSTALL_SCRIPT_FILE
+# [ ] CPACK_RPM_PRE_UNINSTALL_SCRIPT_FILE
 #        
 #        Path to file containing pre install/uninstall/transaction script.
 #        
@@ -509,9 +509,9 @@ endfunction()
 #        rpm -qp --scripts  package.rpm
 #        ```
 #        
+# [ ] CPACK_RPM_POST_INSTALL_SCRIPT_FILE
 # [ ] CPACK_RPM_POST_TRANS_SCRIPT_FILE
 # [ ] CPACK_RPM_POST_UNINSTALL_SCRIPT_FILE
-# [ ] CPACK_RPM_POST_INSTALL_SCRIPT_FILE
 #        
 #        Path to file containing post install/uninstall/transaction script.
 #        
@@ -531,8 +531,8 @@ endfunction()
 #        rpm -qp --scripts  package.rpm
 #        ```
 #        
-# [ ] CPACK_RPM_<COMPONENT>_USER_FILELIST
 # [ ] CPACK_RPM_USER_FILELIST
+# [ ] CPACK_RPM_<COMPONENT>_USER_FILELIST
 #        
 #        **Mandatory**: No
 #        **Default**: 
@@ -690,8 +690,8 @@ endfunction()
 #        Value should be group name and not GID. Note that `<compName>` must be 
 #        in upper-case.
 #        
-# [ ] CPACK_RPM_DEFAULT_FILE_PERMISSIONS
 # [ ] CPACK_RPM_<compName>_DEFAULT_FILE_PERMISSIONS
+# [ ] CPACK_RPM_DEFAULT_FILE_PERMISSIONS
 #        
 #        default permissions used for packaged files
 #        
@@ -711,8 +711,8 @@ endfunction()
 #        
 #        Note that `<compName>` must be in upper-case.
 #        
-# [ ] CPACK_RPM_DEFAULT_DIR_PERMISSIONS
 # [ ] CPACK_RPM_<compName>_DEFAULT_DIR_PERMISSIONS
+# [ ] CPACK_RPM_DEFAULT_DIR_PERMISSIONS
 #        
 #        default permissions used for packaged directories
 #        
@@ -739,8 +739,8 @@ endfunction()
 # 
 # === Packaging of debug information
 # 
-# [ ] CPACK_RPM_<component>_RPMUGINFO_PACKAGE
-# [ ] CPACK_RPM_RPMUGINFO_PACKAGE
+# [ ] CPACK_RPM_<component>_DEBUGINFO_PACKAGE
+# [ ] CPACK_RPM_DEBUGINFO_PACKAGE
 #        
 #        Enable generation of debuginfo RPM package(s).
 #        
@@ -753,7 +753,7 @@ endfunction()
 #        Provides locations of root directories of source files from which 
 #        binaries were built.
 #        
-#        **Mandatory**: Yes if `CPACK_RPM_RPMUGINFO_PACKAGE` is set
+#        **Mandatory**: Yes if `CPACK_RPM_DEBUGINFO_PACKAGE` is set
 #        **Default**: 
 #        
 #        
@@ -763,13 +763,13 @@ endfunction()
 #        Prefix of location where sources will be placed during package 
 #        installation.
 #        
-#        **Mandatory**: Yes if `CPACK_RPM_RPMUGINFO_PACKAGE` is set
+#        **Mandatory**: Yes if `CPACK_RPM_DEBUGINFO_PACKAGE` is set
 #        **Default**: `/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}` and for 
 #            component packaging 
 #            `/usr/src/debug/${CPACK_PACKAGE_FILE_NAME}-<component>`
 #        
 #        
-# [ ] CPACK_RPM_RPMUGINFO_EXCLUDE_DIRS
+# [ ] CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS
 #        
 #        Directories containing sources that should be excluded from debuginfo 
 #        packages.
@@ -785,16 +785,16 @@ endfunction()
 #        Listed paths are owned by other RPM packages and should therefore not 
 #        be deleted on debuginfo package uninstallation.
 #        
-# [ ] CPACK_RPM_RPMUGINFO_EXCLUDE_DIRS_ADDITION
+# [ ] CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS_ADDITION
 #        
-#        Paths that should be appended to `CPACK_RPM_RPMUGINFO_EXCLUDE_DIRS` for
+#        Paths that should be appended to `CPACK_RPM_DEBUGINFO_EXCLUDE_DIRS` for
 #        exclusion.
 #        
 #        **Mandatory**: No
 #        **Default**: 
 #        
 #        
-# [ ] CPACK_RPM_RPMUGINFO_SINGLE_PACKAGE
+# [ ] CPACK_RPM_DEBUGINFO_SINGLE_PACKAGE
 #        
 #        Create a single debuginfo package even if components packaging is set.
 #        
@@ -808,8 +808,8 @@ endfunction()
 #        there is more than one component this variable requires 
 #        `CPACK_RPM_MAIN_COMPONENT` to be set.
 #        
-# [ ] CPACK_RPM_<component>_RPMUGINFO_FILE_NAME
-# [ ] CPACK_RPM_RPMUGINFO_FILE_NAME
+# [ ] CPACK_RPM_<component>_DEBUGINFO_FILE_NAME
+# [ ] CPACK_RPM_DEBUGINFO_FILE_NAME
 #        
 #        Debuginfo package file name.
 #        

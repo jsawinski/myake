@@ -39,8 +39,8 @@ set(CPACK_ARCHIVE_THREADS 0)
 # 
 # === Variables specific to CPack Archive generator
 # 
-# [ ] CPACK_ARCHIVE_<component>_FILE_NAME
 # [ ] CPACK_ARCHIVE_FILE_NAME
+# [ ] CPACK_ARCHIVE_<component>_FILE_NAME
 #        
 #        Package file name without extension.
 #        
@@ -72,15 +72,3 @@ set(CPACK_ARCHIVE_THREADS 0)
 # === Variables used by CPack Archive generator
 # 
 # [x] CPACK_ARCHIVE_THREADS
-#        
-#        The number of threads to use when performing the compression.
-#        
-#        **Default**: `1`
-#        
-#        If set to `0`, the number of available cores on the machine will be 
-#        used instead. The default is `1` which limits compression to a single 
-#        thread. Note that not all compression modes support threading in all 
-#        environments. Currently, only the XZ compression may support it.
-#        
-#        See also the `CPACK_THREADS` variable.
-#        

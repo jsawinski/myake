@@ -59,8 +59,8 @@ endfunction()
 #        **Default**: `CPACK_PACKAGE_VERSION`
 #        
 #        
-# [ ] CPACK_NUGET_<compName>_PACKAGE_DESCRIPTION
 # [ ] CPACK_NUGET_PACKAGE_DESCRIPTION
+# [ ] CPACK_NUGET_<compName>_PACKAGE_DESCRIPTION
 #        
 #        A long description of the package for UI display.
 #        
@@ -83,8 +83,8 @@ endfunction()
 #        **Default**: `CPACK_PACKAGE_VENDOR`
 #        
 #        
-# [ ] CPACK_NUGET_<compName>_PACKAGE_TITLE
 # [ ] CPACK_NUGET_PACKAGE_TITLE
+# [ ] CPACK_NUGET_<compName>_PACKAGE_TITLE
 #        
 #        A human-friendly title of the package, typically used in UI displays as
 #        on [nuget.org](https://www.nuget.org)] and the Package Manager in 
@@ -96,8 +96,8 @@ endfunction()
 #        - `CPACK_COMPONENT_<compName>_DISPLAY_NAME`,
 #        - `!CPACK_COMPONENT_GROUP_<groupName>_DISPLAY_NAME`
 #        
-# [ ] CPACK_NUGET_<compName>_PACKAGE_OWNERS
 # [ ] CPACK_NUGET_PACKAGE_OWNERS
+# [ ] CPACK_NUGET_<compName>_PACKAGE_OWNERS
 #        
 #        A comma-separated list of the package creators using profile names on 
 #        [nuget.org](https://www.nuget.org)]. This is often the same list as in 
@@ -118,8 +118,8 @@ endfunction()
 #        **Default**: `CPACK_PACKAGE_HOMEPAGE_URL`
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_LICENSEURL
 # [ ] CPACK_NUGET_<compName>_PACKAGE_LICENSEURL
+# [ ] CPACK_NUGET_PACKAGE_LICENSEURL
 #        
 #        **Deprecated**: 
 #            
@@ -189,8 +189,8 @@ endfunction()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_<compName>_PACKAGE_ICON
 # [ ] CPACK_NUGET_PACKAGE_ICON
+# [ ] CPACK_NUGET_<compName>_PACKAGE_ICON
 #        
 #        The filename of a 64x64 image with transparency background to use as 
 #        the icon for the package in UI display.
@@ -229,8 +229,8 @@ endfunction()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_<compName>_PACKAGE_LANGUAGE
 # [ ] CPACK_NUGET_PACKAGE_LANGUAGE
+# [ ] CPACK_NUGET_<compName>_PACKAGE_LANGUAGE
 #        
 #        Locale specifier for the package, for example `en_CA`.
 #        
@@ -248,8 +248,8 @@ endfunction()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_DEPENDENCIES
 # [ ] CPACK_NUGET_<compName>_PACKAGE_DEPENDENCIES
+# [ ] CPACK_NUGET_PACKAGE_DEPENDENCIES
 #        
 #        A list of package dependencies.
 #        
@@ -258,8 +258,8 @@ endfunction()
 #        
 #        
 # [ ] CPACK_NUGET_PACKAGE_DEPENDENCIES_<dependency>_VERSION
-# [ ] PACKAGE_DEPENDENCIES_<dependency>_VERSION
 # [ ] CPACK_NUGET_<compName>_
+# [ ] PACKAGE_DEPENDENCIES_<dependency>_VERSION
 #        
 #        A 
 #        [version specification](https://learn.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges)]
