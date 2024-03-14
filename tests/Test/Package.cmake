@@ -9,7 +9,7 @@ my_package(
 
     DESCRIPTION {
         SUMMARY "CMake configuration personalization and utilities."
-        FULL "
+        FULL "\
 Myake is an set of macros extending [CMake](https://cmake.org). It provides
 three main features:
 ..."
@@ -24,24 +24,24 @@ three main features:
         HOMEPAGE "https://github.com/jsawinski/myake"
     }
 
-#     ARCHITECTURE all
-#     CATEGORY "Development"
+    ARCHITECTURE all
+    CATEGORY "Development"
 
-#     COMPONENTS {
+    COMPONENTS {
         
-#     }
+    }
 
-#     SOURCE {
-#         IGNORE_FILES
-#             DEFAULTS
-#             /build/
-#             /.myake/
-#             /\\.gitignore\$
+    SOURCE {
+        IGNORE_FILES
+            DEFAULTS
+            /build/
+            /.myake/
+            /\\.gitignore\$
 
-#         SUFFIX "source"
-#     }
+        SUFFIX "source"
+    }
 
-#     CHECKSUM SHA1
+    CHECKSUM SHA1
 )
 
 
