@@ -152,14 +152,14 @@ macro(my_package)
         my_structure_parse(MY_PACK_COMMON
             TEMPLATE MY_PACK_COMMON
             ${__MY_PACK_ARGS})
-    else()
-        FIXME()
     endif()
 
     if(category)
         my_generator_handle(${category})
     endif()
     unset(category)
+
+    # FIXME
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()

@@ -15,14 +15,14 @@ three main features:
 ..."
     }
 
-#     LICENSE {
-#         TAG  "MIT"
-#         FILE ${Myake_SOURCE_DIR}/LICENSE
-#     }
+    LICENSE {
+        TAG  "MIT"
+        FILE ${Myake_SOURCE_DIR}/LICENSE
+    }
 
-#     URL {
-#         HOMEPAGE "https://github.com/jsawinski/myake"
-#     }
+    URL {
+        HOMEPAGE "https://github.com/jsawinski/myake"
+    }
 
 #     ARCHITECTURE all
 #     CATEGORY "Development"

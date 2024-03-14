@@ -91,74 +91,74 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
         WELCOME:
     }
 
-    # LICENSE:-{
-    #     TAG:
-    #     FILE:
-    # }
-    # URL:-{
-    #     HOMEPAGE:
-    #     ABOUT:
-    #     HELP:
-    #     ICON:
-    #     LICENSE:
-    # }
-    # ICON:-{
-    #     FILE:
-    #     INSTALL:
-    #     UNINSTALL:
-    # }
+    LICENSE:-{
+        TAG:
+        FILE:
+    }
+    URL:-{
+        HOMEPAGE:
+        ABOUT:
+        HELP:
+        ICON:
+        LICENSE:
+    }
+    ICON:-{
+        FILE:
+        INSTALL:
+        UNINSTALL:
+    }
 
-    # GENERATOR:*="ZIP"
-    # CHECKSUM:
-    # CONFIG:
-    # SUFFIX:
-    # FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"
+    GENERATOR:*="ZIP"
+    CHECKSUM:
+    CONFIG:
+    SUFFIX:
+    FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"
 
-    # SOURCE:-{
-    #     GENERATOR:*="ZIP"
-    #     STRIP_FILES:*
-    #     IGNORE_FILES:*
-    #     CONFIG:
-    #     SUFFIX:="source"
-    #     FILE_NAME:
-    # }
+    SOURCE:-{
+        GENERATOR:*="ZIP"
+        STRIP_FILES:*
+        IGNORE_FILES:*
+        CONFIG:
+        SUFFIX:="source"
+        FILE_NAME:
+    }
 
-    # COMPONENTS:-{
-    #     GROUP:{
-    #         PARENT_GROUP:
-    #         DISPLAY:
-    #         DESCRIPTION:
-    #         EXPANDED:-
-    #         BOLD_TITLE:-
+    COMPONENTS:-{
+        GROUP:{
+            PARENT_GROUP:
+            DISPLAY:
+            DESCRIPTION:
+            EXPANDED:-
+            BOLD_TITLE:-
 
-    #         @GROUP->PARENT_GROUP
-    #         @COMPONENT->GROUP
-    #     }
-    #     COMPONENT:{
-    #         GROUP:
-    #         DISPLAY:
-    #         DESCRIPTION:
-    #         HIDDEN:- REQUIRED:- DISABLED:-
-    #         DEPENDS:*
-    #         INSTALL_TYPES:*
-    #         DOWNLOADED:-
-    #         ARCHIVE_FILE:
-    #         PLIST:
-    #     }
+            @GROUP->PARENT_GROUP
+            @COMPONENT->GROUP
+        }
+        COMPONENT:{
+            GROUP:
+            DISPLAY:
+            DESCRIPTION:
+            HIDDEN:- REQUIRED:- DISABLED:-
+            DEPENDS:*
+            INSTALL_TYPES:*
+            DOWNLOADED:-
+            ARCHIVE_FILE:
+            PLIST:
+        }
 
-    #     INSTALL:-{
-    #         # FIXME
-    #     }
+        INSTALL:-{
+            # FIXME
+        }
     
-    #     # INSTALL_TYPE <typename> {
-    #     #     [DISPLAY <display-name>]
-    #     # }
-    #     # DOWNLOADS <sitename> {
-    #     #     [UPLOAD_DIRECTORY <dirname>]
-    #     #     [ALL]
-    #     #     [ADD_REMOVE|NO_ADD_REMOVE]
-    #     # }
-    # }
+        # INSTALL_TYPE <typename> {
+        #     [DISPLAY <display-name>]
+        # }
+        # DOWNLOADS <sitename> {
+        #     [UPLOAD_DIRECTORY <dirname>]
+        #     [ALL]
+        #     [ADD_REMOVE|NO_ADD_REMOVE]
+        # }
+    }
 )
 
 # The following text was auto-generated from CPack's help files:

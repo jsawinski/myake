@@ -470,49 +470,17 @@ macro(__my_structure_parse)
                 message(FATAL_ERROR "Expected an option key ([A-Z][A-Z_]*) but found '${option}'.")
             endif()
 
-            # handle key
-            __my_structure_get(__chld__ "-" ${tmplspace} __CHLD__)
-            if("${option}" IN_LIST __chld__)
-                # prepare child node
-                __my_structure_get(__name__ "-" ${tmplspace} __NAME__)
-                if(NOT __name__)
-                    message(FATAL_ERROR "Expected a named node under '${option}'.")
-                endif()
-
-                # transition state
-                set(state ${dsm_named_group})
-            elseif("${option}" IN_LIST __keys__)
-                unset(__chld__)
-
-                # valid key
-                __my_structure_get(__argn__ "-" ${tmplspace} ${option} __ARGN__)
-
-                # replace value?
-                if(__REPLACE)
-                    __my_structure_unset("_" ${namespace} ${option})
-                endif()
-
-                if(DEFINED __argn__)
-                    # option, one or multi-value
-                    if(__argn__ EQUAL 0)
-                        __my_structure_set(TRUE "_" ${namespace} ${option})
-                    else()
-                        set(state ${dsm_values})
-                    endif()
-                else()
-                    # group
-                    __my_structure_get(__name__ "-" ${tmplspace} ${option} __NAME__)
-                    if(__name__)
-                        set(state ${dsm_named_group})
-                    else()
-                        set(state ${dsm_enter_group})
-                    endif()
-                endif()
-            else()
-                message(FATAL_ERROR "Expected a valid identifier but found '${option}' not defined in template.")
-            endif()
+            # handle option
+            __my_structure_handle_option()
         elseif(${state} EQUAL ${dsm_values})
-            FIXME_check_if_option("see __keys__ above")
+            if("${arg}" IN_LIST __keys__)
+                __my_structure_get(__expected_argn__ "-" ${tmplspace} ${option} __ARGN__)
+                if((${__expected_argn__} LESS_EQUAL 0) AND (${__argn__} LESS_EQUAL 0))
+                    set(option ${arg})
+                    __my_structure_handle_option()
+                    continue()
+                endif()
+            endif()
 
             __my_structure_append(${arg} "_" ${namespace} ${option})
 
@@ -718,3 +686,46 @@ macro(__my_structure_unset glue)
     unset(${outvar} PARENT_SCOPE)
 endmacro()
 
+macro(__my_structure_handle_option)
+    # handle key
+    __my_structure_get(__chld__ "-" ${tmplspace} __CHLD__)
+    if("${option}" IN_LIST __chld__)
+        # prepare child node
+        __my_structure_get(__name__ "-" ${tmplspace} __NAME__)
+        if(NOT __name__)
+            message(FATAL_ERROR "Expected a named node under '${option}'.")
+        endif()
+
+        # transition state
+        set(state ${dsm_named_group})
+    elseif("${option}" IN_LIST __keys__)
+        unset(__chld__)
+
+        # valid key
+        __my_structure_get(__argn__ "-" ${tmplspace} ${option} __ARGN__)
+
+        # replace value?
+        if(__REPLACE)
+            __my_structure_unset("_" ${namespace} ${option})
+        endif()
+
+        if(DEFINED __argn__)
+            # option, one or multi-value
+            if(__argn__ EQUAL 0)
+                __my_structure_set(TRUE "_" ${namespace} ${option})
+            else()
+                set(state ${dsm_values})
+            endif()
+        else()
+            # group
+            __my_structure_get(__name__ "-" ${tmplspace} ${option} __NAME__)
+            if(__name__)
+                set(state ${dsm_named_group})
+            else()
+                set(state ${dsm_enter_group})
+            endif()
+        endif()
+    else()
+        message(FATAL_ERROR "Expected a valid identifier but found '${option}' not defined in template.")
+    endif()
+endmacro()
