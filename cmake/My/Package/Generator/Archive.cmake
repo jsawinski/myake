@@ -31,9 +31,15 @@ function(my_generator_archive)
     message(TRACE "my_generator_archive(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
-    
-    if(NOT DEFINED __MY_PACK_COMMON)
+    if(DEFINED __MY_PACK_COMMON)
+        my_structure_parse(MY_PACK_ARCHIVE_COMMON
+            TEMPLATE MY_PACK_ARCHIVE
+            ${__MY_PACK_ARGS})
+        
+        return()
     endif()
+
+    my_generator_config(prepare ARCHIVE)
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()

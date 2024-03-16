@@ -24,6 +24,8 @@ function(my_generator_deb)
     message(TRACE "my_generator_deb(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
+        # set(CPACK_SET_DESTDIR ON)
+
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()
 

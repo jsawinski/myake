@@ -120,8 +120,10 @@ upload mechanisms, including source code revision suites, and more."
     }
 )
 
-my_package(Archive
-    GENERATOR DISABLED
+my_package(Archive 
+	PACKAGE {
+		GENERATOR NONE
+	}
 
     SOURCE {
         GENERATOR ZIP TXZ

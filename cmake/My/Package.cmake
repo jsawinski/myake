@@ -32,10 +32,6 @@ include(My/Package/Generator)
 
 include(CPackComponent)
 
-# defaults
-# FIXME see my_generator_reset(), we need to set another method for setting up defaults
-set(CPACK_SET_DESTDIR ON)
-
 #[==[.md:
 ## my_package
 

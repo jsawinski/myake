@@ -105,45 +105,40 @@ endmacro()
 
     my_generator_reset()
 
-Reset all CPACK* variables.
+Clear all CPACK* variables.
 #]==]
+macro(my_generator_reset)
+    get_cmake_property(allvars VARIABLES)
+    foreach(var ${allvars})
+        if(var MATCHES "^CPACK")
+            unset(${var})
+            unset(${var} CACHE)
+        endif()
+    endforeach()
+endmacro()
 
 #[==[.md:
 ### my_generator_config
 
     my_generator_config(
-        [VARIABLES <variable-prefix>...]
-        [TEMPLATES <template-patterns>...]
-        [GET <output-variable> <pattern>]
-        [POPULATE <variable> <pattern>[=<source-pattern>] ...]
+        FIXME
     )
 
-Setup, access and process generator settings.
-
-Option `VARIABLES` sets the hierarchy of variables to retrieve package
-information. Common package options are included by default. This value is
-stored in the ``MY_GENERATOR_CONFIG_VARIABLES``.
-
-Option `TEMPLATES` stores template patterns (e.g. NAME). As with VARIABLES,
-this is stored in ``MY_GENERATOR_CONFIG_TEMPLATES``. It's lookup mechanism is
-the same as for option `GET`.
-
-Option `GET` retrieves the value for a variable pattern (e.g. If COMPONENTS is
-required and VARIABLES is set to MY_ARCHIVE;MY_ARCHIVE_COMMON;MY_PACKAGE_COMMON,
-then the first occurrence of MY_ARCHIVE_COMPONENTS, etc., will be used).
-
-Option `POPULATE` causes settings to be copied to CPACK variables by pattern
-(where the source pattern, as passed to GET, may deviate from the
-<variable><pattern>).
+FIXME
 
 #]==]
+macro(my_generator_config stage tag)
+    if("${tag}" STREQUAL "all")
+        __my_generator_stage_prepare(${tag})
+    else()
+        cmake_language(EVAL CODE "__my_generator_stage_${stage}(${tag})")
+    endif()
+endmacro()
 
-#[==[.md:
-### my_generator_emit()
-
-    my_generator_emit()
-
-Create CPack configuration files.
-#]==]
+macro(__my_generator_stage_prepare tag)
+    my_structure_parse(MY_PACK_${tag} RESET
+        TEMPLATE MY_PACK_${tag}
+        ${__MY_PACK_ARGS})
+endmacro()
 
 my_report(My/Packaging SECTION "Packaging")
