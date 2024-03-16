@@ -42,6 +42,7 @@ Common package options prefix.
             [ICON <icon-url>]
             [LICENSE <license-url>]
         }]
+
         [ICON {
             [FILE <icon-file>]
             [INSTALL <install-icon-file>]
@@ -73,26 +74,26 @@ or end of file for further information.
 
 #]]
 my_structure_parse(TEMPLATE MY_PACK_COMMON
-    NAME:="${PROJECT_NAME}"                 # CPACK_PACKAGE_NAME
-    VENDOR:="${PROJECT_VENDOR}"             # CPACK_PACKAGE_VENDOR
-    VERSION:="${PROJECT_VERSION}"           # CPACK_PACKAGE_VERSION FIXME
+    NAME:="${PROJECT_NAME}"                     # CPACK_PACKAGE_NAME
+    VENDOR:="${PROJECT_VENDOR}"                 # CPACK_PACKAGE_VENDOR
+    VERSION:="${PROJECT_VERSION}"               # CPACK_PACKAGE_VERSION FIXME
 
-    ARCHITECTURE:="${MY_ARCHITECTURE}"      # CPACK_SYSTEM_NAME
+    ARCHITECTURE:="${MY_ARCHITECTURE}"          # CPACK_SYSTEM_NAME
     CATEGORY:
 
     AUTHORS:*
     CONTACT:
 
     DESCRIPTION:- {  
-        SUMMARY:                            # CPACK_PACKAGE_DESCRIPTION_SUMMARY 
-        FILE:                               # CPACK_PACKAGE_DESCRIPTION_FILE
-        FULL:                               # CPACK_PACKAGE_DESCRIPTION
-        README:                             # CPACK_RESOURCE_FILE_README
-        WELCOME:                            # CPACK_RESOURCE_FILE_WELCOME
+        SUMMARY:                                # CPACK_PACKAGE_DESCRIPTION_SUMMARY 
+        FILE:                                   # CPACK_PACKAGE_DESCRIPTION_FILE
+        FULL:                                   # CPACK_PACKAGE_DESCRIPTION
+        README:                                 # CPACK_RESOURCE_FILE_README
+        WELCOME:                                # CPACK_RESOURCE_FILE_WELCOME
     }
 
     URL:-{
-        HOMEPAGE:                           # CPACK_PACKAGE_HOMEPAGE_URL
+        HOMEPAGE:                               # CPACK_PACKAGE_HOMEPAGE_URL
         ABOUT:
         HELP:
         ICON:
@@ -100,28 +101,30 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
     }
 
     ICON:-{
-        FILE:                               # CPACK_PACKAGE_ICON
-        INSTALL:
-        UNINSTALL:
+        FILE:                                   # CPACK_PACKAGE_ICON
     }
 
     LICENSE:-{
-        TAG:
-        FILE:                               # CPACK_RESOURCE_FILE_LICENSE
+        TAG:                                    # -> FreeBSD, etc
+        FILE:                                   # CPACK_RESOURCE_FILE_LICENSE
     }
 
-    GENERATOR:*="ZIP"
-    CHECKSUM:                               # CPACK_PACKAGE_CHECKSUM
-    SUFFIX:
-    FILE_NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>" # CPACK_PACKAGE_FILE_NAME
+    PACKAGE:-{
+        CHECKSUM:="SHA256"                      # CPACK_PACKAGE_CHECKSUM
+        NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"  # CPACK_PACKAGE_FILE_NAME
+        SUFFIX:
+        GENERATOR:*="ZIP"
+    }
 
     SOURCE:-{
         GENERATOR:*="ZIP"
-        STRIP_FILES:*
-        IGNORE_FILES:*
+        IGNORE:*
         CONFIG:
-        SUFFIX:="source"
-        FILE_NAME:
+        STRIP:*
+        FILE:-{
+            NAME:="$<PACKAGE_NAME>"
+            SUFFIX:="source"
+        }
     }
 
     COMPONENTS:-{

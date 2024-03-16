@@ -154,12 +154,11 @@ macro(my_package)
             ${__MY_PACK_ARGS})
     endif()
 
+    # run generator
     if(category)
         my_generator_handle(${category})
     endif()
     unset(category)
-
-    # FIXME
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()

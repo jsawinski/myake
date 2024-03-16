@@ -104,8 +104,13 @@ upload mechanisms, including source code revision suites, and more."
 		LICENSE "https://raw.githubusercontent.com/jsawinski/myake/master/LICENSE"
 	}
 
+	PACKAGE {
+		CHECKSUM SHA1
+		NAME "$<name>-$<VERSION>$<[-]suffix>"
+	}
+
     SOURCE {
-    	IGNORE_FILES
+    	IGNORE
     		DEFAULTS
     		/build/
 			/.myake/
@@ -113,11 +118,15 @@ upload mechanisms, including source code revision suites, and more."
 
     	SUFFIX "source"
     }
-
-    CHECKSUM SHA1
 )
 
-include(maintainer/packages OPTIONAL)
+my_package(Archive
+    GENERATOR DISABLED
+
+    SOURCE {
+        GENERATOR ZIP TXZ
+    }
+)
 
 # final
 include(My/Lists)
