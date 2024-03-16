@@ -111,13 +111,13 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
 
     PACKAGE:-{
         CHECKSUM:="SHA256"                      # CPACK_PACKAGE_CHECKSUM
-        NAME:="$<NAME>-$<VERSION>$<[-]SUFFIX>"  # CPACK_PACKAGE_FILE_NAME
+        NAME:="$<NAME>-$<VERSION>$<-SUFFIX>"    # CPACK_PACKAGE_FILE_NAME
         SUFFIX:
-        GENERATOR:*="ZIP"
+        GENERATOR:*="7Z TBZ2 TGZ TXZ TZ TZST ZIP"
     }
 
-    SOURCE:-{
-        GENERATOR:*="ZIP"
+    SOURCES:-{
+        GENERATOR:*="7Z TBZ2 TGZ TXZ TZ TZST ZIP"
         IGNORE:*
         CONFIG:
         STRIP:*
@@ -167,6 +167,11 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
 
 # defaults
 set(CPACK_THREADS 0)
+
+# Undocumented:
+# [ ] CPACK_PACKAGE_DEFAULT_LOCATION 
+# [ ] CPACK_SET_DESTDIR
+# [ ] CPACK_INSTALL_PREFIX
 
 # The following text was auto-generated from CPack's help files:
 # 
@@ -282,7 +287,7 @@ set(CPACK_THREADS 0)
 #        packaging by default and may be asked to do component packaging by 
 #        setting `CPACK_<GENNAME>_COMPONENT_INSTALL` to `TRUE`.
 #        
-# [ ] CPACK_GENERATOR
+# [x] CPACK_GENERATOR
 #        
 #        List of CPack generators to use. If not specified, CPack will create a 
 #        set of options following the naming pattern `CPACK_BINARY_<GENNAME>` 

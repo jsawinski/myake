@@ -20,14 +20,15 @@ FIXME
     )
 
 #]==]
-function(my_generator_deb)
+macro(my_generator_deb)
     message(TRACE "my_generator_deb(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
         # set(CPACK_SET_DESTDIR ON)
 
+    my_generator_set(SOURCE DEB OFF) # FIXME disabled for now
     list(POP_BACK CMAKE_MESSAGE_INDENT)
-endfunction()
+endmacro()
 
 # The following text was auto-generated from CPack's help files:
 # 

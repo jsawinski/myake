@@ -70,6 +70,7 @@ my_package(
    	CATEGORY "Development"
     DESCRIPTION {
 	    SUMMARY "CMake macros for personalized building, simplified packaging and publishing."
+		README "${CMAKE_SOURCE_DIR}/README.md"
         FULL "\
 Myake is an set of macros extending CMake. It provides three main features:
 
@@ -106,10 +107,10 @@ upload mechanisms, including source code revision suites, and more."
 
 	PACKAGE {
 		CHECKSUM SHA1
-		NAME "$<name>-$<VERSION>$<[-]suffix>"
+		NAME "$<name>-$<VERSION>$<-suffix>"
 	}
 
-    SOURCE {
+    SOURCES {
     	IGNORE
     		DEFAULTS
     		/build/
@@ -125,8 +126,8 @@ my_package(Archive
 		GENERATOR NONE
 	}
 
-    SOURCE {
-        GENERATOR ZIP TXZ
+    SOURCES {
+        GENERATOR ZIP TGZ
     }
 )
 

@@ -20,12 +20,12 @@ FIXME
     )
 
 #]==]
-function(my_generator_dragndrop)
+macro(my_generator_dragndrop)
     message(TRACE "my_generator_dragndrop(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
-endfunction()
+endmacro()
 
 
 # The following text was auto-generated from CPack's help files:

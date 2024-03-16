@@ -20,8 +20,8 @@ FIXME
     )
 
 #]==]
-function(my_generator_rpm)
-endfunction()
+macro(my_generator_rpm)
+endmacro()
 
 # The following text was auto-generated from CPack's help files:
 # 

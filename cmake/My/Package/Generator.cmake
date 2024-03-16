@@ -29,7 +29,7 @@ include_guard(GLOBAL)
 
 include(My/Package/Generator/Common)
 
-set(__MYAKE_GENERATOR_ARCHIVE_LIST "7Z;TBZ2;TGZ;TXZ;TZ;TZST;ZIP")
+set(__MYAKE_GENERATOR_ARCHIVE_LIST "7Z;TBZ2;TGZ;TXZ;TZ;TZST;ZIP;STGZ")
 set(__MYAKE_GENERATOR_NULLSOFT_LIST "NSIS;NSIS64")
 
 set(__MYAKE_GERERATOR_WITH_SUBCATEGORIES "Nullsoft;Archive")
@@ -95,9 +95,16 @@ macro(my_generator_run category)
     # load module
     include(My/Package/Generator/${category})
 
+    # run generator helper
     string(TOLOWER "${category}" category_lc)
     cmake_language(EVAL CODE "my_generator_${category_lc}()")
     unset(category_lc)
+
+    # create cpack config
+    if(NOT DEFINED __MY_PACK_COMMON)
+        unset(CPack_CMake_INCLUDED)
+        include(CPack)
+    endif()
 endmacro()
 
 #[==[.md:
@@ -118,27 +125,147 @@ macro(my_generator_reset)
 endmacro()
 
 #[==[.md:
-### my_generator_config
+### my_generator_configure
 
-    my_generator_config(
+    my_generator_configure(
         FIXME
     )
 
 FIXME
 
 #]==]
-macro(my_generator_config stage tag)
-    if("${tag}" STREQUAL "all")
-        __my_generator_stage_prepare(${tag})
-    else()
-        cmake_language(EVAL CODE "__my_generator_stage_${stage}(${tag})")
+macro(my_generator_configure tag)
+    my_structure_parse(MY_PACK_${tag} RESET NODEFAULTS
+        TEMPLATE MY_PACK_${tag}
+        ${__MY_PACK_ARGS})
+
+    if(NOT DEFINED __MY_PACK_COMMON)
+        # translate variables
+        my_generator_translate(${tag} ${ARGN})
+
+        # other settings
+        set(CPACK_GENERATOR "${MY_PACK_${tag}_PACKAGE_GENERATOR}")
+        set(CPACK_SOURCE_GENERATOR "${MY_PACK_${tag}_SOURCES_GENERATOR}")
+
+        # reset options 
+        if(DEFINED __MYAKE_GENERATOR_${tag}_LIST)
+            foreach(item IN LISTS __MYAKE_GENERATOR_${tag}_LIST)
+                set(CPACK_BINARY_${item} OFF CACHE BOOL "CPack: generate binary ${item}" FORCE)
+                set(CPACK_SOURCE_${item} OFF CACHE BOOL "CPack: generate source ${item}" FORCE)
+            endforeach()
+        else()
+            set(CPACK_BINARY_${tag} OFF CACHE BOOL "CPack: generate binary ${tag}" FORCE)
+            set(CPACK_SOURCE_${tag} OFF CACHE BOOL "CPack: generate source ${tag}" FORCE)
+        endif()
+
+        # binary packages 
+        if(NOT "${MY_PACK_${tag}_PACKAGE_GENERATOR}" STREQUAL "NONE")
+            foreach(item IN LISTS MY_PACK_${tag}_PACKAGE_GENERATOR)
+                my_generator_set(BINAYR ${item} ON)
+            endforeach()
+        endif()
+
+        # source packages 
+        if(NOT "${MY_PACK_${tag}_SOURCES_GENERATOR}" STREQUAL "NONE")
+            foreach(item IN LISTS MY_PACK_${tag}_SOURCES_GENERATOR)
+                my_generator_set(SOURCE ${item} ON)
+            endforeach()
+        endif()
     endif()
 endmacro()
 
-macro(__my_generator_stage_prepare tag)
-    my_structure_parse(MY_PACK_${tag} RESET
-        TEMPLATE MY_PACK_${tag}
-        ${__MY_PACK_ARGS})
+#[==[.md:
+### my_generator_set
+
+    my_generator_set(BINARY|SOURCE <GENERATOR> ON|OFF)
+
+Helper to enable or disable CPack generator.
+
+#]==]
+function(my_generator_set type name value)
+    string(TOLOWER "${type}" type_lc)
+    set(CPACK_${type}_${name} ${value} CACHE BOOL "Generate a ${type_lc} package with generator ${name}." FORCE)
+endfunction()
+
+#[==[.md:
+### my_generator_translate
+
+    my_generator_translate(<settings>)
+
+Helper to convert Myake to CPack variables.
+
+#]==]
+macro(my_generator_translate tag)
+    set(dstprefix)
+    foreach(arg ${ARGN})
+        if("${arg}" MATCHES ":$")
+            my_substring(dstprefix 0 -2 "${arg}")
+        else()
+            string(REGEX MATCH "^([^=]+)=([^=]+)" _ ${arg})
+            
+            foreach(srcprefix MY_PACK_COMMON MY_PACK_${tag}_COMMON MY_PACK_${tag})
+                set(srcvar "${srcprefix}_${CMAKE_MATCH_2}")
+                set(dstvar "${dstprefix}_${CMAKE_MATCH_1}")
+
+                if(DEFINED ${srcvar})
+                    set(${dstvar} ${${srcvar}})
+                    my_generator_genex(${dstvar} MY_PACK_${tag} MY_PACK_${tag}_COMMON MY_PACK_COMMON)
+                endif()
+            endforeach()
+
+        endif()
+    endforeach()
 endmacro()
+
+#[==[.md:
+### my_generator_genex
+
+    my_generator_genex(outvar prefixes...)
+
+Helper to expand generator expressions.
+
+#]==]
+function(my_generator_genex outvar)
+    # message("${outvar}=${${outvar}}")
+    string(REGEX MATCH "[$][<][^>]*[>]" pattern "${${outvar}}")
+    if(NOT pattern)
+        return()
+    endif()
+
+    my_substring(genex 2 -2 "${pattern}")
+
+    if("${genex}" MATCHES "^[-]")
+        set(OPTIONAL TRUE)
+        my_substring(genex 3 -2 "${pattern}")
+    endif()
+
+    string(TOLOWER "${genex}" genex_lc)
+    string(TOUPPER "${genex}" genex_uc)
+
+    if("${genex}" STREQUAL "${genex_lc}")
+        set(LOWERCASE TRUE)
+    endif()
+    set(genex ${genex_uc})
+
+    unset(text)
+    foreach(prefix ${ARGN})
+        if(DEFINED ${prefix}_${genex})
+            if(LOWERCASE)
+                string(TOLOWER "${${prefix}_${genex}}" text)
+            else()
+                set(text "${${prefix}_${genex}}")
+            endif()
+            break()
+        endif()
+    endforeach()
+
+    if(NOT DEFINED text AND NOT OPTIONAL)
+        message(FATAL_ERROR "Internal error: genex replacement not found.")
+    endif()
+
+    string(REPLACE "${pattern}" "${text}" ${outvar} ${${outvar}})
+    my_generator_genex(${outvar} ${ARGN})
+    set(${outvar} "${${outvar}}" PARENT_SCOPE)
+endfunction()
 
 my_report(My/Packaging SECTION "Packaging")

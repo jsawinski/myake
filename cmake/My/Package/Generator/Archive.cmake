@@ -20,29 +20,49 @@ my_structure_parse(TEMPLATE MY_PACK_ARCHIVE USE MY_PACK_COMMON
 #[==[.md:
 # my_generator_archive
 
-    my_package(Archive [COMMON]
+    my_generator_archive(Archive [COMMON]
         [<package options>...]
     )
 
 Create binary and source archive files.
 
 #]==]
-function(my_generator_archive)
+macro(my_generator_archive)
     message(TRACE "my_generator_archive(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
-    if(DEFINED __MY_PACK_COMMON)
-        my_structure_parse(MY_PACK_ARCHIVE_COMMON
-            TEMPLATE MY_PACK_ARCHIVE
-            ${__MY_PACK_ARGS})
-        
-        return()
-    endif()
+    my_generator_configure(ARCHIVE
+        CPACK_PACKAGE:
+            NAME=NAME
+            VENDOR=VENDOR
+            VERSION=VERSION
+            SYSTEM_NAME=ARCHITECTURE
 
-    my_generator_config(prepare ARCHIVE)
+            DESCRIPTION_SUMMARY=DESCRIPTION_SUMMARY
+            DESCRIPTION_FILE=DESCRIPTION_FILE
+            DESCRIPTION_FILE=DESCRIPTION_README
+            DESCRIPTION=DESCRIPTION_FULL
+
+            HOMEPAGE_URL=URL_HOMEPAGE
+            ICON=ICON_FILE
+
+            CHECKSUM=PACKAGE_CHECKSUM
+            FILE_NAME=PACKAGE_NAME
+
+        CPACK_RESOURCE:
+            FILE_README=DESCRIPTION_README
+            FILE_WELCOME=DESCRIPTION_WELCOME
+            FILE_LICENSE=LICENSE_FILE
+
+        CPACK_SOURCE:
+            IGNORE_FILES=SOURCES_IGNORE
+
+        CPACK_ARCHIVE:
+            FILE_NAME=PACKAGE_NAME
+    )
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
-endfunction()
+endmacro()
 
 # defaults
 set(CPACK_ARCHIVE_THREADS 0)
