@@ -135,6 +135,7 @@ function(my_structure_parse __PREFIX)
 
         list(POP_FRONT MY_ARGS MY_TEMPLATE)
 
+        unset(MY_TEMPLATE_USES)
         while(TRUE)
             list(LENGTH MY_ARGS narg)
             if(${narg} EQUAL 0)
@@ -147,15 +148,7 @@ function(my_structure_parse __PREFIX)
             endif()
 
             list(POP_FRONT MY_ARGS)
-            list(POP_FRONT MY_ARGS MY_USE)
-
-            get_cmake_property(cachevars CACHE_VARIABLES)
-            foreach(var ${cachevars})
-                if("${var}" MATCHES "^TMPL_${MY_USE}-")
-                    string(REGEX REPLACE "^TMPL_${MY_USE}-" "TMPL_${MY_TEMPLATE}-" newvar "${var}")
-                    set(${newvar} "${${var}}" CACHE INTERNAL "undocument")
-                endif()
-            endforeach()
+            list(POP_FRONT MY_ARGS MY_TEMPLATE_USES)
         endwhile()
 
         __my_structure_template(TMPL_${MY_TEMPLATE} ${MY_ARGS})
@@ -277,6 +270,17 @@ macro(__my_structure_template template_id)
             unset(${tmpl} CACHE)
         endif()
     endforeach()
+
+    # copy "USES"
+    if(DEFINED MY_TEMPLATE_USES)
+        get_cmake_property(cachevars CACHE_VARIABLES)
+        foreach(var ${cachevars})
+            if("${var}" MATCHES "^TMPL_${MY_TEMPLATE_USES}-")
+                string(REGEX REPLACE "^TMPL_${MY_TEMPLATE_USES}-" "TMPL_${MY_TEMPLATE}-" newvar "${var}")
+                set(${newvar} "${${var}}" CACHE INTERNAL "undocument")
+            endif()
+        endforeach()
+    endif()
 
     # setup cache
     set(${template_id}-__KEYS__ ${${template_id}-__KEYS__} CACHE INTERNAL "")

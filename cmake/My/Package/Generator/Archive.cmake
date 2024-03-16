@@ -11,6 +11,12 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/Archive...")
 
+my_structure_parse(TEMPLATE MY_PACK_ARCHIVE USE MY_PACK_COMMON
+    FILE:-{
+        EXTENSION:
+    }
+)
+
 #[==[.md:
 # my_generator_archive
 
@@ -25,12 +31,12 @@ function(my_generator_archive)
     message(TRACE "my_generator_archive(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
+    
+    if(NOT DEFINED __MY_PACK_COMMON)
+    endif()
+
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endfunction()
-
-my_structure_parse(TEMPLATE MY_PACK_ARCHIVE
-    USE MY_PACK_COMMON
-)
 
 # defaults
 set(CPACK_ARCHIVE_THREADS 0)
@@ -39,8 +45,8 @@ set(CPACK_ARCHIVE_THREADS 0)
 # 
 # === Variables specific to CPack Archive generator
 # 
-# [ ] CPACK_ARCHIVE_FILE_NAME
-# [ ] CPACK_ARCHIVE_<component>_FILE_NAME
+# [x] CPACK_ARCHIVE_FILE_NAME
+# [x] CPACK_ARCHIVE_<component>_FILE_NAME
 #        
 #        Package file name without extension.
 #        
@@ -51,14 +57,14 @@ set(CPACK_ARCHIVE_THREADS 0)
 #        and automatically appended to the file name. Note that `<component>` is
 #        all uppercase in the variable name.
 #        
-# [ ] CPACK_ARCHIVE_FILE_EXTENSION
+# [x] CPACK_ARCHIVE_FILE_EXTENSION
 #        
 #        Package file extension.
 #        
 #        **Default**: Default values are given in the list above.
 #        
 #        
-# [ ] CPACK_ARCHIVE_COMPONENT_INSTALL
+# [x] CPACK_ARCHIVE_COMPONENT_INSTALL
 #        
 #        Enable component packaging.
 #        
@@ -71,4 +77,4 @@ set(CPACK_ARCHIVE_THREADS 0)
 # 
 # === Variables used by CPack Archive generator
 # 
-# [x] CPACK_ARCHIVE_THREADS
+# [ ] CPACK_ARCHIVE_THREADS

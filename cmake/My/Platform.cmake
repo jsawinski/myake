@@ -120,6 +120,17 @@ elseif(NOT MY_PLATFORM_CONFIG_STAGE)
     set(MY_PLATFORM_CONFIG_STAGE TRUE)
 
     foreach(module ${MY_PLATFORM_CMAKE_MODULES})
+        if("${module}" STREQUAL "GNUInstallDirs")
+            # silence author-warning when no languages are enabled
+            get_property(_languages GLOBAL PROPERTY ENABLED_LANGUAGES)
+            if("${_languages}" STREQUAL "NONE")
+                set(CMAKE_INSTALL_LIBDIR invalid)
+                include(${module})
+                unset(CMAKE_INSTALL_LIBDIR)
+                continue()
+            endif()
+        endif()
+
         include(${module})
     endforeach()
 

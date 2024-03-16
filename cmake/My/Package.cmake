@@ -33,6 +33,7 @@ include(My/Package/Generator)
 include(CPackComponent)
 
 # defaults
+# FIXME see my_generator_reset(), we need to set another method for setting up defaults
 set(CPACK_SET_DESTDIR ON)
 
 #[==[.md:
@@ -42,27 +43,9 @@ set(CPACK_SET_DESTDIR ON)
         <settings>...
     )
 
-This function is the "landing" command for declaring values for CPack.
+This function is the "landing" command for declaring values for CPack. 
 
 Note that cross-compiling is not supported for system dependent packagers.
-
-### Generator expressions
-
-The `my_package` macro supports the notion of [generator expressions](https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html)
-which are of the form
-
-    $<VARNAME>
-
-These are expanded like standard variable expansion but not immediately. This
-allows to define template names. For example, the 'filename template' default
-is
-
-    $<NAME>-$<VERSION>$<[-]SUFFIX>
-
-meaning, that it is expanded as "<project-name>-<project-version>[-<filename-suffix>]"
-where "-<filename-suffix>" is ommitted if not set. The expansion is case sensitive, 
-meaning that "$<NAME>" will be expanded as set, while "$<name>" will explicitely 
-convert the content to lower case. 
 
 ### Common settings
 
@@ -123,6 +106,24 @@ and
         [ADD_REMOVE|NO_ADD_REMOVE]
     }
 
+### Generator expressions
+
+The `my_package` macro supports the notion of [generator expressions](https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html)
+which are of the form
+
+    $<VARNAME>
+
+These are expanded like standard variable expansion but not immediately. This
+allows to define template names. For example, the 'filename template' default
+is
+
+    $<NAME>-$<VERSION>$<[-]SUFFIX>
+
+meaning, that it is expanded as "<project-name>-<project-version>[-<filename-suffix>]"
+where "-<filename-suffix>" is ommitted if not set. The expansion is case sensitive, 
+meaning that "$<NAME>" will be expanded as set, while "$<name>" will explicitely 
+convert the content to lower case. 
+
 ### Alterations
 
 #### Version
@@ -137,28 +138,33 @@ macro(my_package)
     message(DEBUG "my_package(${ARGN})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
-    # check generator and/or common
+    # check generator 
     set(__MY_PACK_ARGS ${ARGN})
-    my_generator_category(category ${ARGV0})
-    if(category)
-        list(POP_FRONT __MY_PACK_ARGS)
-        my_generator_iscommon(__MY_PACK_COMMON)
+    my_generator_check(MY_PACK_GENERATOR ${ARGV0})
 
-        message(DEBUG "Category: ${category}, Common: ${__MY_PACK_COMMON}")
-    endif()
-
-    # parse settings
-    if(NOT category) 
+    if(NOT MY_PACK_GENERATOR)
+        # parse common settings
         my_structure_parse(MY_PACK_COMMON
             TEMPLATE MY_PACK_COMMON
             ${__MY_PACK_ARGS})
-    endif()
+    else()
+        # generator (found above)
+        list(POP_FRONT __MY_PACK_ARGS)
 
-    # run generator
-    if(category)
-        my_generator_handle(${category})
+        # COMMON?
+        list(GET __MY_PACK_ARGS 0 arg0)
+        if("${arg0}" STREQUAL "COMMON")
+            set(__MY_PACK_COMMON)
+            list(POP_FRONT __MY_PACK_ARGS)
+        else()
+            unset(__MY_PACK_COMMON)
+        endif()
+        unset(arg0)
+    
+        # run generator
+        my_generator_run(${MY_PACK_GENERATOR})
+        unset(MY_PACK_GENERATOR)
     endif()
-    unset(category)
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
