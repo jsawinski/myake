@@ -46,8 +46,8 @@ endmacro()
 #        **Default**: `CPACK_PACKAGE_DESCRIPTION_SUMMARY`
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_NAME
 # [ ] CPACK_RPM_<component>_PACKAGE_NAME
+# [ ] CPACK_RPM_PACKAGE_NAME
 #        
 #        The RPM package name.
 #        
@@ -55,8 +55,8 @@ endmacro()
 #        **Default**: `CPACK_PACKAGE_NAME`
 #        
 #        
-# [ ] CPACK_RPM_FILE_NAME
 # [ ] CPACK_RPM_<component>_FILE_NAME
+# [ ] CPACK_RPM_FILE_NAME
 #        
 #        Package file name.
 #        
@@ -109,8 +109,8 @@ endmacro()
 #        **Default**: `CPACK_PACKAGE_VERSION`
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_ARCHITECTURE
 # [ ] CPACK_RPM_<component>_PACKAGE_ARCHITECTURE
+# [ ] CPACK_RPM_PACKAGE_ARCHITECTURE
 #        
 #        The RPM package architecture.
 #        
@@ -170,8 +170,8 @@ endmacro()
 #        **Default**: CPACK_PACKAGE_VENDOR if set or "unknown"
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_URL
 # [ ] CPACK_RPM_<component>_PACKAGE_URL
+# [ ] CPACK_RPM_PACKAGE_URL
 #        
 #        The projects URL.
 #        
@@ -179,8 +179,8 @@ endmacro()
 #        **Default**: `CMAKE_PROJECT_HOMEPAGE_URL`
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_DESCRIPTION
 # [ ] CPACK_RPM_<component>_PACKAGE_DESCRIPTION
+# [ ] CPACK_RPM_PACKAGE_DESCRIPTION
 #        
 #        RPM package description.
 #        
@@ -212,8 +212,8 @@ endmacro()
 #        **`gzip`**: GNU Gzip compression
 #        
 #        
-# [ ] CPACK_RPM_PACKAGE_AUTOREQ
 # [ ] CPACK_RPM_<component>_PACKAGE_AUTOREQ
+# [ ] CPACK_RPM_PACKAGE_AUTOREQ
 #        
 #        RPM spec autoreq field.
 #        
@@ -315,8 +315,8 @@ endmacro()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_PRE "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_REQUIRES_POST
 # [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POST
+# [ ] CPACK_RPM_PACKAGE_REQUIRES_POST
 #        
 #        RPM spec requires(post) field.
 #        
@@ -330,8 +330,8 @@ endmacro()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_POST "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_REQUIRES_POSTUN
 # [ ] CPACK_RPM_<component>_PACKAGE_REQUIRES_POSTUN
+# [ ] CPACK_RPM_PACKAGE_REQUIRES_POSTUN
 #        
 #        RPM spec requires(postun) field.
 #        
@@ -360,8 +360,8 @@ endmacro()
 #        set(CPACK_RPM_PACKAGE_REQUIRES_PREUN "shadow-utils, initscripts")
 #        ```
 #        
-# [ ] CPACK_RPM_PACKAGE_SUGGESTS
 # [ ] CPACK_RPM_<component>_PACKAGE_SUGGESTS
+# [ ] CPACK_RPM_PACKAGE_SUGGESTS
 #        
 #        RPM spec suggest field.
 #        
@@ -459,8 +459,8 @@ endmacro()
 #        cpack -D CPACK_RPM_PACKAGE_DEBUG=1 -G RPM
 #        ```
 #        
-# [ ] CPACK_RPM_USER_BINARY_SPECFILE
 # [ ] CPACK_RPM_<componentName>_USER_BINARY_SPECFILE
+# [ ] CPACK_RPM_USER_BINARY_SPECFILE
 #        
 #        A user provided spec file.
 #        
@@ -487,8 +487,8 @@ endmacro()
 #        The user may then use this file in order to hand-craft is own binary 
 #        spec file which may be used with `CPACK_RPM_USER_BINARY_SPECFILE`.
 #        
-# [ ] CPACK_RPM_PRE_TRANS_SCRIPT_FILE
 # [ ] CPACK_RPM_PRE_INSTALL_SCRIPT_FILE
+# [ ] CPACK_RPM_PRE_TRANS_SCRIPT_FILE
 # [ ] CPACK_RPM_PRE_UNINSTALL_SCRIPT_FILE
 #        
 #        Path to file containing pre install/uninstall/transaction script.
@@ -531,8 +531,8 @@ endmacro()
 #        rpm -qp --scripts  package.rpm
 #        ```
 #        
-# [ ] CPACK_RPM_USER_FILELIST
 # [ ] CPACK_RPM_<COMPONENT>_USER_FILELIST
+# [ ] CPACK_RPM_USER_FILELIST
 #        
 #        **Mandatory**: No
 #        **Default**: 
@@ -679,8 +679,8 @@ endmacro()
 #        Value should be user name and not UID. Note that `<compName>` must be 
 #        in upper-case.
 #        
-# [ ] CPACK_RPM_DEFAULT_GROUP
 # [ ] CPACK_RPM_<compName>_DEFAULT_GROUP
+# [ ] CPACK_RPM_DEFAULT_GROUP
 #        
 #        default group ownership of RPM content
 #        
@@ -757,8 +757,8 @@ endmacro()
 #        **Default**: 
 #        
 #        
-# [ ] CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX
 # [ ] CPACK_RPM_<component>_BUILD_SOURCE_DIRS_PREFIX
+# [ ] CPACK_RPM_BUILD_SOURCE_DIRS_PREFIX
 #        
 #        Prefix of location where sources will be placed during package 
 #        installation.

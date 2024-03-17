@@ -40,8 +40,8 @@ endmacro()
 #        **Default**: `OFF`
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_NAME
 # [ ] CPACK_NUGET_<compName>_PACKAGE_NAME
+# [ ] CPACK_NUGET_PACKAGE_NAME
 #        
 #        The NUGET package name. `CPACK_NUGET_PACKAGE_NAME` is used as the 
 #        package `id` on [nuget.org](https://www.nuget.org)]
@@ -50,8 +50,8 @@ endmacro()
 #        **Default**: `CPACK_PACKAGE_NAME`
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_VERSION
 # [ ] CPACK_NUGET_<compName>_PACKAGE_VERSION
+# [ ] CPACK_NUGET_PACKAGE_VERSION
 #        
 #        The NuGet package version.
 #        
@@ -59,8 +59,8 @@ endmacro()
 #        **Default**: `CPACK_PACKAGE_VERSION`
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_DESCRIPTION
 # [ ] CPACK_NUGET_<compName>_PACKAGE_DESCRIPTION
+# [ ] CPACK_NUGET_PACKAGE_DESCRIPTION
 #        
 #        A long description of the package for UI display.
 #        
@@ -83,8 +83,8 @@ endmacro()
 #        **Default**: `CPACK_PACKAGE_VENDOR`
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_TITLE
 # [ ] CPACK_NUGET_<compName>_PACKAGE_TITLE
+# [ ] CPACK_NUGET_PACKAGE_TITLE
 #        
 #        A human-friendly title of the package, typically used in UI displays as
 #        on [nuget.org](https://www.nuget.org)] and the Package Manager in 
@@ -96,8 +96,8 @@ endmacro()
 #        - `CPACK_COMPONENT_<compName>_DISPLAY_NAME`,
 #        - `!CPACK_COMPONENT_GROUP_<groupName>_DISPLAY_NAME`
 #        
-# [ ] CPACK_NUGET_PACKAGE_OWNERS
 # [ ] CPACK_NUGET_<compName>_PACKAGE_OWNERS
+# [ ] CPACK_NUGET_PACKAGE_OWNERS
 #        
 #        A comma-separated list of the package creators using profile names on 
 #        [nuget.org](https://www.nuget.org)]. This is often the same list as in 
@@ -108,8 +108,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_HOMEPAGE_URL
 # [ ] CPACK_NUGET_<compName>_PACKAGE_HOMEPAGE_URL
+# [ ] CPACK_NUGET_PACKAGE_HOMEPAGE_URL
 #        
 #        An URL for the package's home page, often shown in UI displays as well 
 #        as [nuget.org](https://www.nuget.org)].
@@ -135,8 +135,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_LICENSE_EXPRESSION
 # [ ] CPACK_NUGET_<compName>_PACKAGE_LICENSE_EXPRESSION
+# [ ] CPACK_NUGET_PACKAGE_LICENSE_EXPRESSION
 #        
 #        A Software Package Data Exchange 
 #        [SPDX license identifier](https://spdx.org/licenses)] such as `MIT`, 
@@ -189,8 +189,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_ICON
 # [ ] CPACK_NUGET_<compName>_PACKAGE_ICON
+# [ ] CPACK_NUGET_PACKAGE_ICON
 #        
 #        The filename of a 64x64 image with transparency background to use as 
 #        the icon for the package in UI display.
@@ -199,8 +199,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_DESCRIPTION_SUMMARY
 # [ ] CPACK_NUGET_<compName>_PACKAGE_DESCRIPTION_SUMMARY
+# [ ] CPACK_NUGET_PACKAGE_DESCRIPTION_SUMMARY
 #        
 #        A short description of the package for UI display. If omitted, a 
 #        truncated version of description is used.
@@ -229,8 +229,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_LANGUAGE
 # [ ] CPACK_NUGET_<compName>_PACKAGE_LANGUAGE
+# [ ] CPACK_NUGET_PACKAGE_LANGUAGE
 #        
 #        Locale specifier for the package, for example `en_CA`.
 #        
@@ -257,8 +257,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_NUGET_PACKAGE_DEPENDENCIES_<dependency>_VERSION
 # [ ] CPACK_NUGET_<compName>_
+# [ ] CPACK_NUGET_PACKAGE_DEPENDENCIES_<dependency>_VERSION
 # [ ] PACKAGE_DEPENDENCIES_<dependency>_VERSION
 #        
 #        A 

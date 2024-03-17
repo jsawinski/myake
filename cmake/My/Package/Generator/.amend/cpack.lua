@@ -530,17 +530,17 @@ for _, name in ipairs(generators) do
         end
 
         -- find comment (todo list) at end-of-file
-        local todo_line = #text
-        while text[todo_line]:match("^#") do
-            todo_line = todo_line - 1
+        local help_line = #text
+        while text[help_line]:match("^#") do
+            help_line = help_line - 1
         end
 
         -- scan todo list
         local todo = {}
-        for i = todo_line + 1, #text do
-            local check, var = text[i]:match("# [[]([ x])[]] (.*)")
+        for i = help_line + 1, #text do
+            local check, var = text[i]:match("# [[]([ x?-])[]] (.*)")
             if check then
-                todo[var] = check == 'x'
+                todo[var] = check
             end
         end
 
@@ -581,7 +581,7 @@ for _, name in ipairs(generators) do
         end
 
         -- emit variables
-        while #text > todo_line do
+        while #text > help_line do
             table.remove(text)
         end
 
@@ -599,24 +599,27 @@ for _, name in ipairs(generators) do
 
             for _, vars in ipairs(sec) do
                 local unchecked = false
-                local akey
-                for key, check in pairs(vars) do
-                    if check == void then
+
+                local keylist = {}
+                for key, _ in pairs(vars) do
+                    table.insert(keylist, key)
+                end
+                table.sort(keylist)
+
+                for _,key in ipairs(keylist) do
+                    local check = vars[key]
+                    if check == ' ' then
                         unchecked = true
-                        check = ' '
-                    else
-                        unchecked = unchecked or not check
-                        check = check and "x" or " "
                     end
                     table.insert(text, string.format("# [%s] %s", check, key))
-                    akey = key
                 end
 
-                if unchecked then
-                    local div = help:findid(akey)
+                if true or unchecked then
+                    local div = help:findid(keylist[1])
 
                     for i = 2, #div do
                         local v = div[i]
+
                         -- local status, msg =
                         --     xpcall(v.markdown, debug.traceback, v, text,
                         --            markdown.options {

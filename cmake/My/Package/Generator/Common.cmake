@@ -152,7 +152,15 @@ set(MY_PACK_TRANSLATE_COMMON
 # === Variables common to all CPack Generators
 # 
 # [x] CPACK_PACKAGE_NAME
+#        
+#        The name of the package (or application). If not specified, it defaults
+#        to the project name.
+#        
 # [x] CPACK_PACKAGE_VENDOR
+#        
+#        The name of the package vendor. (e.g., "Kitware"). The default is 
+#        "Humanity".
+#        
 # [x] CPACK_PACKAGE_DIRECTORY
 #        
 #        The directory in which CPack is doing its packaging. If it is not set 
@@ -162,8 +170,37 @@ set(MY_PACK_TRANSLATE_COMMON
 #        in the config file.
 #        
 # [x] CPACK_PACKAGE_VERSION_MAJOR
+#        
+#        Package major version. This variable will always be set, but its 
+#        default value depends on whether or not version details were given to 
+#        the `project()` command in the top level CMakeLists.txt file. If 
+#        version details were given, the default value will be 
+#        `CMAKE_PROJECT_VERSION_MAJOR`. If no version details were given, a 
+#        default version of 0.1.1 will be assumed, leading to 
+#        `CPACK_PACKAGE_VERSION_MAJOR` having a default value of 0.
+#        
 # [x] CPACK_PACKAGE_VERSION_MINOR
+#        
+#        Package minor version. The default value is determined based on whether
+#        or not version details were given to the `project()` command in the top
+#        level CMakeLists.txt file. If version details were given, the default 
+#        value will be `CMAKE_PROJECT_VERSION_MINOR`, but if no minor version 
+#        component was specified then `CPACK_PACKAGE_VERSION_MINOR` will be left
+#        unset. If no project version was given at all, a default version of 
+#        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_MINOR` having 
+#        a default value of 1.
+#        
 # [x] CPACK_PACKAGE_VERSION_PATCH
+#        
+#        Package patch version. The default value is determined based on whether
+#        or not version details were given to the `project()` command in the top
+#        level CMakeLists.txt file. If version details were given, the default 
+#        value will be `CMAKE_PROJECT_VERSION_PATCH`, but if no patch version 
+#        component was specified then `CPACK_PACKAGE_VERSION_PATCH` will be left
+#        unset. If no project version was given at all, a default version of 
+#        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_PATCH` having 
+#        a default value of 1.
+#        
 # [x] CPACK_PACKAGE_DESCRIPTION
 #        
 #        A description of the project, used in places such as the introduction 
@@ -388,6 +425,11 @@ set(MY_PACK_TRANSLATE_COMMON
 #        Windows where it will be `win32` or `win64`.
 #        
 # [x] CPACK_PACKAGE_VERSION
+#        
+#        Package full version, used internally. By default, this is built from 
+#        `CPACK_PACKAGE_VERSION_MAJOR`, `CPACK_PACKAGE_VERSION_MINOR`, and 
+#        `CPACK_PACKAGE_VERSION_PATCH`.
+#        
 # [ ] CPACK_TOPLEVEL_TAG
 #        
 #        Directory for the installed files.

@@ -44,8 +44,8 @@ endmacro()
 #        If enabled (`ON`) multiple packages are generated. By default a single 
 #        package containing files of all components is generated.
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_NAME
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_NAME
+# [ ] CPACK_DEBIAN_PACKAGE_NAME
 #        
 #        Set Package control field (variable is automatically transformed to 
 #        lower case).
@@ -185,8 +185,8 @@ endmacro()
 #        **Default**: `!CPACK_PACKAGE_CONTACT`
 #        
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_DESCRIPTION
 # [ ] CPACK_DEBIAN_<COMPONENT>_DESCRIPTION
+# [ ] CPACK_DEBIAN_PACKAGE_DESCRIPTION
 #        
 #        The Debian package description
 #        
@@ -207,8 +207,8 @@ endmacro()
 #        [Debian Policy Manual](https://www.debian.org/doc/debian-policy/ch-controlfields.html#description)]
 #        .
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_SECTION
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SECTION
+# [ ] CPACK_DEBIAN_PACKAGE_SECTION
 #        
 #        Set Section control field e.g. admin, devel, doc, ...
 #        
@@ -254,8 +254,8 @@ endmacro()
 #        **`zstd`**: Zstandard compression
 #        
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_PRIORITY
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_PRIORITY
+# [ ] CPACK_DEBIAN_PACKAGE_PRIORITY
 #        
 #        Set Priority control field e.g. required, important, standard, 
 #        optional, extra
@@ -330,8 +330,8 @@ endmacro()
 #        **Default**: None
 #        
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_PREDEPENDS
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_PREDEPENDS
+# [ ] CPACK_DEBIAN_PACKAGE_PREDEPENDS
 #        
 #        Sets the Pre-Depends field of the Debian package. Like 
 #        `Depends <CPACK_DEBIAN_PACKAGE_DEPENDS>`, except that it also forces 
@@ -348,8 +348,8 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_ENHANCES
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_ENHANCES
+# [ ] CPACK_DEBIAN_PACKAGE_ENHANCES
 #        
 #        Sets the `Enhances` field of the Debian package. Similar to 
 #        `Suggests <CPACK_DEBIAN_PACKAGE_SUGGESTS>` but works in the opposite 
@@ -365,8 +365,8 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_BREAKS
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_BREAKS
+# [ ] CPACK_DEBIAN_PACKAGE_BREAKS
 #        
 #        Sets the `Breaks` field of the Debian package. When a binary package 
 #        (P) declares that it breaks other packages (B), `dpkg` will not allow 
@@ -384,8 +384,8 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-breaks
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_CONFLICTS
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_CONFLICTS
+# [ ] CPACK_DEBIAN_PACKAGE_CONFLICTS
 #        
 #        Sets the Conflicts field of the Debian package. When one binary package
 #        declares a conflict with another using a Conflicts field, `dpkg` will 
@@ -439,8 +439,8 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_RECOMMENDS
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_RECOMMENDS
+# [ ] CPACK_DEBIAN_PACKAGE_RECOMMENDS
 #        
 #        Sets the `Recommends` field of the Debian package. Allows packages to 
 #        declare a strong, but not absolute, dependency on other packages.
@@ -454,8 +454,8 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_SUGGESTS
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SUGGESTS
+# [ ] CPACK_DEBIAN_PACKAGE_SUGGESTS
 #        
 #        Sets the Suggests field of the Debian package. Allows packages to 
 #        declare a suggested package install grouping.
@@ -497,8 +497,8 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-shlibdeps
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_CONTROL_EXTRA
+# [ ] CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
 #        
 #        This variable allow advanced user to add custom script to the 
 #        control.tar.gz. Typical usage is for conffiles, postinst, postrm, 
@@ -514,8 +514,8 @@ endmacro()
 #        
 #        ```
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_CONTROL_STRICT_PERMISSION
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_CONTROL_STRICT_PERMISSION
+# [ ] CPACK_DEBIAN_PACKAGE_CONTROL_STRICT_PERMISSION
 #        
 #        This variable indicates if the Debian policy on control files should be
 #        strictly followed.
@@ -539,8 +539,8 @@ endmacro()
 #            scripts should have the proper executable flag prior to the 
 #            generation of the package.
 #        
-# [ ] CPACK_DEBIAN_PACKAGE_SOURCE
 # [ ] CPACK_DEBIAN_<COMPONENT>_PACKAGE_SOURCE
+# [ ] CPACK_DEBIAN_PACKAGE_SOURCE
 #        
 #        Sets the `Source` field of the binary Debian package. When the binary 
 #        package name is not the same as the source package name (in particular 
@@ -566,8 +566,8 @@ endmacro()
 # 
 # === Packaging of debug information
 # 
-# [ ] CPACK_DEBIAN_DEBUGINFO_PACKAGE
 # [ ] CPACK_DEBIAN_<component>_DEBUGINFO_PACKAGE
+# [ ] CPACK_DEBIAN_DEBUGINFO_PACKAGE
 #        
 #        Enable generation of dbgsym .ddeb package(s).
 #        
