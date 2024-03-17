@@ -164,13 +164,19 @@ macro(my_generator_configure tag)
 
         # binary packages 
         if(NOT "${MY_PACK_${tag}_PACKAGE_GENERATOR}" STREQUAL "NONE")
+            if(NOT MY_PACK_${tag}_PACKAGE_GENERATOR)
+                set(MY_PACK_${tag}_PACKAGE_GENERATOR ${tag})
+            endif()
             foreach(item IN LISTS MY_PACK_${tag}_PACKAGE_GENERATOR)
-                my_generator_set(BINAYR ${item} ON)
+                my_generator_set(BINARY ${item} ON)
             endforeach()
         endif()
 
         # source packages 
         if(NOT "${MY_PACK_${tag}_SOURCES_GENERATOR}" STREQUAL "NONE")
+            if(NOT MY_PACK_${tag}_SOURCES_GENERATOR)
+                set(MY_PACK_${tag}_SOURCES_GENERATOR ${tag})
+            endif()
             foreach(item IN LISTS MY_PACK_${tag}_SOURCES_GENERATOR)
                 my_generator_set(SOURCE ${item} ON)
             endforeach()

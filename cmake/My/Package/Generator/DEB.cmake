@@ -24,11 +24,46 @@ macro(my_generator_deb)
     message(TRACE "my_generator_deb(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
-        # set(CPACK_SET_DESTDIR ON)
+    # set(CPACK_INSTALLED_DIRECTORIES "/home/sawinski/Workspace/private/myake;/")
+    # set(CPACK_INSTALL_CMAKE_PROJECTS "/home/sawinski/Workspace/private/cmyke/build;CMyke;ALL;/")
+
+    my_generator_configure(DEB
+        CPACK_DEBIAN_PACKAGE:
+            MAINTAINER=MAINTAINER
+            NAME=NAME
+            VENDOR=VENDOR
+            VERSION=VERSION
+    
+            DESCRIPTION_SUMMARY=DESCRIPTION_SUMMARY
+            DESCRIPTION_FILE=DESCRIPTION_FILE
+            DESCRIPTION_FILE=DESCRIPTION_README
+            DESCRIPTION=DESCRIPTION_FULL
+
+            SECTION=SECTION
+            ARCHITECTURE=ARCHITECTURE
+
+            DEPENDS=DEPENDS
+            ENHANCES=ENHANCES
+    )
 
     my_generator_set(SOURCE DEB OFF) # FIXME disabled for now
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
+
+# settings
+my_structure_parse(TEMPLATE MY_PACK_DEB USE MY_PACK_COMMON
+    SECTION:
+    MAINTAINER:
+
+    DEPENDS:
+    ENHANCES:
+
+    PACKAGE:-{
+        GENERATOR:*="DEB"
+    }
+)
+
+# defaults
 
 # The following text was auto-generated from CPack's help files:
 # 
@@ -218,7 +253,7 @@ endmacro()
 #        See 
 #        https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections
 #        
-# [ ] CPACK_DEBIAN_ARCHIVE_TYPE
+# [-] CPACK_DEBIAN_ARCHIVE_TYPE
 #        
 #        **Deprecated**: 
 #            

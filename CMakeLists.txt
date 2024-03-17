@@ -49,7 +49,7 @@ else()
 	# FIXME add feature/bug page to warning
 endif()
 
-set(CMAKE_INSTALL_DEFAULT_COMPONENT_NAME devel)
+# set(CMAKE_INSTALL_DEFAULT_COMPONENT_NAME devel)
 
 add_subdirectory(cmake)
 add_subdirectory(tools)
@@ -130,6 +130,16 @@ my_package(Archive
     SOURCES {
         GENERATOR ZIP TGZ
     }
+)
+
+my_package(DEB 
+	MAINTAINER "Jürgen Sawinski"
+	SECTION "devel"
+
+    DEPENDS
+        "cmake (>= ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})"
+    ENHANCES
+        "cmake"
 )
 
 # final

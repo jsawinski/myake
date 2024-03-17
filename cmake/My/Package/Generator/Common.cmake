@@ -107,7 +107,7 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
 
 # defaults
 set(CPACK_THREADS 0)
-set(CPACK_SET_DESTDIR 1)
+set(CPACK_SET_DESTDIR ON)
 
 set(MY_PACK_TRANSLATE_COMMON
     CPACK_PACKAGE:
@@ -237,7 +237,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        ${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CPACK_SYSTEM_NAME}
 #        ```
 #        
-# [ ] CPACK_PACKAGE_INSTALL_DIRECTORY
+# [x] CPACK_PACKAGE_INSTALL_DIRECTORY
 #        
 #        Installation directory on the target system. This may be used by some 
 #        CPack generators like NSIS to create an installation directory e.g., 
@@ -495,7 +495,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        corresponding start menu shortcut as created by 
 #        `CPACK_PACKAGE_EXECUTABLES`.
 #        
-# [ ] CPACK_BINARY_<GENNAME>
+# [x] CPACK_BINARY_<GENNAME>
 #        
 #        CPack generated options for binary generators. The `CPack.cmake` module
 #        generates (when `CPACK_GENERATOR` is not set) a set of CMake options 
