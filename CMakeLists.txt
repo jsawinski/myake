@@ -64,7 +64,6 @@ install(FILES
 include(My/Package)
 my_package(
 	ARCHITECTURE all
-    # CONTACT 
     AUTHORS
     	"Jürgen 'George' Sawinski"
    	CATEGORY "Development"
@@ -98,7 +97,7 @@ upload mechanisms, including source code revision suites, and more."
    	}
 
     URL {
-		# ABOUT "?"
+		# ABOUT 
         HOMEPAGE "https://github.com/jsawinski/myake"
 		HELP "https://jsawinski.github.io/${PROJECT_UUID}/"
 		ICON "https://raw.githubusercontent.com/jsawinski/myake/master/docs/myake.png"
@@ -112,10 +111,12 @@ upload mechanisms, including source code revision suites, and more."
 
     SOURCES {
     	IGNORE
-    		DEFAULTS
-    		/build/
-			/.myake/
+    		${MY_PACK_SOURCES_IGNORE}
     		/\\.gitignore\$
+			/.myake/
+			/.amend/
+			/.vscode/
+    		/build/
 
     	SUFFIX "source"
     }

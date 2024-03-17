@@ -29,6 +29,8 @@ include_guard(GLOBAL)
 
 include(My/Package/Generator/Common)
 
+set(MY_PACK_SOURCES_IGNORE "/CVS/;/[.]svn/;/[.]bzr/;/[.]hg/;/[.]git/;[.]swp$;[.]#;/#")
+
 set(__MYAKE_GENERATOR_ARCHIVE_LIST "7Z;TBZ2;TGZ;TXZ;TZ;TZST;ZIP;STGZ")
 set(__MYAKE_GENERATOR_NULLSOFT_LIST "NSIS;NSIS64")
 
@@ -140,14 +142,16 @@ macro(my_generator_configure tag)
         ${__MY_PACK_ARGS})
 
     if(NOT DEFINED __MY_PACK_COMMON)
-        # translate variables
-        my_generator_translate(${tag} ${ARGN})
+        ### translate variables
+        my_generator_translate(${tag} 
+            ${MY_PACK_TRANSLATE_COMMON}
+            ${ARGN})
 
-        # other settings
+        ### other settings
         set(CPACK_GENERATOR "${MY_PACK_${tag}_PACKAGE_GENERATOR}")
         set(CPACK_SOURCE_GENERATOR "${MY_PACK_${tag}_SOURCES_GENERATOR}")
 
-        # reset options 
+        ### options 
         if(DEFINED __MYAKE_GENERATOR_${tag}_LIST)
             foreach(item IN LISTS __MYAKE_GENERATOR_${tag}_LIST)
                 set(CPACK_BINARY_${item} OFF CACHE BOOL "CPack: generate binary ${item}" FORCE)
@@ -212,7 +216,6 @@ macro(my_generator_translate tag)
                     my_generator_genex(${dstvar} MY_PACK_${tag} MY_PACK_${tag}_COMMON MY_PACK_COMMON)
                 endif()
             endforeach()
-
         endif()
     endforeach()
 endmacro()
