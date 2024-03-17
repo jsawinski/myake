@@ -11,12 +11,6 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/Archive...")
 
-my_structure_parse(TEMPLATE MY_PACK_ARCHIVE USE MY_PACK_COMMON
-    FILE:-{
-        EXTENSION:
-    }
-)
-
 #[==[.md:
 # my_generator_archive
 
@@ -38,6 +32,13 @@ macro(my_generator_archive)
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
+
+# settings
+my_structure_parse(TEMPLATE MY_PACK_ARCHIVE USE MY_PACK_COMMON
+    FILE:-{
+        EXTENSION:                          # undocumented
+    }
+)
 
 # defaults
 set(CPACK_ARCHIVE_THREADS 0)
@@ -78,4 +79,4 @@ set(CPACK_ARCHIVE_THREADS 0)
 # 
 # === Variables used by CPack Archive generator
 # 
-# [ ] CPACK_ARCHIVE_THREADS
+# [x] CPACK_ARCHIVE_THREADS

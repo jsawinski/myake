@@ -1,33 +1,13 @@
-#[================================[.md:
-## Internals
-#]================================]
+# Distributed under the OSI-approved MIT License. See accompanying
+# file LICENSE or https://github.com/jsawinski/myake/blob/master/LICENSE for details.
 
-#[[.md:
-### MY_PKG_COMMON
+#[=======================================================================[.md:
+# My/Package/Generator/Common
 
-Common package options prefix.
+#]=======================================================================]
+include_guard(GLOBAL)
 
-    my_package(<generator>|COMMON
-        [NAME <project-name>]
-        [VENDOR <project-vendor>]
-        [VERSION <project-version>]
-        [DESCRIPTION {
-            [SUMMARY <summary>]
-            [FILE <description-file>]
-            [FULL <full-description>]
-            [README <readme-file>]
-            [WELCOME <welcome-file>]
-        }]
-
-        FIXME
-    )
-
-FIXME
-
-See [CPack documentation](https://cmake.org/cmake/help/latest/module/CPack.html)
-or end of file for further information.
-
-#]]
+# settings
 my_structure_parse(TEMPLATE MY_PACK_COMMON
     NAME:="${PROJECT_NAME}"                     # CPACK_PACKAGE_NAME
     VENDOR:="${PROJECT_VENDOR}"                 # CPACK_PACKAGE_VENDOR
@@ -65,9 +45,10 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
     }
 
     PACKAGE:-{
+        GENERATOR:*="7Z TBZ2 TGZ TXZ TZ TZST ZIP"
         CHECKSUM:="SHA256"                      # CPACK_PACKAGE_CHECKSUM
         NAME:="$<NAME>-$<VERSION>$<-SUFFIX>"    # CPACK_PACKAGE_FILE_NAME
-        GENERATOR:*="7Z TBZ2 TGZ TXZ TZ TZST ZIP"
+        DIRECTORY:                              # CPACK_PACKAGE_DIRECTORY
     }
 
     SOURCES:-{
@@ -79,6 +60,8 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
             SUFFIX:="source"
         }
     }
+
+    MONOLITHIC:-                                # CPACK_MONOLITHIC_INSTALL
 
     COMPONENTS:-{
         DISABLED:-
@@ -124,6 +107,7 @@ my_structure_parse(TEMPLATE MY_PACK_COMMON
 
 # defaults
 set(CPACK_THREADS 0)
+set(CPACK_SET_DESTDIR 1)
 
 set(MY_PACK_TRANSLATE_COMMON
     CPACK_PACKAGE:
@@ -142,6 +126,10 @@ set(MY_PACK_TRANSLATE_COMMON
 
         CHECKSUM=PACKAGE_CHECKSUM
         FILE_NAME=PACKAGE_NAME
+        DIRECTORY=PACKAGE_DIRECTORY
+
+    CPACK_MONOLITHIC:
+        INSTALL=MONOLITHIC
 
     CPACK_RESOURCE:
         FILE_README=DESCRIPTION_README
@@ -156,7 +144,7 @@ set(MY_PACK_TRANSLATE_COMMON
 
 # Undocumented:
 # [ ] CPACK_PACKAGE_DEFAULT_LOCATION 
-# [ ] CPACK_SET_DESTDIR
+# [x] CPACK_SET_DESTDIR
 # [ ] CPACK_INSTALL_PREFIX
 
 # The following text was auto-generated from CPack's help files:
@@ -165,7 +153,7 @@ set(MY_PACK_TRANSLATE_COMMON
 # 
 # [x] CPACK_PACKAGE_NAME
 # [x] CPACK_PACKAGE_VENDOR
-# [ ] CPACK_PACKAGE_DIRECTORY
+# [x] CPACK_PACKAGE_DIRECTORY
 #        
 #        The directory in which CPack is doing its packaging. If it is not set 
 #        then this will default (internally) to the build dir. This variable may
@@ -265,7 +253,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        installer. Typically used in the graphical installers on Windows and 
 #        Mac OS X.
 #        
-# [ ] CPACK_MONOLITHIC_INSTALL
+# [x] CPACK_MONOLITHIC_INSTALL
 #        
 #        Disables the component-based installation mechanism. When set, the 
 #        component specification is ignored and all installed items are put in a
@@ -296,7 +284,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        the installed executable `ccmake`. Not all CPack generators use it (at 
 #        least NSIS, Inno Setup and WIX do).
 #        
-# [ ] CPACK_STRIP_FILES
+# [x] CPACK_STRIP_FILES
 #        
 #        List of files to be stripped. Starting with CMake 2.6.0, 
 #        `CPACK_STRIP_FILES` will be a boolean variable which enables stripping 
