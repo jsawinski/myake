@@ -2,7 +2,7 @@ set(MYAKE_MINIMUM_MAJOR_VERSION 3)
 set(MYAKE_MINIMUM_MINOR_VERSION 22)
 cmake_minimum_required(VERSION ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})
 
-set(ENABLE_TESTING Off)
+set(ENABLE_TESTING ON)
 if(ENABLE_TESTING)
 	set(CMAKE_MESSAGE_LOG_LEVEL TRACE)
 endif()
@@ -49,7 +49,7 @@ else()
 	# FIXME add feature/bug page to warning
 endif()
 
-# set(CMAKE_INSTALL_DEFAULT_COMPONENT_NAME devel)
+set(CMAKE_INSTALL_DEFAULT_COMPONENT_NAME devel)
 
 add_subdirectory(cmake)
 add_subdirectory(tools)

@@ -113,3 +113,21 @@ function(my_issue_message)
         "\nPlease report this issue on https://github.com/jsawinski/myake/issues\n"
     )
 endfunction()
+
+
+#[==[.md:
+### my_show
+
+    my_show(<log-level> <property-name> <variable-prefix> ["message..."])
+
+Helper to display variables.
+
+#]==]
+function(my_show level what prefix)
+    get_cmake_property(varlist ${what})
+    foreach(var ${varlist})
+        if("${var}" MATCHES "^${prefix}")
+            message(${level} ${ARGN} "${var}=${${var}}")
+        endif()
+    endforeach()
+endfunction()

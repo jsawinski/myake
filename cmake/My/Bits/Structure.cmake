@@ -2,7 +2,7 @@
 # file LICENSE or https://github.com/jsawinski/myake/blob/master/LICENSE for details.
 
 #[=======================================================================[.md:
-# My/Bits/Options - Hierarchical argument parsing
+# My/Bits/Structure - Hierarchical argument parsing
 
 CMake's [standard argument parser](https://cmake.org/cmake/help/latest/command/cmake_parse_arguments.html) 
 might be adequate in most cases, but quite limited. Here, Myake provides a 
