@@ -292,3 +292,37 @@ macro(my_list operation thelist)
     my_set(${thelist} "${__my_list}" ${__my_list_set_args})
 endmacro()
 
+#[==[.md:
+### my_save
+
+    my_save(<variables...>)
+
+Helper to save variables for recursive macro calls.
+
+#]==]
+function(my_save)
+    foreach(arg ${ARGN})
+        list(APPEND __MY_MEM_${arg} "[;${${arg}};]")
+        set(__MY_MEM_${arg} "${__MY_MEM_${arg}}" CACHE INTERNAL "Saved variable.")
+    endforeach()
+endfunction()
+
+#[==[.md:
+### my_restore
+
+    my_restore(<variables...>)
+
+Helper to restore variables for recursive macro calls.
+
+#]==]
+function(my_restore)
+    foreach(arg ${ARGN})
+        list(POP_BACK __MY_MEM_${arg} ${arg})
+        set(__MY_MEM_${arg} "${__MY_MEM_${arg}}" CACHE INTERNAL "Saved variable.")
+
+        string(REGEX REPLACE "^[[];(.*);[]]$" "\\1" ${arg} "${${arg}}")
+        set(${arg} "${${arg}}" PARENT_SCOPE)
+    endforeach()
+endfunction()
+
+

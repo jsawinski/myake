@@ -2,15 +2,41 @@ message("=== My/Bits/Tree ======================================================
 
 include(My/Bits/Tree)
 
-set(TEMPLATE [
+message("Checking TREE...")
+my_tree_parse(TREE [ ] 
+    NAME "ProjectName"
+    VERSION "0.0.1"
+    DESCRIPTION [
+        SUMMARY "Summary."
+    ]
+    COMPONENTS [
+        GROUP "common" [
+            DISPLAY "Common"
+        ]
+
+        GROUP "files" [
+            DISPLAY "Files"
+            PARENT_GROUP "common"
+        ]
+
+        COMPONENT "header" [
+            DISPLAY "Development headers."
+            GROUP "files"
+        ]
+    ]
+)
+my_show(STATUS VARIABLES TREE_)
+
+message("Checking template TTREE...")
+my_tree_template(TTREE 
     NAME [ VALUE "${PROJECT_NAME}" ]
     VENDOR [ VALUE "${PROJECT_VENDOR}" ]
     VERSION [ VALUE "${PROJECT_VERSION}" ]
 
     DESCRIPTION [ GROUP ] [
-        SUMMARY [ 1 ] 
-        FULL [ 1 ] 
-        FILE [ 1 ] 
+        SUMMARY [ VALUE ] 
+        FULL [ VALUE ] 
+        FILE [ VALUE ] 
     ]
 
     COMPONENTS [ GROUP ] [
@@ -27,28 +53,10 @@ set(TEMPLATE [
             GROUP [ VALUE ]
         ]
     ]
-])
-
-my_tree_parse(TREE [] 
-    NAME "ProjectName"
-    VERSION "0.0.1"
-    DESCRIPTION [
-        SUMMARY "Summary."
-    ]
-    COMPONENTS [
-        GROUP "common" [
-            DISPLAY "Common"
-        ]
-
-        COMPONENT "header" [
-            DISPLAY "Development headers."
-            GROUP "common"
-        ]
-    ]
 )
-my_show(STATUS CACHE_VARIABLES TREE_)
 
-my_tree_parse(TREE [ NODEFAULTS TEMPLATE ${TEMPLATE} ]
+message("Checking TTREE...")
+my_tree_parse(TTREE [ NODEFAULTS TEMPLATE TTREE ]
     NAME "ProjectName"
     VERSION "0.0.1"
     DESCRIPTION [
@@ -58,12 +66,18 @@ my_tree_parse(TREE [ NODEFAULTS TEMPLATE ${TEMPLATE} ]
         GROUP "common" [
             DISPLAY "Common"
 
-            COMPONENT "header" [
-                DISPLAY "Development headers."
+            GROUP "files" [
+                DISPLAY "Files"
+
+        #         COMPONENT "header" [
+        #             DISPLAY "Development headers."
+        #         ]
             ]
         ]
     ]
 )
+
+my_show(STATUS VARIABLES TTREE_)
 
 # foreach(i RANGE 0 10)
 #     message("i=${i}")

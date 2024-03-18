@@ -39,10 +39,6 @@ endif()
 
 FIXME
 
-Example:
-
-FIXME
-
 #]==]
 function(my_tree_parse PREFIX)
     set(ARGS ${ARGN})
@@ -68,60 +64,122 @@ function(my_tree_parse PREFIX)
                 set(NODEFAULTS TRUE)
             elseif(OPT STREQUAL "TEMPLATE")
                 list(POP_FRONT OPTIONS TEMPLATE)
-                my_nested_unpack(TEMPLATE argsnested)
-                if(NOT argsnested)
-                    message(FATAL_ERROR "Parameters after ARGUMENTS are not nested (insided brackets).")
-                endif()
             else()
                 message(FATAL_ERROR "Invalid option: ${OPT}")
             endif()
         endwhile()
+
+        # prefix
+        if(PREFIX MATCHES "^[@]")
+            string(REGEX REPLACE "^@(.*)" "\\1" CALLBACK "${PREFIX}")    
+            set(PREFIX "@")
+        endif()
     endif()
 
     # parse arguments
     if(TEMPLATE)
-        message(NOTICE "FIXME")
+        my_nested_unpack(TEMPLATE tmplnested)
+        if(tmplnested)
+            my_tree_template(${PREFIX} ${TEMPLATE})
+        endif()
+        my_tree_parse_template(${PREFIX} MY_TMPL_${PREFIX} ${ARGS})
+
+        if(NOT NODEFAULTS)  
+            # FIXME
+        endif()
     else()
+        if(CALLBACK)
+            set(SEP -)
+        else()
+            set(SEP _)
+        endif()
         my_tree_parse_plain(${PREFIX} ${ARGS})
     endif()
+
+    # propagate to parent
+    get_cmake_property(varlist VARIABLES)
+    foreach(var ${varlist})
+        if("${var}" MATCHES "^${PREFIX}_")
+            set(${var} "${${var}}" PARENT_SCOPE)
+        endif()
+    endforeach()
 endfunction()
 
 #[==[.md:
-### my_tree_parse_plain
+### my_tree_template
 
-    my_tree_parse_plain(<variable-prefix>)
+    my_tree_template(<variable-prefix>)
+
+Parse a tree template.
 
 FIXME
 
 #]==]
-function(my_tree_parse_plain PREFIX)
+function(my_tree_template PREFIX)
+    get_cmake_property(varlist CACHE_VARIABLES)
+    foreach(var ${varlist})
+        if("${var}" MATCHES "^MY_TMPL_${PREFIX}-")
+            unset(${var} CACHE)
+        endif()
+    endforeach()
+
+    __my_tree_template(MY_TMPL_${PREFIX} ${ARGN})
+endfunction()
+
+function(__my_tree_template PREFIX)
     set(ARGS ${ARGN})
     list(LENGTH ARGS NARGS)
 
     set(i 0)
     while(i LESS NARGS)
-        list(SUBLIST ARGS ${i} 3 KVT)
-        list(POP_FRONT KVT K V T)
+        list(SUBLIST ARGS ${i} 3 KTG)
+        list(POP_FRONT KTG K T G)
 
-        if(NOT K MATCHES "^[A-Z][A-Z_]*$")
+        if(K MATCHES "^@")
+            string(REGEX MATCH "^[@]([A-Z][A-Z_]*)[-]>(.+)" _ ${K})
+            list(APPEND ${PREFIX}-__CHLD__ ${CMAKE_MATCH_1})
+            set(${PREFIX}-__CHLD__ "${${PREFIX}-__CHLD__}" CACHE INTERNAL "")
+            set(${PREFIX}-__LINK__-${CMAKE_MATCH_1} "${CMAKE_MATCH_2}" CACHE INTERNAL "")
+            math(EXPR i "${i}+1")
+            continue()
+        elseif(K MATCHES "^[A-Z][A-Z_]*$")
+            list(APPEND ${PREFIX}-__KEYS__ ${K})
+        else()
             message(FATAL_ERROR "Invalid key: ${K}")
         endif()
 
-        my_nested_unpack(V Vnested)
-        if(Vnested) 
-            my_tree_parse_plain(${PREFIX}_${K} ${V})
-        else()
-            my_nested_unpack(T Tnested)
-            if(Tnested)
-                my_tree_parse_plain(${PREFIX}_${K}_${V} ${T})
-                math(EXPR i "${i}+1")
-            else()
-                set(${PREFIX}_${K} ${V} CACHE INTERNAL "")
+        # handle type
+        my_nested_unpack(T Tnested)
+        if(NOT Tnested) 
+            message(FATAL_ERROR "Invalid template declaration (after ${K}).")
+        endif()
+
+        list(POP_FRONT T type)
+
+        if(type STREQUAL "OPTION")
+        elseif(type STREQUAL "VALUE")
+            if(T)
+                set(${PREFIX}-${K}-__DEFAULT__ "${T}" CACHE INTERNAL "")
             endif()
+        elseif(type STREQUAL "MULTI")
+        elseif(type STREQUAL "GROUP")
+        elseif(type STREQUAL "NAMED")
+        else()
+            message(FATAL_ERROR "Unknown type: ${type}")
+        endif()
+        set(${PREFIX}-${K}-__TYPE__ "${type}" CACHE INTERNAL "")
+
+        # handle group
+        my_nested_unpack(G Gnested)
+        if(Gnested)
+            __my_tree_template(${PREFIX}-${K} ${G})
+            math(EXPR i "${i}+1")
         endif()
 
         math(EXPR i "${i}+2")
     endwhile()
+
+    set(${PREFIX}-__KEYS__ "${${PREFIX}-__KEYS__}" CACHE INTERNAL "")
 endfunction()
 
 #[==[.md:
@@ -129,7 +187,7 @@ endfunction()
 
     my_nested_is(<list-variable> <output-variable>)
 
-FIXME
+Check if contents of <list-variable> is a nested value and assign the output variable accordingly.
 
 #]==]
 macro(my_nested_is listvar outvar)
@@ -145,9 +203,9 @@ endmacro()
 #[==[.md:
 ### my_nested_unpack
 
-    my_nested_unpack(<variable> <nested-variable>)
+    my_nested_unpack(<variable> <output-variable>)
 
-FIXME
+"Unpack" a nested list contained in <variable> and set the output ariable as in `my_nested_is`.
 
 #]==]
 macro(my_nested_unpack var nested)
@@ -167,7 +225,7 @@ endmacro()
 
     my_nested_show(<log-level> <arguments>...)
 
-FIXME
+Display contents of a nested list.
 
 #]==]
 function(my_nested_show loglevel)
@@ -185,4 +243,152 @@ macro(__my_nested_show loglevel level)
             message(${loglevel} "${indent}${item}")
         endif()
     endforeach()
+endmacro()
+
+#[================================[.md:
+### Internals
+#]================================]
+
+#[==[.md:
+#### my_tree_parse_plain
+
+    my_tree_parse_plain(<variable-prefix>)
+
+FIXME
+
+#]==]
+macro(my_tree_parse_plain PREFIX)
+    set(ARGS ${ARGN})
+    list(LENGTH ARGS NARGS)
+
+    set(i 0)
+    while(i LESS NARGS)
+        list(SUBLIST ARGS ${i} 3 KVT)
+        list(POP_FRONT KVT K V T)
+
+        if(NOT K MATCHES "^[A-Z][A-Z_]*$")
+            message(FATAL_ERROR "Invalid key: ${K}")
+        endif()
+
+        my_nested_unpack(V Vnested)
+        if(Vnested) 
+            my_save(ARGS NARGS i)
+            my_tree_parse_plain(${PREFIX}${SEP}${K} ${V})
+            my_restore(ARGS NARGS i)
+        else()
+            my_nested_unpack(T Tnested)
+            if(Tnested)
+                my_save(ARGS NARGS i)
+                my_tree_parse_plain(${PREFIX}${SEP}${K}${SEP}${V} ${T})
+                my_restore(ARGS NARGS i)
+
+                math(EXPR i "${i}+1")
+            else()
+                if(CALLBACK)
+                    cmake_language(EVAL CODE "${CALLBACK}(${PREFIX}${SEP}${K} \"${V}\")")
+                else()
+                    set(${PREFIX}${SEP}${K} ${V})
+                endif()
+            endif()
+        endif()
+
+        math(EXPR i "${i}+2")
+    endwhile()
+endmacro()
+
+#[==[.md:
+#### my_tree_parse_template
+
+    my_tree_parse_template(<variable-prefix> <template-prefix>)
+
+Parse arguments according to the template.
+
+#]==]
+macro(my_tree_parse_template PREFIX TMPLPREFIX)
+    set(ARGS ${ARGN})
+    list(LENGTH ARGS NARGS)
+
+    set(i 0)
+    while(i LESS NARGS)
+        # key
+        list(GET ARGS ${i} KEY)
+        if(KEY MATCHES "^[A-Z][A-Z_]*$")
+            if(NOT KEY IN_LIST ${TMPLPREFIX}-__KEYS__)
+                if(KEY IN_LIST ${TMPLPREFIX}-__CHLD__)
+                    FIXME_child()
+                else()
+                    message(FATAL_ERROR "Unrecognized key: ${KEY}")
+                endif()
+            endif()
+            math(EXPR i "${i}+1")
+        else()
+            message(FATAL_ERROR "Malformed key '${KEY}', maybe forgotten parameters?")
+        endif()
+
+        # handle types
+        set(TYPE ${${TMPLPREFIX}-${KEY}-__TYPE__})
+        if(TYPE STREQUAL "OPTION")
+            set(${PREFIX}_${KEY} TRUE)
+            continue()
+        elseif(TYPE STREQUAL "VALUE")
+            list(GET ARGS ${i} VALUE)
+            math(EXPR i "${i}+1")
+
+            set(${PREFIX}_${KEY} ${VALUE})
+            continue()
+        elseif(TYPE STREQUAL "MULTI")
+            unset(${PREFIX}_${KEY} CACHE)
+            while(i LESS NARGS)
+                list(GET ARGS ${i} VALUE)
+                if("${VALUE}" IN_LIST ${TMPLPREFIX}-__KEYS__)
+                    break()
+                endif()
+
+                list(APPEND ${PREFIX}_${KEY} ${VALUE})
+
+                math(EXPR i "${i}+1")
+            endwhile()
+
+            set(${PREFIX}_${KEY} "${${PREFIX}_${KEY}}" CACHE INTERNAL "")
+        elseif(TYPE STREQUAL "GROUP")
+            # group
+            list(GET ARGS ${i} GROUP)
+            my_nested_unpack(GROUP isgroup)
+            math(EXPR i "${i}+1")
+
+            if(NOT isgroup)
+                message(FATAL_ERROR "Expected a group after ${KEY}.")
+            endif()
+
+            set(${PREFIX}_${KEY} TRUE)
+
+            # parse it
+            my_save(NARGS ARGS i)
+            my_tree_parse_template(${PREFIX}_${KEY} ${TMPLPREFIX}-${KEY} ${GROUP})
+            my_restore(NARGS ARGS i) 
+        elseif(TYPE STREQUAL "NAMED")
+            # name
+            list(GET ARGS ${i} NAME)
+            math(EXPR i "${i}+1")
+            # FIXME check if in __KEYS__ ?
+
+            list(APPEND ${PREFIX}_${KEY}_ALL ${NAME})
+
+            # group
+            list(GET ARGS ${i} GROUP)
+            my_nested_unpack(GROUP isgroup)
+            math(EXPR i "${i}+1")
+
+            if(NOT isgroup)
+                message(FATAL_ERROR "Expected a group after ${KEY}.")
+            endif()
+
+            # parse it
+            my_save(NARGS ARGS i)
+            my_tree_parse_template(${PREFIX}_${KEY}_${NAME} ${TMPLPREFIX}-${KEY} ${GROUP})
+            my_restore(NARGS ARGS i) 
+        else()
+            message(FATAL_ERROR "Internal error: unrecognized type '${TYPE}'.")
+        endif()
+    endwhile()
 endmacro()
