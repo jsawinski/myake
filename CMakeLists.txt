@@ -132,7 +132,7 @@ my_package(Archive
     ]
 )
 
-my_show(STATUS VARIABLES "^CPACK")
+# my_show(STATUS VARIABLES "^CPACK")
 
 
 # my_package(DEB 
