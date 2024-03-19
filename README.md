@@ -71,6 +71,8 @@ installation, involving a `provider/package` installation path), etc.
 
 ### Packaging
 
+**Status**: not working
+
 CMake provides a multitude of packaging options. Setting up each individual
 packager is, possibly not only in the eyes of the authors, not trivial. Myake,
 therefore, provides a more structured approach using a hierarchical
@@ -93,6 +95,8 @@ file:
 
 
 ### External sites
+
+**Status**: planned
 
 External sites is at the moment of writing in an orphaned state and intended
 to be revived not before milestone 0.90. Planned features are:
