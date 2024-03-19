@@ -325,4 +325,37 @@ function(my_restore)
     endforeach()
 endfunction()
 
+#[==[.md:
+### my_reset
 
+    my_reset(<variables...>)
+
+Helper to reset variables.
+
+Example:
+
+    my_reset(CACHE_VARIABLES "^THE_")
+
+will unset all cache variable starting with "THE_".
+
+*Note*:
+Additional arguments may be passed to unset. For example,
+
+    my_reset(VARIABLES "^THE_" PARENT_SCOPE)
+
+will call `unset(<variable> PARENT_SCOPE) for all matching variables.
+
+#]==]
+macro(my_reset TYPE PATTERN)
+    get_cmake_property(varlist ${TYPE})
+    foreach(var ${varlist})
+        if("${var}" MATCHES "${PATTERN}")
+            if("${TYPE}" STREQUAL "VARIABLES")
+                unset(${var} ${ARGN})
+            elseif("${TYPE}" STREQUAL "CACHE_VARIABLES")
+                unset(${var} CACHE)
+            else()
+            endif()
+        endif()
+    endforeach()
+endmacro()

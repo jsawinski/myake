@@ -8,6 +8,6 @@ endfunction()
 
 message("Runing test suite...")
 include(Test/Bits/String)
-include(Test/Bits/Tree)
+include(Test/Bits/Nested)
 # include(Test/Bits/Structure)
 # include(Test/Package)
