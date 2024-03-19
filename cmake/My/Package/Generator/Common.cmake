@@ -8,138 +8,141 @@
 include_guard(GLOBAL)
 
 # settings
-my_structure_parse(TEMPLATE MY_PACK_COMMON
-    NAME:="${PROJECT_NAME}"                     # CPACK_PACKAGE_NAME
-    VENDOR:="${PROJECT_VENDOR}"                 # CPACK_PACKAGE_VENDOR
-    VERSION:="${PROJECT_VERSION}"               # CPACK_PACKAGE_VERSION FIXME
+my_tree_template(MY_PACK_COMMON [ ]
+    NAME [ VALUE "${PROJECT_NAME}" ]
+    VENDOR [ VALUE "${PROJECT_VENDOR}" ]
+    VERSION [ VALUE "${PROJECT_VERSION}" ]
 
-    ARCHITECTURE:="${MY_ARCHITECTURE}"          # CPACK_SYSTEM_NAME
-    CATEGORY:
+    ARCHITECTURE [ VALUE "${MY_ARCHITECTURE}" ]
+    CATEGORY [ VALUE ]
 
-    AUTHORS:*
-    CONTACT:
+    AUTHORS [ MULTI ]
+    CONTACT [ VALUE ]
 
-    DESCRIPTION:- {  
-        SUMMARY:                                # CPACK_PACKAGE_DESCRIPTION_SUMMARY 
-        FILE:                                   # CPACK_PACKAGE_DESCRIPTION_FILE
-        FULL:                                   # CPACK_PACKAGE_DESCRIPTION
-        README:                                 # CPACK_RESOURCE_FILE_README
-        WELCOME:                                # CPACK_RESOURCE_FILE_WELCOME
-    }
+    DESCRIPTION [ GROUP ] [
+        SUMMARY [ VALUE ]
+        FILE [ VALUE ]
+        FULL [ VALUE ]
+        README [ VALUE ]
+        WELCOME [ VALUE ]
+    ]
 
-    URL:-{
-        HOMEPAGE:                               # CPACK_PACKAGE_HOMEPAGE_URL
-        ABOUT:
-        HELP:
-        ICON:
-        LICENSE:
-    }
+    URL [ GROUP ] [
+        HOMEPAGE [ VALUE ]
+        ABOUT [ VALUE ]
+        HELP [ VALUE ]
+        ICON [ VALUE ]
+        LICENSE [ VALUE ]
+    ]
 
-    ICON:-{
-        FILE:                                   # CPACK_PACKAGE_ICON
-    }
+    ICON [ GROUP ] [
+        FILE [ VALUE ]
+    ]
 
-    LICENSE:-{
-        TAG:                                    # -> FreeBSD, etc
-        FILE:                                   # CPACK_RESOURCE_FILE_LICENSE
-    }
+    LICENSE [ GROUP ] [
+        TAG [ VALUE ]
+        FILE [ VALUE ]
+    ]
 
-    PACKAGE:-{
-        GENERATOR:*="7Z TBZ2 TGZ TXZ TZ TZST ZIP"
-        CHECKSUM:="SHA256"                      # CPACK_PACKAGE_CHECKSUM
-        NAME:="$<NAME>-$<VERSION>$<-SUFFIX>"    # CPACK_PACKAGE_FILE_NAME
-        DIRECTORY:                              # CPACK_PACKAGE_DIRECTORY
-    }
+    PACKAGE [ GROUP ] [
+        GENERATOR [ MULTI "7Z" "TBZ2" "TGZ" "TXZ" "TZ" "TZST" "ZIP" ]
+        CHECKSUM [ VALUE "SHA256" ]
+        NAME [ VALUE "$<NAME>-$<VERSION>$<-SUFFIX>" ]
+        DIRECTORY [ VALUE ]
+    ]
 
-    SOURCES:-{
-        GENERATOR:*="7Z TBZ2 TGZ TXZ TZ TZST ZIP"
-        IGNORE:*="${MY_PACK_SOURCES_IGNORE}"
-        STRIP:*
-        FILE:-{
-            NAME:="$<PACKAGE_NAME>"
-            SUFFIX:="source"
-        }
-    }
+    SOURCES [ GROUP ] [
+        GENERATOR [ MULTI "7Z" "TBZ2" "TGZ" "TXZ" "TZ" "TZST" "ZIP" ]
+        IGNORE [ MULTI "${MY_PACK_SOURCES_IGNORE}" ]
+        STRIP [ VALUE ]
+        SUFFIX [ VALUE  "source" ]
+    ]
 
-    MONOLITHIC:-                                # CPACK_MONOLITHIC_INSTALL
+    MONOLITHIC [ OPTION ]
 
-    COMPONENTS:-{
-        DISABLED:-
+    COMPONENTS [ GROUP ] [
+        GROUP [ NAMED ] [
+            DISPLAY [ VALUE ]
+            DESCRIPTION [ VALUE ]
+            EXPANDED [ OPTION ]
+            BOLD_TITLE [ OPTION ]
 
-        GROUP:{
-            PARENT_GROUP:
-            DISPLAY:
-            DESCRIPTION:
-            EXPANDED:-
-            BOLD_TITLE:-
-
+            PARENT_GROUP [ VALUE ]
             @GROUP->PARENT_GROUP
             @COMPONENT->GROUP
-        }
+        ]
 
-        COMPONENT:{
-            GROUP:
-            DISPLAY:
-            DESCRIPTION:
-            HIDDEN:- REQUIRED:- DISABLED:-
-            DEPENDS:*
-            INSTALL_TYPES:*
-            DOWNLOADED:-
-            ARCHIVE_FILE:
-            PLIST:
-            SUFFIX:
-        }
+        COMPONENT [ NAMED ] [
+            DISPLAY [ VALUE ]
+            DESCRIPTION [ VALUE ]
+            HIDDEN [ OPTION ] REQUIRED [ OPTION ] DISABLED [ OPTION ] 
+            DEPENDS [ VALUE ]
+            INSTALL_TYPES [ VALUE ]
+            DOWNLOADED [ OPTION ]
+            ARCHIVE_FILE [ VALUE ]
+            PLIST [ VALUE ]
+            SUFFIX [ VALUE ]
 
-        INSTALL:-{
-            # FIXME
-        }
-    
-        # INSTALL_TYPE <typename> {
-        #     [DISPLAY <display-name>]
-        # }
-        # DOWNLOADS <sitename> {
-        #     [UPLOAD_DIRECTORY <dirname>]
-        #     [ALL]
-        #     [ADD_REMOVE|NO_ADD_REMOVE]
-        # }
-    }
+            GROUP [ VALUE ]
+        ]
+    ]
+
+    # INSTALL_TYPE <typename> {
+    #     [DISPLAY <display-name>]
+    # }
+    # DOWNLOADS <sitename> {
+    #     [UPLOAD_DIRECTORY <dirname>]
+    #     [ALL]
+    #     [ADD_REMOVE|NO_ADD_REMOVE]
+    # }
 )
 
 # defaults
 set(CPACK_THREADS 0)
 set(CPACK_SET_DESTDIR ON)
 
-set(MY_PACK_TRANSLATE_COMMON
-    CPACK_PACKAGE:
-        NAME=NAME
-        VENDOR=VENDOR
-        VERSION=VERSION
-        SYSTEM_NAME=ARCHITECTURE
+set(TRANSLATE_MY_PACK_COMMON
+    CPACK_PACKAGE_NAME [ NAME ]
+    CPACK_PACKAGE_VENDOR [ VENDOR ]
+    CPACK_PACKAGE_VERSION [ VERSION ]
+    
+    # ARCHITECTURE [ VALUE "${MY_ARCHITECTURE}" ]
+    # CATEGORY [ VALUE ]
 
-        DESCRIPTION_SUMMARY=DESCRIPTION_SUMMARY
-        DESCRIPTION_FILE=DESCRIPTION_FILE
-        DESCRIPTION_FILE=DESCRIPTION_README
-        DESCRIPTION=DESCRIPTION_FULL
+    # AUTHORS [ MULTI ]
+    # CONTACT [ VALUE ]
 
-        HOMEPAGE_URL=URL_HOMEPAGE
-        ICON=ICON_FILE
+    CPACK_PACKAGE_DESCRIPTION_SUMMARY [ DESCRIPTION_SUMMARY ]
+    CPACK_PACKAGE_DESCRIPTION_FILE [ DESCRIPTION_FILE ]
+    CPACK_PACKAGE_DESCRIPTION [ DESCRIPTION_FULL ]
+    CPACK_RESOURCE_FILE_README [ DESCRIPTION_README ]
+    CPACK_RESOURCE_FILE_WELCOME [ DESCRIPTION_WELCOME ]
 
-        CHECKSUM=PACKAGE_CHECKSUM
-        FILE_NAME=PACKAGE_NAME
-        DIRECTORY=PACKAGE_DIRECTORY
+    # URL [ GROUP ] [
+    #     ABOUT [ VALUE ]
+    #     HELP [ VALUE ]
+    #     ICON [ VALUE ]
+    #     LICENSE [ VALUE ]
+    # ]
+    CPACK_PACKAGE_HOMEPAGE_URL [ URL_HOMEPAGE ]
 
-    CPACK_MONOLITHIC:
-        INSTALL=MONOLITHIC
+    CPACK_PACKAGE_ICON [ ICON_FILE ]
 
-    CPACK_RESOURCE:
-        FILE_README=DESCRIPTION_README
-        FILE_WELCOME=DESCRIPTION_WELCOME
-        FILE_LICENSE=LICENSE_FILE
+    CPACK_RESOURCE_FILE_LICENSE [ LICENSE_FILE ]
 
-    CPACK_SOURCE:
-        IGNORE_FILES=SOURCES_IGNORE
-        STRIP_FILES=SOURCES_STRIP
-        PACKAGE_FILE_NAME=SOURCES_FILE_NAME
+    # PACKAGE [ GROUP ] [
+    #     DIRECTORY [ VALUE ]
+    # ]
+    CPACK_GENERATOR [ PACKAGE_GENERATOR ]
+    CPACK_PACKAGE_CHECKSUM [ PACKAGE_CHECKSUM ]
+    CPACK_PACKAGE_FILE_NAME [ PACKAGE_NAME ]
+
+    CPACK_SOURCE_GENERATOR [ SOURCES_GENERATOR ]
+    CPACK_SOURCE_STRIP_FILES [ SOURCES_STRIP ]
+    CPACK_SOURCE_PACKAGE_FILE_NAME [ PACKAGE_NAME ]
+    CPACK_SOURCE_IGNORE_FILES [ SOURCES_IGNORE ]
+
+    CPACK_MONOLITHIC_INSTALL [ MONOLITHIC ]
 )
 
 # Undocumented:
@@ -161,7 +164,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        The name of the package vendor. (e.g., "Kitware"). The default is 
 #        "Humanity".
 #        
-# [x] CPACK_PACKAGE_DIRECTORY
+# [ ] CPACK_PACKAGE_DIRECTORY
 #        
 #        The directory in which CPack is doing its packaging. If it is not set 
 #        then this will default (internally) to the build dir. This variable may
@@ -169,7 +172,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        option `-B`. If set, the command line option overrides the value found 
 #        in the config file.
 #        
-# [x] CPACK_PACKAGE_VERSION_MAJOR
+# [-] CPACK_PACKAGE_VERSION_MAJOR
 #        
 #        Package major version. This variable will always be set, but its 
 #        default value depends on whether or not version details were given to 
@@ -179,7 +182,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        default version of 0.1.1 will be assumed, leading to 
 #        `CPACK_PACKAGE_VERSION_MAJOR` having a default value of 0.
 #        
-# [x] CPACK_PACKAGE_VERSION_MINOR
+# [-] CPACK_PACKAGE_VERSION_MINOR
 #        
 #        Package minor version. The default value is determined based on whether
 #        or not version details were given to the `project()` command in the top
@@ -190,7 +193,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_MINOR` having 
 #        a default value of 1.
 #        
-# [x] CPACK_PACKAGE_VERSION_PATCH
+# [-] CPACK_PACKAGE_VERSION_PATCH
 #        
 #        Package patch version. The default value is determined based on whether
 #        or not version details were given to the `project()` command in the top
@@ -237,7 +240,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        ${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CPACK_SYSTEM_NAME}
 #        ```
 #        
-# [x] CPACK_PACKAGE_INSTALL_DIRECTORY
+# [ ] CPACK_PACKAGE_INSTALL_DIRECTORY
 #        
 #        Installation directory on the target system. This may be used by some 
 #        CPack generators like NSIS to create an installation directory e.g., 
@@ -321,7 +324,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        the installed executable `ccmake`. Not all CPack generators use it (at 
 #        least NSIS, Inno Setup and WIX do).
 #        
-# [x] CPACK_STRIP_FILES
+# [ ] CPACK_STRIP_FILES
 #        
 #        List of files to be stripped. Starting with CMake 2.6.0, 
 #        `CPACK_STRIP_FILES` will be a boolean variable which enables stripping 
@@ -419,7 +422,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        Directory. If omitted, CPack will build an installer that installs 
 #        everything.
 #        
-# [x] CPACK_SYSTEM_NAME
+# [ ] CPACK_SYSTEM_NAME
 #        
 #        System name, defaults to the value of `CMAKE_SYSTEM_NAME`, except on 
 #        Windows where it will be `win32` or `win64`.
@@ -495,7 +498,7 @@ set(MY_PACK_TRANSLATE_COMMON
 #        corresponding start menu shortcut as created by 
 #        `CPACK_PACKAGE_EXECUTABLES`.
 #        
-# [x] CPACK_BINARY_<GENNAME>
+# [ ] CPACK_BINARY_<GENNAME>
 #        
 #        CPack generated options for binary generators. The `CPack.cmake` module
 #        generates (when `CPACK_GENERATOR` is not set) a set of CMake options 

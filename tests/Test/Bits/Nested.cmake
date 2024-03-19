@@ -46,7 +46,7 @@ my_table_parse(@display_kv
 )
 
 message("=== tree")
-my_tree_template(TREE 
+my_tree_template(TREE [ ]
     NAME [ VALUE "${PROJECT_NAME}" ]
     VENDOR [ VALUE "${PROJECT_VENDOR}" ]
     VERSION [ VALUE "${PROJECT_VERSION}" ]

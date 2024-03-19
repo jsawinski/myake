@@ -201,7 +201,7 @@ endmacro()
 #[==[.md:
 ### my_tree_template
 
-    my_tree_template(<template-name>
+    my_tree_template(<template-name> "[" <options...> "]"
         <template-declaration...>
     )
 
@@ -238,11 +238,39 @@ Example:
 
 #]==]
 function(my_tree_template NAME)
+    set(ARGS ${ARGN})
+
     # reset template
     my_reset(CACHE_VARIABLES "^MY_TMPL_${NAME}-")
 
+    # options
+    list(POP_FRONT ARGS OPTIONS)
+    my_nested_unpack(OPTIONS isnested)
+    if(NOT isnested)
+        message(FATAL_ERROR "Invalid options.")
+    endif()
+
+    list(LENGTH OPTIONS NOPTIONS)
+    while(NOPTIONS GREATER 0)
+        list(POP_FRONT OPTIONS THEOPT)
+        if(THEOPT STREQUAL "IMPORT")
+            list(POP_FRONT OPTIONS IMPORT)
+            get_cmake_property(varlist CACHE_VARIABLES)
+            foreach(var ${varlist})
+                if("${var}" MATCHES "^MY_TMPL_${IMPORT}-")
+                    string(REGEX REPLACE "^MY_TMPL_${IMPORT}-(.*)" "MY_TMPL_${NAME}-\\1" tmpl "${var}")
+                    set(${tmpl} "${${var}}" CACHE INTERNAL "")
+                endif()
+            endforeach()
+        else()
+            message(FATAL_ERROR "Invalid option: ${THEOPT}")
+        endif()
+
+        list(LENGTH OPTIONS NOPTIONS)
+    endwhile()
+
     # parse
-    __my_tree_template(MY_TMPL_${NAME} ${ARGN})
+    __my_tree_template(MY_TMPL_${NAME} ${ARGS})
 endfunction()
 
 function(__my_tree_template NAME)
@@ -341,6 +369,8 @@ function(my_tree_parse PREFIX)
             set(NODEFAULTS ON)
         elseif(THEOPT STREQUAL "TEMPLATE")
             list(POP_FRONT OPTIONS TEMPLATE)
+        elseif(THEOPT STREQUAL "RESET")
+            my_reset(VARIABLES "^${PREFIX}_")
         else()
             message(FATAL_ERROR "Unrecognized option: ${THEOPT}")
         endif()
@@ -350,6 +380,23 @@ function(my_tree_parse PREFIX)
 
     # parse
     __my_tree_parse(${PREFIX} MY_TMPL_${TEMPLATE} ${ARGS})
+
+    # defaults
+    if(NOT NODEFAULTS)  
+        # FIXME this does not work with named groups
+        get_cmake_property(cachevars CACHE_VARIABLES)
+        foreach(cachevar ${cachevars})
+            if("${cachevar}" MATCHES "^MY_TMPL_${TEMPLATE}-")
+                if("${cachevar}" MATCHES "^MY_TMPL_${TEMPLATE}-(.*)-__DFLT__$")
+                    string(REPLACE "-" "_" outvar "${CMAKE_MATCH_1}")
+                    set(outvar "${PREFIX}_${outvar}")
+                    if(NOT DEFINED ${outvar})
+                        set(${outvar} "${${cachevar}}")
+                    endif()
+                endif()
+            endif()
+        endforeach()        
+    endif()
 
     # propagate
     get_cmake_property(varlist VARIABLES)
@@ -376,13 +423,13 @@ macro(__my_tree_parse PREFIX TEMPLATE)
                     list(SUBLIST ARGS ${I} 3 KNT)
                     list(POP_FRONT KNT K N T)
 
-                    # FIXME sanity check
+                    # FIXME sanity checkl K/N/T
 
                     list(APPEND CHILDREN ${K} ${N} ${T})
                     math(EXPR I "${I}+3")
                     continue()
                 else()
-                    message(FATAL_ERROR "Unrecognized key: ${KEY}")
+                    message(FATAL_ERROR "Unrecognized key: ${KEY} (not found in ${TEMPLATE}-__KEYS__)")
                 endif()
             endif()
             math(EXPR I "${I}+1")
@@ -402,7 +449,7 @@ macro(__my_tree_parse PREFIX TEMPLATE)
             set(${PREFIX}_${KEY} ${VALUE})
             continue()
         elseif(TYPE STREQUAL "MULTI")
-            unset(${PREFIX}_${KEY} CACHE)
+            unset(${PREFIX}_${KEY})
             while(I LESS NARGS)
                 list(GET ARGS ${I} VALUE)
                 if("${VALUE}" IN_LIST ${TEMPLATE}-__KEYS__)
@@ -413,8 +460,6 @@ macro(__my_tree_parse PREFIX TEMPLATE)
 
                 math(EXPR I "${I}+1")
             endwhile()
-
-            set(${PREFIX}_${KEY} "${${PREFIX}_${KEY}}" CACHE INTERNAL "")
         elseif(TYPE STREQUAL "GROUP")
             # group
             list(GET ARGS ${I} GROUP)
@@ -479,8 +524,4 @@ macro(__my_tree_parse PREFIX TEMPLATE)
             message(FATAL_ERROR "Internal error: unrecognized type '${TYPE}'.")
         endif()
     endwhile()
-
-    if(NOT NODEFAULTS)  
-        # FIXME
-    endif()
 endmacro()

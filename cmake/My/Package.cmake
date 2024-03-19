@@ -25,7 +25,7 @@ FIXME
 include_guard(GLOBAL)
 
 include(My/Bits/Set)
-include(My/Bits/Structure)
+include(My/Bits/Nested)
 include(My/Build)
 
 include(My/Package/Generator)
@@ -140,8 +140,8 @@ macro(my_package)
 
     if(NOT MY_PACK_GENERATOR)
         # parse common settings
-        my_structure_parse(MY_PACK_COMMON
-            TEMPLATE MY_PACK_COMMON
+        my_tree_parse(MY_PACK_COMMON
+            [ TEMPLATE MY_PACK_COMMON ]
             ${__MY_PACK_ARGS})
     else()
         # generator (found above)

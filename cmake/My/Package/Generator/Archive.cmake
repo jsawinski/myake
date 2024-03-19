@@ -26,28 +26,35 @@ macro(my_generator_archive)
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
     my_generator_configure(ARCHIVE
-        CPACK_ARCHIVE:
-            FILE_NAME=PACKAGE_NAME
+        ${TRANSLATE_MY_PACK_ARCHIVE}
     )
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 # settings
-my_structure_parse(TEMPLATE MY_PACK_ARCHIVE USE MY_PACK_COMMON
-    FILE:-{
-        EXTENSION:                          # undocumented
-    }
+my_tree_template(MY_PACK_ARCHIVE [ IMPORT MY_PACK_COMMON ]
+    FILE [ GROUP ] [
+        EXTENSION [ VALUE ]
+    ]
 )
 
 # defaults
 set(CPACK_ARCHIVE_THREADS 0)
 
+set(TRANSLATE_MY_PACK_ARCHIVE
+    CPACK_ARCHIVE_FILE_NAME [ PACKAGE_NAME ]
+    # CPACK_ARCHIVE_FILE_EXTENSION [ ]
+    # COMPONENTS [
+    #     CPACK_ARCHIVE_<component>_FILE_NAME [ ]
+    # ]
+)
+
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables specific to CPack Archive generator
 # 
-# [x] CPACK_ARCHIVE_<component>_FILE_NAME
+# [ ] CPACK_ARCHIVE_<component>_FILE_NAME
 # [x] CPACK_ARCHIVE_FILE_NAME
 #        
 #        Package file name without extension.
@@ -59,14 +66,14 @@ set(CPACK_ARCHIVE_THREADS 0)
 #        and automatically appended to the file name. Note that `<component>` is
 #        all uppercase in the variable name.
 #        
-# [x] CPACK_ARCHIVE_FILE_EXTENSION
+# [ ] CPACK_ARCHIVE_FILE_EXTENSION
 #        
 #        Package file extension.
 #        
 #        **Default**: Default values are given in the list above.
 #        
 #        
-# [x] CPACK_ARCHIVE_COMPONENT_INSTALL
+# [ ] CPACK_ARCHIVE_COMPONENT_INSTALL
 #        
 #        Enable component packaging.
 #        
@@ -79,7 +86,7 @@ set(CPACK_ARCHIVE_THREADS 0)
 # 
 # === Variables used by CPack Archive generator
 # 
-# [x] CPACK_ARCHIVE_THREADS
+# [ ] CPACK_ARCHIVE_THREADS
 #        
 #        The number of threads to use when performing the compression.
 #        

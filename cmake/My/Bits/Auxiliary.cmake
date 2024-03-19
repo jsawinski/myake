@@ -118,15 +118,15 @@ endfunction()
 #[==[.md:
 ### my_show
 
-    my_show(<log-level> <property-name> <variable-prefix> ["message..."])
+    my_show(<log-level> <property-name> <pattern> ["message..."])
 
 Helper to display variables.
 
 #]==]
-function(my_show level what prefix)
+function(my_show level what pattern)
     get_cmake_property(varlist ${what})
     foreach(var ${varlist})
-        if("${var}" MATCHES "^${prefix}")
+        if("${var}" MATCHES "${pattern}")
             message(${level} ${ARGN} "${var}=${${var}}")
         endif()
     endforeach()

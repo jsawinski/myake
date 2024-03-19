@@ -2,7 +2,7 @@ set(MYAKE_MINIMUM_MAJOR_VERSION 3)
 set(MYAKE_MINIMUM_MINOR_VERSION 22)
 cmake_minimum_required(VERSION ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})
 
-set(ENABLE_TESTING ON)
+set(ENABLE_TESTING OFF)
 if(ENABLE_TESTING)
 	set(CMAKE_MESSAGE_LOG_LEVEL TRACE)
 endif()
@@ -67,7 +67,7 @@ my_package(
     AUTHORS
     	"Jürgen 'George' Sawinski"
    	CATEGORY "Development"
-    DESCRIPTION {
+    DESCRIPTION [
 	    SUMMARY "CMake macros for personalized building, simplified packaging and publishing."
 		README "${CMAKE_SOURCE_DIR}/README.md"
         FULL "\
@@ -89,27 +89,27 @@ to package maintainers.
 Publishing:
 Myake provides macros for dealing with external sites, provides down- and 
 upload mechanisms, including source code revision suites, and more."
-	}
+	]
 
-    LICENSE {
+    LICENSE [
 		TAG "MIT" 
         FILE ${Myake_SOURCE_DIR}/LICENSE
-   	}
+   	]
 
-    URL {
+    URL [
 		# ABOUT 
         HOMEPAGE "https://github.com/jsawinski/myake"
 		HELP "https://jsawinski.github.io/${PROJECT_UUID}/"
 		ICON "https://raw.githubusercontent.com/jsawinski/myake/master/docs/myake.png"
 		LICENSE "https://raw.githubusercontent.com/jsawinski/myake/master/LICENSE"
-	}
+	]
 
-	PACKAGE {
+	PACKAGE [
 		CHECKSUM SHA1
 		NAME "$<name>-$<VERSION>$<-suffix>"
-	}
+	]
 
-    SOURCES {
+    SOURCES [
     	IGNORE
     		${MY_PACK_SOURCES_IGNORE}
     		/\\.gitignore\$
@@ -118,29 +118,32 @@ upload mechanisms, including source code revision suites, and more."
 			/.vscode/
     		/build/
 
-    	SUFFIX "source"
-    }
+		SUFFIX "source"
+    ]
 )
 
 my_package(Archive 
-	PACKAGE {
+	PACKAGE [
 		GENERATOR NONE
-	}
+	]
 
-    SOURCES {
+    SOURCES [
         GENERATOR ZIP TGZ
-    }
+    ]
 )
 
-my_package(DEB 
-	MAINTAINER "Jürgen Sawinski"
-	SECTION "devel"
+my_show(STATUS VARIABLES "^CPACK")
 
-    DEPENDS
-        "cmake (>= ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})"
-    ENHANCES
-        "cmake"
-)
+
+# my_package(DEB 
+# 	MAINTAINER "Jürgen Sawinski"
+# 	SECTION "devel"
+
+#     DEPENDS
+#         "cmake (>= ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})"
+#     ENHANCES
+#         "cmake"
+# )
 
 # final
 include(My/Lists)

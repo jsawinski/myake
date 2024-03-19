@@ -137,14 +137,13 @@ FIXME
 
 #]==]
 macro(my_generator_configure tag)
-    my_structure_parse(MY_PACK_${tag} RESET NODEFAULTS
-        TEMPLATE MY_PACK_${tag}
+    my_tree_parse(MY_PACK_${tag} [ NODEFAULTS RESET ]
         ${__MY_PACK_ARGS})
 
     if(NOT DEFINED __MY_PACK_COMMON)
         ### translate variables
         my_generator_translate(${tag} 
-            ${MY_PACK_TRANSLATE_COMMON}
+            ${TRANSLATE_MY_PACK_COMMON}
             ${ARGN})
 
         ### other settings
@@ -206,24 +205,26 @@ Helper to convert Myake to CPack variables.
 
 #]==]
 macro(my_generator_translate tag)
-    set(dstprefix)
-    foreach(arg ${ARGN})
-        if("${arg}" MATCHES ":$")
-            my_substring(dstprefix 0 -2 "${arg}")
-        else()
-            string(REGEX MATCH "^([^=]+)=([^=]+)" _ ${arg})
-            
-            foreach(srcprefix MY_PACK_COMMON MY_PACK_${tag}_COMMON MY_PACK_${tag})
-                set(srcvar "${srcprefix}_${CMAKE_MATCH_2}")
-                set(dstvar "${dstprefix}_${CMAKE_MATCH_1}")
+    set(ARGS ${ARGN})
+    list(LENGTH ARGS NARGS)
+    while(NARGS GREATER 0)
+        list(POP_FRONT ARGS K)
+        list(POP_FRONT ARGS V)
+        my_nested_unpack(V _)
 
-                if(DEFINED ${srcvar})
-                    set(${dstvar} ${${srcvar}})
-                    my_generator_genex(${dstvar} MY_PACK_${tag} MY_PACK_${tag}_COMMON MY_PACK_COMMON)
+        foreach(N ${V})
+            foreach(srcprefix MY_PACK_COMMON MY_PACK_${tag}_COMMON MY_PACK_${tag})
+                set(S ${srcprefix}_${N})
+                if(DEFINED ${S})
+                    message("set(${K} ${${S}})")
+                    set(${K} ${${S}})
+                    my_generator_genex(${K} MY_PACK_${tag} MY_PACK_${tag}_COMMON MY_PACK_COMMON)
                 endif()
             endforeach()
-        endif()
-    endforeach()
+        endforeach()
+
+        list(LENGTH ARGS NARGS)
+    endwhile()
 endmacro()
 
 #[==[.md:
@@ -235,7 +236,6 @@ Helper to expand generator expressions.
 
 #]==]
 function(my_generator_genex outvar)
-    # message("${outvar}=${${outvar}}")
     string(REGEX MATCH "[$][<][^>]*[>]" pattern "${${outvar}}")
     if(NOT pattern)
         return()
