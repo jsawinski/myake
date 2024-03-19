@@ -124,16 +124,13 @@ upload mechanisms, including source code revision suites, and more."
 
 my_package(Archive 
 	PACKAGE [
-		GENERATOR NONE
+		GENERATOR ZIP
 	]
 
     SOURCES [
         GENERATOR ZIP TGZ
     ]
 )
-
-# my_show(STATUS VARIABLES "^CPACK")
-
 
 # my_package(DEB 
 # 	MAINTAINER "Jürgen Sawinski"

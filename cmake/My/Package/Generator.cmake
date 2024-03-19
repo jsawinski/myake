@@ -94,6 +94,8 @@ This macro is only used by [my_package](../Package.md#markdown-header-my_package
 
 #]==]
 macro(my_generator_run category)
+    set(MY_PACK_CREATE TRUE)
+
     # load module
     include(My/Package/Generator/${category})
 
@@ -103,7 +105,7 @@ macro(my_generator_run category)
     unset(category_lc)
 
     # create cpack config
-    if(NOT DEFINED __MY_PACK_COMMON)
+    if(NOT DEFINED __MY_PACK_COMMON AND MY_PACK_CREATE)
         unset(CPack_CMake_INCLUDED)
         include(CPack)
     endif()

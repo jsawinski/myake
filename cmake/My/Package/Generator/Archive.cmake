@@ -44,10 +44,7 @@ set(CPACK_ARCHIVE_THREADS 0)
 
 set(TRANSLATE_MY_PACK_ARCHIVE
     CPACK_ARCHIVE_FILE_NAME [ PACKAGE_NAME ]
-    # CPACK_ARCHIVE_FILE_EXTENSION [ ]
-    # COMPONENTS [
-    #     CPACK_ARCHIVE_<component>_FILE_NAME [ ]
-    # ]
+    CPACK_ARCHIVE_FILE_EXTENSION
 )
 
 # The following text was auto-generated from CPack's help files:
@@ -66,7 +63,7 @@ set(TRANSLATE_MY_PACK_ARCHIVE
 #        and automatically appended to the file name. Note that `<component>` is
 #        all uppercase in the variable name.
 #        
-# [ ] CPACK_ARCHIVE_FILE_EXTENSION
+# [x] CPACK_ARCHIVE_FILE_EXTENSION
 #        
 #        Package file extension.
 #        
