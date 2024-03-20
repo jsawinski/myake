@@ -7,7 +7,7 @@
 ## Includes
 
 [My/Bits/Auxiliary](Bits/Auxiliary.md)  
-[My/Bits/Options](Bits/Options.md)  
+[My/Bits/Nested](Bits/Nested.md)  
 [My/Bits/Set](Bits/Set.md)  
 [My/Bits/String](Bits/String.md)  
 [My/Bits/Toplevel](Bits/Toplevel.md)
@@ -16,7 +16,7 @@
 include_guard(GLOBAL)
 
 include(My/Bits/Auxiliary)
-include(My/Bits/Options)
+include(My/Bits/Nested)
 include(My/Bits/Set)
 include(My/Bits/List)
 include(My/Bits/String)

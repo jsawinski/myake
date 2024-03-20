@@ -1,5 +1,7 @@
 # TODO
 
+- add https://github.com/jsawinski/myake/issues to documentation
+
 ## External
 
 - wrapper for add_custom_command (My/Build) missing.
@@ -7,6 +9,10 @@
 
 ## Personalization
 
+### My/Build
+
+- add_custom_command wrapper needed
 
 ## Packaging
 
+-- LICENSE/TAG, see: https://spdx.org/licenses/

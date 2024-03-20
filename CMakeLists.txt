@@ -18,7 +18,7 @@ list(APPEND CMAKE_PROJECT_INCLUDE_BEFORE "cmake/My/Init.cmake")
 list(APPEND CMAKE_PROJECT_INCLUDE "cmake/My/Config.cmake")
 
 project(Myake
-    VERSION 0.30.0
+    VERSION 0.40.0
     LANGUAGES NONE)
 
 if(ENABLE_TESTING)
@@ -45,8 +45,7 @@ elseif(APPLE)
 else()
 	set(CMAKE_INSTALL_DATADIR ${CMAKE_INSTALL_DATAROOTDIR}/Myake)
 	set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DATAROOTDIR}/Myake/doc)
-	message(AUTHOR_WARNING "Installation path defaults to: ${MYAKE_INSTALL_DIR}")
-	# FIXME add feature/bug page to warning
+	message(AUTHOR_WARNING "Unknown operating system. Installation path defaults to: '${MYAKE_INSTALL_DIR}'. Use https://github.com/jsawinski/myake/issues to report this issue.")
 endif()
 
 set(CMAKE_INSTALL_DEFAULT_COMPONENT_NAME devel)
@@ -66,6 +65,7 @@ my_package(
 	ARCHITECTURE all
     AUTHORS
     	"Jürgen 'George' Sawinski"
+		"Florian Franzen"
    	CATEGORY "Development"
     DESCRIPTION [
 	    SUMMARY "CMake macros for personalized building, simplified packaging and publishing."
@@ -92,7 +92,7 @@ upload mechanisms, including source code revision suites, and more."
 	]
 
     LICENSE [
-		TAG "MIT" 
+		SPDX "MIT" 
         FILE ${Myake_SOURCE_DIR}/LICENSE
    	]
 
@@ -111,7 +111,7 @@ upload mechanisms, including source code revision suites, and more."
 
     SOURCES [
     	IGNORE
-    		${MY_PACK_SOURCES_IGNORE}
+    		DEFAULTS
     		/\\.gitignore\$
 			/.myake/
 			/.amend/
