@@ -13,10 +13,6 @@ function(my_external_use)
 endfunction()
 
 macro(__my_external_use)
-    message(TRACE "__my_external_use(${ARGN})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 function(my_external_use_site sitename)
@@ -24,10 +20,6 @@ function(my_external_use_site sitename)
 endfunction()
 
 macro(__my_external_use_site sitename)
-    message(TRACE "__my_external_use_site(${sitename};${ARGN})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 #[================================[.md:

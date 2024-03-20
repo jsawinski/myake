@@ -9,9 +9,6 @@
 include_guard(GLOBAL)
 
 macro(__my_external_git_site sitename)
-    message(TRACE "__my_external_git_site(${sitename};${ARGN})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
     # reset options
     my_options_parse(GIT RESET
         OPTIONS __MY_EXTERNAL_SITE_GITOPT {
@@ -78,8 +75,6 @@ macro(__my_external_git_site sitename)
         configure_file(${MY_EXTERNAL_SOURCE_DIR}/Git/${script}.in
             ${GIT_SITE_DIR}/${script} @ONLY)
     endforeach()
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 #[================================[.md:

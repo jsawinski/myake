@@ -92,9 +92,6 @@ function(my_external)
 endfunction()
 
 macro(__my_external)
-    message(TRACE "__my_external(${ARGN})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
     set(commands SITE ${MY_EXTERNAL_COMMANDS})
 
     set(args ${ARGN})
@@ -123,8 +120,6 @@ macro(__my_external)
     if(runargs)
         __my_external_run(${runargs})
     endif()
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 #[==[.md:
@@ -142,9 +137,6 @@ function(my_external_site sitename)
 endfunction()
 
 macro(__my_external_site sitename)
-    message(TRACE "__my_external_site(${sitename};${ARGN})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
     set(args ${ARGN})
 
     # check if second argument is a method
@@ -161,7 +153,6 @@ macro(__my_external_site sitename)
 
     __my_external_set_sitedir(${sitename})
     __my_external_run(SITE ${method} ${sitename} ${args})
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 #[==[.md:
@@ -179,9 +170,6 @@ function(my_external_command what sitename)
 endfunction()
 
 macro(__my_external_command what sitename)
-    message(TRACE "__my_external_command(${what};${sitename};${ARGN})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
     if(NOT DEFINED CACHE{MY_EXTERNAL_SITE_${sitename}_DIR})
         message(FATAL_ERROR "Site '${sitename}' is not known.")
     endif()
@@ -189,8 +177,6 @@ macro(__my_external_command what sitename)
     # run script
     string(TOLOWER "${what}" what_lc)
     include(${MY_EXTERNAL_SITE_${sitename}_DIR}/${what_lc}.cmake)
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()
 
 #[================================[.md:
