@@ -11,21 +11,6 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/productbuild...")
 
-#[==[.md:
-# my_generator_productbuild
-
-FIXME
-    my_package(productbuild [COMMON]
-        ...
-    )
-
-#]==]
-macro(my_generator_productbuild)
-    message(TRACE "my_generator_productbuild(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
-endmacro()
 
 
 # The following text was auto-generated from CPack's help files:

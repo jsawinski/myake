@@ -11,22 +11,6 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/NSIS...")
 
-#[==[.md:
-# my_generator_nsis
-
-FIXME
-    my_package(NSIS [COMMON]
-        ...
-    )
-
-#]==]
-macro(my_generator_nsis)
-    message(TRACE "my_generator_nsis(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
-endmacro()
-
 
 # The following text was auto-generated from CPack's help files:
 # 

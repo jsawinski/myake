@@ -11,18 +11,6 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/RPM...")
 
-#[==[.md:
-# my_generator_rpm
-
-FIXME
-    my_package(RPM [COMMON]
-        ...
-    )
-
-#]==]
-macro(my_generator_rpm)
-endmacro()
-
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables specific to CPack RPM generator

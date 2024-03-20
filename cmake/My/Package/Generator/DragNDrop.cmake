@@ -11,22 +11,6 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/DragNDrop...")
 
-#[==[.md:
-# my_generator_dragndrop
-
-FIXME
-    my_package(DragNDrop [COMMON]
-        ...
-    )
-
-#]==]
-macro(my_generator_dragndrop)
-    message(TRACE "my_generator_dragndrop(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
-endmacro()
-
 
 # The following text was auto-generated from CPack's help files:
 # 

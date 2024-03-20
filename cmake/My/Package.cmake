@@ -134,33 +134,33 @@ macro(my_package)
     message(DEBUG "my_package(${ARGN})")
     list(APPEND CMAKE_MESSAGE_INDENT "    ")
 
-    # check generator 
-    set(__MY_PACK_ARGS ${ARGN})
-    my_generator_check(MY_PACK_GENERATOR ${ARGV0})
+    # # check generator 
+    # set(__MY_PACK_ARGS ${ARGN})
+    # my_generator_check(MY_PACK_GENERATOR ${ARGV0})
 
-    if(NOT MY_PACK_GENERATOR)
-        # parse common settings
-        my_tree_parse(MY_PACK_COMMON
-            [ TEMPLATE MY_PACK_COMMON ]
-            ${__MY_PACK_ARGS})
-    else()
-        # generator (found above)
-        list(POP_FRONT __MY_PACK_ARGS)
+    # if(NOT MY_PACK_GENERATOR)
+    #     # parse common settings
+    #     my_tree_parse(MY_PACK_COMMON
+    #         [ TEMPLATE MY_PACK_COMMON ]
+    #         ${__MY_PACK_ARGS})
+    # else()
+    #     # generator (found above)
+    #     list(POP_FRONT __MY_PACK_ARGS)
 
-        # COMMON?
-        list(GET __MY_PACK_ARGS 0 arg0)
-        if("${arg0}" STREQUAL "COMMON")
-            set(__MY_PACK_COMMON)
-            list(POP_FRONT __MY_PACK_ARGS)
-        else()
-            unset(__MY_PACK_COMMON)
-        endif()
-        unset(arg0)
+    #     # COMMON?
+    #     list(GET __MY_PACK_ARGS 0 arg0)
+    #     if("${arg0}" STREQUAL "COMMON")
+    #         set(__MY_PACK_COMMON)
+    #         list(POP_FRONT __MY_PACK_ARGS)
+    #     else()
+    #         unset(__MY_PACK_COMMON)
+    #     endif()
+    #     unset(arg0)
     
-        # run generator
-        my_generator_run(${MY_PACK_GENERATOR})
-        unset(MY_PACK_GENERATOR)
-    endif()
+    #     # run generator
+    #     my_generator_run(${MY_PACK_GENERATOR})
+    #     unset(MY_PACK_GENERATOR)
+    # endif()
 
     list(POP_BACK CMAKE_MESSAGE_INDENT)
 endmacro()

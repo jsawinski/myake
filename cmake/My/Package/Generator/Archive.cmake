@@ -11,48 +11,14 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/Archive...")
 
-#[==[.md:
-# my_generator_archive
 
-    my_generator_archive(Archive [COMMON]
-        [<package options>...]
-    )
-
-Create binary and source archive files.
-
-#]==]
-macro(my_generator_archive)
-    message(TRACE "my_generator_archive(${_MY_PACK_COMMON},${__MY_PACK_ARGS})")
-    list(APPEND CMAKE_MESSAGE_INDENT "    ")
-
-    my_generator_configure(ARCHIVE
-        ${TRANSLATE_MY_PACK_ARCHIVE}
-    )
-
-    list(POP_BACK CMAKE_MESSAGE_INDENT)
-endmacro()
-
-# settings
-my_tree_template(MY_PACK_ARCHIVE [ IMPORT MY_PACK_COMMON ]
-    FILE [ GROUP ] [
-        EXTENSION [ VALUE ]
-    ]
-)
-
-# defaults
-set(CPACK_ARCHIVE_THREADS 0)
-
-set(TRANSLATE_MY_PACK_ARCHIVE
-    CPACK_ARCHIVE_FILE_NAME [ PACKAGE_NAME ]
-    CPACK_ARCHIVE_FILE_EXTENSION
-)
 
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables specific to CPack Archive generator
 # 
 # [ ] CPACK_ARCHIVE_<component>_FILE_NAME
-# [x] CPACK_ARCHIVE_FILE_NAME
+# [ ] CPACK_ARCHIVE_FILE_NAME
 #        
 #        Package file name without extension.
 #        
@@ -63,7 +29,7 @@ set(TRANSLATE_MY_PACK_ARCHIVE
 #        and automatically appended to the file name. Note that `<component>` is
 #        all uppercase in the variable name.
 #        
-# [x] CPACK_ARCHIVE_FILE_EXTENSION
+# [ ] CPACK_ARCHIVE_FILE_EXTENSION
 #        
 #        Package file extension.
 #        

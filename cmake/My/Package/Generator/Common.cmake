@@ -7,159 +7,22 @@
 #]=======================================================================]
 include_guard(GLOBAL)
 
-# settings
-my_tree_template(MY_PACK_COMMON [ ]
-    NAME [ VALUE "${PROJECT_NAME}" ]
-    VENDOR [ VALUE "${PROJECT_VENDOR}" ]
-    VERSION [ VALUE "${PROJECT_VERSION}" ]
-
-    ARCHITECTURE [ VALUE "${MY_ARCHITECTURE}" ]
-    CATEGORY [ VALUE ]
-
-    AUTHORS [ MULTI ]
-    CONTACT [ VALUE ]
-
-    DESCRIPTION [ GROUP ] [
-        SUMMARY [ VALUE ]
-        FILE [ VALUE ]
-        FULL [ VALUE ]
-        README [ VALUE ]
-        WELCOME [ VALUE ]
-    ]
-
-    URL [ GROUP ] [
-        HOMEPAGE [ VALUE ]
-        ABOUT [ VALUE ]
-        HELP [ VALUE ]
-        ICON [ VALUE ]
-        LICENSE [ VALUE ]
-    ]
-
-    ICON [ GROUP ] [
-        FILE [ VALUE ]
-    ]
-
-    LICENSE [ GROUP ] [
-        TAG [ VALUE ]
-        FILE [ VALUE ]
-    ]
-
-    PACKAGE [ GROUP ] [
-        GENERATOR [ MULTI "7Z" "TBZ2" "TGZ" "TXZ" "TZ" "TZST" "ZIP" ]
-        CHECKSUM [ VALUE "SHA256" ]
-        NAME [ VALUE "$<NAME>-$<VERSION>$<-SUFFIX>" ]
-        DIRECTORY [ VALUE ]
-    ]
-
-    SOURCES [ GROUP ] [
-        GENERATOR [ MULTI "7Z" "TBZ2" "TGZ" "TXZ" "TZ" "TZST" "ZIP" ]
-        IGNORE [ MULTI "${MY_PACK_SOURCES_IGNORE}" ]
-        STRIP [ VALUE ]
-        SUFFIX [ VALUE  "source" ]
-    ]
-
-    MONOLITHIC [ OPTION ]
-
-    COMPONENTS [ GROUP ] [
-        GROUP [ NAMED ] [
-            DISPLAY [ VALUE ]
-            DESCRIPTION [ VALUE ]
-            EXPANDED [ OPTION ]
-            BOLD_TITLE [ OPTION ]
-
-            PARENT_GROUP [ VALUE ]
-            @GROUP->PARENT_GROUP
-            @COMPONENT->GROUP
-        ]
-
-        COMPONENT [ NAMED ] [
-            DISPLAY [ VALUE ]
-            DESCRIPTION [ VALUE ]
-            HIDDEN [ OPTION ] REQUIRED [ OPTION ] DISABLED [ OPTION ] 
-            DEPENDS [ VALUE ]
-            INSTALL_TYPES [ VALUE ]
-            DOWNLOADED [ OPTION ]
-            ARCHIVE_FILE [ VALUE ]
-            PLIST [ VALUE ]
-            SUFFIX [ VALUE ]
-
-            GROUP [ VALUE ]
-        ]
-    ]
-
-    # INSTALL_TYPE <typename> {
-    #     [DISPLAY <display-name>]
-    # }
-    # DOWNLOADS <sitename> {
-    #     [UPLOAD_DIRECTORY <dirname>]
-    #     [ALL]
-    #     [ADD_REMOVE|NO_ADD_REMOVE]
-    # }
-)
-
-# defaults
-set(CPACK_THREADS 0)
-set(CPACK_SET_DESTDIR ON)
-
-set(TRANSLATE_MY_PACK_COMMON
-    CPACK_PACKAGE_NAME [ NAME ]
-    CPACK_PACKAGE_VENDOR [ VENDOR ]
-    CPACK_PACKAGE_VERSION [ VERSION ]
-    
-    # ARCHITECTURE [ VALUE "${MY_ARCHITECTURE}" ]
-    # CATEGORY [ VALUE ]
-
-    # AUTHORS [ MULTI ]
-    # CONTACT [ VALUE ]
-
-    CPACK_PACKAGE_DESCRIPTION_SUMMARY [ DESCRIPTION_SUMMARY ]
-    CPACK_PACKAGE_DESCRIPTION_FILE [ DESCRIPTION_FILE ]
-    CPACK_PACKAGE_DESCRIPTION [ DESCRIPTION_FULL ]
-    CPACK_RESOURCE_FILE_README [ DESCRIPTION_README ]
-    CPACK_RESOURCE_FILE_WELCOME [ DESCRIPTION_WELCOME ]
-
-    # URL [ GROUP ] [
-    #     ABOUT [ VALUE ]
-    #     HELP [ VALUE ]
-    #     ICON [ VALUE ]
-    #     LICENSE [ VALUE ]
-    # ]
-    CPACK_PACKAGE_HOMEPAGE_URL [ URL_HOMEPAGE ]
-
-    CPACK_PACKAGE_ICON [ ICON_FILE ]
-
-    CPACK_RESOURCE_FILE_LICENSE [ LICENSE_FILE ]
-
-    # PACKAGE [ GROUP ] [
-    #     DIRECTORY [ VALUE ]
-    # ]
-    CPACK_GENERATOR [ PACKAGE_GENERATOR ]
-    CPACK_PACKAGE_CHECKSUM [ PACKAGE_CHECKSUM ]
-    CPACK_PACKAGE_FILE_NAME [ PACKAGE_NAME ]
-
-    CPACK_SOURCE_GENERATOR [ SOURCES_GENERATOR ]
-    CPACK_SOURCE_STRIP_FILES [ SOURCES_STRIP ]
-    CPACK_SOURCE_PACKAGE_FILE_NAME [ PACKAGE_NAME ]
-    CPACK_SOURCE_IGNORE_FILES [ SOURCES_IGNORE ]
-
-    CPACK_MONOLITHIC_INSTALL [ MONOLITHIC ]
-)
 
 # Undocumented:
 # [ ] CPACK_PACKAGE_DEFAULT_LOCATION 
-# [x] CPACK_SET_DESTDIR
+# [ ] CPACK_SET_DESTDIR
 # [ ] CPACK_INSTALL_PREFIX
 
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables common to all CPack Generators
 # 
-# [x] CPACK_PACKAGE_NAME
+# [ ] CPACK_PACKAGE_NAME
 #        
 #        The name of the package (or application). If not specified, it defaults
 #        to the project name.
 #        
-# [x] CPACK_PACKAGE_VENDOR
+# [ ] CPACK_PACKAGE_VENDOR
 #        
 #        The name of the package vendor. (e.g., "Kitware"). The default is 
 #        "Humanity".
@@ -172,7 +35,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        option `-B`. If set, the command line option overrides the value found 
 #        in the config file.
 #        
-# [-] CPACK_PACKAGE_VERSION_MAJOR
+# [ ] CPACK_PACKAGE_VERSION_MAJOR
 #        
 #        Package major version. This variable will always be set, but its 
 #        default value depends on whether or not version details were given to 
@@ -182,7 +45,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        default version of 0.1.1 will be assumed, leading to 
 #        `CPACK_PACKAGE_VERSION_MAJOR` having a default value of 0.
 #        
-# [-] CPACK_PACKAGE_VERSION_MINOR
+# [ ] CPACK_PACKAGE_VERSION_MINOR
 #        
 #        Package minor version. The default value is determined based on whether
 #        or not version details were given to the `project()` command in the top
@@ -193,7 +56,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_MINOR` having 
 #        a default value of 1.
 #        
-# [-] CPACK_PACKAGE_VERSION_PATCH
+# [ ] CPACK_PACKAGE_VERSION_PATCH
 #        
 #        Package patch version. The default value is determined based on whether
 #        or not version details were given to the `project()` command in the top
@@ -204,35 +67,35 @@ set(TRANSLATE_MY_PACK_COMMON
 #        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_PATCH` having 
 #        a default value of 1.
 #        
-# [x] CPACK_PACKAGE_DESCRIPTION
+# [ ] CPACK_PACKAGE_DESCRIPTION
 #        
 #        A description of the project, used in places such as the introduction 
 #        screen of CPack-generated Windows installers. If not set, the value of 
 #        this variable is populated from the file named by 
 #        `CPACK_PACKAGE_DESCRIPTION_FILE`.
 #        
-# [x] CPACK_PACKAGE_DESCRIPTION_FILE
+# [ ] CPACK_PACKAGE_DESCRIPTION_FILE
 #        
 #        A text file used to describe the project when 
 #        `CPACK_PACKAGE_DESCRIPTION` is not explicitly set. The default value 
 #        for `CPACK_PACKAGE_DESCRIPTION_FILE` points to a built-in template file
 #        `Templates/CPack.GenericDescription.txt`.
 #        
-# [x] CPACK_PACKAGE_DESCRIPTION_SUMMARY
+# [ ] CPACK_PACKAGE_DESCRIPTION_SUMMARY
 #        
 #        Short description of the project (only a few words). If the 
 #        `CMAKE_PROJECT_DESCRIPTION` variable is set, it is used as the default 
 #        value, otherwise the default will be a string generated by CMake based 
 #        on `CMAKE_PROJECT_NAME`.
 #        
-# [x] CPACK_PACKAGE_HOMEPAGE_URL
+# [ ] CPACK_PACKAGE_HOMEPAGE_URL
 #        
 #        Project homepage URL. The default value is taken from the 
 #        `CMAKE_PROJECT_HOMEPAGE_URL` variable, which is set by the top level 
 #        `project()` command, or else the default will be empty if no URL was 
 #        provided to `project()`.
 #        
-# [x] CPACK_PACKAGE_FILE_NAME
+# [ ] CPACK_PACKAGE_FILE_NAME
 #        
 #        The name of the package file to generate, not including the extension. 
 #        For example, `cmake-2.6.1-Linux-i686`. The default value is:
@@ -247,12 +110,12 @@ set(TRANSLATE_MY_PACK_COMMON
 #        "CMake 2.5" below the installation prefix. All installed elements will 
 #        be put inside this directory.
 #        
-# [x] CPACK_PACKAGE_ICON
+# [ ] CPACK_PACKAGE_ICON
 #        
 #        A branding image that will be displayed inside the installer (used by 
 #        GUI installers).
 #        
-# [x] CPACK_PACKAGE_CHECKSUM
+# [ ] CPACK_PACKAGE_CHECKSUM
 #        
 #        An algorithm that will be used to generate an additional file with the 
 #        checksum of the package. The output file name will be:
@@ -270,7 +133,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        the actual generator being used. It allows per-generator setting of 
 #        `CPACK_*` variables at cpack time.
 #        
-# [x] CPACK_RESOURCE_FILE_LICENSE
+# [ ] CPACK_RESOURCE_FILE_LICENSE
 #        
 #        License to be embedded in the installer. It will typically be displayed
 #        to the user by the produced installer (often with an explicit "Accept" 
@@ -281,19 +144,19 @@ set(TRANSLATE_MY_PACK_COMMON
 #        (may be the same as this one) along with your project, you must add an 
 #        appropriate CMake `install()` command in your `CMakeLists.txt`.
 #        
-# [x] CPACK_RESOURCE_FILE_README
+# [ ] CPACK_RESOURCE_FILE_README
 #        
 #        ReadMe file to be embedded in the installer. It typically describes in 
 #        some detail the purpose of the project during the installation. Not all
 #        CPack generators use this file.
 #        
-# [x] CPACK_RESOURCE_FILE_WELCOME
+# [ ] CPACK_RESOURCE_FILE_WELCOME
 #        
 #        Welcome file to be embedded in the installer. It welcomes users to this
 #        installer. Typically used in the graphical installers on Windows and 
 #        Mac OS X.
 #        
-# [x] CPACK_MONOLITHIC_INSTALL
+# [ ] CPACK_MONOLITHIC_INSTALL
 #        
 #        Disables the component-based installation mechanism. When set, the 
 #        component specification is ignored and all installed items are put in a
@@ -301,7 +164,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        packaging by default and may be asked to do component packaging by 
 #        setting `CPACK_<GENNAME>_COMPONENT_INSTALL` to `TRUE`.
 #        
-# [x] CPACK_GENERATOR
+# [ ] CPACK_GENERATOR
 #        
 #        List of CPack generators to use. If not specified, CPack will create a 
 #        set of options following the naming pattern `CPACK_BINARY_<GENNAME>` 
@@ -340,7 +203,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        alter the value received by the cpack program. Defaults to `FALSE` for 
 #        backwards compatibility.
 #        
-# [x] CPACK_THREADS
+# [ ] CPACK_THREADS
 #        
 #        Number of threads to use when performing parallelized operations, such 
 #        as compressing the installer package.
@@ -374,18 +237,18 @@ set(TRANSLATE_MY_PACK_COMMON
 # 
 # === Variables for Source Package Generators
 # 
-# [x] CPACK_SOURCE_PACKAGE_FILE_NAME
+# [ ] CPACK_SOURCE_PACKAGE_FILE_NAME
 #        
 #        The name of the source package. For example `cmake-2.6.1`.
 #        
-# [x] CPACK_SOURCE_STRIP_FILES
+# [ ] CPACK_SOURCE_STRIP_FILES
 #        
 #        List of files in the source tree that will be stripped. Starting with 
 #        CMake 2.6.0, `CPACK_SOURCE_STRIP_FILES` will be a boolean variable 
 #        which enables stripping of all files (a list of files evaluates to 
 #        `TRUE` in CMake, so this change is compatible).
 #        
-# [x] CPACK_SOURCE_GENERATOR
+# [ ] CPACK_SOURCE_GENERATOR
 #        
 #        List of generators used for the source packages. As with 
 #        `CPACK_GENERATOR`, if this is not specified then CPack will create a 
@@ -398,7 +261,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        configuration generated by the CPack module for source installers. 
 #        Defaults to `CPackSourceConfig.cmake`.
 #        
-# [x] CPACK_SOURCE_IGNORE_FILES
+# [ ] CPACK_SOURCE_IGNORE_FILES
 #        
 #        Pattern of files in the source tree that won't be packaged when 
 #        building a source package. This is a list of regular expression 
@@ -427,7 +290,7 @@ set(TRANSLATE_MY_PACK_COMMON
 #        System name, defaults to the value of `CMAKE_SYSTEM_NAME`, except on 
 #        Windows where it will be `win32` or `win64`.
 #        
-# [x] CPACK_PACKAGE_VERSION
+# [ ] CPACK_PACKAGE_VERSION
 #        
 #        Package full version, used internally. By default, this is built from 
 #        `CPACK_PACKAGE_VERSION_MAJOR`, `CPACK_PACKAGE_VERSION_MINOR`, and 
