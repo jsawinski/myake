@@ -7,23 +7,43 @@
 #]=======================================================================]
 include_guard(GLOBAL)
 
+my_generator_declare(COMMON
+    SETUP [
+        CPACK_SET_DESTDIR OFF
+    ]
+    STRUCTURE [
+        NAME                [ TO CPACK_PACKAGE_NAME ]
+        VENDOR              [ TO CPACK_PACKAGE_VENDOR ]
+        VERSION             [ TO CPACK_PACKAGE_VERSION EVAL "my_package_version($\{ARGS\})" ]
 
+        PACKAGE [ GROUP
+            NAME            [ TO CPACK_PACKAGE_FILE_NAME TO CPACK_SOURCE_PACKAGE_FILE_NAME DEFAULT "$<NAME>-$<VERSION>$<-SUFFIX>" ]
+        ]
+
+        SOURCES [ GROUP 
+            NAME            [ TO CPACK_SOURCE_PACKAGE_FILE_NAME USE PACKAGE-NAME ]
+            SUFFIX          [ DEFAULT "Source" ]
+        ]
+    ]
+    COMPONENTS [
+    ]
+)
 
 # Undocumented:
 # [ ] CPACK_PACKAGE_DEFAULT_LOCATION 
-# [ ] CPACK_SET_DESTDIR
+# [x] CPACK_SET_DESTDIR
 # [ ] CPACK_INSTALL_PREFIX
 
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables common to all CPack Generators
 # 
-# [ ] CPACK_PACKAGE_NAME
+# [x] CPACK_PACKAGE_NAME
 #        
 #        The name of the package (or application). If not specified, it defaults
 #        to the project name.
 #        
-# [ ] CPACK_PACKAGE_VENDOR
+# [x] CPACK_PACKAGE_VENDOR
 #        
 #        The name of the package vendor. (e.g., "Kitware"). The default is 
 #        "Humanity".
@@ -36,7 +56,7 @@ include_guard(GLOBAL)
 #        option `-B`. If set, the command line option overrides the value found 
 #        in the config file.
 #        
-# [ ] CPACK_PACKAGE_VERSION_MAJOR
+# [x] CPACK_PACKAGE_VERSION_MAJOR
 #        
 #        Package major version. This variable will always be set, but its 
 #        default value depends on whether or not version details were given to 
@@ -46,7 +66,7 @@ include_guard(GLOBAL)
 #        default version of 0.1.1 will be assumed, leading to 
 #        `CPACK_PACKAGE_VERSION_MAJOR` having a default value of 0.
 #        
-# [ ] CPACK_PACKAGE_VERSION_MINOR
+# [x] CPACK_PACKAGE_VERSION_MINOR
 #        
 #        Package minor version. The default value is determined based on whether
 #        or not version details were given to the `project()` command in the top
@@ -57,7 +77,7 @@ include_guard(GLOBAL)
 #        0.1.1 will be assumed, leading to `CPACK_PACKAGE_VERSION_MINOR` having 
 #        a default value of 1.
 #        
-# [ ] CPACK_PACKAGE_VERSION_PATCH
+# [x] CPACK_PACKAGE_VERSION_PATCH
 #        
 #        Package patch version. The default value is determined based on whether
 #        or not version details were given to the `project()` command in the top
@@ -96,7 +116,7 @@ include_guard(GLOBAL)
 #        `project()` command, or else the default will be empty if no URL was 
 #        provided to `project()`.
 #        
-# [ ] CPACK_PACKAGE_FILE_NAME
+# [x] CPACK_PACKAGE_FILE_NAME
 #        
 #        The name of the package file to generate, not including the extension. 
 #        For example, `cmake-2.6.1-Linux-i686`. The default value is:
@@ -238,7 +258,7 @@ include_guard(GLOBAL)
 # 
 # === Variables for Source Package Generators
 # 
-# [ ] CPACK_SOURCE_PACKAGE_FILE_NAME
+# [x] CPACK_SOURCE_PACKAGE_FILE_NAME
 #        
 #        The name of the source package. For example `cmake-2.6.1`.
 #        

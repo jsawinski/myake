@@ -10,7 +10,6 @@
 include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/IFW...")
-`
 
 # The following text was auto-generated from CPack's help files:
 # 

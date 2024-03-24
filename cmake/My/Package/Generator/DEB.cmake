@@ -11,6 +11,15 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/DEB...")
 
+my_generator_declare(DEB
+    SETUP []
+    STRUCTURE [
+        # FIXME
+    ]
+    COMPONENTS [
+    ]
+)
+
 
 # The following text was auto-generated from CPack's help files:
 # 

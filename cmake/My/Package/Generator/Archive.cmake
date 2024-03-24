@@ -11,7 +11,17 @@ include_guard(GLOBAL)
 
 message(TRACE "Loaded My/Package/Generator/Archive...")
 
+my_generator_declare(Archive
+    SETUP []
+    STRUCTURE [
+        # FIXME
+    ]
+    COMPONENTS [
+    ]
+)
 
+macro(my_generator_archive) 
+endmacro()
 
 # The following text was auto-generated from CPack's help files:
 # 

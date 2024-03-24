@@ -9,7 +9,7 @@
 #]=======================================================================]
 include_guard(GLOBAL)
 
-message(TRACE "Loaded My/Package/Generator/NSIS...")
+message(TRACE "Loaded My/Package/Generator/Nullsoft...")
 
 
 # The following text was auto-generated from CPack's help files:
