@@ -88,21 +88,38 @@ function(my_generator_declare GENERATOR)
 endfunction()
 
 #[==[.md:
+## my_generator_prepare
+
+    my_generator_prepare(<generator>
+        FIXME
+    )
+
+FIXME
+
+#]==]
+function(my_generator_prepare GENERATOR)
+    message(DEBUG "my_generator_prepare(${GENERATOR} ...)")
+endfunction()
+
+#[==[.md:
 ## my_generator
 
     my_generator(<generator>
         <settings>...
     )
 
-FIXME
+This macro marshalls the generators (it is called by `my_package` only).
 
 #]==]
 macro(my_generator GENERATOR)
     message(DEBUG "my_generator(${GENERATOR})")
     include(My/Package/Generator/${GENERATOR})
 
-    string(TOLOWER "${GENERATOR}" generator)
-    cmake_language(EVAL CODE "my_generator_${generator}(${ARGN})")
+    string(TOLOWER "${GENERATOR}" __MY_PACKAGE_generator)
+    cmake_language(EVAL CODE "my_generator_${__MY_PACKAGE_generator}(${ARGN})")
+
+    unset(__MY_PACKAGE_generator)
 endmacro()
 
+# FINALLY...
 include(My/Package/Generator/Common)

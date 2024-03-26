@@ -20,8 +20,11 @@ my_generator_declare(Archive
     ]
 )
 
-macro(my_generator_archive) 
-endmacro()
+function(my_generator_archive) 
+    my_generator_prepare(Archive)
+
+
+endfunction()
 
 # The following text was auto-generated from CPack's help files:
 # 

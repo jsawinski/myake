@@ -21,6 +21,12 @@ my_generator_declare(DEB
 )
 
 
+function(my_generator_deb) 
+    my_generator_prepare(DEB ARCHITECTURE DISTRIBUTION)
+
+
+endfunction()
+
 # The following text was auto-generated from CPack's help files:
 # 
 # === Variables specific to CPack Debian (DEB) generator

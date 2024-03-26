@@ -122,6 +122,8 @@ upload mechanisms, including source code revision suites, and more."
     ]
 )
 
+my_package(Archive COMMON)
+
 my_package(Archive 
 	PACKAGE [
 		GENERATOR ZIP
@@ -132,15 +134,17 @@ my_package(Archive
     ]
 )
 
-# my_package(DEB 
-# 	MAINTAINER "Jürgen Sawinski"
-# 	SECTION "devel"
+my_package(DEB 
+	PACKAGE [
+		MAINTAINER "Jürgen Sawinski"
+		SECTION "devel"
 
-#     DEPENDS
-#         "cmake (>= ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})"
-#     ENHANCES
-#         "cmake"
-# )
+		DEPENDS
+			"cmake (>= ${MYAKE_MINIMUM_MAJOR_VERSION}.${MYAKE_MINIMUM_MINOR_VERSION})"
+		ENHANCES
+			"cmake"
+	]
+)
 
 # final
 include(My/Lists)

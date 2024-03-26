@@ -49,32 +49,37 @@ FIXME
 **See**:  
 [MY_PROJECT_TOPLEVEL](Bits/Toplevel.md) 
 #]==]
-function(my_package)
+macro(my_package)
     message(DEBUG "my_package(...)")
 
     # check for <generator> and COMMON
-    set(ARGS ${ARGN})
+    set(__MY_PACKAGE_ARGS ${ARGN})
 
-    my_generator_identify(${ARGV0} GENERATOR)
-    if(DEFINED GENERATOR)
-        list(POP_FRONT ARGS)
+    my_generator_identify(${ARGV0} __MY_PACKAGE_GENERATOR)
+    if(DEFINED __MY_PACKAGE_GENERATOR)
+        list(POP_FRONT __MY_PACKAGE_ARGS)
     endif()
 
-    list(GET ARGS 0 COMMON)
-    if("${COMMON}" STREQUAL "COMMON")
-        set(COMMON TRUE)
-        list(POP_FRONT ARGS)
+    list(GET __MY_PACKAGE_ARGS 0 __MY_PACKAGE_COMMON)
+    if("${__MY_PACKAGE_COMMON}" STREQUAL "COMMON")
+        set(__MY_PACKAGE_COMMON TRUE)
+        list(POP_FRONT __MY_PACKAGE_ARGS)
     else()
-        set(COMMON FALSE)
+        set(__MY_PACKAGE_COMMON FALSE)
     endif()
 
     # parse arguments
-    if(NOT DEFINED GENERATOR)
-        set(MY_PACK_COMMON ${ARGS} PARENT_SCOPE)
-    elseif(COMMON)
-        set(MY_PACK_${GENERATOR} ${ARGS} PARENT_SCOPE)
+    if(NOT DEFINED __MY_PACKAGE_GENERATOR)
+        set(MY_PACK_COMMON ${__MY_PACKAGE_ARGS})
+    elseif(__MY_PACKAGE_COMMON)
+        set(MY_PACK_${__MY_PACKAGE_GENERATOR} ${__MY_PACKAGE_ARGS})
     else()
-        my_generator(${GENERATOR} ${ARGS})
+        my_generator(${__MY_PACKAGE_GENERATOR} ${__MY_PACKAGE_ARGS})
     endif()
-endfunction()
+
+    # cleanup
+    unset(__MY_PACKAGE_GENERATOR)
+    unset(__MY_PACKAGE_COMMON)
+    unset(__MY_PACKAGE_ARGS)
+endmacro()
 
