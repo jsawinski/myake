@@ -12,7 +12,10 @@ include_guard(GLOBAL)
 message(TRACE "Loaded My/Package/Generator/DEB...")
 
 my_generator_declare(DEB
-    SETUP []
+    SETUP [
+        CPACK_SET_DESTDIR ON
+        CPACK_STRIP_FILES ON
+    ]
     STRUCTURE [
         # FIXME
     ]
@@ -20,11 +23,55 @@ my_generator_declare(DEB
     ]
 )
 
-
 function(my_generator_deb) 
-    my_generator_prepare(DEB ARCHITECTURE DISTRIBUTION)
+    if(MY-DEB-${MY_DISTRIBUTION_ID}-${MY_DISTRIBUTION_CODENAME}-${MY_DISTRIBUTION_RELEASE}-DONE)
+        return()
+    endif()
 
+    ### check
+    my_generator_check(DEB ARCHITECTURE DISTRIBUTION)
 
+    # check if architecture matches
+    if(NOT MY-PACK-ARCHITECTURE STREQUAL "all")
+        if(NOT MY-PACK-ARCHITECTURE STREQUAL MY_ARCHITECTURE)
+            # NOTE: we do not support cross-compiling here
+            message(DEBUG "-> skipping (architecture mismatch)")
+            return()
+        endif()
+    endif()
+
+    # check if distribution matches
+    if(MY-PACK-DISTRIBUTION)
+        set(MY-PACK-DISTRIBUTION-ID ${MY-PACK-DISTRIBUTION})
+    endif()
+
+    if(MY-PACK-DISTRIBUTION-ID)
+        if(NOT MY-PACK-DISTRIBUTION-ID STREQUAL MY_DISTRIBUTION_ID)
+            message(DEBUG "-> skipping (ID mismatch)")
+            return()
+        endif()
+    endif()
+
+    if(MY-PACK-DISTRIBUTION-RELEASE)
+        if(NOT MY-PACK-DISTRIBUTION-RELEASE STREQUAL MY_DISTRIBUTION_RELEASE)
+            message(DEBUG "-> skipping (release mismatch)")
+            return()
+        endif()
+    endif()
+
+    if(MY-PACK-DISTRIBUTION-CODENAME)
+        if(NOT MY-PACK-DISTRIBUTION-CODENAME STREQUAL MY_DISTRIBUTION_CODENAME)
+            message(DEBUG "-> skipping (codename mismatch)")
+            return()
+        endif()
+    endif()
+
+    ### prepare    
+    my_generator_prepare(DEB)
+
+    # finish
+    include(CPack)
+    set(MY-DEB-${MY_DISTRIBUTION_ID}-${MY_DISTRIBUTION_CODENAME}-${MY_DISTRIBUTION_RELEASE}-DONE TRUE PARENT_SCOPE)
 endfunction()
 
 # The following text was auto-generated from CPack's help files:

@@ -134,7 +134,7 @@ my_package(Archive
     ]
 )
 
-my_package(DEB 
+my_package(DEB
 	PACKAGE [
 		MAINTAINER "Jürgen Sawinski"
 		SECTION "devel"

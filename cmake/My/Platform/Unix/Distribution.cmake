@@ -54,7 +54,7 @@ elseif(EXISTS /etc/lsb-release)
 endif()
 
 if(MY_DISTRIBUTION_ID)
-    string(TOLOWER MY_DISTRIBUTION_ID_LOWER ${MY_DISTRIBUTION_ID})
+    string(TOLOWER ${MY_DISTRIBUTION_ID} MY_DISTRIBUTION_ID_LOWER)
 
     include(My/Platform/Unix/Distribution/${MY_DISTRIBUTION_ID})
 endif()

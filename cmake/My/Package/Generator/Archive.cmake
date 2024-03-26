@@ -21,9 +21,14 @@ my_generator_declare(Archive
 )
 
 function(my_generator_archive) 
-    my_generator_prepare(Archive)
+    if(MY-Archive-DONE)
+        return()
+    endif()
+
+    
 
 
+    set(MY-Archive-DONE TRUE PARENT_SCOPE)
 endfunction()
 
 # The following text was auto-generated from CPack's help files:

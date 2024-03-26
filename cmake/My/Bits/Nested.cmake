@@ -56,12 +56,13 @@ variable accordingly.
 
 #]==]
 macro(my_nested_is listvar outvar)
-    if(("${${listvar}}" STREQUAL "[]") OR ("${${listvar}}" STREQUAL "[;]"))
-        set(${outvar} TRUE)
-    elseif("${${listvar}}" MATCHES "^[[];.*;[]]$")
-        set(${outvar} TRUE)
-    else()
-        set(${outvar} FALSE)
+    set(${outvar} FALSE)
+    if("${listvar}" MATCHES "^[a-zA-Z_-]+$")
+        if(("${${listvar}}" STREQUAL "[]") OR ("${${listvar}}" STREQUAL "[;]"))
+            set(${outvar} TRUE)
+        elseif("${${listvar}}" MATCHES "^[[];.*;[]]$")
+            set(${outvar} TRUE)
+        endif()
     endif()
 endmacro()
 

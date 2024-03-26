@@ -10,11 +10,12 @@ include_guard(GLOBAL)
 my_generator_declare(COMMON
     SETUP [
         CPACK_SET_DESTDIR OFF
+        CPACK_VERBATIM_VARIABLES ON
     ]
     STRUCTURE [
         NAME                [ TO CPACK_PACKAGE_NAME ]
         VENDOR              [ TO CPACK_PACKAGE_VENDOR ]
-        VERSION             [ TO CPACK_PACKAGE_VERSION EVAL "my_package_version($\{ARGS\})" ]
+        VERSION             [ EVAL "my_package_version($\{ARGS\})" ]
 
         PACKAGE [ GROUP
             NAME            [ TO CPACK_PACKAGE_FILE_NAME TO CPACK_SOURCE_PACKAGE_FILE_NAME DEFAULT "$<NAME>-$<VERSION>$<-SUFFIX>" ]
@@ -215,7 +216,7 @@ my_generator_declare(COMMON
 #        of all files (a list of files evaluates to `TRUE` in CMake, so this 
 #        change is compatible).
 #        
-# [ ] CPACK_VERBATIM_VARIABLES
+# [x] CPACK_VERBATIM_VARIABLES
 #        
 #        If set to `TRUE`, values of variables prefixed with `CPACK_` will be 
 #        escaped before being written to the configuration files, so that the 

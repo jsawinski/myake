@@ -29,6 +29,7 @@ include_guard(GLOBAL)
 
 include(My/Build)
 include(My/Package/Generator)
+include(My/Bits/Nested)
 
 #[==[.md
 ## MY_GENERATORS
@@ -88,18 +89,111 @@ function(my_generator_declare GENERATOR)
 endfunction()
 
 #[==[.md:
-## my_generator_prepare
+## my_generator_check
 
-    my_generator_prepare(<generator>
-        FIXME
-    )
+    my_generator_check(<generator> <keys...>)
 
-FIXME
+Helper for checking if a generator is applicable.
+
+This function "extracts" only the given keys from the config.
 
 #]==]
-function(my_generator_prepare GENERATOR)
-    message(DEBUG "my_generator_prepare(${GENERATOR} ...)")
-endfunction()
+macro(my_generator_check GENERATOR)
+    set(ARGS ${ARGN})
+    message(DEBUG "my_generator_check(${GENERATOR} ${ARGN})")
+
+    set(WORKLIST MY_PACK_COMMON MY_PACK_${GENERATOR}_COMMON MY_PACK_${GENERATOR})
+    foreach(workitem ${WORKLIST})
+        set(part ${${workitem}})
+
+        while(part)
+            list(POP_FRONT part key)
+
+            my_nested_is(${key} islist)
+            if(islist)
+                # ignored
+            else()
+                if("${key}" IN_LIST ARGS)
+                    list(POP_FRONT part value)
+
+                    my_nested_unpack(value islist)
+                    if(islist)
+                        while(value)
+                            list(POP_FRONT value subkey)
+                            list(POP_FRONT value subvalue)
+                            set(MY-PACK-${key}-${subkey} ${subvalue})
+                            message(DEBUG "| MY-PACK-${key}-${subkey}=${MY-PACK-${key}-${subkey}}")
+                        endwhile()
+                    else()
+                        set(MY-PACK-${key} ${value})
+                        message(DEBUG "| MY-PACK-${key}=${MY-PACK-${key}}")
+                    endif()
+                endif()
+            endif()
+        endwhile()
+    endforeach()
+endmacro()
+
+macro(my_generator_prepare GENERATOR)
+    message(DEBUG "my_generator_prepare(${GENERATOR})")
+
+    # parse COMMON first
+    if(NOT "${GENERATOR}" STREQUAL "COMMON")
+        my_generator_prepare(COMMON)
+    endif()
+
+    # loop over parts
+    while(MY_GENERATOR_${GENERATOR})
+        list(POP_FRONT MY_GENERATOR_${GENERATOR} KEY)
+
+        list(POP_FRONT MY_GENERATOR_${GENERATOR} TABLE)
+        my_nested_unpack(TABLE _)
+
+        if(KEY STREQUAL "SETUP")
+            my_generator_prepare_setup()
+        elseif(KEY STREQUAL "STRUCTURE")
+            my_generator_prepare_make(MY-PACK-${GENERATOR})
+        elseif(KEY STREQUAL "COMPONENTS")
+            my_generator_prepare_make(MY-PACK-${GENERATOR}-COMPONENTS)
+        else()
+            message(FATAL_ERROR "Internal error: invalid key '${KEY}'.")
+        endif()
+    endwhile()
+endmacro()
+
+macro(my_generator_prepare_setup)
+    message(DEBUG "my_generator_prepare_setup()")
+
+    while(TABLE)
+        list(POP_FRONT TABLE OUTVAR)
+        list(POP_FRONT TABLE VALUE)
+
+        set(${OUTVAR} ${VALUE})
+        message(DEBUG "| ${OUTVAR}=${VALUE}")
+    endwhile()
+endmacro()
+
+macro(my_generator_prepare_make TEMPLATE)
+    message(DEBUG "my_generator_prepare_make(${TEMPLATE})")
+
+    while(TABLE)
+        list(POP_FRONT TABLE KEY)
+
+        list(POP_FRONT TABLE INSTRUCTIONS)
+        my_nested_unpack(INSTRUCTIONS _)
+
+        list(GET INSTRUCTIONS 0 FIRST)
+        if(FIRST STREQUAL "GROUP")
+            my_save(INSTRUCTIONS TABLE)
+            set(TABLE ${INSTRUCTIONS})
+            list(POP_FRONT TABLE)
+            my_generator_prepare_make(${TEMPLATE}-${KEY})
+            my_restore(INSTRUCTIONS TABLE)
+        else()
+            message(DEBUG "| ${TEMPLATE}-${KEY}=${INSTRUCTIONS}")
+        endif()
+    endwhile()
+endmacro()
 
 #[==[.md:
 ## my_generator
@@ -116,7 +210,7 @@ macro(my_generator GENERATOR)
     include(My/Package/Generator/${GENERATOR})
 
     string(TOLOWER "${GENERATOR}" __MY_PACKAGE_generator)
-    cmake_language(EVAL CODE "my_generator_${__MY_PACKAGE_generator}(${ARGN})")
+    cmake_language(EVAL CODE "my_generator_${__MY_PACKAGE_generator}(\"${ARGN}\")")
 
     unset(__MY_PACKAGE_generator)
 endmacro()
